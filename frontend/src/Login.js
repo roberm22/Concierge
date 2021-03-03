@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {Link} from "react-router-dom";
+
 export default class login extends React.Component {
 
     /* Aqui meteremos los componentes que renderizan la página main */
@@ -18,6 +20,7 @@ export default class login extends React.Component {
 
                 <p>(falta logica del boton)</p>
                 <button onClick={this.props.click}> Submit </button>
+                <Link to="/profile/">Profile</Link>
 
                 {console.log(this.props.login)}
             </div>
