@@ -9,5 +9,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="practica4" />
+    <orderEntry type="module" module-name="src" />
   </component>
 </module>

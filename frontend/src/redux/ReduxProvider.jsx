@@ -2,7 +2,7 @@ import GlobalState from './reducers';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-import { clients } from "../assets/clients_data";
+import { clients, login} from "../assets/clients_data";
 
 import React from 'react';
 import App from '../App';
@@ -11,11 +11,9 @@ export default class ReduxProvider extends React.Component {
     constructor(props) {
         super(props);
         this.initialState = {
-            login: false,
             currentClient: 0,
-            clients: [
-                ...clients
-            ]
+            clients: [...clients],
+            login: [...login]
         };
         this.store = this.configureStore();
     }

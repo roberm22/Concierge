@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux'
 import {
-    passwordAnswer
+    passwordAnswer, userAnswer
 } from "./redux/actions";
 
 import Main from './Main';
@@ -19,12 +19,15 @@ class App extends Component {
 
                 <Login
                     clients={this.props.clients}
-                    client={this.props.clients[this.props.currentClient]}
                     login = {this.props.login}
                     onPasswordAnswer={(answer) => {
-                        this.props.dispatch(passwordAnswer(this.props.currentClient, answer))}
+                        this.props.dispatch(passwordAnswer(answer))}
+                    }
+                    onUserAnswer={(answer) => {
+                        this.props.dispatch(userAnswer(answer))}
                     }
                 />
+
 
             </div>
 

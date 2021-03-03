@@ -1,11 +1,25 @@
 import { combineReducers } from 'redux';
-import { PASSWORD_ANSWER } from './actions'
+import { PASSWORD_ANSWER, USER_ANSWER } from './actions'
 
-function login(state = false, action = {}) {
+function login(state = [], action = {}) {
     switch(action.type) {
+        case PASSWORD_ANSWER:
+            return {
+                ...state,
+                passwordAnswer: action.payload.answer
+            };
+
+
+        case USER_ANSWER:
+            return {
+                ...state,
+                userAnswer: action.payload.answer
+            };
+
         default:
             return state;
     }
+
 }
 
 function currentClient(state = 0, action = {}) {
@@ -17,11 +31,6 @@ function currentClient(state = 0, action = {}) {
 
 function clients(state = [], action = {}) {
     switch(action.type) {
-        case PASSWORD_ANSWER:
-            return state.map((client,i) => {
-                return { ...client,
-                    userAnswer: action.payload.index === i ? action.payload.answer : client.userAnswer}
-            })
         default:
             return state;
     }

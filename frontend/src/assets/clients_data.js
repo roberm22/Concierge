@@ -1,4 +1,5 @@
-exports.clients = [{
+exports.clients = [
+	{
 		"id": 1,
 		"room": 220,
 		"DNI": "94342812D",
@@ -31,4 +32,15 @@ exports.clients = [{
 		"isVip": false
 	}
 
+]
+
+exports.login = [
+	{
+		"isLogged": false,
+		"userAnswer": "",
+		"passwordAnswer": "",
+		"attempts": 0,
+		"userDNI": "",
+		"roomAnswer": ""
+	}
 ]
