@@ -7,6 +7,7 @@ import { clients, login} from "../assets/clients_data";
 import React from 'react';
 import App from '../App';
 
+
 export default class ReduxProvider extends React.Component {
     constructor(props) {
         super(props);

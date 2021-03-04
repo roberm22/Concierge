@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { PASSWORD_ANSWER, USER_ANSWER } from './actions'
+import { PASSWORD_ANSWER, USER_ANSWER,CONDITIONS } from './actions'
 
 function login(state = [], action = {}) {
     switch(action.type) {
@@ -14,6 +14,12 @@ function login(state = [], action = {}) {
             return {
                 ...state,
                 userAnswer: action.payload.answer
+            };
+
+        case CONDITIONS:
+            return {
+                ...state,
+                conditionsAccepted: true
             };
 
         default:
