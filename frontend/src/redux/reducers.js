@@ -42,11 +42,19 @@ function clients(state = [], action = {}) {
     }
 }
 
+function restaurants(state = [], action = {}) {
+    switch(action.type) {
+        default:
+            return state;
+    }
+}
+
 
 const GlobalState = (combineReducers({
     login,
     currentClient,
-    clients
+    clients,
+    restaurants
 }));
 
 export default GlobalState;

@@ -57,7 +57,9 @@ class App extends Component {
                     <Route path="/services/" exact component={Services}/>
 
                     <Route path="/services/transport/" component={Transport}/>
-                    <Route path="/services/restaurants/" component={Restaurants}/>
+                    <Route path="/services/restaurants/" render={(props) => (
+                        <Restaurants {...props} restaurants={this.props.restaurants} />
+                    )}/>
                     <Route path="/services/room_services/" component={RoomServices}/>
 
 
@@ -76,4 +78,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(App);
-

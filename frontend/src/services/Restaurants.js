@@ -5,10 +5,8 @@ export default class Restaurants extends React.Component {
     /* Aqui meteremos los componentes que renderizan la página profile */
 
     render() {
-        return (
-            <div>
-                <h1>Restaurant</h1>
-            </div>
-        );
+        let restaurants = this.props.restaurants;
+        const listItems = restaurants.map((restaurant) =>    <li>{restaurant.name}</li>  );  return (
+            <ul>{listItems}</ul>  );
     }
 }
