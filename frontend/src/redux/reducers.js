@@ -1,5 +1,13 @@
 import { combineReducers } from 'redux';
-import { PASSWORD_ANSWER, USER_ANSWER,CONDITIONS,NOMBRE_ANSWER,FECHA_ANSWER,COMENTARIO_ANSWER } from './actions'
+import {
+    PASSWORD_ANSWER,
+    USER_ANSWER,
+    CONDITIONS,
+    NOMBRE_ANSWER,
+    FECHA_ANSWER,
+    COMENTARIO_ANSWER,
+    CHANGE_RESTAURANT
+} from './actions'
 
 function login(state = [], action = {}) {
     switch(action.type) {
@@ -82,12 +90,26 @@ function restaurants(state = [], action = {}) {
     }
 }
 
+function currentRestaurant(state = [], action = {}) {
+    switch(action.type) {
+
+        case CHANGE_RESTAURANT:
+            console.log(action.payload.answer)
+            let restaurant = action.payload.answer
+            return restaurant
+
+        default:
+            return state;
+    }
+}
+
 
 const GlobalState = (combineReducers({
     login,
     currentClient,
     clients,
     restaurants,
+    currentRestaurant,
     siguiente
 }));
 

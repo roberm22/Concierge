@@ -4,6 +4,7 @@ export const NOMBRE_ANSWER = 'NOMBRE_ANSWER';
 export const FECHA_ANSWER = 'FECHA_ANSWER';
 export const COMENTARIO_ANSWER = 'COMENTARIO_ANSWER';
 export const CONDITIONS = 'CONDITIONS';
+export const CHANGE_RESTAURANT = 'CHANGE_RESTAURANT';
 
 
 export function passwordAnswer(answer) {
@@ -27,6 +28,10 @@ export function comentarioAnswer(answer) {
 
 export function conditionsAccepted() {
     return { type: CONDITIONS};
+}
+
+export function changeRestaurant(answer){
+    return {type: CHANGE_RESTAURANT, payload: {answer}}
 }
 
 

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import {connect} from 'react-redux'
 import {
-    passwordAnswer, userAnswer, conditionsAccepted, nombreAnswer, fechaAnswer, comentarioAnswer
+    passwordAnswer, userAnswer, conditionsAccepted, nombreAnswer, fechaAnswer, comentarioAnswer,changeRestaurant
 } from "./redux/actions";
 
 import Home from './Home';
@@ -14,6 +14,7 @@ import Welcome from "./Welcome";
 import Transport from "./services/Transport";
 import Restaurants from "./services/Restaurants";
 import RoomServices from "./services/RoomServices";
+import ShowRestaurant from"./services/ShowRestaurant";
 
 import {
     BrowserRouter as Router,
@@ -101,9 +102,20 @@ class App extends Component {
 
 
                     <Route path="/services/restaurants/" render={(props) => (
-                        <Restaurants {...props} restaurants={this.props.restaurants} />
+                        <Restaurants {...props} restaurants={this.props.restaurants}
+                                     onChangeRestaurant={(answer) => {
+                                         this.props.dispatch(changeRestaurant(answer))
+                                     }
+                                     }
+                        />
                     )}/>
                     <Route path="/services/room_services/" component={RoomServices}/>
+
+                    <Route path="/services/show_restaurant/" render={(props) => (
+                        <ShowRestaurant {...props} currentRestaurant={this.props.restaurants[this.props.currentRestaurant]}
+
+                        />
+                    )}/>
 
 
                 </Router>
