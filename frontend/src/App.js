@@ -1,12 +1,19 @@
-import React, {Component} from 'react';
-import './App.css';
-import {connect} from 'react-redux'
+import React, { Component } from "react";
+import "./App.css";
+import { connect } from "react-redux";
 import {
-    passwordAnswer, userAnswer, conditionsAccepted, nombreAnswer, fechaAnswer, comentarioAnswer,changeRestaurant
+  passwordAnswer,
+  userAnswer,
+  conditionsAccepted,
+  nombreAnswer,
+  fechaAnswer,
+  comentarioAnswer,
+  changeRestaurant,
+  changeRoomServices,
 } from "./redux/actions";
 
-import Home from './Home';
-import Login from './Login';
+import Home from "./Home";
+import Login from "./Login";
 import Profile from "./Profile";
 import Services from "./Services";
 import Welcome from "./Welcome";
@@ -14,122 +21,149 @@ import Welcome from "./Welcome";
 import Transport from "./services/Transport";
 import Restaurants from "./services/Restaurants";
 import RoomServices from "./services/RoomServices";
-import ShowRestaurant from"./services/ShowRestaurant";
+import ShowRestaurant from "./services/ShowRestaurant";
+import ShowRoomServices from "./services/ShowRoomServices";
 
-import {
-    BrowserRouter as Router,
-    Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Siguiente from "./assets/Transport_elements/siguiente";
 
-
 class App extends Component {
+  render() {
+    return (
+      <div>
+        <Router>
+          <Home />
+          <Welcome
+            login={this.props.login}
+            conditionsAccepted={() => {
+              this.props.dispatch(conditionsAccepted());
+            }}
+          />
+          <Route
+            path="/login/"
+            render={(props) => (
+              <Login
+                {...props}
+                clients={this.props.clients}
+                login={this.props.login}
+                onPasswordAnswer={(answer) => {
+                  this.props.dispatch(passwordAnswer(answer));
+                }}
+                onUserAnswer={(answer) => {
+                  this.props.dispatch(userAnswer(answer));
+                }}
+              />
+            )}
+          />
 
-    render() {
+          <Route
+            path="/profile/"
+            render={(props) => (
+              <Profile
+                {...props}
+                client={this.props.clients[this.props.currentClient]}
+              />
+            )}
+          />
+          <Route path="/services/" exact component={Services} />
 
-        return (
-            <div>
-                <Router>
-                    <Home/>
-                    <Welcome login={this.props.login} conditionsAccepted={() => {
-                        this.props.dispatch(conditionsAccepted())
-                    }
-                    }/>
-                    <Route path="/login/" render={(props) => (
+          <Route
+            path="/services/transport/"
+            render={(props) => (
+              <div>
+                <Transport
+                  {...props}
+                  transports={this.props.transports}
+                  siguiente={this.props.siguiente}
+                  onNombreAnswer={(answer) => {
+                    this.props.dispatch(nombreAnswer(answer));
+                  }}
+                  onFechaAnswer={(answer) => {
+                    this.props.dispatch(fechaAnswer(answer));
+                  }}
+                  onComentarioAnswer={(answer) => {
+                    this.props.dispatch(comentarioAnswer(answer));
+                  }}
+                />
+                <h2>
+                  Así se vería la pantalla al pulsar siguiente: (esto es
+                  temporal lógicamente)
+                </h2>
+                <Siguiente
+                  {...props}
+                  transports={this.props.transports}
+                  siguiente={this.props.siguiente}
+                  onNombreAnswer={(answer) => {
+                    this.props.dispatch(nombreAnswer(answer));
+                  }}
+                  onFechaAnswer={(answer) => {
+                    this.props.dispatch(fechaAnswer(answer));
+                  }}
+                  onComentarioAnswer={(answer) => {
+                    this.props.dispatch(comentarioAnswer(answer));
+                  }}
+                />
+              </div>
+            )}
+          />
 
-                        <Login {...props}
-                               clients={this.props.clients}
-                               login={this.props.login}
-                               onPasswordAnswer={(answer) => {
-                                   this.props.dispatch(passwordAnswer(answer))
-                               }
-                               }
-                               onUserAnswer={(answer) => {
-                                   this.props.dispatch(userAnswer(answer))
-                               }
-                               }
-                        />
-                    )}/>
+          <Route
+            path="/services/restaurants/"
+            render={(props) => (
+              <Restaurants
+                {...props}
+                restaurants={this.props.restaurants}
+                onChangeRestaurant={(answer) => {
+                  this.props.dispatch(changeRestaurant(answer));
+                }}
+              />
+            )}
+          />
+          <Route
+            path="/services/room_services/"
+            render={(props) => (
+              <RoomServices
+                {...props}
+                roomServices={this.props.roomServices}
+                onChangeRoomServices={(answer) => {
+                  this.props.dispatch(changeRoomServices(answer));
+                }}
+              />
+            )}
+          />
 
-                    <Route path="/profile/" render={(props) => (
-                        <Profile {...props}
-                                 client={this.props.clients[this.props.currentClient]}
-                        />
-                    )}/>
-                    <Route path="/services/" exact component={Services}/>
-
-                    <Route path="/services/transport/" render={(props) => (
-                       <div>
-                        <Transport {...props} transports={this.props.transports}
-                        siguiente={this.props.siguiente}
-                                   onNombreAnswer={(answer) => {
-                                       this.props.dispatch(nombreAnswer(answer))
-                                   }
-                                   }
-                                   onFechaAnswer={(answer) => {
-                                       this.props.dispatch(fechaAnswer(answer))
-                                   }
-
-                                   }
-                                   onComentarioAnswer={(answer) => {
-                                       this.props.dispatch(comentarioAnswer(answer))
-                                   }
-                                   }
-                        />
-                        <h2>Así se vería la pantalla al pulsar siguiente: (esto es temporal lógicamente)</h2>
-                        <Siguiente {...props}
-
-                        transports={this.props.transports}
-                        siguiente={this.props.siguiente}
-                        onNombreAnswer={(answer) => {
-                        this.props.dispatch(nombreAnswer(answer))
-                    }
-                    }
-                        onFechaAnswer={(answer) => {
-                        this.props.dispatch(fechaAnswer(answer))
-                    }
-
-                    }
-                        onComentarioAnswer={(answer) => {
-                        this.props.dispatch(comentarioAnswer(answer))
-                    }
-                    }
-                        />
-                       </div>
-
-                    )}/>
-
-
-
-                    <Route path="/services/restaurants/" render={(props) => (
-                        <Restaurants {...props} restaurants={this.props.restaurants}
-                                     onChangeRestaurant={(answer) => {
-                                         this.props.dispatch(changeRestaurant(answer))
-                                     }
-                                     }
-                        />
-                    )}/>
-                    <Route path="/services/room_services/" component={RoomServices}/>
-
-                    <Route path="/services/show_restaurant/" render={(props) => (
-                        <ShowRestaurant {...props} currentRestaurant={this.props.restaurants[this.props.currentRestaurant]}
-
-                        />
-                    )}/>
-
-
-                </Router>
-            </div>
-
-        );
-
-    }
+          <Route
+            path="/services/show_restaurant/"
+            render={(props) => (
+              <ShowRestaurant
+                {...props}
+                currentRestaurant={
+                  this.props.restaurants[this.props.currentRestaurant]
+                }
+              />
+            )}
+          />
+          <Route
+            path="/services/show_room_services/"
+            render={(props) => (
+              <ShowRoomServices
+                {...props}
+                currentRoomServices={
+                  this.props.roomServices[this.props.currentRoomServices]
+                }
+              />
+            )}
+          />
+        </Router>
+      </div>
+    );
+  }
 }
 
 function mapStateToProps(state) {
-    return {
-        ...state
-    };
+  return {
+    ...state,
+  };
 }
 
 export default connect(mapStateToProps)(App);

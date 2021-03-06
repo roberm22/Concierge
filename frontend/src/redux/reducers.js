@@ -6,7 +6,8 @@ import {
     NOMBRE_ANSWER,
     FECHA_ANSWER,
     COMENTARIO_ANSWER,
-    CHANGE_RESTAURANT
+    CHANGE_RESTAURANT,
+    CHANGE_ROOM_SERVICES
 } from './actions'
 
 function login(state = [], action = {}) {
@@ -103,6 +104,26 @@ function currentRestaurant(state = [], action = {}) {
     }
 }
 
+function roomServices(state = [], action = {}){
+    switch(action.type){
+        default:
+            return state;
+    }
+}
+function currentRoomServices(state = [], action = {}) {
+    switch (action.type) {
+    
+        case CHANGE_ROOM_SERVICES:
+            console.log(action.payload.answer);
+            let room_services = action.payload.answer;
+            return room_services;
+
+        default:
+            return state;
+    }
+  }
+
+
 
 const GlobalState = (combineReducers({
     login,
@@ -110,7 +131,9 @@ const GlobalState = (combineReducers({
     clients,
     restaurants,
     currentRestaurant,
-    siguiente
+    siguiente,
+    roomServices,
+    currentRoomServices
 }));
 
 export default GlobalState;

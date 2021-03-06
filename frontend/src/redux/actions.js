@@ -5,6 +5,7 @@ export const FECHA_ANSWER = 'FECHA_ANSWER';
 export const COMENTARIO_ANSWER = 'COMENTARIO_ANSWER';
 export const CONDITIONS = 'CONDITIONS';
 export const CHANGE_RESTAURANT = 'CHANGE_RESTAURANT';
+export const CHANGE_ROOM_SERVICES = 'CHANGE_ROOM_SEVICES';
 
 
 export function passwordAnswer(answer) {
@@ -34,6 +35,9 @@ export function changeRestaurant(answer){
     return {type: CHANGE_RESTAURANT, payload: {answer}}
 }
 
+export function changeRoomServices(answer){
+    return {type: CHANGE_ROOM_SERVICES, payload: {answer}}
+}
 
 
 

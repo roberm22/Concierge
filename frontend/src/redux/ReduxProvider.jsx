@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 
 import { clients, login} from "../assets/clients_data";
 import {restaurants} from "../assets/restaurants_data";
+import {roomServices} from "../assets/room_service_data";
 
 import React from 'react';
 import App from '../App';
@@ -17,7 +18,9 @@ export default class ReduxProvider extends React.Component {
             clients: [...clients],
             login: [...login],
             restaurants: [...restaurants],
-            currentRestaurant: 0
+            currentRestaurant: 0,
+            roomServices: [...roomServices],
+            currentRoomServices: 0
         };
         this.store = this.configureStore();
     }
