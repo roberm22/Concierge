@@ -10,10 +10,10 @@ export default class Welcome extends React.Component {
 
                 <h1>Bienvenido</h1>
                 <ul>
-                    <li>TOS</li>
-                    <li>INFO</li>
+                    <li>Aqui iria una breve intro a las condiciones del servicio</li>
+                    <li>Aqui informacion sobre lo que ofrece y como se usa el servicio</li>
                 </ul>
-                <button onClick={this.props.conditionsAccepted}>Acepto</button>
+                <button onClick={this.props.conditionsAccepted}>Entiendo y acepto las condiciones</button>
 
             </div>
         );

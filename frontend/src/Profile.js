@@ -1,5 +1,6 @@
 import React from 'react';
 import pepe from "./assets/pepe.jpg";
+import {Link} from "react-router-dom";
 export default class Profile extends React.Component {
 
     /* Aqui meteremos los componentes que renderizan la página profile */
@@ -16,6 +17,7 @@ export default class Profile extends React.Component {
                 <img src={pepe} alt={"Foto del perfil"}/>
 
                 {console.log(this.props.client)}
+                <Link to="/login/">Volver</Link>
             </div>
         );
     }

@@ -30,21 +30,3 @@ exports.transports = [
         }
     }
 ]
-
-exports.datossiguiente = [
-    {
-        "isLogged": false,
-        "conditionsAccepted":false,
-        "userAnswer": "",
-        "passwordAnswer": "",
-        "attempts": 0,
-        "userDNI": "",
-        "roomAnswer": "",
-        "nombreAnswer": "",
-        "fechaAnswer": "",
-        "comentarioAnswer": ""
-
-
-
-    }
-]

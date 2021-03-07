@@ -11,7 +11,7 @@ export default class ShowRestaurant extends React.Component {
             <div>
                 <h1>{this.props.currentRestaurant.name}</h1>
 
-                <img src={this.props.currentRestaurant.photo.url} width={300} height={180}/>
+                <img src={this.props.currentRestaurant.photo.url} alt={"Restaurante"} width={300} height={180}/>
 
                 <ul>
                     <li>Cuisine: {this.props.currentRestaurant.cuisine}</li>
@@ -22,13 +22,14 @@ export default class ShowRestaurant extends React.Component {
 
                 <div>
 
-                   Persons: <input type={"text"}/>
+                    Persons: <input type={"text"}/>
                 </div>
                 <div>
                     Day: <input type={"text"}/> Month: <input type={"text"}/> Time: <input type={"text"}/>
                 </div>
                 <div>
-                    <button>Make Reservation</button> <Link to="/services/restaurants/">Go Back</Link>
+                    <button>Make Reservation</button>
+                    <Link to="/services/restaurants/">Go Back</Link>
                 </div>
             </div>
 

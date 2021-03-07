@@ -11,14 +11,14 @@ export default class Home extends React.Component {
                 <h1>Home Page</h1>
 
                 <nav>
-                    <ul>
-                        <li>
+                    <ul >
+                        <li style={{display: "inline-block"}}>
                             <Link to="/">Home</Link>
                         </li>
-                        <li>
+                        <li style={{display: "inline-block"}}>
                             <Link to="/login/">Login</Link>
                         </li>
-                        <li>
+                        <li style={{display: "inline-block"}}>
                             <Link to="/services/">Services</Link>
                         </li>
                     </ul>

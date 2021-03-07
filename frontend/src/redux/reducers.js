@@ -3,9 +3,6 @@ import {
     PASSWORD_ANSWER,
     USER_ANSWER,
     CONDITIONS,
-    NOMBRE_ANSWER,
-    FECHA_ANSWER,
-    COMENTARIO_ANSWER,
     CHANGE_RESTAURANT,
     CHANGE_ROOM_SERVICES,
     CHANGE_TRANSPORT
@@ -26,11 +23,6 @@ function login(state = [], action = {}) {
                 userAnswer: action.payload.answer
             };
 
-        case CONDITIONS:
-            return {
-                ...state,
-                conditionsAccepted: true
-            };
 
         default:
             return state;
@@ -38,37 +30,6 @@ function login(state = [], action = {}) {
 
 }
 
-function siguiente(state = [], action = {}) {
-    switch(action.type) {
-        case NOMBRE_ANSWER:
-            return {
-                ...state,
-                nombreAnswer: action.payload.answer
-            };
-
-
-        case FECHA_ANSWER:
-            return {
-                ...state,
-                fechaAnswer: action.payload.answer
-            };
-        case COMENTARIO_ANSWER:
-            return {
-                ...state,
-                comentarioAnswer: action.payload.answer
-            };
-
-        case CONDITIONS:
-            return {
-                ...state,
-                conditionsAccepted: true
-            };
-
-        default:
-            return state;
-    }
-
-}
 
 
 function currentClient(state = 0, action = {}) {
@@ -92,6 +53,13 @@ function restaurants(state = [], action = {}) {
     }
 }
 
+function transports(state = [], action = {}) {
+    switch(action.type) {
+        default:
+            return state;
+    }
+}
+
 function currentRestaurant(state = [], action = {}) {
     switch(action.type) {
 
@@ -99,6 +67,19 @@ function currentRestaurant(state = [], action = {}) {
             console.log(action.payload.answer)
             let restaurant = action.payload.answer
             return restaurant
+
+        default:
+            return state;
+    }
+}
+
+function currentTransport(state = [], action = {}) {
+    switch(action.type) {
+
+        case CHANGE_TRANSPORT:
+            console.log(action.payload.answer)
+            let transport = action.payload.answer
+            return transport
 
         default:
             return state;
@@ -123,25 +104,20 @@ function currentRoomServices(state = [], action = {}) {
             return state;
     }
   }
-function transports(state = [], action = {}) {
-    switch(action.type) {
+
+function viewReducer(state = null, action) {
+    switch (action.type) {
+        case "SHOW":
+        case "EDIT":
+        case "NEW":
+            return action.type;
+        case "CONDITIONS":
+            return null;
         default:
-            return state;
+            return state
     }
 }
 
-function currentTransport(state = [], action = {}) {
-    switch(action.type) {
-
-        case CHANGE_TRANSPORT:
-            console.log(action.payload.answer)
-            let transport = action.payload.answer
-            return transport;
-
-        default:
-            return state;
-    }
-}
 
 
 const GlobalState = (combineReducers({
@@ -150,11 +126,11 @@ const GlobalState = (combineReducers({
     clients,
     restaurants,
     currentRestaurant,
-    siguiente,
     roomServices,
     currentRoomServices,
     transports,
-    currentTransport
+    currentTransport,
+    view: viewReducer
 }));
 
 export default GlobalState;
