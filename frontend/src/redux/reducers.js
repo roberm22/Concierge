@@ -30,8 +30,6 @@ function login(state = [], action = {}) {
 
 }
 
-
-
 function currentClient(state = 0, action = {}) {
     switch(action.type) {
         default:
@@ -46,66 +44,27 @@ function clients(state = [], action = {}) {
     }
 }
 
-function restaurants(state = [], action = {}) {
+function services(state = [], action = {}) {
     switch(action.type) {
         default:
             return state;
     }
 }
 
-function transports(state = [], action = {}) {
-    switch(action.type) {
-        default:
-            return state;
-    }
-}
-
-function currentRestaurant(state = [], action = {}) {
-    switch(action.type) {
-
-        case CHANGE_RESTAURANT:
-            console.log(action.payload.answer)
-            let restaurant = action.payload.answer
-            return restaurant
-
-        default:
-            return state;
-    }
-}
-
-function currentTransport(state = [], action = {}) {
-    switch(action.type) {
-
-        case CHANGE_TRANSPORT:
-            console.log(action.payload.answer)
-            let transport = action.payload.answer
-            return transport
-
-        default:
-            return state;
-    }
-}
-
-function roomServices(state = [], action = {}){
-    switch(action.type){
-        default:
-            return state;
-    }
-}
-function currentRoomServices(state = [], action = {}) {
+function currentService(state = [], action = {}) {
     switch (action.type) {
-    
+        case CHANGE_RESTAURANT:
+            return action.payload.answer
+        case CHANGE_TRANSPORT:
+            return action.payload.answer
         case CHANGE_ROOM_SERVICES:
-            console.log(action.payload.answer);
-            let room_services = action.payload.answer;
-            return room_services;
-
+            return action.payload.answer
         default:
             return state;
     }
   }
 
-function viewReducer(state = null, action) {
+function viewReducer(state = null, action) { //lo utilizare mas tarde para la vista profile
     switch (action.type) {
         case "SHOW":
         case "EDIT":
@@ -124,12 +83,8 @@ const GlobalState = (combineReducers({
     login,
     currentClient,
     clients,
-    restaurants,
-    currentRestaurant,
-    roomServices,
-    currentRoomServices,
-    transports,
-    currentTransport,
+    services,
+    currentService,
     view: viewReducer
 }));
 

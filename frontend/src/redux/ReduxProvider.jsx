@@ -18,11 +18,8 @@ export default class ReduxProvider extends React.Component {
             currentClient: 0,
             clients: [...clients],
             login: [...login],
-            restaurants: [...restaurants],
-            currentRestaurant: 0,
-            roomServices: [...roomServices],
-            currentRoomServices: 0,
-            transports:[...transports],
+            services:{restaurants,roomServices,transports},
+            currentService:0,
             view: "Welcome"
         };
         this.store = this.configureStore();

@@ -70,7 +70,7 @@ class App extends Component {
                             (this.props.view === null) ?
                                 <Transports
                                 {...props}
-                                transports={this.props.transports}
+                                transports={this.props.services.transports}
                                 onChangeTransport={(answer) => {
                                     this.props.dispatch(changeTransport(answer));
                                 }}
@@ -85,7 +85,7 @@ class App extends Component {
                                 <ShowTransport
                                     {...props}
                                     currentTransport={
-                                        this.props.transports[this.props.currentTransport]
+                                        this.props.services.transports[this.props.currentService]
                                     }
                                 /> : null
                         )}
@@ -96,7 +96,7 @@ class App extends Component {
                         render={(props) => (
                             (this.props.view === null) ? <Restaurants
                                 {...props}
-                                restaurants={this.props.restaurants}
+                                restaurants={this.props.services.restaurants}
                                 onChangeRestaurant={(answer) => {
                                     this.props.dispatch(changeRestaurant(answer));
                                 }}
@@ -109,7 +109,7 @@ class App extends Component {
                         render={(props) => (
                             (this.props.view === null) ? <RoomServices
                                 {...props}
-                                roomServices={this.props.roomServices}
+                                roomServices={this.props.services.roomServices}
                                 onChangeRoomServices={(answer) => {
                                     this.props.dispatch(changeRoomServices(answer));
                                 }}
@@ -123,7 +123,7 @@ class App extends Component {
                             (this.props.view === null) ? <ShowRestaurant
                                 {...props}
                                 currentRestaurant={
-                                    this.props.restaurants[this.props.currentRestaurant]
+                                    this.props.services.restaurants[this.props.currentService]
                                 }
                             /> : null
                         )}
@@ -134,7 +134,7 @@ class App extends Component {
                             (this.props.view === null) ? <ShowRoomServices
                                 {...props}
                                 currentRoomServices={
-                                    this.props.roomServices[this.props.currentRoomServices]
+                                    this.props.services.roomServices[this.props.currentService]
                                 }
                             /> : null
                         )}
