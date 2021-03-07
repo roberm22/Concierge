@@ -7,7 +7,8 @@ import {
     FECHA_ANSWER,
     COMENTARIO_ANSWER,
     CHANGE_RESTAURANT,
-    CHANGE_ROOM_SERVICES
+    CHANGE_ROOM_SERVICES,
+    CHANGE_TRANSPORT
 } from './actions'
 
 function login(state = [], action = {}) {
@@ -122,7 +123,25 @@ function currentRoomServices(state = [], action = {}) {
             return state;
     }
   }
+function transports(state = [], action = {}) {
+    switch(action.type) {
+        default:
+            return state;
+    }
+}
 
+function currentTransport(state = [], action = {}) {
+    switch(action.type) {
+
+        case CHANGE_TRANSPORT:
+            console.log(action.payload.answer)
+            let transport = action.payload.answer
+            return transport;
+
+        default:
+            return state;
+    }
+}
 
 
 const GlobalState = (combineReducers({
@@ -133,7 +152,9 @@ const GlobalState = (combineReducers({
     currentRestaurant,
     siguiente,
     roomServices,
-    currentRoomServices
+    currentRoomServices,
+    transports,
+    currentTransport
 }));
 
 export default GlobalState;

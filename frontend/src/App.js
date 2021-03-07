@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import "./App.css";
 import { connect } from "react-redux";
 import {
-  passwordAnswer,
-  userAnswer,
-  conditionsAccepted,
-  nombreAnswer,
-  fechaAnswer,
-  comentarioAnswer,
-  changeRestaurant,
-  changeRoomServices,
+    passwordAnswer,
+    userAnswer,
+    conditionsAccepted,
+    nombreAnswer,
+    fechaAnswer,
+    comentarioAnswer,
+    changeRestaurant,
+    changeRoomServices, changeTransport,
 } from "./redux/actions";
 
 import Home from "./Home";
@@ -70,9 +70,10 @@ class App extends Component {
           <Route
             path="/services/transport/"
             render={(props) => (
-              <div>
+
                 <Transport
                   {...props}
+
                   transports={this.props.transports}
                   siguiente={this.props.siguiente}
                   onNombreAnswer={(answer) => {
@@ -84,28 +85,39 @@ class App extends Component {
                   onComentarioAnswer={(answer) => {
                     this.props.dispatch(comentarioAnswer(answer));
                   }}
-                />
-                <h2>
-                  Así se vería la pantalla al pulsar siguiente: (esto es
-                  temporal lógicamente)
-                </h2>
-                <Siguiente
-                  {...props}
-                  transports={this.props.transports}
-                  siguiente={this.props.siguiente}
-                  onNombreAnswer={(answer) => {
-                    this.props.dispatch(nombreAnswer(answer));
-                  }}
-                  onFechaAnswer={(answer) => {
-                    this.props.dispatch(fechaAnswer(answer));
-                  }}
-                  onComentarioAnswer={(answer) => {
-                    this.props.dispatch(comentarioAnswer(answer));
+                  onChangeTransport={(answer) => {
+                      this.props.dispatch(changeTransport(answer));
                   }}
                 />
-              </div>
+
+
             )}
           />
+            <Route
+                path="/services/transport/siguiente/"
+                render={(props) => (
+                    <Siguiente
+                        {...props}
+                        currentTransport={
+                            this.props.transports[this.props.currentTransport]
+                        }
+                        onChangeTransport={(answer) => {
+                            this.props.dispatch(changeTransport(answer));
+                        }}
+                        transports={this.props.transports}
+                        siguiente={this.props.siguiente}
+                        onNombreAnswer={(answer) => {
+                            this.props.dispatch(nombreAnswer(answer));
+                        }}
+                        onFechaAnswer={(answer) => {
+                            this.props.dispatch(fechaAnswer(answer));
+                        }}
+                        onComentarioAnswer={(answer) => {
+                            this.props.dispatch(comentarioAnswer(answer));
+                        }}
+                    />
+                )}
+            />
 
           <Route
             path="/services/restaurants/"

@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Link} from "react-router-dom";
 
-export default class siguiente extends React.Component {
+export default class Siguiente extends React.Component {
 
     /* Aqui meteremos los componentes que renderizan la página main */
 
@@ -24,7 +24,11 @@ export default class siguiente extends React.Component {
                        onChange={(event)=>this.props.onComentarioAnswer(event.target.value)}/>
 
                 <p>(falta logica del boton)</p>
-                <button onClick={this.props.click}> Enviar </button>
+                <div>
+                <button onClick={this.props.click}> Enviar </button>  <Link to="/services/transport/">Go Back</Link>
+
+
+                </div>
                 {/*<Link to="/profile/">Profile</Link>
 
                 {console.log(this.props.login)}
