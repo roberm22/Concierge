@@ -1,29 +1,45 @@
-import React from 'react';
+import React , {useState} from 'react';
 
 import {Link} from "react-router-dom";
+import Calendar from 'react-calendar';
+import Calendar_test from './Calendar_test';
 
+
+
+import "react-datetime/css/react-datetime.css";
 export default class ShowTransport extends React.Component {
 
     /* Aqui meteremos los componentes que renderizan la página main */
 
+
     render() {
+
         return (
             <div>
-                <h1>{this.props.currentTransport.name}</h1>
+                <div>
+                <h1>{this.props.currentTransport.name}</h1>  <img src={this.props.currentTransport.photo.url} alt={"Transporte"} width={300} height={180}/>
 
-                <img src={this.props.currentTransport.photo.url} alt={"Transporte"} width={300} height={180}/>
 
+                </div>
                 {this.props.currentTransport.description}
                 <div>
-                    <h3>Solo funciona el link y lo de la fecha no se hacerlo mejor</h3>
+                    <h3>Adapte el viaje a su gusto:</h3>
                 </div>
 
                 <div>
 
-                    Persons: <input type={"text"}/>
+                    Número de personas: <input type={"text"}/>
                 </div>
+
+
                 <div>
-                    Day: <input type={"text"}/> Month: <input type={"text"}/> Time: <input type={"text"}/>
+                    Origen: <input type={"text"}/> Destino: <input type={"text"}/>
+<div>
+                    Fecha salida:  <Calendar_test/> Fecha llegada:  <Calendar_test/>
+</div>
+
+
+
                 </div>
                 <div>
                     <button>Make Reservation</button>
