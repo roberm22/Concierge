@@ -1,7 +1,7 @@
 exports.restaurants = [
     {
         "id": 1,
-        "name": "Restaurante 1",
+        "name": "Casa Luigi",
         "cuisine": "Italian",
         "address": "Calle 1, 55",
         "description": "Restaurante de ambiente familiar especializado en ..... con precios populares y ....",
@@ -11,7 +11,7 @@ exports.restaurants = [
     },
     {
         "id": 2,
-        "name": "Restaurante 2",
+        "name": "El Comercio ",
         "cuisine": "Spanish",
         "address": "Calle 2, 44",
         "description": "Restaurante de ambiente familiar especializado en ..... con precios populares y ....",
@@ -21,7 +21,7 @@ exports.restaurants = [
     },
     {
         "id": 3,
-        "name": "Restaurante 3",
+        "name": " El Rancho",
         "cuisine": "Mexican",
         "address": "Calle 3, 44",
         "description": "Restaurante de ambiente familiar especializado en ..... con precios populares y ....",
