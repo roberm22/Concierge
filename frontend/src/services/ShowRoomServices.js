@@ -7,18 +7,25 @@ export default class ShowRoomServices extends React.Component {
 
     render() {
 
+        let num = this.props.currentRoomServices.servicio;
+        console.log(num)
+        const ser = num.map( (numero,i) => {
+            let res;
+            for (i =0; i< numero.length; i++){
+                res = <li>{numero}</li>
+            }
+        return res  ;  
+        
+        });
+
         return (
             <div>
                 <h1>{this.props.currentRoomServices.name}</h1>
 
                 <img src={this.props.currentRoomServices.photo.url} width={300} height={180}/>
 
-                <ul>
-                    <li>{this.props.currentRoomServices.servicio1}</li>
-                    <li>{this.props.currentRoomServices.servicio2}</li>
-                    <li>{this.props.currentRoomServices.servicio3}</li>
-                    
-                </ul>
+                <ul>{ser}</ul>
+
                 {this.props.currentRoomServices.description}
                 <div><h3>Solo funciona el link y lo de la fecha no se hacerlo mejor</h3></div>
 
