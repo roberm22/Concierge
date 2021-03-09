@@ -12,7 +12,7 @@ export default class ShowRoomServices extends React.Component {
         const ser = num.map( (numero,i) => {
             let res;
             for (i =0; i< numero.length; i++){
-                res = <li>{numero}</li>
+                res = <div><li>{numero}</li></div>
             }
         return res  ;  
         
