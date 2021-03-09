@@ -5,7 +5,7 @@ exports.clients = [
 		"DNI": "94342812D",
 		"profile": {
 			"name": "Pepe",
-			"username": "pepito88",
+			"username": "p",
 			"password": "1234",
 			"email": "pepito88@gmail.com",
 			"phone": 628496873,
@@ -21,7 +21,7 @@ exports.clients = [
 		"DNI": "32297678C",
 		"profile": {
 			"name": "Juan",
-			"username": "juanito99",
+			"username": "j",
 			"password": "1234",
 			"email": "juanito99@gmail.com",
 			"phone": 659432990,
@@ -34,8 +34,9 @@ exports.clients = [
 
 ]
 
-exports.login = [
+exports.login =
 	{
+		"id": 0,
 		"isLogged": false,
 		"userAnswer": "",
 		"passwordAnswer": "",
@@ -43,4 +44,3 @@ exports.login = [
 		"userDNI": "",
 		"roomAnswer": ""
 	}
-]

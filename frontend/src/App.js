@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {
     passwordAnswer,
     userAnswer,
+    submit,
     conditionsAccepted,
     changeRestaurant,
     changeRoomServices,
@@ -14,7 +15,6 @@ import Home from "./Home";
 import Login from "./Login";
 import Profile from "./Profile";
 import Services from "./Services";
-import Welcome from "./Welcome";
 import Transports from "./services/Transports";
 import Restaurants from "./services/Restaurants";
 import RoomServices from "./services/RoomServices";
@@ -26,19 +26,24 @@ import {BrowserRouter as Router, Route} from "react-router-dom";
 
 
 class App extends Component {
+
     render() {
+
         return (
             <div>
                 <Router>
-                    {(this.props.view === null) ? //esto es para que se vea solo el welcome hasta que no se aceptan las condiciones
-                        <Home/> : null}
-                    {(this.props.view === "Welcome") ?
-                        <Welcome login={this.props.login} conditionsAccepted={this.conditionsAccepted}/> : null}
+
+                    <Route
+                        path="/"
+                        render={() => (
+                            <Home/>
+                        )}
+                    />
 
                     <Route
                         path="/login/"
                         render={(props) => (
-                            (this.props.view === null) ? <Login
+                            <Login
                                 {...props}
                                 clients={this.props.clients}
                                 login={this.props.login}
@@ -48,97 +53,105 @@ class App extends Component {
                                 onUserAnswer={(answer) => {
                                     this.props.dispatch(userAnswer(answer));
                                 }}
-                            /> : null
+                                submitFunction={ async () => {
+                                    this.props.dispatch(submit(this.props.clients));
+                                }}
+                            />
                         )}
-                    />
+                    >
+                    </Route>
+
 
                     <Route
                         path="/profile/"
+
                         render={(props) => (
-                            (this.props.view === null) ? <Profile
+                            <Profile
                                 {...props}
-                                client={this.props.clients[this.props.currentClient]}
-                            /> : null
+                                client={this.props.clients[this.props.login.id-1]}
+                                login={this.props.login}
+                            />
                         )}
                     />
-                    {(this.props.view === null) ?
-                    <Route path="/services/" exact component={Services}/>:null}
+
+                    <Route path="/services/" exact component={Services}/>
 
                     <Route
                         path="/services/transport/"
                         render={(props) => (
-                            (this.props.view === null) ?
-                                <Transports
+                            <Transports
                                 {...props}
                                 transports={this.props.services.transports}
                                 onChangeTransport={(answer) => {
                                     this.props.dispatch(changeTransport(answer));
                                 }}
-                            /> : null
+                            />
                         )}
                     />
 
                     <Route
-                        path="/services/show_transport/"
+                        path="/services/transport/show_transport/"
                         render={(props) => (
-                            (this.props.view === null) ?
-                                <ShowTransport
-                                    {...props}
-                                    currentTransport={
-                                        this.props.services.transports[this.props.currentService]
-                                    }
-                                /> : null
+                            <ShowTransport
+                                {...props}
+                                currentTransport={
+                                    this.props.services.transports[this.props.currentService]
+                                }
+                            />
                         )}
                     />
 
                     <Route
                         path="/services/restaurants/"
                         render={(props) => (
-                            (this.props.view === null) ? <Restaurants
+                            <Restaurants
                                 {...props}
                                 restaurants={this.props.services.restaurants}
                                 onChangeRestaurant={(answer) => {
                                     this.props.dispatch(changeRestaurant(answer));
                                 }}
-                            /> : null
+                            />
+                        )}
+                    />
+
+                    <Route
+                        path="/services/restaurants/show_restaurant/"
+                        render={(props) => (
+                            <ShowRestaurant
+                                {...props}
+                                currentRestaurant={
+                                    this.props.services.restaurants[this.props.currentService]
+                                }
+                            />
                         )}
                     />
 
                     <Route
                         path="/services/room_services/"
                         render={(props) => (
-                            (this.props.view === null) ? <RoomServices
+                            <RoomServices
                                 {...props}
                                 roomServices={this.props.services.roomServices}
                                 onChangeRoomServices={(answer) => {
                                     this.props.dispatch(changeRoomServices(answer));
                                 }}
-                            /> : null
+                            />
                         )}
                     />
 
+
                     <Route
-                        path="/services/show_restaurant/"
+                        path="/services/room_services/show_room_services/"
                         render={(props) => (
-                            (this.props.view === null) ? <ShowRestaurant
-                                {...props}
-                                currentRestaurant={
-                                    this.props.services.restaurants[this.props.currentService]
-                                }
-                            /> : null
-                        )}
-                    />
-                    <Route
-                        path="/services/show_room_services/"
-                        render={(props) => (
-                            (this.props.view === null) ? <ShowRoomServices
+                            <ShowRoomServices
                                 {...props}
                                 currentRoomServices={
                                     this.props.services.roomServices[this.props.currentService]
                                 }
-                            /> : null
+                            />
                         )}
                     />
+
                 </Router>
             </div>
         );
@@ -148,6 +161,18 @@ class App extends Component {
         this.props.dispatch(conditionsAccepted());
     }
 }
+
+/*
+{(this.props.view === null) ? //esto es para que se vea solo el welcome hasta que no se aceptan las condiciones
+   <Home/> : null}
+{(this.props.view === "Welcome") ?
+   <Welcome login={this.props.login} conditionsAccepted={this.conditionsAccepted}/> : null}
+
+(this.props.view === null) ? compenente : null
+
+ */
+
+
 
 function mapStateToProps(state) {
     return {

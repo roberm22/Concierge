@@ -1,5 +1,7 @@
+
 export const PASSWORD_ANSWER = 'PASSWORD_ANSWER';
 export const USER_ANSWER = 'USER_ANSWER';
+export const SUBMIT = 'SUBMIT';
 export const CONDITIONS = 'CONDITIONS';
 export const CHANGE_RESTAURANT = 'CHANGE_RESTAURANT';
 export const CHANGE_TRANSPORT = 'CHANGE_TRANSPORT';
@@ -12,6 +14,10 @@ export function passwordAnswer(answer) {
 
 export function userAnswer(answer) {
     return { type: USER_ANSWER, payload: { answer } };
+}
+
+export function submit(clients) {
+    return { type: SUBMIT, payload: { clients }   };
 }
 
 export function conditionsAccepted() {

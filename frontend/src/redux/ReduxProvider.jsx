@@ -15,9 +15,8 @@ export default class ReduxProvider extends React.Component {
     constructor(props) {
         super(props);
         this.initialState = {
-            currentClient: 0,
             clients: [...clients],
-            login: [...login],
+            login: login,
             services:{restaurants,roomServices,transports},
             currentService:0,
             view: "Welcome"

@@ -21,6 +21,10 @@ export default class Home extends React.Component {
                         <li style={{display: "inline-block"}}>
                             <Link to="/services/">Services</Link>
                         </li>
+                        <li style={{display: "inline-block"}}>
+                            <Link to="/profile/">Profile</Link>
+                        </li>
+
                     </ul>
                 </nav>
 

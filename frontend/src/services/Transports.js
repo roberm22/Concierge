@@ -11,7 +11,7 @@ export default class Transports extends React.Component {
             <div>
                 <li>
 
-                    <Link to={"/services/show_transport"}
+                    <Link to={"/services/transport/show_transport"}
                           onClick={() => this.props.onChangeTransport(i)}>{transport.name}</Link>
                 </li>
             </div>);

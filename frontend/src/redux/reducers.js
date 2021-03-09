@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import {
     PASSWORD_ANSWER,
     USER_ANSWER,
+    SUBMIT,
     CONDITIONS,
     CHANGE_RESTAURANT,
     CHANGE_ROOM_SERVICES,
@@ -23,6 +24,17 @@ function login(state = [], action = {}) {
                 userAnswer: action.payload.answer
             };
 
+        case SUBMIT:
+            let newState = state;
+            action.payload.clients.map((client) => {
+                let login = (state.userAnswer === client.profile.username) && (state.passwordAnswer === client.profile.password)
+                if(login){
+                    newState.isLogged = login
+                    newState.id = client.id;
+                }
+
+            });
+            return newState;
 
         default:
             return state;

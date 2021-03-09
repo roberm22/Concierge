@@ -1,30 +1,47 @@
 import React from 'react';
 
 import {Link} from "react-router-dom";
-import {passwordAnswer, userAnswer} from "./redux/actions";
 
-export default class login extends React.Component {
+import { Alert, AlertTitle } from '@material-ui/lab';
 
-    /* Aqui meteremos los componentes que renderizan la página main */
+export default class Login extends React.Component{
 
-    render() {
-        return (
-            <div>
-                <h3>User:</h3>
-                <input type="text"
-                       value={this.props.login.userAnswer || ''}
-                       onChange={(event) => this.props.onUserAnswer(event.target.value)}/>
-                <h3>Password:</h3>
-                <input type="text"
-                       value={this.props.login.passwordAnswer || ''}
-                       onChange={(event) => this.props.onPasswordAnswer(event.target.value)}/>
+render(){
+    return (
+        <div>
+            {(this.props.login.isLogged)?
+                (
+                    <Alert severity="success">
+                        <AlertTitle>Has iniciado sesión correctamente</AlertTitle>
+                        Ahora puedes ver tu perfil en<strong>Profile</strong>
+                    </Alert>
 
-                <p>(falta logica del boton)</p>
-                <button onClick={this.props.click}> Submit</button>
-                <Link to="/profile/">Profile</Link>
+                ): (
+                    <div>
+                        <Alert severity="info">
+                            <AlertTitle>Inicio de sesión</AlertTitle>
+                            Debes iniciar sesión para poder acceder a<strong>Profile</strong>
+                        </Alert>
 
-                {console.log(this.props.login)}
-            </div>
-        );
-    }
+                        <h3>User:</h3>
+                        <input type="text"
+                               value={this.props.login.userAnswer || ''}
+                               onChange={(event) => this.props.onUserAnswer(event.target.value)}/>
+                        <h3>Password:</h3>
+                        <input type="text"
+                               value={this.props.login.passwordAnswer || ''}
+                               onChange={(event) => this.props.onPasswordAnswer(event.target.value)}/>
+
+                        <p>Rellena los campos y haz click en Submit</p>
+                        <br/>
+                        <button onClick={this.props.submitFunction}> Submit </button><br/><br/>
+                    </div>
+                )
+            }
+            <Link to="/">Volver</Link>
+        </div>
+
+    );
 }
+}
+

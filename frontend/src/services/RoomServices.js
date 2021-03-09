@@ -9,7 +9,7 @@ export default class RoomServices extends React.Component {
         const listItems = x.map((room_services,i) =>  
             <div> 
                 <li> 
-                    <Link to={"/services/show_room_services"} onClick={() =>this.props.onChangeRoomServices(i)}>{room_services.name}</Link> 
+                    <Link to={"/services/room_services/show_room_services"} onClick={() =>this.props.onChangeRoomServices(i)}>{room_services.name}</Link>
                 </li> 
             </div> );
         return (
