@@ -3,9 +3,8 @@ import {Link} from "react-router-dom";
 
 export default class Home extends React.Component {
 
-    /* Aqui meteremos los componentes que renderizan la página main */
-
     render() {
+
         return (
             <div>
                 <h1>Home Page</h1>
@@ -14,9 +13,6 @@ export default class Home extends React.Component {
                     <ul >
                         <li style={{display: "inline-block"}}>
                             <Link to="/">Home</Link>
-                        </li>
-                        <li style={{display: "inline-block"}}>
-                            <Link to="/login/">Login</Link>
                         </li>
                         <li style={{display: "inline-block"}}>
                             <Link to="/services/">Services</Link>

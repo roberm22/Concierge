@@ -37,6 +37,7 @@ exports.clients = [
 exports.login =
 	{
 		"id": 0,
+		"status": "info",
 		"isLogged": false,
 		"userAnswer": "",
 		"passwordAnswer": "",

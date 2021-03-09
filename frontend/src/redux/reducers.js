@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import {
-    PASSWORD_ANSWER,
     USER_ANSWER,
     SUBMIT,
+    END_SESSION,
     CONDITIONS,
     CHANGE_RESTAURANT,
     CHANGE_ROOM_SERVICES,
@@ -11,42 +11,58 @@ import {
 
 function login(state = [], action = {}) {
     switch(action.type) {
-        case PASSWORD_ANSWER:
-            return {
-                ...state,
-                passwordAnswer: action.payload.answer
-            };
-
 
         case USER_ANSWER:
             return {
                 ...state,
-                userAnswer: action.payload.answer
+                userAnswer: action.payload.user,
+                passwordAnswer: action.payload.password
             };
 
         case SUBMIT:
             let newState = state;
-            action.payload.clients.map((client) => {
-                let login = (state.userAnswer === client.profile.username) && (state.passwordAnswer === client.profile.password)
-                if(login){
-                    newState.isLogged = login
-                    newState.id = client.id;
+            let isClient = [];
+            action.payload.clients.map((client, i) => {
+                isClient.push((state.userAnswer === client.profile.username) && (state.passwordAnswer === client.profile.password));
+                if(isClient.includes(true))
+                    newState = {
+                        ...state,
+                        isLogged : true,
+                        id : client.id,
+                        status : "success"
+                    };
+
+                if(i === action.payload.clients.length-1 && !isClient.includes(true)){
+                    newState = {
+                        ...state,
+                        status : "error",
+                        attempts : state.attempts +1
+                    };
                 }
 
+                if(state.attempts === 3){
+                    newState = {
+                        ...state,
+                        status : "warning"
+                    };
+                }
             });
             return newState;
 
+        case END_SESSION:
+
+            return {
+                ...state,
+                status: "info",
+                isLogged: false,
+                userAnswer: "",
+                passwordAnswer: ""
+            };
+
         default:
             return state;
     }
 
-}
-
-function currentClient(state = 0, action = {}) {
-    switch(action.type) {
-        default:
-            return state;
-    }
 }
 
 function clients(state = [], action = {}) {
@@ -93,7 +109,6 @@ function viewReducer(state = null, action) { //lo utilizare mas tarde para la vi
 
 const GlobalState = (combineReducers({
     login,
-    currentClient,
     clients,
     services,
     currentService,

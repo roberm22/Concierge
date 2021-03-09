@@ -2,9 +2,9 @@ import React, {Component} from "react";
 import "./App.css";
 import {connect} from "react-redux";
 import {
-    passwordAnswer,
     userAnswer,
     submit,
+    endSession,
     conditionsAccepted,
     changeRestaurant,
     changeRoomServices,
@@ -27,6 +27,8 @@ import {BrowserRouter as Router, Route} from "react-router-dom";
 
 class App extends Component {
 
+    miStorage = localStorage;
+
     render() {
 
         return (
@@ -47,13 +49,10 @@ class App extends Component {
                                 {...props}
                                 clients={this.props.clients}
                                 login={this.props.login}
-                                onPasswordAnswer={(answer) => {
-                                    this.props.dispatch(passwordAnswer(answer));
+                                onUserAnswer={(user = this.props.login.userAnswer, password = this.props.login.passwordAnswer) => {
+                                    this.props.dispatch(userAnswer(user, password));
                                 }}
-                                onUserAnswer={(answer) => {
-                                    this.props.dispatch(userAnswer(answer));
-                                }}
-                                submitFunction={ async () => {
+                                submitFunction={ () => {
                                     this.props.dispatch(submit(this.props.clients));
                                 }}
                             />
@@ -70,6 +69,9 @@ class App extends Component {
                                 {...props}
                                 client={this.props.clients[this.props.login.id-1]}
                                 login={this.props.login}
+                                endSession={ () => {
+                                    this.props.dispatch(endSession());
+                                }}
                             />
                         )}
                     />
