@@ -22,7 +22,7 @@ export default class ShowRoomServices extends React.Component {
             <div>
                 <h1>{this.props.currentRoomServices.name}</h1>
 
-                <img src={this.props.currentRoomServices.photo.url} width={300} height={180}/>
+                <img src={this.props.currentRoomServices.photo.url} width={300} height={180} alt="photo"/>
 
                 <ul>{ser}</ul>
 

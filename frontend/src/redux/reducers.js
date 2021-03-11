@@ -21,32 +21,33 @@ function login(state = [], action = {}) {
 
         case SUBMIT:
             let newState = state;
-            let isClient = [];
-            action.payload.clients.map((client, i) => {
-                isClient.push((state.userAnswer === client.profile.username) && (state.passwordAnswer === client.profile.password));
-                if(isClient.includes(true))
+            let isClient;
+            action.payload.clients.map((client) => {
+                isClient = (state.userAnswer === client.profile.username) && (state.passwordAnswer === client.profile.password);
+                if(isClient){
                     newState = {
                         ...state,
                         isLogged : true,
                         id : client.id,
                         status : "success"
                     };
-
-                if(i === action.payload.clients.length-1 && !isClient.includes(true)){
-                    newState = {
-                        ...state,
-                        status : "error",
-                        attempts : state.attempts +1
-                    };
                 }
 
-                if(state.attempts === 3){
+                if(newState.attempts === 4){
                     newState = {
                         ...state,
                         status : "warning"
                     };
                 }
             });
+
+            if(newState.status !== "success" && newState.status !== "warning"){
+                newState = {
+                    ...state,
+                    status : "error",
+                    attempts : state.attempts +1
+                };
+            }
             return newState;
 
         case END_SESSION:
