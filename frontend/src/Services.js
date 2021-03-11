@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import NavBar from "./NavBar";
 
 export default class Services extends React.Component {
 
@@ -8,6 +9,7 @@ export default class Services extends React.Component {
     render() {
         return (
             <div>
+                <NavBar/>
                 <h1>Services</h1>
 
                 <nav>

@@ -1,8 +1,7 @@
-import React , {useState} from 'react';
+import React from 'react';
 
 import {Link} from "react-router-dom";
-import Calendar from 'react-calendar';
-import Calendar_test from './Calendar_test';
+import Calendar_test from '../Calendar_test';
 
 
 

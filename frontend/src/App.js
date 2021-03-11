@@ -12,22 +12,37 @@ import {
 } from "./redux/actions";
 
 import Home from "./Home";
-import Login from "./Login";
+import Login from "./Login/Login";
 import Profile from "./Profile";
 import Services from "./Services";
-import Transports from "./services/Transports";
-import Restaurants from "./services/Restaurants";
-import RoomServices from "./services/RoomServices";
-import ShowRestaurant from "./services/ShowRestaurant";
-import ShowRoomServices from "./services/ShowRoomServices";
-import ShowTransport from "./services/ShowTransport";
+import Transports from "./services/Transport/Transports";
+import Restaurants from "./services/Restaurants/Restaurants";
+import RoomServices from "./services/Room Service/RoomServices";
+import ShowRestaurant from "./services/Restaurants/ShowRestaurant";
+import ShowRoomServices from "./services/Room Service/ShowRoomServices";
+import ShowTransport from "./services/Transport/ShowTransport";
 
 import {BrowserRouter as Router, Route} from "react-router-dom";
 
 
 class App extends Component {
 
-    miStorage = localStorage;
+    constructor(props) {
+        super(props);
+        this.timerlog = null;
+        this.submit = this.submit.bind(this);
+    }
+
+    submit(){
+        this.props.dispatch(submit(this.props.clients));
+        let alert = document.querySelector('#alert');
+        alert.style.visibility = "visible"
+        this.timerlog = setTimeout(() => alert.style.visibility = 'hidden', 5000)
+    }
+
+    componentWillUnmount() {
+        clearTimeout(this.timerlog);
+    }
 
     render() {
 
@@ -36,7 +51,7 @@ class App extends Component {
                 <Router>
 
                     <Route
-                        path="/"
+                        exact path="/"
                         render={() => (
                             <Home/>
                         )}
@@ -52,9 +67,7 @@ class App extends Component {
                                 onUserAnswer={(user = this.props.login.userAnswer, password = this.props.login.passwordAnswer) => {
                                     this.props.dispatch(userAnswer(user, password));
                                 }}
-                                submitFunction={ () => {
-                                    this.props.dispatch(submit(this.props.clients));
-                                }}
+                                submitFunction={this.submit}
                             />
                         )}
                     >
@@ -76,7 +89,7 @@ class App extends Component {
                         )}
                     />
 
-                    <Route path="/services/" exact component={Services}/>
+                    <Route path="/services/" component={Services}/>
 
                     <Route
                         path="/services/transport/"

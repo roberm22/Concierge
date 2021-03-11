@@ -1,5 +1,5 @@
 import React from 'react';
-import pepe from "./assets/pepe.jpg";
+import pepe from "./assets/images/pepe.jpg";
 import {Link, Redirect} from "react-router-dom";
 import {Alert, AlertTitle} from "@material-ui/lab";
 
