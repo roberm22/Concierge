@@ -39,8 +39,11 @@ export default class Login extends React.Component{
                 message = "Número máximo de intentos alcanzado - Cuenta bloqueada"
                 break;
 
+            case "success":
+                break;
+
             default:
-                console.log('Algo ha ido mal');
+                console.log(this.props.login.status);
         }
 
 

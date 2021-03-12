@@ -7,6 +7,14 @@ ul {
     background-color: #333;
 }
 
+h1 { color: #111;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 1;
+    text-align: center;
+}
+
 
 li {
     float: left;

@@ -2,10 +2,11 @@
 export const USER_ANSWER = 'USER_ANSWER';
 export const SUBMIT = 'SUBMIT';
 export const END_SESSION = 'END_SESSION';
-export const CONDITIONS = 'CONDITIONS';
 export const CHANGE_RESTAURANT = 'CHANGE_RESTAURANT';
 export const CHANGE_TRANSPORT = 'CHANGE_TRANSPORT';
 export const CHANGE_ROOM_SERVICES = 'CHANGE_ROOM_SEVICES';
+export const UPDATE = 'UPDATE';
+export const CONDITIONS = 'CONDITIONS';
 
 
 export function userAnswer(user, password) {
@@ -15,13 +16,12 @@ export function userAnswer(user, password) {
 export function submit(clients) {
     return { type: SUBMIT, payload: { clients }  };
 }
+export function conditions(){
+    return {type: CONDITIONS};
+}
 
 export function endSession(){
     return { type: END_SESSION };
-}
-
-export function conditionsAccepted() {
-    return { type: CONDITIONS};
 }
 
 export function changeRestaurant(answer){
@@ -34,6 +34,10 @@ export function changeRoomServices(answer){
 
 export function changeTransport(answer){
     return {type: CHANGE_TRANSPORT, payload: {answer}}
+}
+
+export function updateProfile(index,client){
+    return {type: UPDATE,payload: {index,client}};
 }
 
 

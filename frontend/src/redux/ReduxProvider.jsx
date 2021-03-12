@@ -18,8 +18,7 @@ export default class ReduxProvider extends React.Component {
             clients: [...clients],
             login: login,
             services:{restaurants,roomServices,transports},
-            currentService:0,
-            view: "Welcome"
+            currentService:0
         };
         this.store = this.configureStore();
     }
