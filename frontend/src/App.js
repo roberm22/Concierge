@@ -33,7 +33,6 @@ class App extends Component {
         super(props);
         this.timerlog = null;
         this.submit = this.submit.bind(this);
-        this.update = this.update.bind(this);
         this.conditions = this.conditions.bind(this);
     }
 
@@ -46,10 +45,6 @@ class App extends Component {
 
     componentWillUnmount() {
         clearTimeout(this.timerlog);
-    }
-
-    update(){
-        this.props.dispatch(updateProfile(this.props.login.id-1, this.props.clients[this.props.login.id-1]));
     }
 
     conditions(){
@@ -95,7 +90,9 @@ class App extends Component {
                                 conditions={this.conditions}
                                 client={this.props.clients[this.props.login.id-1]}
                                 login={this.props.login}
-                                update={this.update}
+                                update={ (newData) => {
+                                    this.props.dispatch(updateProfile(this.props.login.id, newData));
+                                }}
                                 endSession={ () => {
                                     this.props.dispatch(endSession());
                                 }}

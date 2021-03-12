@@ -36,8 +36,8 @@ export function changeTransport(answer){
     return {type: CHANGE_TRANSPORT, payload: {answer}}
 }
 
-export function updateProfile(index,client){
-    return {type: UPDATE,payload: {index,client}};
+export function updateProfile(id, newData){
+    return {type: UPDATE,payload: {id, newData}};
 }
 
 

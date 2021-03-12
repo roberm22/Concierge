@@ -1,13 +1,13 @@
 import {combineReducers} from 'redux';
 import {
-    USER_ANSWER,
-    SUBMIT,
-    END_SESSION,
     CHANGE_RESTAURANT,
     CHANGE_ROOM_SERVICES,
     CHANGE_TRANSPORT,
+    CONDITIONS,
+    END_SESSION,
+    SUBMIT,
     UPDATE,
-    CONDITIONS
+    USER_ANSWER
 } from './actions'
 
 function login(state = [], action = {}) {
@@ -76,7 +76,10 @@ function login(state = [], action = {}) {
 function clients(state = [], action = {}) {
     switch (action.type) {
         case UPDATE:
-            return state.map((client, index) => action.index === index ? action.client : client);
+            state[action.payload.id-1] = action.payload.newData;
+            console.log(state);
+            return state;
+
         default:
             return state;
     }
