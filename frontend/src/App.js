@@ -5,10 +5,11 @@ import {
     userAnswer,
     submit,
     endSession,
-    conditionsAccepted,
+    updateProfile,
     changeRestaurant,
     changeRoomServices,
-    changeTransport
+    changeTransport,
+    conditions
 } from "./redux/actions";
 
 import Home from "./Home";
@@ -31,6 +32,8 @@ class App extends Component {
         super(props);
         this.timerlog = null;
         this.submit = this.submit.bind(this);
+        this.update = this.update.bind(this);
+        this.conditions = this.conditions.bind(this);
     }
 
     submit(){
@@ -42,6 +45,14 @@ class App extends Component {
 
     componentWillUnmount() {
         clearTimeout(this.timerlog);
+    }
+
+    update(){
+        this.props.dispatch(updateProfile(this.props.login.id-1, this.props.clients[this.props.login.id-1]));
+    }
+
+    conditions(){
+        this.props.dispatch(conditions());
     }
 
     render() {
@@ -80,8 +91,10 @@ class App extends Component {
                         render={(props) => (
                             <Profile
                                 {...props}
+                                conditions={this.conditions}
                                 client={this.props.clients[this.props.login.id-1]}
                                 login={this.props.login}
+                                update={this.update}
                                 endSession={ () => {
                                     this.props.dispatch(endSession());
                                 }}
@@ -170,10 +183,6 @@ class App extends Component {
                 </Router>
             </div>
         );
-    }
-
-    conditionsAccepted = () => {
-        this.props.dispatch(conditionsAccepted());
     }
 }
 

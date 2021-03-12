@@ -39,6 +39,7 @@ exports.login =
 		"id": 0,
 		"status": "info",
 		"isLogged": false,
+		"conditionsAccepted":false,
 		"userAnswer": "",
 		"passwordAnswer": "",
 		"attempts": 0,

@@ -1,16 +1,17 @@
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 import {
     USER_ANSWER,
     SUBMIT,
     END_SESSION,
-    CONDITIONS,
     CHANGE_RESTAURANT,
     CHANGE_ROOM_SERVICES,
-    CHANGE_TRANSPORT
+    CHANGE_TRANSPORT,
+    UPDATE,
+    CONDITIONS
 } from './actions'
 
 function login(state = [], action = {}) {
-    switch(action.type) {
+    switch (action.type) {
 
         case USER_ANSWER:
             return {
@@ -24,28 +25,28 @@ function login(state = [], action = {}) {
             let isClient;
             action.payload.clients.map((client) => {
                 isClient = (state.userAnswer === client.profile.username) && (state.passwordAnswer === client.profile.password);
-                if(isClient){
+                if (isClient) {
                     newState = {
                         ...state,
-                        isLogged : true,
-                        id : client.id,
-                        status : "success"
+                        isLogged: true,
+                        id: client.id,
+                        status: "success"
                     };
                 }
 
-                if(newState.attempts === 4){
+                if (newState.attempts === 4) {
                     newState = {
                         ...state,
-                        status : "warning"
+                        status: "warning"
                     };
                 }
             });
 
-            if(newState.status !== "success" && newState.status !== "warning"){
+            if (newState.status !== "success" && newState.status !== "warning") {
                 newState = {
                     ...state,
-                    status : "error",
-                    attempts : state.attempts +1
+                    status: "error",
+                    attempts: state.attempts + 1
                 };
             }
             return newState;
@@ -60,6 +61,12 @@ function login(state = [], action = {}) {
                 passwordAnswer: ""
             };
 
+        case CONDITIONS:
+            return {
+                ...state,
+                conditionsAccepted: true
+            };
+
         default:
             return state;
     }
@@ -67,14 +74,16 @@ function login(state = [], action = {}) {
 }
 
 function clients(state = [], action = {}) {
-    switch(action.type) {
+    switch (action.type) {
+        case UPDATE:
+            return state.map((client, index) => action.index === index ? action.client : client);
         default:
             return state;
     }
 }
 
 function services(state = [], action = {}) {
-    switch(action.type) {
+    switch (action.type) {
         default:
             return state;
     }
@@ -91,21 +100,7 @@ function currentService(state = [], action = {}) {
         default:
             return state;
     }
-  }
-
-function viewReducer(state = null, action) { //lo utilizare mas tarde para la vista profile
-    switch (action.type) {
-        case "SHOW":
-        case "EDIT":
-        case "NEW":
-            return action.type;
-        case "CONDITIONS":
-            return null;
-        default:
-            return state
-    }
 }
-
 
 
 const GlobalState = (combineReducers({
@@ -113,7 +108,6 @@ const GlobalState = (combineReducers({
     clients,
     services,
     currentService,
-    view: viewReducer
 }));
 
 export default GlobalState;
