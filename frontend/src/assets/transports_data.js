@@ -1,9 +1,9 @@
 exports.transports = [
     {
         "id": 1,
-        "name": "Coche",
+        "name": "Car",
 
-        "description": "Servicio de transporte con coche privado",
+        "description": "Private Car service",
         "Fecha_origen_mapa": false,
         "Fecha_llegada_mapa": false,
         "photo": {
@@ -13,9 +13,9 @@ exports.transports = [
     },
     {
         "id": 2,
-        "name": "Furgoneta",
+        "name": "Van",
 
-        "description": "Servicio de transporte con furgoneta privada",
+        "description": "Private Van service",
         "Fecha_origen_mapa": false,
         "Fecha_llegada_mapa": false,
         "photo": {
@@ -25,9 +25,9 @@ exports.transports = [
     },
     {
         "id": 3,
-        "name": "Avión",
+        "name": "Plane",
         
-        "description": "Servicio de transporte con avión privado",
+        "description": "Private Plane service",
         "Fecha_origen_mapa": false,
         "Fecha_llegada_mapa": false,
         "photo": {

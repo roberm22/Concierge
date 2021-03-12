@@ -22,6 +22,7 @@ import ShowRestaurant from "./services/Restaurants/ShowRestaurant";
 import ShowRoomServices from "./services/Room Service/ShowRoomServices";
 import ShowTransport from "./services/Transport/ShowTransport";
 
+
 import {BrowserRouter as Router, Route} from "react-router-dom";
 
 
@@ -109,12 +110,15 @@ class App extends Component {
                         render={(props) => (
                             <ShowTransport
                                 {...props}
+                                login={this.props.login}
                                 currentTransport={
                                     this.props.services.transports[this.props.currentService]
                                 }
                             />
+
                         )}
                     />
+
 
                     <Route
                         path="/services/restaurants/"
