@@ -2,6 +2,7 @@ import React from 'react';
 import {Link, Redirect} from "react-router-dom";
 import {Alert, AlertTitle} from "@material-ui/lab";
 import './profile.css'
+import update from 'react-addons-update';
 import NavBar from "./NavBar";
 import Welcome from "./Welcome";
 
@@ -55,9 +56,17 @@ export default class Profile extends React.Component {
                                                onChange={e => this.setState({DNI: e.target.value})}/>
                                     </h3>
 
-                                    {/*<h3>Usuario:*/}
-                                    {/*    <input  type="text" id="username" placeholder={this.state.profile.username} value={this.state.profile.username} onChange={e=>this.setState({profile:{username: e.target.value}})}></input>*/}
-                                    {/*</h3>*/}
+                                    <h3>Usuario:
+                                        <input  type="text" id="username" placeholder={this.state.profile.username} value={this.state.profile.username}
+                                                onChange={(e) => {
+                                                    let newState = update(this.state, {
+                                                        profile: { username: {$set: e.target.value} }
+                                                    });
+                                                    this.setState(newState);
+                                                    }
+                                                }
+                                        />
+                                    </h3>
                                     {/*<h3>Contraseña:*/}
                                     {/*    <input  type="password" id="password"  placeholder={this.state.profile.password} value={this.state.profile.password} onChange={e=>this.setState({profile:{password: e.target.value}})}></input>*/}
                                     {/*</h3>*/}
