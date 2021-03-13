@@ -1,5 +1,6 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom'
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import "./navBar.css"
 
 export default class NavBar extends React.Component {
@@ -18,7 +19,7 @@ export default class NavBar extends React.Component {
                     </li>
 
                     <li>
-                        <NavLink to="/profile/" >Profile</NavLink>
+                        <NavLink to="/profile/" id="user"> <AccountCircleIcon style={{ fontSize: 20 }}/> </NavLink>
                     </li>
                 </ul>
             </nav>

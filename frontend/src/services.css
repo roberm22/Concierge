@@ -7,3 +7,23 @@ Es temporal.
 
 El CSS de services actual se hereda de la clase navBar
 */
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+
+.menu {
+    position: absolute;
+    border-radius: 20px;
+    margin-left: 3em;
+    margin-right: 3em;
+    padding: 10px;
+    box-sizing: inherit;
+    letter-spacing: 1.1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    alignment: center;
+}
+
+.menu li {
+    text-align: center;
+}

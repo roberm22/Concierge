@@ -9,16 +9,16 @@ export default class Services extends React.Component {
         return (
             <div>
                 <NavBar/>
-                <nav className="services">
-                    <ul>
+                <nav>
+                    <ul className={"menu"}>
                         <li>
-                            <NavLink to="/services/transport/">Transport</NavLink>
+                            <NavLink href="#!"  to="/services/transport/">Transport</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/services/restaurants/">Restaurants</NavLink>
+                            <NavLink href="#!"  to="/services/restaurants/">Restaurants</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/services/room_services/">Room Services</NavLink>
+                            <NavLink href="#!"  to="/services/room_services/">Room Services</NavLink>
                         </li>
                     </ul>
                 </nav>

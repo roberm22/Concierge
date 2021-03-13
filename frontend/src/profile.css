@@ -1,56 +1,93 @@
 
-/*.information{*/
-/*    background-color: #DAA520;*/
-/*    padding: 5px;*/
-/*    alignment: center;*/
-/*}*/
+.information{
+    background-color: #CF9B1A;
+    padding: 10px;
+    alignment: center;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px 2px #333333;
+    margin-left: 2em;
+    margin-right: 2em;
+}
 
-/*img{*/
-/*    float: right;*/
-/*}*/
+.profileMain{
+    background-image: url("./assets/images/login.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 110vh;
+    background-attachment: fixed;
+}
 
-/*.box{*/
-/*    padding: 10px;*/
-/*    margin: 20px;*/
-/*    font-family: 'Dosis', sans-serif;*/
-/*}*/
+.profileMain img{
+    float: right;
+    border-radius: 10px;
+}
 
-/*button {*/
-/*    background: transparent;*/
-/*    box-shadow: 0 0 0 transparent;*/
-/*    border: 0 solid transparent;*/
-/*    text-shadow: 0 0 0 transparent;*/
-/*}*/
-
-/*ul {*/
-/*    list-style-type: none;*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*    overflow: hidden;*/
-/*    background-color: #333;*/
-/*}*/
-
-/*li {*/
-/*    float: left;*/
-/*}*/
-
-/*li a{*/
-/*    display: block;*/
-/*    color: white;*/
-/*    text-align: center;*/
-/*    padding: 14px 16px;*/
-/*    text-decoration: none;*/
-/*}*/
+.profileMain input {
+    font: inherit;
+    padding: 0.2em 0.5em;
+}
 
 
-/*li a:hover:not(.active) {*/
-/*    background-color: #111;*/
-/*}*/
+.profileMain h1{
+    text-align: center;
+    color:white;
+    font-size: 3em;
+    letter-spacing: 10px;
+    font-weight: 500;
+    font-family: 'Dosis', sans-serif;
+    text-shadow: 5px 3px 5px black;
+}
 
-/*button:hover:not(.active) {*/
-/*    background-color: #111;*/
-/*}*/
+#alert-profile{
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    border-radius: 20px;
+    margin-left: 3em;
+    margin-right: 3em;
+}
 
-/*.active {*/
-/*    background-color: #DAA520;*/
-/*}*/
+.profileMain button {
+    color: white;
+    background: #DAA520;
+    border: none;
+    padding: 0.7em;
+    outline: none;
+    font-size: 1em;
+    cursor: pointer;
+    letter-spacing: 1px;
+    font-weight: 400;
+    transition: 0.5s all;
+    border-radius: 30px;
+    margin-top: 2em;
+    box-shadow: 2px 2px 2px 2px #333333;
+}
+
+.profileMain ul {
+    list-style-type: none;
+
+}
+
+.profileMain li {
+    float: left;
+}
+
+.profileMain li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+.profileMain li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.profileMain button:hover:not(.active) {
+    background-color: #111;
+}
+

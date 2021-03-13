@@ -26,3 +26,9 @@ nav > ul> li > a:hover:not(.active) {
 .active {
     background-color: #DAA520;
 }
+#user {
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+}

@@ -14,6 +14,7 @@ import {
 
 import Home from "./Home";
 import Login from "./Login/Login";
+import Welcome from "./Welcome";
 import Profile from "./Profile";
 import Services from "./Services";
 import Transports from "./services/Transport/Transports";
@@ -25,6 +26,7 @@ import ShowTransport from "./services/Transport/ShowTransport";
 
 
 import {BrowserRouter as Router, Route} from "react-router-dom";
+
 
 
 class App extends Component {
@@ -63,6 +65,14 @@ class App extends Component {
                             <Home/>
                         )}
                     />
+
+                    <Route
+                        path="/welcome/"
+                        render={() => (
+                            <Welcome conditions={this.conditions} login={this.props.login}/>
+                        )}
+                    >
+                    </Route>
 
                     <Route
                         path="/login/"
