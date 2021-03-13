@@ -1,57 +1,56 @@
 
-.information{
-    background-color: #DAA520;
-    padding: 5px;
-    alignment: center;
-}
-img{
-    float: right;
-}
-.box{
-    padding: 10px;
-    margin: 20px;
-    font-family: 'Dosis', sans-serif;
-}
+/*.information{*/
+/*    background-color: #DAA520;*/
+/*    padding: 5px;*/
+/*    alignment: center;*/
+/*}*/
+
+/*img{*/
+/*    float: right;*/
+/*}*/
+
+/*.box{*/
+/*    padding: 10px;*/
+/*    margin: 20px;*/
+/*    font-family: 'Dosis', sans-serif;*/
+/*}*/
+
+/*button {*/
+/*    background: transparent;*/
+/*    box-shadow: 0 0 0 transparent;*/
+/*    border: 0 solid transparent;*/
+/*    text-shadow: 0 0 0 transparent;*/
+/*}*/
+
+/*ul {*/
+/*    list-style-type: none;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    overflow: hidden;*/
+/*    background-color: #333;*/
+/*}*/
+
+/*li {*/
+/*    float: left;*/
+/*}*/
+
+/*li a{*/
+/*    display: block;*/
+/*    color: white;*/
+/*    text-align: center;*/
+/*    padding: 14px 16px;*/
+/*    text-decoration: none;*/
+/*}*/
 
 
+/*li a:hover:not(.active) {*/
+/*    background-color: #111;*/
+/*}*/
 
-button {
-    background: transparent;
-    box-shadow: 0 0 0 transparent;
-    border: 0 solid transparent;
-    text-shadow: 0 0 0 transparent;
-}
+/*button:hover:not(.active) {*/
+/*    background-color: #111;*/
+/*}*/
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
-
-
-li {
-    float: left;
-}
-
-li a{
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-
-li a:hover:not(.active) {
-    background-color: #111;
-}
-
-button:hover:not(.active) {
-    background-color: #111;
-}
-
-.active {
-    background-color: #DAA520;
-}
+/*.active {*/
+/*    background-color: #DAA520;*/
+/*}*/

@@ -1,5 +1,5 @@
 
-ul {
+nav > ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -7,20 +7,11 @@ ul {
     background-color: #333;
 }
 
-h1 { color: #111;
-    font-family: 'Helvetica Neue', sans-serif;
-    font-weight: bold;
-    letter-spacing: -1px;
-    line-height: 1;
-    text-align: center;
-}
-
-
-li {
+nav > ul > li {
     float: left;
 }
 
-li a {
+nav > ul > li > a {
     display: block;
     color: white;
     text-align: center;
@@ -28,7 +19,7 @@ li a {
     text-decoration: none;
 }
 
-li a:hover:not(.active) {
+nav > ul> li > a:hover:not(.active) {
     background-color: #111;
 }
 

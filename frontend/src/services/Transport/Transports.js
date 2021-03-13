@@ -1,12 +1,8 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import  "./Transports.css";
-import {ArrowBack} from "@material-ui/icons";
-import {Alert, AlertTitle} from "@material-ui/lab";
 
 export default class Transports extends React.Component {
-
-    /* Aqui meteremos los componentes que renderizan la página profile */
 
     render() {
 

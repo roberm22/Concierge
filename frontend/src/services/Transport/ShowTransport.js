@@ -51,8 +51,6 @@ const linkStyle = {
 
 export default class ShowTransport extends React.Component {
 
-    /* Aqui meteremos los componentes que renderizan la página main */
-
     constructor(props) {
         super(props);
         this.state = {date:new Date(),

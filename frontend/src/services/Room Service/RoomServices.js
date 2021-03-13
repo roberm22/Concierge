@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 
 export default class RoomServices extends React.Component {
 
-    /* Aqui meteremos los componentes que renderizan la página profile */
     render(){
         let x = this.props.roomServices;
         const listItems = x.map((room_services,i) =>  

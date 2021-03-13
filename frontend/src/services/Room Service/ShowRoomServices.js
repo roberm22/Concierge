@@ -3,8 +3,6 @@ import {Link} from "react-router-dom";
 
 export default class ShowRoomServices extends React.Component {
 
-    /* Aqui meteremos los componentes que renderizan la página profile */
-
     render() {
 
         let num = this.props.currentRoomServices.servicio;
@@ -27,7 +25,6 @@ export default class ShowRoomServices extends React.Component {
                 <ul>{ser}</ul>
 
                 {this.props.currentRoomServices.description}
-                <div><h3>Solo funciona el link y lo de la fecha no se hacerlo mejor</h3></div>
 
                 <div>
 

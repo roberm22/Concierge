@@ -7,21 +7,21 @@ export default class NavBar extends React.Component {
     render() {
 
         return (
-            <ul >
+            <nav>
+                <ul >
+                    <li>
+                        <NavLink exact to="/" >Home</NavLink>
+                    </li>
 
-                <li>
-                    <NavLink exact to="/" >Home</NavLink>
-                </li>
+                    <li>
+                        <NavLink to="/services/" >Services</NavLink>
+                    </li>
 
-                <li>
-                    <NavLink to="/services/" >Services</NavLink>
-                </li>
-
-                <li>
-                    <NavLink to="/profile/" >Profile</NavLink>
-                </li>
-
-            </ul>
+                    <li>
+                        <NavLink to="/profile/" >Profile</NavLink>
+                    </li>
+                </ul>
+            </nav>
         );
     }
 }
