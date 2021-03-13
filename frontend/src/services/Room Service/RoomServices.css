@@ -1,0 +1,34 @@
+.main_Room {
+    background-image:url("https://media.gettyimages.com/photos/breakfast-in-hotel-room-picture-id154945734?k=6&m=154945734&s=612x612&w=0&h=zUaa-gAzx_pvL37_ZojS6qst5gkgA1DaGJCt16WGOHo=");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    background-attachment: fixed;
+}
+
+.encabezado{
+    background-image:url("https://cdn.shopify.com/s/files/1/2690/5604/products/copperphotographybackdropfoodbackground_1080x.jpg?v=1607103054");
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+    font-family: 'Lobster', cursive;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.listado{
+    color:black;
+    font-size: 36pt;
+    text-decoration: none;
+    font-family: 'Lobster', cursive;
+    width:50%;
+    padding:8px;
+    margin:auto;
+    
+}
+

@@ -1,0 +1,84 @@
+.show_Rooms{
+    background-image: url("https://cdn.shopify.com/s/files/1/2690/5604/products/153._Salt_1080x.jpg?v=1607103187");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    background-attachment: fixed;
+}
+
+.cabeza{
+    background-image:url("https://cdn.shopify.com/s/files/1/2690/5604/products/copperphotographybackdropfoodbackground_1080x.jpg?v=1607103054");
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+    font-family: 'Lobster', cursive;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.lista{
+    
+    background-image:url("https://i.pinimg.com/originals/ca/44/bb/ca44bb3b4606ff656c81a4ae23ed1527.jpg");
+    background-size: cover;
+    color: black;
+    font-size: 24pt;
+    text-decoration: none;
+    font-family: 'Lobster', cursive;
+    margin: auto;
+    text-align-last: left;
+    border: 2px solid black;
+
+}
+
+.foto{
+    height: 400px;
+    width: 400px;
+    border: 2px solid black;
+    position:relative;
+    width:fit-content;
+    height: fit-content;
+    margin: 20px;
+    
+}
+.redondeado{
+    border-radius: 30px;
+    background-image: url("https://img.freepik.com/vector-gratis/ola-texturas-vector-fondo-blanco_53876-60286.jpg?size=626&ext=jpg");
+    font-size: 20pt;
+
+}
+
+#reserva{
+    background-image: url("https://cdn.shopify.com/s/files/1/2690/5604/products/copperphotographybackdropfoodbackground_1080x.jpg?v=1607103054");
+    color: cornsilk;
+    font-size: 15pt;
+    margin: 50px;
+    padding: auto;
+
+
+}
+
+.texto_solo{
+    color:black;
+    font-size: 20pt;
+}
+
+#txt_solo{
+    font-size: 30pt;
+    background-image:url("https://cdn.shopify.com/s/files/1/2690/5604/products/copperphotographybackdropfoodbackground_1080x.jpg?v=1607103054");
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Lobster', cursive;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+#segunda_parte{
+    background-image: url("https://cdn.shopify.com/s/files/1/2690/5604/products/165._beaten_mill_board_A1_1080x.jpg?v=1607103257");
+    background-size: cover;
+}
