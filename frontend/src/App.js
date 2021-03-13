@@ -136,6 +136,7 @@ class App extends Component {
                             <Restaurants
                                 {...props}
                                 restaurants={this.props.services.restaurants}
+
                                 onChangeRestaurant={(answer) => {
                                     this.props.dispatch(changeRestaurant(answer));
                                 }}
@@ -151,6 +152,7 @@ class App extends Component {
                                 currentRestaurant={
                                     this.props.services.restaurants[this.props.currentService]
                                 }
+                                login={this.props.login}
                             />
                         )}
                     />

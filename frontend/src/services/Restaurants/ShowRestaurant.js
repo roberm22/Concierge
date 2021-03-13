@@ -1,6 +1,9 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import { DateTimePicker } from 'react-rainbow-components';
+import {Alert, AlertTitle} from "@material-ui/lab";
+import {ArrowBack} from "@material-ui/icons";
+import "./ShowRestaurant.css";
 export default class ShowRestaurant extends React.Component {
 
     constructor(props) {
@@ -12,32 +15,66 @@ export default class ShowRestaurant extends React.Component {
 
     render() {
         const containerStyles = {
-            maxWidth: 400,
+            maxWidth: 300,
 
         };
+
+        let message, title, link;
+        switch (this.props.login.status) {
+
+            case "info":
+                title = "Inicio de sesión";
+                message = "Debes iniciar sesión para poder realizar reservas."
+                link = <NavLink to="/login">      Iniciar Sesión</NavLink>
+                break;
+
+
+
+
+            default:
+                console.log(this.props.login.status);
+        }
         return (
-            <div>
-                <h1>{this.props.currentRestaurant.name}</h1>
+            <div className={"main_ShR"}>
+                <div className={"subR"}>
+                <Link to="/services/restaurants/" id="arrowR"> <ArrowBack/> </Link>
+                <h1 className={"hR"}>{this.props.currentRestaurant.name}</h1>
 
-                <img src={this.props.currentRestaurant.photo.url} alt={"Restaurante"} width={300} height={180}/>
-
-                <ul>
-                    <li>Cuisine: {this.props.currentRestaurant.cuisine}</li>
-                    <li>Address: {this.props.currentRestaurant.address}</li>
-                </ul>
-                {this.props.currentRestaurant.description}
+                <img src={this.props.currentRestaurant.photo.url} alt={"Restaurante"} width={300} height={180} border={5}/>
 
                 <div>
+                    <h3 className={"h3R"}>Information</h3>
 
-                    Persons:<input type={"number"} placeholder={"Select number of persons"}/>  Name: <input type={"text"} placeholder={"Name for the reservation"}/>
+
                 </div>
+
+                <div className={"descriptionR"}>
+                {this.props.currentRestaurant.description}
+                </div>
+                    <div>
+                        <h3 className={"h3R"}>Make a Reservation</h3>
+                    </div>
+
+                <div className={"subR_input"}>
+
+                    <input type={"number"} placeholder={"Persons"} disabled={ !this.props.login.isLogged}/>
+
+                     <input type={"text"} placeholder={"Name"} disabled={ !this.props.login.isLogged}/>
+                    </div>
 
                 <div style={containerStyles}>
-                     <DateTimePicker placeholder={"Date"} value={this.state.date} onChange={value => {this.setState( {date:value})} } hour24={true} locale={this.state.locale.name}/>
+                     <DateTimePicker placeholder={"Date"} disabled={ !this.props.login.isLogged}  onChange={value => {this.setState( {date:value})} } hour24={true} locale={this.state.locale.name}/>
                 </div>
-                <div>
-                    <button>Make Reservation</button>
-                    <Link to="/services/restaurants/">Go Back</Link>
+                <div className={"subR_button"}>
+                    <button disabled={ !this.props.login.isLogged} >Make Reservation</button>
+
+                </div>
+
+                <Alert severity={this.props.login.status} id="alert">
+                    <AlertTitle>{title}</AlertTitle>
+                   <div> {message}</div>
+                   <div> {link}</div>
+                </Alert>
                 </div>
             </div>
 
