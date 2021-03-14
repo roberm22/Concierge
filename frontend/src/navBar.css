@@ -1,14 +1,23 @@
 
+nav{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #333;
+}
 nav > ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    height: 100%;
 }
 
 nav > ul > li {
     float: left;
+    height: 100%;
 }
 
 nav > ul > li > a {
@@ -17,6 +26,7 @@ nav > ul > li > a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    height: 100%;
 }
 
 nav > ul> li > a:hover:not(.active) {

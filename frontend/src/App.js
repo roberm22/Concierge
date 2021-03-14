@@ -16,7 +16,6 @@ import Home from "./Home";
 import Login from "./Login/Login";
 import Welcome from "./Welcome";
 import Profile from "./Profile";
-import Services from "./Services";
 import Transports from "./services/Transport/Transports";
 import Restaurants from "./services/Restaurants/Restaurants";
 import RoomServices from "./services/Room Service/RoomServices";
@@ -109,8 +108,6 @@ class App extends Component {
                             />
                         )}
                     />
-
-                    <Route path="/services/" component={Services}/>
 
                     <Route
                         path="/services/transport/"

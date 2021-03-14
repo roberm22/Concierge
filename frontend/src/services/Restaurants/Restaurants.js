@@ -1,21 +1,145 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 import "./restaurants.css"
+import NavBar from "../../NavBar";
+import SlideImages from "../../SlideImages";
+
 export default class Restaurants extends React.Component {
 
     render() {
-        let restaurants = this.props.restaurants;
-        const listItems = restaurants.map((restaurant,i) =>
-            <div className="restaurants">
-            <li className={"res_li"}>
-            <Link className={"res_link"} to={"/services/restaurants/show_restaurant"} onClick={() =>this.props.onChangeRestaurant(i)}>{restaurant.name}</Link> </li> </div> );
-        return (
-            <div className="main_Rest">
-                <div className="sub_Rest">
-                <h1 className="header_r">Available Restaurants:</h1>
-            <ul>{listItems}</ul>
+
+        let photos = [
+            'https://www.viroth-hotel.com/wp-content/uploads/2019/05/Dining-Slide-5-e1559297966968.jpg',
+            'https://www.viroth-hotel.com/wp-content/uploads/2019/05/Bar-1.jpg',
+            'https://www.viroth-hotel.com/wp-content/uploads/2019/05/Dining.jpg'
+        ];
+
+        let photos2 = [
+            'https://www.viroth-hotel.com/wp-content/uploads/2020/02/Viroths_Salads_31-1-600x400.jpg',
+            'https://www.viroth-hotel.com/wp-content/uploads/2020/02/Viroths_Desserts_25-1-600x400.jpg',
+            'https://www.viroth-hotel.com/wp-content/uploads/2020/02/Viroths_Desserts_44-1-600x400.jpg'
+        ];
+
+        let photos3 = [
+            'https://www.viroth-hotel.com/wp-content/uploads/2019/05/Bar-720x480-600x400.jpg',
+            'https://www.viroth-hotel.com/wp-content/uploads/2019/06/30.-Bar-1-600x400.jpg',
+            'https://www.viroth-hotel.com/wp-content/uploads/2019/06/MG_1040-Edit-600x400.jpg'
+        ];
+
+         return (
+            <div>
+                <NavBar/>
+                <div className="mainRestaurant">
+
+                    <div className="firstView">
+
+                        <SlideImages
+                            slideImages = {photos}
+                        />
+
+                        <div className="titleRest">
+                            <h1 className="title">RESTAURANT</h1>
+                        </div>
+
+                        <a className="icon" href="#mainInfo">
+                            <svg className="svg-arrow" viewBox="0 0 512 503.97">
+                                <g className="shapes">
+                                    <polygon className="shape-1"
+                                             points="256 159.97 0 0 0 64 256 223.97 512 64 512 0 256 159.97"/>
+                                    <polygon className="shape-2"
+                                             points="256 299.97 0 140 0 204 256 363.97 512 204 512 140 256 299.97"/>
+                                    <polygon className="shape-3"
+                                             points="256 439.97 0 280 0 344 256 503.97 512 344 512 280 256 439.97"/>
+                                </g>
+                            </svg>
+                        </a>
+
+                    </div>
+
+                    <div className="main-content" id="mainInfo">
+
+                        <article className="firstArticle">
+                            <div className="container">
+                                <div className="row">
+                                    <div className="displayFlex">
+                                        <h2 className="articleTitle">RESTAURANT</h2>
+                                        <p>
+                                            The restaurant at Viroth’s
+                                        Hotel consists of a spacious poolside dining area with bar as well as an elegant
+                                        glass enclosed space for your dining comfort and pleasure. We also provide
+                                        dining services in our guest rooms. At any of these locations you may enjoy
+                                        refreshments and light dishes as well as full course meals that represent both
+                                            gastronomic worlds: choose from international dishes, or a seasonally inspired
+                                            Khmer menu.
+                                        </p>
+                                        <p>
+                                            <strong>OPENING HOURS</strong><br/>
+                                            07:00 – 10:30 A La Carte Breakfast<br/>
+                                            11:00 – 22:00 Lunch Dinner<br/>
+                                        </p>
+
+                                        <div className="menu">
+                                            <button onClick={ () => {
+                                                window.open("https://www.viroth-hotel.com/wp-content/uploads/2019/11/Web-MenuFood-1.pdf")
+                                            }}> Menu </button><br/><br/>
+                                        </div>
+                                        <p>&nbsp;</p>
+
+                                    </div>
+
+                                    <div className="flexImage">
+                                        <SlideImages
+                                            slideImages = {photos2}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article className="article">
+                            <div className="container">
+                                <div className="row">
+
+                                    <div className="flexImage">
+                                        <SlideImages
+                                            slideImages = {photos3}
+                                        />
+                                    </div>
+
+                                    <div className="displayFlex">
+                                        <h2 className="articleTitle">BAR</h2>
+                                        <p>
+                                            The restaurant at Viroth’s
+                                            Hotel consists of a spacious poolside dining area with bar as well as an elegant
+                                            glass enclosed space for your dining comfort and pleasure. We also provide
+                                            dining services in our guest rooms. At any of these locations you may enjoy
+                                            refreshments and light dishes as well as full course meals that represent both
+                                            gastronomic worlds: choose from international dishes, or a seasonally inspired
+                                            Khmer menu.
+                                        </p>
+                                        <p>
+                                            <strong>OPENING HOURS</strong><br/>
+                                            07:00 – 10:30 A La Carte Breakfast<br/>
+                                            11:00 – 22:00 Lunch Dinner<br/>
+                                        </p>
+
+                                        <div className="menu">
+                                            <button onClick={ () => {
+                                                window.open("https://www.viroth-hotel.com/wp-content/uploads/2019/11/Web-MenuFood-1.pdf")
+                                            }}> Bar Menu </button><br/><br/>
+                                        </div>
+                                        <p>&nbsp;</p>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+
                 </div>
             </div>
         );
     }
 }
+

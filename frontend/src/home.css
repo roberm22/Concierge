@@ -1,2 +1,28 @@
 
 /* A rellenar en el futuro */
+
+.mainHome{
+    padding-top: 50px;
+}
+
+.mainHome .slider{
+    height: calc(100vh - 50px);
+}
+
+.mainHome .slide-images .each-slide > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: calc(100vh - 50px);
+}
+
+.mainHome .slide-images .each-slide span {
+    padding: 25px;
+    font-size: 3em;
+    color: white;
+    font-family: 'Dosis', sans-serif;
+    text-align: center;
+    border-radius: 30px;
+    text-shadow: 5px 3px 4px black;
+}
