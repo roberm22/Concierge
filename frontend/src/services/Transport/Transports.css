@@ -17,6 +17,12 @@
     alignment: center;
 
 }
+.main_Trans button{
+    background: none;
+    border: none;
+    width: 20%;
+    font-size: 20px;
+}
 .main_Trans ul{
     list-style-type: none;
     display: inline;
@@ -32,7 +38,7 @@
     font-family: 'Dosis', sans-serif;
     text-shadow: 5px 3px 5px black;
 }
-.main_Trans li{
+.liT{
     color: white;
     background: #DAA520;
     padding: 0.7em;
