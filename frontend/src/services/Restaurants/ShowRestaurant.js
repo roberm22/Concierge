@@ -62,7 +62,7 @@ export default class ShowRestaurant extends React.Component {
                      <input type={"text"} placeholder={"Name"} disabled={ !this.props.login.isLogged}/>
                     </div>
 
-                <div style={containerStyles}>
+                <div className={"dateR"}>
                      <DateTimePicker placeholder={"Date"} disabled={ !this.props.login.isLogged}  onChange={value => {this.setState( {date:value})} } hour24={true} locale={this.state.locale.name}/>
                 </div>
                 <div className={"subR_button"}>
