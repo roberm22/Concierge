@@ -17,7 +17,6 @@
 }
 
 .main_ShowT input {
-    width: 25%;
     outline: none;
     font-size: 0.9em;
     padding: 1em 3em 1em 1em;
@@ -51,8 +50,37 @@
     transition:0.5s all;
 }
 
+.main_ShowT h1{
+    margin:0px;
+    text-align: center;
+    font-size: 3em;
+    color: white;
+    letter-spacing: 10px;
+    font-weight: 500;
+    font-family: 'Dosis', sans-serif;
+    text-shadow: 5px 3px 5px black;
+}
+
+.main_ShowT h3{
+    text-decoration: underline;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    font-family: 'Dosis', sans-serif;
+    text-shadow: 5px 3px 5px black;
+}
+
+.main_ShowT img{
+    border: solid white;
+    border-radius: 10px;
+}
+
 #alert{
     border-radius: 20px;
+}
+
+#DatePicker{
+    width: 25%;
 }
 
 #arrowT {

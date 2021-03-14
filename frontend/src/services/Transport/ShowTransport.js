@@ -66,6 +66,7 @@ export default class ShowTransport extends React.Component {
 
                     Departure Date:
                     <DateTimePicker
+                        id={"DatePicker"}
                         placeholder={"Date"}
                         disabled={!this.props.login.isLogged}
                         value={this.state.date}
@@ -77,6 +78,7 @@ export default class ShowTransport extends React.Component {
 
                     Return Date:
                     <DateTimePicker
+                        id={"DatePicker"}
                         placeholder={"Date"}
                         disabled={!this.props.login.isLogged}
                         value={this.state.date}
@@ -108,13 +110,16 @@ export default class ShowTransport extends React.Component {
                            disabled={!this.props.login.isLogged}
                     />
 
-
-                    <button onClick={this.play} disabled={!this.props.login.isLogged}>Make Reservation</button>
-                    <Alert severity={this.props.login.status} id="alert">
-                        <AlertTitle>{title}</AlertTitle>
-                        <div> {message}</div>
-                        <div> {link}</div>
-                    </Alert>
+                    {(!this.props.login.isLogged) ?
+                        (<div>
+                            <button onClick={this.play} disabled={!this.props.login.isLogged}>Make Reservation</button>
+                            <Alert severity={this.props.login.status} id="alert">
+                                <AlertTitle>{title}</AlertTitle>
+                                <div> {message}</div>
+                                <div> {link}</div>
+                            </Alert>
+                        </div>) : null
+                    }
 
                 </div>
             </div>

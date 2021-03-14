@@ -8,18 +8,22 @@ export default class Transports extends React.Component {
         let transports = this.props.transports;
         const listItems = transports.map((transport, i) =>
             <div>
-                <li>
-                    <Link className={"link_t"}  to={"/services/transport/show_transport"}
+                <li className="liT">
+                    <Link className={"link_t"} to={"/services/transport/show_transport"}
                           onClick={() => this.props.onChangeTransport(i)}>{transport.name}</Link>
+
                 </li>
             </div>);
-
 
         return (
             <div className="main_Trans">
                 <div>
                     <h1 className="header_t">Available Transports:</h1>
-                    <ul className="ul_t">{listItems}</ul>
+                    <ul className="ul_t">
+                        <button onClick={window.scrollTo(0, document.body.scrollHeight)}>
+                            {listItems}
+                        </button>
+                    </ul>
                 </div>
             </div>
         );
