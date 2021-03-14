@@ -19,7 +19,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 130vh;
+    height: 120vh;
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     background-attachment: fixed;
@@ -51,6 +51,10 @@
     text-transform: uppercase;
 }
 
+.dateR{
+    width: 400px;
+}
+
 .subR {
     display: flex;
     flex-direction: column;
@@ -74,7 +78,8 @@
     font-size: 0.9em;
     padding: 1em 3em 1em 1em;
     border: none;
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
+    margin-right: 10px;
     background: rgba(255, 255, 255, 0.85);
     color: #000;
     border-radius: 30px;
