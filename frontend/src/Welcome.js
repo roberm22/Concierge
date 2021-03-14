@@ -1,14 +1,12 @@
 import React from 'react';
 import './welcome.css'
 import {Redirect} from "react-router-dom";
-import NavBar from "./NavBar";
 
 export default class Welcome extends React.Component {
 
     render() {
         return (
             <div className={"welcomeMain"}>
-                <NavBar/>
                 {(this.props.login.conditionsAccepted === false && this.props.login.isLogged) ? (
                     <div>
                         <div className={"welcomeBox"}>

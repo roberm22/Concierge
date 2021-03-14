@@ -13,9 +13,14 @@ export default class NavBar extends React.Component {
                     <li>
                         <NavLink exact to="/" >Home</NavLink>
                     </li>
-
                     <li>
-                        <NavLink to="/services/" >Services</NavLink>
+                        <NavLink to="/services/transport/">Transport</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/services/restaurants/">Restaurants</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/services/room_services/">Room Services</NavLink>
                     </li>
 
                     <li>

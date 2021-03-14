@@ -32,14 +32,16 @@
 }
 
 .welcomeMain{
+    padding-top: 10px;
     background-image: url("./assets/images/login.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 110vh;
+    height: 100vh;
     background-attachment: fixed;
 }
 .welcomeBox h1{
+    margin:0px;
     text-align: center;
     font-size: 3em;
     color: white;

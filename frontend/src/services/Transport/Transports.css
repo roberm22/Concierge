@@ -1,22 +1,11 @@
-
-
 .header_t {
     padding-top: 5em;
+    margin-top: 0;
     padding-bottom: 8em;
     color: white;
 }
 
-.header h1 {
-    font-size: 3em;
-    color: white;
-    letter-spacing: 10px;
-    font-weight: 500;
-    font-family: 'Dosis', sans-serif;
-    text-shadow: 5px 3px 5px black;
-}
-
 .main_Trans{
-
     background-image: url("https://canadiantransfers.com/wp-content/uploads/2020/10/Private-Transfers-Cancun.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -25,174 +14,45 @@
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     background-attachment: fixed;
-}
+    alignment: center;
 
-.main:before {
-    content:'';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0,0,0,0.5);
 }
+.main_Trans ul{
+    list-style-type: none;
+    display: inline;
 
-.tittle h2 {
-    font-size: 1.2em;
-    color: #fff;
-    letter-spacing: 4px;
-    margin-bottom: 1.5em;
-    text-transform: uppercase;
 }
-
-.sub {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
+.main_Trans h1{
+    margin:0px;
+    text-align: center;
+    font-size: 3em;
+    color: white;
+    letter-spacing: 10px;
+    font-weight: 500;
+    font-family: 'Dosis', sans-serif;
+    text-shadow: 5px 3px 5px black;
 }
-
-.sub input {
-    width: 25%;
-    outline: none;
-    font-size: 0.9em;
-    padding: 1em 3em 1em 1em;
-    border: none;
-    margin-bottom: 0.3em;
-    background: rgba(255, 255, 255, 0.85);
-    color: #000;
-    border-radius: 30px;
-    font-weight: 400;
-    letter-spacing: 1px;
-}
-
-input.pass {
-    margin-top: 0.7em;
-}
-
-.submit {
-    margin-top: 2em;
-    width: 20%;
-}
-
-.sub button {
+.main_Trans li{
     color: white;
     background: #DAA520;
-    border: none;
     padding: 0.7em;
     outline: none;
-    width: 44%;
     font-size: 1em;
     cursor: pointer;
     letter-spacing: 1px;
     font-weight: 400;
-    transition: 0.5s all;
     border-radius: 30px;
+    margin-top: 2em;
+    box-shadow: 2px 2px 2px 2px #333333;
 }
 
-.sub button:hover {
+
+.main_Trans li a:hover {
     color: black;
     transition:0.5s all;
 }
 
-#alert{
-    margin-top: 5em;
-    border-radius: 20px;
-}
-
-#arrow {
-    align-self: flex-start;
-    color: white;
-    padding: 20px;
-    cursor: pointer;
-}
-
-.header_r {
-    padding-top: 5em;
-    padding-bottom: 8em;
-    color: white;
-}
-
-.header h1 {
-    font-size: 3em;
-    color: white;
-    letter-spacing: 10px;
-    font-weight: 500;
-    font-family: 'Dosis', sans-serif;
-    text-shadow: 5px 3px 5px black;
-}
-.res_link{
+.link_t{
     color:white;
-    font-family: 'Dosis', sans-serif;
-
+    text-decoration: none;
 }
-.res_li{
-    color:white;
-    margin-bottom: 20px;
-
-
-}
-.main_Trans1{
-
-    background-image: url("https://canadiantransfers.com/wp-content/uploads/2020/10/Private-Transfers-Cancun.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100vh;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    background-attachment: fixed;
-}
-
-.main:before {
-    content:'';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0,0,0,0.5);
-}
-
-
-
-.sub {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-
-
-
-input.pass {
-    margin-top: 0.7em;
-}
-
-.submit {
-    margin-top: 2em;
-    width: 20%;
-}
-
-.tittle h2 {
-    font-size: 1.2em;
-    color: #fff;
-    letter-spacing: 4px;
-    margin-bottom: 1.5em;
-    text-transform: uppercase;}
-
-.sub input {
-    width: 25%;
-    outline: none;
-    font-size: 0.9em;
-    padding: 1em 3em 1em 1em;
-    border: none;
-    margin-bottom: 0.3em;
-    background: rgba(255, 255, 255, 0.85);
-    color: #000;
-    border-radius: 30px;
-    font-weight: 400;
-    letter-spacing: 1px;
-}
-
-

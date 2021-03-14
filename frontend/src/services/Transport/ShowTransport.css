@@ -1,22 +1,4 @@
-
-
-.header_show {
-    padding-top: 5em;
-    padding-bottom: 8em;
-    color: white;
-}
-
-.header h1 {
-    font-size: 3em;
-    color: white;
-    letter-spacing: 10px;
-    font-weight: 500;
-    font-family: 'Dosis', sans-serif;
-    text-shadow: 5px 3px 5px black;
-}
-
-.main_Show{
-
+.main_ShowT{
     background-image: url("https://i.pinimg.com/originals/b6/4b/b3/b64bb3bcaaddc8ac8ac8d69434faa5e7.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -27,32 +9,14 @@
     background-attachment: fixed;
 }
 
-.main:before {
-    content:'';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0,0,0,0.5);
-}
-
-.tittle h2 {
-    font-size: 1.2em;
-    color: #fff;
-    letter-spacing: 4px;
-    margin-bottom: 1.5em;
-    text-transform: uppercase;
-}
-
-.sub {
+.boxT {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
 }
 
-.sub input {
+.main_ShowT input {
     width: 25%;
     outline: none;
     font-size: 0.9em;
@@ -66,16 +30,7 @@
     letter-spacing: 1px;
 }
 
-input.pass {
-    margin-top: 0.7em;
-}
-
-.submit {
-    margin-top: 2em;
-    width: 20%;
-}
-
-.sub button {
+.main_ShowT button {
     color: white;
     background: #DAA520;
     border: none;
@@ -88,21 +43,21 @@ input.pass {
     font-weight: 400;
     transition: 0.5s all;
     border-radius: 30px;
+    box-shadow: 2px 2px 2px 2px #333333;
 }
 
-.sub button:hover {
+.main_ShowT button:hover {
     color: black;
     transition:0.5s all;
 }
 
 #alert{
-    margin-top: 5em;
     border-radius: 20px;
 }
 
-#arrow {
-    align-self: flex-start;
+#arrowT {
     color: white;
     padding: 20px;
     cursor: pointer;
+    size: 40px;
 }
