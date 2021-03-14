@@ -10,9 +10,9 @@ export default class Transports extends React.Component {
         let transports = this.props.transports;
         const listItems = transports.map((transport, i) =>
             <div className="o">
-                <li>
+                <li className={"res_li"}>
 
-                    <Link to={"/services/transport/show_transport"}
+                    <Link className={"res_link"} to={"/services/transport/show_transport"}
                           onClick={() => this.props.onChangeTransport(i)}>{transport.name}</Link>
                 </li>
             </div>);

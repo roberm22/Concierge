@@ -1,7 +1,9 @@
 import React from 'react';
 import { DateTimePicker } from 'react-rainbow-components';
+import {Link, NavLink} from "react-router-dom";
 
-import {Link} from "@material-ui/core";
+
+//import {Link} from "@material-ui/core";
 
 import  "./ShowTransport.css";
 import Calendar_test from '../Calendar_test';
@@ -13,6 +15,7 @@ import "react-datetime/css/react-datetime.css";
 import {ArrowBack} from "@material-ui/icons";
 import {blue} from "@material-ui/core/colors";
 import {Alert, AlertTitle} from "@material-ui/lab";
+
 //import {DateTimePicker} from "react-rainbow-components";
 
 const styles = {
@@ -38,7 +41,21 @@ const linkStyle = {
 
     render(){
 
+        let message, title, link;
+        switch (this.props.login.status) {
 
+            case "info":
+                title = "Inicio de sesión";
+                message = "Debes iniciar sesión para poder realizar reservas."
+                link = <NavLink to="/login">      Iniciar Sesión</NavLink>
+                break;
+
+
+
+
+            default:
+                console.log(this.props.login.status);
+        }
 
         return (
             <div>
@@ -68,30 +85,21 @@ export default class ShowTransport extends React.Component {
             maxWidth: 400,
 
         };
-        let message, title;
+        let message, title, link;
         switch (this.props.login.status) {
-            case "normal":
-                title = "Error";
-                message = "You need to be premium client"
+
+            case "info":
+                title = "Inicio de sesión";
+                message = "Debes iniciar sesión para poder realizar reservas."
+                link = <NavLink to="/login">      Iniciar Sesión</NavLink>
                 break;
 
-            case "premium":
-                title = "Success!";
-                message = "OK"
-                break;
+
 
 
             default:
-                console.log('Algo ha ido mal');
+                console.log(this.props.login.status);
         }
-        var mensaje_submit = "";
-        if(this.props.login.isLogged !=true){
-            mensaje_submit="You need to be premium client";
-        }
-        if(this.props.login.isLogged ==true){
-            mensaje_submit="OK!";
-        }
-
 
         return (
             <div className="main_Show">
@@ -112,29 +120,33 @@ export default class ShowTransport extends React.Component {
 
                 <div>
 
-                    Number of passengers:<input type={"number"} placeholder={"Select number of persons"}/>
+                    Number of passengers:<input type={"number"} placeholder={"Select number of persons"} disabled={ !this.props.login.isLogged}/>
                 </div>
 
                 <div style={containerStyles}>
 
-                     Departure Date:   <DateTimePicker placeholder={"Date"} value={this.state.date} onChange={value => {this.setState( {date:value})} } hour24={true} locale={this.state.locale.name}/>  Return Date:  <DateTimePicker placeholder={"Date"} value={this.state.date} onChange={value => {this.setState( {date:value})} } hour24={true} locale={this.state.locale.name}/>
+                     Departure Date:   <DateTimePicker placeholder={"Date"} disabled={ !this.props.login.isLogged} value={this.state.date} onChange={value => {this.setState( {date:value})} } hour24={true} locale={this.state.locale.name}/>  Return Date:  <DateTimePicker placeholder={"Date"} disabled={ !this.props.login.isLogged} value={this.state.date} onChange={value => {this.setState( {date:value})} } hour24={true} locale={this.state.locale.name}/>
                 </div>
 
                     <div>
 
-                        Point of Departure:<input type={"text"} placeholder={"Departure point"}/>  Destination: <input type={"text"} placeholder={"Destination"}/>
+                        Point of Departure:<input type={"text"} placeholder={"Departure point"} disabled={ !this.props.login.isLogged} />  Destination: <input type={"text"} placeholder={"Destination"} disabled={ !this.props.login.isLogged}/>
                     </div>
                     <div>
 
-                        Write here any extra information if needed:<input type={"text"} placeholder={"Extra information"}/>
+                        Write here any extra information if needed:<input type={"text"} placeholder={"Extra information"} disabled={ !this.props.login.isLogged}/>
                     </div>
 
                 <div>
 
-                    <button onClick={this.play}>Make Reservation </button>
+                    <button onClick={this.play} disabled={ !this.props.login.isLogged}>Make Reservation </button>
 
                 </div>
-
+                    <Alert severity={this.props.login.status} id="alert">
+                        <AlertTitle>{title}</AlertTitle>
+                        <div> {message}</div>
+                        <div> {link}</div>
+                    </Alert>
 
                 </div>
             </div>
