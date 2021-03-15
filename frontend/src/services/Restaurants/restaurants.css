@@ -28,10 +28,6 @@
     overflow: hidden;
 }
 
-.mainRestaurant {
-    padding-top: 50px;
-}
-
 .firstView {
     height: calc(100vh - 50px);
     position: relative;

@@ -63,8 +63,7 @@ export default class Restaurants extends React.Component {
                                     <div className="displayFlex">
                                         <h2 className="articleTitle">RESTAURANT</h2>
                                         <p>
-                                            The restaurant at Viroth’s
-                                        Hotel consists of a spacious poolside dining area with bar as well as an elegant
+                                            The restaurant consists of a spacious poolside dining area with bar as well as an elegant
                                         glass enclosed space for your dining comfort and pleasure. We also provide
                                         dining services in our guest rooms. At any of these locations you may enjoy
                                         refreshments and light dishes as well as full course meals that represent both
@@ -108,18 +107,15 @@ export default class Restaurants extends React.Component {
                                     <div className="displayFlex">
                                         <h2 className="articleTitle">BAR</h2>
                                         <p>
-                                            The restaurant at Viroth’s
-                                            Hotel consists of a spacious poolside dining area with bar as well as an elegant
-                                            glass enclosed space for your dining comfort and pleasure. We also provide
-                                            dining services in our guest rooms. At any of these locations you may enjoy
-                                            refreshments and light dishes as well as full course meals that represent both
-                                            gastronomic worlds: choose from international dishes, or a seasonally inspired
-                                            Khmer menu.
+                                            The bar consists of a spacious poolside bar area as an elegant
+                                            glass enclosed space for your comfort and pleasure. We also provide
+                                            bar services in our guest rooms. At any of these locations you may enjoy
+                                            refreshments and light drinks as well as awesome cocktails.
                                         </p>
                                         <p>
                                             <strong>OPENING HOURS</strong><br/>
-                                            07:00 – 10:30 A La Carte Breakfast<br/>
-                                            11:00 – 22:00 Lunch Dinner<br/>
+                                            07:00 – 10:30 Indoor Bar<br/>
+                                            11:00 – 22:00 Tropical Bar<br/>
                                         </p>
 
                                         <div className="menu">

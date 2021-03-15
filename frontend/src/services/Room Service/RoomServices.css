@@ -1,34 +1,177 @@
-.main_Room {
-    background-image:url("https://media.gettyimages.com/photos/breakfast-in-hotel-room-picture-id154945734?k=6&m=154945734&s=612x612&w=0&h=zUaa-gAzx_pvL37_ZojS6qst5gkgA1DaGJCt16WGOHo=");
+
+.firstView .slide-images .each-slide div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100vh;
+    height: calc(100vh - 50px);
+}
+
+.firstView .slide-images .each-slide span {
+    padding: 25px;
+    font-size: 3em;
+    color: white;
+    font-family: 'Cormorant Garamond', serif;
     text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    background-attachment: fixed;
+    border-radius: 30px;
+    text-shadow: 5px 3px 4px black;
 }
 
-.encabezado{
-    background-image:url("https://cdn.shopify.com/s/files/1/2690/5604/products/copperphotographybackdropfoodbackground_1080x.jpg?v=1607103054");
+.firstView .slide-images {
+    position: absolute;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+.firstView {
+    height: calc(100vh - 50px);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+
+.titleRest{
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 100px;
+    text-shadow: 0 0 8px #000;
+    max-width: 576px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.titleRest h1 {
+    font-family: 'Cormorant Garamond', serif;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    font-style: italic;
+}
+
+.icon{
+    display: block;
+    line-height: 1;
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-left: -1.25rem;
+    z-index: 2;
+}
+
+.firstView .icon .svg-arrow {
+    fill: #fff;
+}
+
+.firstArticle {
+    padding-bottom: 2rem;
+    padding-top: 3rem;
+}
+
+.container {
+    max-width: 1100px;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.displayFlex {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.flexImage {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.main-content .slide-images .each-slide div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 300px;
+}
+
+.main-content .slide-images {
+    padding-top: 70px;
+}
+
+.main-content .slide-images .each-slide span {
+    padding: 25px;
+    font-size: 3em;
+    color: white;
+    font-family: 'Cormorant Garamond', serif;
+    text-align: center;
+    border-radius: 30px;
+    text-shadow: 5px 3px 4px black;
+}
+
+.articleTitle {
+    position: relative;
+    padding-bottom: .5rem;
+    margin-bottom: 1rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.75rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.articleTitle:after {
+    content: '';
+    width: 70px;
+    height: 3px;
+    background-color: currentColor;
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
+.displayFlex p {
     margin-top: 0;
-    padding: 20px 20px 20px 40px;
-    color: #ffffff;
-    font-size: 36pt;
-    text-decoration: none;
-    font-family: 'Lobster', cursive;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-bottom: 2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2em;
+    padding-right: 30px;
 }
 
-.listado{
-    color:black;
-    font-size: 36pt;
-    text-decoration: none;
-    font-family: 'Lobster', cursive;
-    width:50%;
-    padding:8px;
-    margin:auto;
-    
+.menu button {
+    color: white;
+    background: darkgoldenrod;
+    border: none;
+    padding: 0.8em;
+    outline: none;
+    width: 25%;
+    font-size: 1em;
+    cursor: pointer;
+    letter-spacing: 1px;
+    font-weight: 400;
+    transition: 0.5s all;
+    border-radius: 30px;
 }
 
+.menu button:hover {
+    color: black;
+    transition:0.5s all;
+}
+
+.article .slide-images {
+    padding-right: 30px;
+}
