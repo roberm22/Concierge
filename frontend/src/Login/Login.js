@@ -26,17 +26,17 @@ export default class Login extends React.Component{
         switch (this.props.login.status) {
             case "error":
                 title = "Error";
-                message = "Usuario o contraseña incorrectos"
+                message = "Username or password incorrect"
                 break;
 
             case "info":
-                title = "Inicio de sesión";
-                message = "Debes iniciar sesión para poder acceder a tu perfil"
+                title = "Log in";
+                message = "You need to be logged to see your profile"
                 break;
 
             case "warning":
-                title = "Actividad sospechosa";
-                message = "Número máximo de intentos alcanzado - Cuenta bloqueada"
+                title = "Warning";
+                message = "Maximum number of attempts reached - Account locked"
                 break;
 
             case "success":

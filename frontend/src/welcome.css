@@ -30,6 +30,9 @@
     margin-left: 2em;
     margin-right: 2em;
 }
+.welcomeP li {
+    padding: 5px;
+}
 
 .welcomeMain{
     padding-top: 10px;

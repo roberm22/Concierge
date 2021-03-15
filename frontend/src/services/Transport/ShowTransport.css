@@ -3,7 +3,6 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 140vh;
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     background-attachment: fixed;
@@ -14,6 +13,9 @@
     flex-direction: column;
     align-items: center;
     position: relative;
+    color: white;
+    font-family: 'Dosis', sans-serif;
+    text-shadow: 5px 3px 5px black;
 }
 
 .main_ShowT input {
@@ -33,12 +35,11 @@
     color: white;
     background: #DAA520;
     border: none;
-    padding: 0.7em;
     outline: none;
-    width: 44%;
     font-size: 1em;
     cursor: pointer;
     letter-spacing: 1px;
+    padding: 10px;
     font-weight: 400;
     transition: 0.5s all;
     border-radius: 30px;
@@ -76,8 +77,9 @@
 }
 
 #alertT{
-    margin-top: 10px;
+    margin: 10px;
     border-radius: 20px;
+    text-shadow: none;
 }
 
 #DatePicker{
