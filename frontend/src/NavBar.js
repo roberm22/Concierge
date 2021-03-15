@@ -24,7 +24,7 @@ export default class NavBar extends React.Component {
                     </li>
 
                     <li>
-                        <NavLink to="/profile/" id="user"> <AccountCircleIcon style={{ fontSize: 20 }}/> </NavLink>
+                        <NavLink to="/profile/" id="userNav"> <AccountCircleIcon style={{ fontSize: 20 }}/> </NavLink>
                     </li>
                 </ul>
             </nav>

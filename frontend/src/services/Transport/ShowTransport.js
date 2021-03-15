@@ -113,7 +113,7 @@ export default class ShowTransport extends React.Component {
                     {(!this.props.login.isLogged) ?
                         (<div>
                             <button onClick={this.play} disabled={!this.props.login.isLogged}>Make Reservation</button>
-                            <Alert severity={this.props.login.status} id="alert">
+                            <Alert severity={this.props.login.status} id="alertT">
                                 <AlertTitle>{title}</AlertTitle>
                                 <div> {message}</div>
                                 <div> {link}</div>

@@ -19,6 +19,12 @@ nav > ul > li {
     float: left;
     height: 100%;
 }
+/*#userNav {*/
+/*    color: white;*/
+/*    position:absolute;*/
+/*    top: 0;*/
+/*    right: 0;*/
+/*}*/
 
 nav > ul > li > a {
     display: block;
@@ -35,10 +41,4 @@ nav > ul> li > a:hover:not(.active) {
 
 .active {
     background-color: #DAA520;
-}
-#user {
-    color: white;
-    position: absolute;
-    top: 0;
-    right: 0;
 }

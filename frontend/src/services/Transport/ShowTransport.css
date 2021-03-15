@@ -3,7 +3,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 100vh;
+    height: 140vh;
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     background-attachment: fixed;
@@ -75,7 +75,8 @@
     border-radius: 10px;
 }
 
-#alert{
+#alertT{
+    margin-top: 10px;
     border-radius: 20px;
 }
 

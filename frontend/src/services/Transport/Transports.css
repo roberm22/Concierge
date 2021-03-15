@@ -1,7 +1,6 @@
 .header_t {
     padding-top: 5em;
     margin-top: 0;
-    padding-bottom: 8em;
     color: white;
 }
 
@@ -38,11 +37,15 @@
     font-family: 'Dosis', sans-serif;
     text-shadow: 5px 3px 5px black;
 }
+.main_Trans a{
+    color: white;
+    text-decoration: none;
+}
+
 .liT{
     color: white;
     background: #DAA520;
     padding: 0.7em;
-    outline: none;
     font-size: 1em;
     cursor: pointer;
     letter-spacing: 1px;
