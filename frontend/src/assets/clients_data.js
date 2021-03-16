@@ -26,7 +26,7 @@ exports.clients = [
 			"email": "juanito99@gmail.com",
 			"phone": 659432990,
 			"photo": {
-				"filename": "juan.jpg"
+				"filename": null
 			}
 		},
 		"isVip": false
