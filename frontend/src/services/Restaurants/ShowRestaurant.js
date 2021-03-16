@@ -22,8 +22,8 @@ export default class ShowRestaurant extends React.Component {
         switch (this.props.login.status) {
 
             case "info":
-                title = "Inicio de sesión";
-                message = "Debes iniciar sesión para poder realizar reservas."
+                title = "Log In";
+                message = "You need to be logged to make a reservation."
                 link = <NavLink to="/login"> Iniciar Sesión</NavLink>
                 break;
 
