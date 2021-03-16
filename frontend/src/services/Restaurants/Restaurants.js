@@ -2,10 +2,20 @@ import React from 'react';
 import "./restaurants.css"
 import NavBar from "../../NavBar";
 import SlideImages from "../../SlideImages";
+import {Link} from "react-router-dom";
 
 export default class Restaurants extends React.Component {
 
     render() {
+        let restaurants = this.props.restaurants;
+        const listItems = restaurants.map((restaurant, i) =>
+            <div>
+                <li className="liR">
+                    <Link to="/services/restaurants/show_restaurant/"
+                             onClick={() => this.props.onChangeRestaurant(i)}>{restaurant.name}</Link>
+
+                </li>
+            </div>);
 
         let photos = [
             'https://www.viroth-hotel.com/wp-content/uploads/2019/05/Dining-Slide-5-e1559297966968.jpg',
@@ -127,6 +137,23 @@ export default class Restaurants extends React.Component {
 
                                     </div>
 
+                                </div>
+                            </div>
+                        </article>
+
+                        <article className="thirdArticle">
+                            <div className="container">
+                                <div className="row">
+                                    <div className="displayFlex">
+                                        <h2 className="articleTitle">OTHERS RESTAURANTS</h2>
+                                        <ul className="ul_r">
+                                            <button onClick={window.scrollTo(0, document.body.scrollHeight)}>
+                                                {listItems}
+                                            </button>
+                                        </ul>
+                                        <p>&nbsp;</p>
+
+                                    </div>
                                 </div>
                             </div>
                         </article>

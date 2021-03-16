@@ -28,6 +28,30 @@
     overflow: hidden;
 }
 
+.liR{
+    color: white;
+    background: #DAA520;
+    padding: 0.7em;
+    font-size: 1em;
+    cursor: pointer;
+    letter-spacing: 1px;
+    font-weight: 400;
+    border-radius: 30px;
+    margin-top: 2em;
+    box-shadow: 2px 2px 2px 2px #333333;
+}
+.ul_r button{
+    background: none;
+    padding: 10px;
+    border: none;
+
+}
+
+.ul_r a{
+    color: white;
+    text-decoration: none;
+}
+
 .firstView {
     height: calc(100vh - 50px);
     position: relative;

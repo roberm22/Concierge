@@ -14,7 +14,7 @@ export default class RoomServices extends React.Component {
         ];
 
         let photos2 = [
-            'https://lh3.googleusercontent.com/proxy/4jU1ujXA5lrTeTwUb2Nj-YAniDPL9dHaJciX-KYepmE36jSNgTLChQATBli0iZ0w8H9lHs6C1RLaFiOo5mKJZ-vHuyIM4SE1q-T3y3npYsc8MqaeE6M7rqi9vQmVFE09',
+            'https://www.viroth-hotel.com/wp-content/uploads/2020/02/Viroths_Salads_31-1-600x400.jpg',
             'https://www.unileverfoodsolutions.es/ideas-menu/especial-hoteles/room-service/tipos-de-room-service/jcr:content/parsys/content-aside-footer/tipsandadvice_812654/image.img.jpg/1518543041515.jpg',
             'https://staro.ua/wp-content/uploads/2016/05/room_services.jpg'
         ];

@@ -4,6 +4,14 @@
     color: white;
 }
 
+.boxR {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    color: white;
+}
+
 .hR{
     font-size: 3em;
     color: white;
@@ -12,6 +20,13 @@
     font-family: 'Dosis', sans-serif;
     text-shadow: 5px 3px 5px black;
 }
+#arrowR {
+    color: white;
+    padding: 20px;
+    cursor: pointer;
+    size: 40px;
+    alignment: center;
+}
 
 .main_ShR{
 
@@ -19,7 +34,6 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 120vh;
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     background-attachment: fixed;
