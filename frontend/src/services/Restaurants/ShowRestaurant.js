@@ -24,7 +24,7 @@ export default class ShowRestaurant extends React.Component {
             case "info":
                 title = "Log In";
                 message = "You need to be logged to make a reservation."
-                link = <NavLink to="/login"> Iniciar Sesión</NavLink>
+                link = <NavLink to="/login"> Sign in</NavLink>
                 break;
 
 

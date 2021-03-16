@@ -36,9 +36,9 @@ export default class ShowTransport extends React.Component {
         let message, title, link;
         switch (this.props.login.status) {
             case "info":
-                title = "Inicio de sesión";
-                message = "Debes iniciar sesión para poder realizar reservas."
-                link = <NavLink to="/login"> Iniciar Sesión</NavLink>
+                title = "Log In";
+                message = "You need to be logged to make a reservation."
+                link = <NavLink to="/login"> Sign In</NavLink>
                 break;
             default:
                 console.log(this.props.login.status);
