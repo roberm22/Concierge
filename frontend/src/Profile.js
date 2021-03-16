@@ -44,7 +44,10 @@ export default class Profile extends React.Component {
                             </Alert>
 
                             <div className={"information"}>
-                                <img src={process.env.PUBLIC_URL + "/" + this.props.client.profile.photo.filename}
+                                <img src={ this.props.client.profile.photo.filename ?
+                                    process.env.PUBLIC_URL + "/" + this.props.client.profile.photo.filename :
+                                    "https://www.learning.uclg.org/sites/default/files/styles/featured_home_left/public/no-user-image-square.jpg?itok=PANMBJF-"
+                                }
                                      alt={"Sin foto de perfil"}/>
                                 <div className={"box"}>
                                     <h3>Full name: {this.props.client.profile.name} </h3>

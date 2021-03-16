@@ -144,7 +144,7 @@ export default class Restaurants extends React.Component {
                         <article className="thirdArticle">
                             <div className="container">
                                 <div className="row">
-                                    <div className="displayFlex">
+                                    <div className="displayList">
                                         <h2 className="articleTitle">OTHERS RESTAURANTS</h2>
                                         <ul className="ul_r">
                                             <button onClick={window.scrollTo(0, document.body.scrollHeight)}>

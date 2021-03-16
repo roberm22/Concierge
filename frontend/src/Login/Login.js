@@ -14,7 +14,7 @@ export default class Login extends React.Component{
     }
     componentDidMount() {
         let alert = document.querySelector('#alert');
-        this.timerlog = setTimeout(() => alert.style.visibility = 'hidden', 3000)
+        this.timerlog = setTimeout(() => alert.style.visibility = 'hidden', 3000);
     }
 
     componentWillUnmount() {

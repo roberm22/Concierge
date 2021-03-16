@@ -27,6 +27,8 @@
 .profileMain input {
     font: inherit;
     padding: 0.2em 0.5em;
+    border-radius: 10px;
+    outline: none;
 }
 
 
