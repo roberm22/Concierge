@@ -52,7 +52,7 @@ export default class Profile extends React.Component {
                                 <div className={"box"}>
                                     <h3>Full name: {this.props.client.profile.name} </h3>
                                     <h3>Room: {this.props.client.room}</h3>
-                                    <h3>NID: {this.props.client.DNI}</h3>
+                                    <h3>DNI: {this.props.client.DNI}</h3>
                                     <h3>Email:
                                         <input type="text" id="email" placeholder={this.state.profile.email}
                                                value={this.state.profile.email}
@@ -65,12 +65,12 @@ export default class Profile extends React.Component {
                                                }
                                         />
                                     </h3>
-                                    <h3>Username:
-                                        <input type="text" id="username" placeholder={this.state.profile.username}
-                                               value={this.state.profile.username}
+                                    <h3>Phone:
+                                        <input type="text" id="username" placeholder={this.state.profile.phone}
+                                               value={this.state.profile.phone}
                                                onChange={(e) => {
                                                    let newState = update(this.state, {
-                                                       profile: {username: {$set: e.target.value}}
+                                                       profile: {phone: {$set: e.target.value}}
                                                    });
                                                    this.setState(newState);
                                                }
@@ -78,12 +78,12 @@ export default class Profile extends React.Component {
                                         />
                                     </h3>
 
-                                    <h3>Password:
-                                        <input type="password" id="password" placeholder={this.state.profile.password}
-                                               value={this.state.profile.password}
+                                    <h3>Name:
+                                        <input type="text" id="password" placeholder={this.state.profile.name}
+                                               value={this.state.profile.name}
                                                onChange={(e) => {
                                                    let newState = update(this.state, {
-                                                       profile: {password: {$set: e.target.value}}
+                                                       profile: {name: {$set: e.target.value}}
                                                    });
                                                    this.setState(newState);
                                                }

@@ -80,8 +80,8 @@ class App extends Component {
                                 {...props}
                                 clients={this.props.clients}
                                 login={this.props.login}
-                                onUserAnswer={(user = this.props.login.userAnswer, password = this.props.login.passwordAnswer) => {
-                                    this.props.dispatch(userAnswer(user, password));
+                                onUserAnswer={(dni = this.props.login.dniAnswer, room = this.props.login.roomAnswer) => {
+                                    this.props.dispatch(userAnswer(dni, room));
                                 }}
                                 submitFunction={this.submit}
                             />

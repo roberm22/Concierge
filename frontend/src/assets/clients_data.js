@@ -1,12 +1,10 @@
 exports.clients = [
 	{
 		"id": 1,
-		"room": 220,
-		"DNI": "94342812D",
+		"room": "200",
+		"DNI": "12345678A",
 		"profile": {
 			"name": "Pepe",
-			"username": "p",
-			"password": "1234",
 			"email": "pepito88@gmail.com",
 			"phone": 628496873,
 			"photo": {
@@ -17,12 +15,10 @@ exports.clients = [
 	},
 	{
 		"id": 2,
-		"room": 320,
-		"DNI": "32297678C",
+		"room": "300",
+		"DNI": "87654321B",
 		"profile": {
 			"name": "Juan",
-			"username": "j",
-			"password": "1234",
 			"email": "juanito99@gmail.com",
 			"phone": 659432990,
 			"photo": {
@@ -40,9 +36,7 @@ exports.login =
 		"status": "info",
 		"isLogged": false,
 		"conditionsAccepted":false,
-		"userAnswer": "",
-		"passwordAnswer": "",
-		"attempts": 0,
-		"userDNI": "",
-		"roomAnswer": ""
+		"dniAnswer": "",
+		"roomAnswer": "",
+		"attempts": 0
 	}

@@ -9,8 +9,8 @@ export const UPDATE = 'UPDATE';
 export const CONDITIONS = 'CONDITIONS';
 
 
-export function userAnswer(user, password) {
-    return { type: USER_ANSWER, payload: { user, password } };
+export function userAnswer(dni, room) {
+    return { type: USER_ANSWER, payload: { dni, room } };
 }
 
 export function submit(clients) {
