@@ -67,18 +67,18 @@ export default class Login extends React.Component{
                             </div>
 
                             <input type="text"
-                                   placeholder="User"
-                                   name="Name"
+                                   placeholder="DNI"
+                                   name="dni"
                                    className="user"
-                                   value={this.props.login.userAnswer || ''}
+                                   value={this.props.login.dniAnswer || ''}
                                    onChange={(event) => this.props.onUserAnswer(event.target.value)}/>
 
-                            <input type="Password"
-                                   placeholder="Password"
-                                   name="Password"
+                            <input type="text"
+                                   placeholder="Room"
+                                   name="room"
                                    className="pass"
-                                   value={this.props.login.passwordAnswer || ''}
-                                   onChange={(event) => this.props.onUserAnswer(this.props.login.userAnswer, event.target.value)}/>
+                                   value={this.props.login.roomAnswer || ''}
+                                   onChange={(event) => this.props.onUserAnswer(this.props.login.dniAnswer, event.target.value)}/>
 
                             <div className="submit">
                                 <button onClick={this.props.submitFunction}> Submit </button><br/><br/>

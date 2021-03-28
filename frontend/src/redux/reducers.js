@@ -16,15 +16,15 @@ function login(state = [], action = {}) {
         case USER_ANSWER:
             return {
                 ...state,
-                userAnswer: action.payload.user,
-                passwordAnswer: action.payload.password
+                dniAnswer: action.payload.dni,
+                roomAnswer: action.payload.room
             };
 
         case SUBMIT:
             let newState = state;
             let isClient;
             action.payload.clients.map((client) => {
-                isClient = (state.userAnswer === client.profile.username) && (state.passwordAnswer === client.profile.password);
+                isClient = (state.dniAnswer === client.DNI) && (state.roomAnswer === client.room);
                 if (isClient) {
                     newState = {
                         ...state,
@@ -49,6 +49,7 @@ function login(state = [], action = {}) {
                     attempts: state.attempts + 1
                 };
             }
+            console.log(newState)
             return newState;
 
         case END_SESSION:
@@ -57,8 +58,8 @@ function login(state = [], action = {}) {
                 ...state,
                 status: "info",
                 isLogged: false,
-                userAnswer: "",
-                passwordAnswer: ""
+                dniAnswer: "",
+                roomAnswer: ""
             };
 
         case CONDITIONS:
