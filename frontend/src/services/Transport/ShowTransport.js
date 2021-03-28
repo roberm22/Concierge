@@ -1,7 +1,7 @@
 import React from 'react';
 import {DateTimePicker} from 'react-rainbow-components';
 import {NavLink} from "react-router-dom";
-import Listaitem from "../listItemsGlobal/listaitem";
+import ListaSimple from "../listItemsGlobal/ListaSimple";
 import "./ShowTransport.css";
 
 import {toast} from "react-toastify";
@@ -120,6 +120,7 @@ export default class ShowTransport extends React.Component {
                             </Alert>
                         </div>) : null
                     }
+
 
 
 
