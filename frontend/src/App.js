@@ -22,6 +22,7 @@ import RoomServices from "./services/Room Service/RoomServices";
 import ShowRestaurant from "./services/Restaurants/ShowRestaurant";
 import ShowRoomServices from "./services/Room Service/ShowRoomServices";
 import ShowTransport from "./services/Transport/ShowTransport";
+import Listaitem from "./services/listItemsGlobal/listaitem";
 
 
 import {BrowserRouter as Router, Route} from "react-router-dom";
@@ -108,7 +109,14 @@ class App extends Component {
                             />
                         )}
                     />
+                    <Route
+                        path="/services/listaitem/"
+                        render={(props) => (
+                            <Listaitem
 
+                            />
+                        )}
+                    />
                     <Route
                         path="/services/transport/"
                         render={(props) => (
