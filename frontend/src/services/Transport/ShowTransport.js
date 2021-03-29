@@ -1,7 +1,6 @@
 import React from 'react';
 import {DateTimePicker} from 'react-rainbow-components';
 import {NavLink} from "react-router-dom";
-import ListaSimple from "../listItemsGlobal/ListaSimple";
 import "./ShowTransport.css";
 
 import {toast} from "react-toastify";
@@ -9,7 +8,7 @@ import {toast} from "react-toastify";
 import "react-datetime/css/react-datetime.css";
 import {ArrowUpward} from "@material-ui/icons";
 import {Alert, AlertTitle} from "@material-ui/lab";
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 import ListaTransport from './ListaTransport';
 
 class NewMessageNotification extends React.Component {
@@ -119,13 +118,12 @@ export default class ShowTransport extends React.Component {
 
                     {(!this.props.login.isLogged) ?
                         (<div>
-                            <button onClick={this.play} disabled={!this.props.login.isLogged}>Make Reservation</button>
-                            <Alert severity={this.props.login.status} id="alertT">
+                             <Alert severity={this.props.login.status} id="alertT">
                                 <AlertTitle>{title}</AlertTitle>
                                 <div> {message}</div>
                                 <div> {link}</div>
                             </Alert>
-                        </div>) : null
+                        </div>) : <button onClick={this.play} disabled={!this.props.login.isLogged}>Make Reservation</button>
                     }
 
 

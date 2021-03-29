@@ -1,6 +1,7 @@
 import React from 'react';
 import 'react-slideshow-image/dist/styles.css'
-import { Slide } from 'react-slideshow-image';
+import {Slide} from 'react-slideshow-image';
+import {NavLink} from "react-router-dom";
 
 const properties = {
     duration: 5000,
@@ -19,17 +20,24 @@ export default class SlideImages extends React.Component {
                 <Slide {...properties} className="slide-images">
                     <div className="each-slide">
                         <div style={{'backgroundImage': `url(${slideImages[0]})`}}>
-                            <span>{this.props.span1}</span>
+                            <NavLink to={"/services/"+this.props.span1+"/"}>
+                                <span>{this.props.span1}</span>
+                            </NavLink>
+
                         </div>
                     </div>
                     <div className="each-slide">
                         <div style={{'backgroundImage': `url(${slideImages[1]})`}}>
-                            <span>{this.props.span2}</span>
+                            <NavLink to={"/services/"+this.props.route2+"/"}>
+                                <span>{this.props.span2}</span>
+                            </NavLink>
                         </div>
                     </div>
                     <div className="each-slide">
                         <div style={{'backgroundImage': `url(${slideImages[2]})`}}>
-                            <span>{this.props.span3}</span>
+                            <NavLink to={"/services/"+this.props.span3+"/"}>
+                                <span>{this.props.span3}</span>
+                            </NavLink>
                         </div>
                     </div>
                 </Slide>

@@ -1,8 +1,7 @@
-
 /* A rellenar en el futuro */
 
-.mainHome .slider{
-    height: calc(100vh - 50px);
+.mainHome .slider {
+    height: 50vh;
 }
 
 .mainHome .slide-images .each-slide > div {
@@ -10,10 +9,11 @@
     align-items: center;
     justify-content: center;
     background-size: cover;
-    height: calc(100vh - 50px);
+    height: 50vh;
 }
 
-.mainHome .slide-images .each-slide span {
+.mainHome .slide-images .each-slide a {
+    text-decoration: none;
     padding: 25px;
     font-size: 3em;
     color: white;
@@ -22,3 +22,73 @@
     border-radius: 30px;
     text-shadow: 5px 3px 4px black;
 }
+
+.mainHome {
+    background-image: url("./assets/images/oriental-tiles.png");
+    background-repeat: repeat;
+    height: 100vh;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+.mainHome form h1 {
+    font-size: 3em;
+    color: white;
+    letter-spacing: 10px;
+    font-weight: 500;
+    font-family: 'Dosis', sans-serif;
+    text-shadow: 5px 3px 5px black;
+}
+
+.mainHome textarea{
+    width: 25%;
+    outline: none;
+    font-size: 0.9em;
+    padding: 1em 3em 1em 1em;
+    border: none;
+    margin-bottom: 0.3em;
+    background: rgba(255, 255, 255, 0.85);
+    color: #000;
+    border-radius: 30px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.mainHome form{
+    margin-top: 50px;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.mainHome input {
+    color: white;
+    background: #DAA520;
+    border: none;
+    padding: 0.7em;
+    outline: none;
+    font-size: 1em;
+    cursor: pointer;
+    letter-spacing: 1px;
+    font-weight: 400;
+    transition: 0.5s all;
+    border-radius: 30px;
+    box-shadow: 2px 2px 2px 2px #333333;
+}
+
+.mainHome input:hover:not(.active) {
+    background-color: #111;
+}
+
+.alertHome{
+    display: inline-block;
+    padding: 10px;
+}
+
+#alert-home{
+    border-radius: 20px;
+    text-align: center;
+}
+
+

@@ -62,7 +62,9 @@ class App extends Component {
                     <Route
                         exact path="/"
                         render={() => (
-                            <Home/>
+                            <Home
+                                login={this.props.login}
+                            />
                         )}
                     />
 
@@ -111,7 +113,7 @@ class App extends Component {
                     />
                     <Route
                         path="/services/listaitem/"
-                        render={(props) => (
+                        render={() => (
                             <Listaitem
 
                             />
@@ -203,18 +205,6 @@ class App extends Component {
         );
     }
 }
-
-/*
-{(this.props.view === null) ? //esto es para que se vea solo el welcome hasta que no se aceptan las condiciones
-   <Home/> : null}
-{(this.props.view === "Welcome") ?
-   <Welcome login={this.props.login} conditionsAccepted={this.conditionsAccepted}/> : null}
-
-(this.props.view === null) ? compenente : null
-
- */
-
-
 
 function mapStateToProps(state) {
     return {

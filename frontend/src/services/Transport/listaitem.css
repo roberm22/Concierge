@@ -1,3 +1,4 @@
+/*
 * {
   font-size: 36px;
 }
@@ -89,7 +90,7 @@ input:focus {
 }
 
 .item-action-buttons {
-  /* width: 30%; */
+  !* width: 30%; *!
   display: flex;
   justify-content: space-between;
 }
@@ -140,3 +141,4 @@ h3 {
   color: black;
 
 }
+*/

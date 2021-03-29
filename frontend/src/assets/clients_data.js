@@ -7,6 +7,7 @@ exports.clients = [
 			"name": "Pepe",
 			"email": "pepito88@gmail.com",
 			"phone": 628496873,
+			"points":1000,
 			"photo": {
 				"filename": "pepe.jpg"
 			}
@@ -21,6 +22,7 @@ exports.clients = [
 			"name": "Juan",
 			"email": "juanito99@gmail.com",
 			"phone": 659432990,
+			"points":10,
 			"photo": {
 				"filename": null
 			}

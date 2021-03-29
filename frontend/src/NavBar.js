@@ -9,12 +9,12 @@ export default class NavBar extends React.Component {
 
         return (
             <nav>
-                <ul >
+                <ul>
                     <li>
-                        <NavLink exact to="/" >Home</NavLink>
+                        <NavLink exact to="/">What do you need?</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/services/transport/">Transport</NavLink>
+                        <NavLink to="/services/transport/">Transports</NavLink>
                     </li>
                     <li>
                         <NavLink to="/services/restaurants/">Restaurants</NavLink>
@@ -24,7 +24,10 @@ export default class NavBar extends React.Component {
                     </li>
 
                     <li>
-                        <NavLink to="/profile/" id="userNav"> <AccountCircleIcon style={{ fontSize: 20 }}/> </NavLink>
+                        <NavLink to="/profile/" id="userNav"> <AccountCircleIcon style={{fontSize: 50}}/>
+
+
+                        </NavLink>
                     </li>
                 </ul>
             </nav>

@@ -1,10 +1,9 @@
 import React from 'react';
 import "./login.css";
 
-import {Redirect} from "react-router-dom";
+import {NavLink, Redirect} from "react-router-dom";
 import { ArrowBack } from '@material-ui/icons';
 import {Alert, AlertTitle} from '@material-ui/lab';
-import {Link} from "@material-ui/core";
 
 export default class Login extends React.Component{
 
@@ -55,8 +54,7 @@ export default class Login extends React.Component{
 
                     ): (
                         <div className="sub">
-
-                            <Link href="/" id="arrow"> <ArrowBack/> </Link>
+                            <NavLink to="/" id="arrow"> <ArrowBack/></NavLink>
 
                             <div className="header">
                                 <h1>CONCIERGE</h1>
