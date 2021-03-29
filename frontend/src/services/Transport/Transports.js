@@ -3,6 +3,9 @@ import {NavLink} from "react-router-dom";
 import "./Transports.css";
 import NavBar from "../../NavBar";
 
+import {BrowserRouter as Router, Route} from "react-router-dom";
+import ListaTransport from './ListaTransport';
+
 export default class Transports extends React.Component {
 
     render() {
@@ -19,6 +22,7 @@ export default class Transports extends React.Component {
         return (
             <div>
                 <NavBar/>
+
                 <div className="main_Trans">
                     <h1 className="header_t">Available Transports:</h1>
                     <ul className="ul_t">
@@ -26,6 +30,11 @@ export default class Transports extends React.Component {
                             {listItems}
                         </button>
                     </ul>
+
+                    <Route
+                        path="/"
+                        render={() => <ListaTransport />}
+                    />
                 </div>
             </div>
         );

@@ -4,6 +4,10 @@ import NavBar from "../../NavBar";
 import SlideImages from "../../SlideImages";
 import {Link} from "react-router-dom";
 
+import {BrowserRouter as Router, Route} from "react-router-dom";
+
+import ListaRestaurants from './ListaRestaurants';
+
 export default class Restaurants extends React.Component {
 
     render() {
@@ -41,6 +45,11 @@ export default class Restaurants extends React.Component {
                 <div className="mainRestaurant">
 
                     <div className="firstView">
+
+                        <Route
+                            path="/"
+                            render={() => <ListaRestaurants />}
+                        />
 
                         <SlideImages
                             slideImages = {photos}

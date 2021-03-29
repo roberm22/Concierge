@@ -4,6 +4,8 @@ import {DateTimePicker} from 'react-rainbow-components';
 import {Alert, AlertTitle} from "@material-ui/lab";
 import {ArrowUpward} from "@material-ui/icons";
 import "./ShowRestaurant.css";
+import {BrowserRouter as Router, Route} from "react-router-dom";
+import ListaRestaurants from './ListaRestaurants';
 
 export default class ShowRestaurant extends React.Component {
 
@@ -34,6 +36,12 @@ export default class ShowRestaurant extends React.Component {
         return (
             <div className={"main_ShR"}>
                 <div className={"subR"}>
+
+                    <Route
+                        path="/"
+                        render={() => <ListaRestaurants />}
+                    />
+
                     <div className={"boxR"}>
                         <a id="arrowR" href="#"> <ArrowUpward style={{fontSize: 40}}/> </a>
                     </div>

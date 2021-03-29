@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./ShowRoomServices.css";
+import {BrowserRouter as Router, Route} from "react-router-dom";
+import { ListaService } from "./ListaService";
 
 export default class ShowRoomServices extends React.Component {
   render() {
@@ -16,6 +18,11 @@ export default class ShowRoomServices extends React.Component {
 
     return (
       <div className="show_Rooms">
+
+        <Route
+            path="/"
+            render={() => <ListaService />}
+        />
         <h1 className="cabeza">{this.props.currentRoomServices.name}</h1>
 
         <img

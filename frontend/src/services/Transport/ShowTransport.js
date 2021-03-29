@@ -9,6 +9,8 @@ import {toast} from "react-toastify";
 import "react-datetime/css/react-datetime.css";
 import {ArrowUpward} from "@material-ui/icons";
 import {Alert, AlertTitle} from "@material-ui/lab";
+import {BrowserRouter as Router, Route} from "react-router-dom";
+import ListaTransport from './ListaTransport';
 
 class NewMessageNotification extends React.Component {
     displayMessage = () => {
@@ -46,6 +48,11 @@ export default class ShowTransport extends React.Component {
         return (
             <div className="main_ShowT">
                 <div className="boxT">
+
+                    <Route
+                        path="/"
+                        render={() => <ListaTransport />}
+                    />
 
                     <a id="arrowT" href="#"> <ArrowUpward style={{fontSize: 40}}/> </a>
 
