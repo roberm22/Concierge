@@ -1,9 +1,12 @@
 import React from 'react';
 import "./login.css";
 
-import {NavLink, Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import { ArrowBack } from '@material-ui/icons';
 import {Alert, AlertTitle} from '@material-ui/lab';
+import {Link} from "@material-ui/core";
+
+// NO TOCAR
 
 export default class Login extends React.Component{
 
@@ -47,14 +50,14 @@ export default class Login extends React.Component{
 
 
         return (
-            <div className="main">
+            <div className="mainLogin">
                 {(this.props.login.isLogged)?
                     (
                         <Redirect to="/profile/" />
 
                     ): (
                         <div className="sub">
-                            <NavLink to="/" id="arrow"> <ArrowBack/></NavLink>
+                            <Link href="/" id="arrow"> <ArrowBack/> </Link>
 
                             <div className="header">
                                 <h1>CONCIERGE</h1>
@@ -78,14 +81,14 @@ export default class Login extends React.Component{
                                    value={this.props.login.roomAnswer || ''}
                                    onChange={(event) => this.props.onUserAnswer(this.props.login.dniAnswer, event.target.value)}/>
 
-                            <div className="submit">
-                                <button onClick={this.props.submitFunction}> Submit </button><br/><br/>
+                            <div className="submitLogin">
+                                <button onClick={this.props.submitFunction}> Submit </button>
                             </div>
 
 
                             <Alert severity={this.props.login.status} id="alert">
                                 <AlertTitle>{title}</AlertTitle>
-                                {message}
+                                <span>{message}</span>
                             </Alert>
 
                         </div>

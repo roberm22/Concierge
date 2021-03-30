@@ -4,7 +4,7 @@ import NavBar from "../../NavBar";
 import SlideImages from "../../SlideImages";
 import { ListaService } from "./ListaService";
 
-import {BrowserRouter as Router, Route} from "react-router-dom";
+// Cuidado al añadir algo que se descuadra - Atencion!
 
 export default class RoomServices extends React.Component {
   render() {
@@ -38,11 +38,6 @@ export default class RoomServices extends React.Component {
         <div className="mainRestaurant">
           <div className="firstView">
             <SlideImages slideImages={photos} />
-
-            <Route
-              path="/"
-              render={() => <ListaService />}
-            />
 
             <div className="titleRest">
               <h1 className="title">ROOM SERVICES</h1>
