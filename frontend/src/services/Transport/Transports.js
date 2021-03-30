@@ -22,7 +22,7 @@ export default class Transports extends React.Component {
 
                 <div className="main_Trans">
                     <h1 className="header_t">Available Transports:</h1>
-                    <ul className="ul_t">
+                    <ul>
                         <button onClick={window.scrollTo(0, document.body.scrollHeight)}>
                             {listItems}
                         </button>

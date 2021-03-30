@@ -4,10 +4,11 @@ nav{
     top: 0;
     left: 0;
     width: 100%;
-    height: 50px;
+    height: 5.1vh;
     background-color: #333;
     z-index:100;
 }
+
 nav > ul {
     list-style-type: none;
     margin: 0;
@@ -25,7 +26,11 @@ nav > ul > li {
     position:absolute;
     top: 0;
     right: 0;
-    padding: 0px 16px 0px 15px;
+    padding: 0vh 1.63vh 0vh 1.53vh;
+}
+
+#userNav .MuiSvgIcon-root {
+    font-size: 5vh !important;
 }
 
 
@@ -33,7 +38,8 @@ nav > ul > li > a {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    font-size: 2vh;
+    padding: 1.427vh 1.63vh;
     text-decoration: none;
     height: 100%;
 }

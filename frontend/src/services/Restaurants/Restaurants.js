@@ -2,7 +2,7 @@ import React from 'react';
 import "./restaurants.css"
 import NavBar from "../../NavBar";
 import SlideImages from "../../SlideImages";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 
 // Cuidado al añadir algo que se descuadra - Atencion!
 
@@ -15,8 +15,10 @@ export default class Restaurants extends React.Component {
             <div>
                 <li className="liR">
                     <Link to="/services/restaurants/show_restaurant/"
-                             onClick={() => this.props.onChangeRestaurant(i)}>{restaurant.name}</Link>
-
+                             onClick={() => {
+                                 this.props.onChangeRestaurant(i)
+                             }}>{restaurant.name}
+                    </Link>
                 </li>
             </div>);
 
@@ -150,7 +152,7 @@ export default class Restaurants extends React.Component {
                                     <div className="displayList">
                                         <h2 className="articleTitle">OTHERS RESTAURANTS</h2>
                                         <ul className="ul_r">
-                                            <button onClick={window.scrollTo(0, document.body.scrollHeight)}>
+                                            <button>
                                                 {listItems}
                                             </button>
                                         </ul>

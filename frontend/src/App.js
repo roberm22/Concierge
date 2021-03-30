@@ -152,7 +152,7 @@ class App extends Component {
 
 
                     <Route
-                        path="/services/restaurants/"
+                        exact path="/services/restaurants/"
                         render={(props) => (
                             <Restaurants
                                 {...props}
