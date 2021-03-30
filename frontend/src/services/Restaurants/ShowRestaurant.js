@@ -1,11 +1,12 @@
 import React from 'react';
-import { NavLink} from "react-router-dom";
+import {NavLink, Route} from "react-router-dom";
 import {DateTimePicker} from 'react-rainbow-components';
 import {Alert, AlertTitle} from "@material-ui/lab";
 import {ArrowUpward} from "@material-ui/icons";
 import "./ShowRestaurant.css";
 import ListaRestaurants from './ListaRestaurants';
 import update from "react-addons-update";
+import NavBar from "../../NavBar";
 
 export default class ShowRestaurant extends React.Component {
 
@@ -44,6 +45,8 @@ export default class ShowRestaurant extends React.Component {
         return (
             <div className={"main_ShR"}>
                 <div className={"subR"}>
+
+                    <NavBar/>
 
                     <Route
                         path="/"

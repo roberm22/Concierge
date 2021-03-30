@@ -1,5 +1,5 @@
 
-nav{
+.mainNav{
     position: sticky;
     top: 0;
     left: 0;
@@ -9,7 +9,7 @@ nav{
     z-index:100;
 }
 
-nav > ul {
+.mainNav > ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -17,7 +17,7 @@ nav > ul {
     height: 100%;
 }
 
-nav > ul > li {
+.mainNav > ul > li {
     float: left;
     height: 100%;
 }
@@ -34,7 +34,7 @@ nav > ul > li {
 }
 
 
-nav > ul > li > a {
+.mainNav > ul > li > a {
     display: block;
     color: white;
     text-align: center;
@@ -44,10 +44,10 @@ nav > ul > li > a {
     height: 100%;
 }
 
-nav > ul> li > a:hover:not(.active) {
+.mainNav > ul> li > a:hover:not(.active) {
     background-color: #111;
 }
 
-.active {
+.mainNav .active {
     background-color: #DAA520;
 }

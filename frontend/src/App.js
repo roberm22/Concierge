@@ -26,6 +26,7 @@ import Listaitem from "./services/listItemsGlobal/listaitem";
 
 
 import {BrowserRouter as Router, Route} from "react-router-dom";
+import Prices from "./Prices";
 
 
 
@@ -205,6 +206,13 @@ class App extends Component {
                                     this.props.services.roomServices[this.props.currentService]
                                 }
                             />
+                        )}
+                    />
+
+                    <Route
+                        path="/prices/"
+                        render={() => (
+                            <Prices/>
                         )}
                     />
 

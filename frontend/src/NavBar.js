@@ -8,7 +8,7 @@ export default class NavBar extends React.Component {
     render() {
 
         return (
-            <nav>
+            <nav className="mainNav">
                 <ul>
                     <li>
                         <NavLink exact to="/">What do you need?</NavLink>
@@ -21,6 +21,9 @@ export default class NavBar extends React.Component {
                     </li>
                     <li>
                         <NavLink to="/services/room_services/">Room Services</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/prices/">Prices</NavLink>
                     </li>
 
                     <li>

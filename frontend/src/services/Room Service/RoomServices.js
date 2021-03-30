@@ -3,6 +3,7 @@ import "./RoomServices.css";
 import NavBar from "../../NavBar";
 import SlideImages from "../../SlideImages";
 import { ListaService } from "./ListaService";
+import {Link} from "react-router-dom";
 
 // Cuidado al añadir algo que se descuadra - Atencion!
 
@@ -93,8 +94,8 @@ export default class RoomServices extends React.Component {
                           );
                         }}
                       >
-                        {" "}
-                        Order now{" "}
+
+                        Order now
                       </button>
                       <br />
                       <br />
@@ -142,8 +143,8 @@ export default class RoomServices extends React.Component {
                           );
                         }}
                       >
-                        {" "}
-                        Order now{" "}
+
+                        Order now
                       </button>
                       <br />
                       <br />
@@ -180,16 +181,11 @@ export default class RoomServices extends React.Component {
                     </p>
 
                     <div className="menu">
-                      <button
-                        onClick={() => {
-                          window.open(
-                            "https://www.viroth-hotel.com/wp-content/uploads/2019/11/Web-MenuFood-1.pdf"
-                          );
-                        }}
-                      >
-                        {" "}
-                        Order now{" "}
+
+                      <button>
+                        <Link to="/services/room_services/show_room_services/">Order now</Link>
                       </button>
+
                       <br />
                       <br />
                     </div>

@@ -96,6 +96,10 @@ input.pass {
     transition:0.5s all;
 }
 
+.sub .active {
+    background-color: transparent;
+}
+
 .mainLogin #alert{
     margin-top: 5vh;
     margin-bottom: 1.5vh;
