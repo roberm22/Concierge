@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./ShowRoomServices.css";
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 import { ListaService } from "./ListaService";
 
 export default class ShowRoomServices extends React.Component {
@@ -30,7 +30,6 @@ export default class ShowRoomServices extends React.Component {
           src={this.props.currentRoomServices.photo.url}
           width={300}
           height={180}
-          alt="photo"
         />
 
         <ul>{ser}</ul>

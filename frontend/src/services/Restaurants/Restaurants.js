@@ -2,7 +2,7 @@ import React from 'react';
 import "./restaurants.css"
 import NavBar from "../../NavBar";
 import SlideImages from "../../SlideImages";
-import {Link, Redirect} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 // Cuidado al añadir algo que se descuadra - Atencion!
 

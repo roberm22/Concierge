@@ -2,7 +2,6 @@ import React from "react";
 import "./RoomServices.css";
 import NavBar from "../../NavBar";
 import SlideImages from "../../SlideImages";
-import { ListaService } from "./ListaService";
 import {Link} from "react-router-dom";
 
 // Cuidado al añadir algo que se descuadra - Atencion!

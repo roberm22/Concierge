@@ -4,7 +4,6 @@ import {DateTimePicker} from 'react-rainbow-components';
 import {Alert, AlertTitle} from "@material-ui/lab";
 import {ArrowUpward} from "@material-ui/icons";
 import "./ShowRestaurant.css";
-import {Route} from "react-router-dom";
 import ListaRestaurants from './ListaRestaurants';
 import update from "react-addons-update";
 import NavBar from "../../NavBar";
