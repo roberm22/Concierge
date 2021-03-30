@@ -10,6 +10,7 @@ import {ArrowUpward} from "@material-ui/icons";
 import {Alert, AlertTitle} from "@material-ui/lab";
 import {Route} from "react-router-dom";
 import ListaTransport from './ListaTransport';
+import update from "react-addons-update";
 
 class NewMessageNotification extends React.Component {
     displayMessage = () => {
@@ -123,7 +124,14 @@ export default class ShowTransport extends React.Component {
                                 <div> {message}</div>
                                 <div> {link}</div>
                             </Alert>
-                        </div>) : <button onClick={this.play} disabled={!this.props.login.isLogged}>Make Reservation</button>
+                        </div>) : <button onClick={() => {
+                            this.play();
+                            let newCliente = update(this.props.client, {
+                                profile: {points: {$set: this.props.client.profile.points + 10}}
+                            });
+                            this.props.update( newCliente);
+                            alert("Reservation successful. \n You earned 10 points.");
+                        }} disabled={!this.props.login.isLogged}>Make Reservation</button>
                     }
 
 

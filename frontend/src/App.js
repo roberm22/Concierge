@@ -138,6 +138,10 @@ class App extends Component {
                             <ShowTransport
                                 {...props}
                                 login={this.props.login}
+                                client={this.props.clients[this.props.login.id-1]}
+                                update={ (newData) => {
+                                    this.props.dispatch(updateProfile(this.props.login.id, newData));
+                                }}
                                 currentTransport={
                                     this.props.services.transports[this.props.currentService]
                                 }
@@ -169,6 +173,10 @@ class App extends Component {
                                 currentRestaurant={
                                     this.props.services.restaurants[this.props.currentService]
                                 }
+                                client={this.props.clients[this.props.login.id-1]}
+                                update={ (newData) => {
+                                    this.props.dispatch(updateProfile(this.props.login.id, newData));
+                                }}
                                 login={this.props.login}
                             />
                         )}

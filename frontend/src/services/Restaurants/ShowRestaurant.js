@@ -6,6 +6,7 @@ import {ArrowUpward} from "@material-ui/icons";
 import "./ShowRestaurant.css";
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import ListaRestaurants from './ListaRestaurants';
+import update from "react-addons-update";
 
 export default class ShowRestaurant extends React.Component {
 
@@ -61,6 +62,7 @@ export default class ShowRestaurant extends React.Component {
                     <div className={"descriptionR"}>
                         {this.props.currentRestaurant.description}
                     </div>
+
                     <div>
                         <h3 className={"h3R"}>Make a Reservation</h3>
                     </div>
@@ -78,7 +80,15 @@ export default class ShowRestaurant extends React.Component {
                         }} hour24={true} locale={this.state.locale.name}/>
                     </div>
                     <div className={"subR_button"}>
-                        <button disabled={!this.props.login.isLogged}>Make Reservation</button>
+                        <button disabled={!this.props.login.isLogged}
+                                onClick={() => {
+                            let newCliente = update(this.props.client, {
+                                profile: {points: {$set: this.props.client.profile.points + 10}}
+                            });
+                            this.props.update( newCliente);
+
+                                    alert("Reservation successful. \n You earned 10 points.");
+                        }}>Make Reservation</button>
 
                     </div>
 
