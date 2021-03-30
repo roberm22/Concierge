@@ -4,7 +4,6 @@ import {DateTimePicker} from 'react-rainbow-components';
 import {Alert, AlertTitle} from "@material-ui/lab";
 import {ArrowUpward} from "@material-ui/icons";
 import "./ShowRestaurant.css";
-import {BrowserRouter as Router, Route} from "react-router-dom";
 import ListaRestaurants from './ListaRestaurants';
 import update from "react-addons-update";
 
@@ -14,14 +13,22 @@ export default class ShowRestaurant extends React.Component {
         super(props);
         this.state = {
             date: new Date(),
-            locale: {name: 'en-US', label: 'English (US)'}
-        };
+            locale: {name: 'en-US', label: 'English (US)'},
+            points: 0}
+        ;
 
     }
 
     render() {
 
-        let message, title, link;
+        let points, message, title, link;
+        if(this.props.login.isLogged){
+            points = this.props.client.profile.points ;
+        }
+        else{
+            points = 0;
+        }
+
         switch (this.props.login.status) {
 
             case "info":
@@ -66,6 +73,9 @@ export default class ShowRestaurant extends React.Component {
                     <div>
                         <h3 className={"h3R"}>Make a Reservation</h3>
                     </div>
+                    <div>
+                        <h3>Points:{this.state.points + points}</h3>
+                    </div>
 
                     <div className={"subR_input"}>
 
@@ -82,8 +92,10 @@ export default class ShowRestaurant extends React.Component {
                     <div className={"subR_button"}>
                         <button disabled={!this.props.login.isLogged}
                                 onClick={() => {
+                                    this.setState({points: this.state.points +10});
+                                    let total = points+10+this.state.points
                             let newCliente = update(this.props.client, {
-                                profile: {points: {$set: this.props.client.profile.points + 10}}
+                                profile: {points: {$set: total}}
                             });
                             this.props.update( newCliente);
 

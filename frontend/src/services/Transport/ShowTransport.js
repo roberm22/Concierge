@@ -24,7 +24,8 @@ export default class ShowTransport extends React.Component {
         super(props);
         this.state = {
             date: new Date(),
-            locale: {name: 'en-US', label: 'English (US)'}
+            locale: {name: 'en-US', label: 'English (US)'},
+            points:0
         };
     }
 
@@ -35,7 +36,13 @@ export default class ShowTransport extends React.Component {
     }
 
     render() {
-        let message, title, link;
+        let points, message, title, link;
+        if(this.props.login.isLogged){
+            points = this.props.client.profile.points ;
+        }
+        else{
+            points = 0;
+        }
         switch (this.props.login.status) {
             case "info":
                 title = "Log In";
@@ -44,6 +51,7 @@ export default class ShowTransport extends React.Component {
                 break;
             default:
                 console.log(this.props.login.status);
+
         }
         return (
             <div className="main_ShowT">
@@ -55,6 +63,7 @@ export default class ShowTransport extends React.Component {
                     />
 
                     <a id="arrowT" href="#"> <ArrowUpward style={{fontSize: 40}}/> </a>
+
 
                     <h1>{this.props.currentTransport.description} </h1>
 
@@ -116,7 +125,9 @@ export default class ShowTransport extends React.Component {
                            placeholder={"Extra information"}
                            disabled={!this.props.login.isLogged}
                     />
-
+                    <div>
+                        <h3>Points:{this.state.points + points}</h3>
+                    </div>
                     {(!this.props.login.isLogged) ?
                         (<div>
                              <Alert severity={this.props.login.status} id="alertT">
@@ -125,11 +136,13 @@ export default class ShowTransport extends React.Component {
                                 <div> {link}</div>
                             </Alert>
                         </div>) : <button onClick={() => {
-                            this.play();
+                            this.setState({points: this.state.points +10});
+                            let total = points+10+this.state.points
                             let newCliente = update(this.props.client, {
-                                profile: {points: {$set: this.props.client.profile.points + 10}}
+                                profile: {points: {$set: total}}
                             });
                             this.props.update( newCliente);
+
                             alert("Reservation successful. \n You earned 10 points.");
                         }} disabled={!this.props.login.isLogged}>Make Reservation</button>
                     }
