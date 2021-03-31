@@ -24,6 +24,7 @@
 #userNav {
     color: white;
     position:absolute;
+    float: end;
     top: 0;
     right: 0;
     padding: 0vh 1.63vh 0vh 1.53vh;

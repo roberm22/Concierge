@@ -28,7 +28,7 @@
     alignment: center;
 }
 
-.main_ShR{
+.subR{
 
     background-image: url("https://media-cdn.tripadvisor.com/media/photo-m/1280/1b/84/93/4d/entrada.jpg");
     background-size: cover;
@@ -39,15 +39,6 @@
     background-attachment: fixed;
 }
 
-.main:before {
-    content:'';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0,0,0,0.5);
-}
 
 .tittle h3 {
     font-size: 1.2em;

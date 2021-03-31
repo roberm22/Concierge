@@ -65,6 +65,10 @@ class App extends Component {
                         render={() => (
                             <Home
                                 login={this.props.login}
+                                update={ (newData) => {
+                                    this.props.dispatch(updateProfile(this.props.login.id, newData));
+                                }}
+                                client={this.props.clients[this.props.login.id-1]}
                             />
                         )}
                     />
@@ -72,7 +76,10 @@ class App extends Component {
                     <Route
                         path="/welcome/"
                         render={() => (
-                            <Welcome conditions={this.conditions} login={this.props.login}/>
+                            <Welcome
+                                conditions={this.conditions}
+                                login={this.props.login}
+                            />
                         )}
                     >
                     </Route>
@@ -121,10 +128,12 @@ class App extends Component {
                         )}
                     />
                     <Route
-                        path="/services/transport/"
+                        exact path="/services/transport/"
                         render={(props) => (
                             <Transports
                                 {...props}
+                                client={this.props.clients[this.props.login.id-1]}
+                                login={this.props.login}
                                 transports={this.props.services.transports}
                                 onChangeTransport={(answer) => {
                                     this.props.dispatch(changeTransport(answer));
@@ -158,7 +167,8 @@ class App extends Component {
                             <Restaurants
                                 {...props}
                                 restaurants={this.props.services.restaurants}
-
+                                client={this.props.clients[this.props.login.id-1]}
+                                login={this.props.login}
                                 onChangeRestaurant={(answer) => {
                                     this.props.dispatch(changeRestaurant(answer));
                                 }}
@@ -188,6 +198,8 @@ class App extends Component {
                         render={(props) => (
                             <RoomServices
                                 {...props}
+                                client={this.props.clients[this.props.login.id-1]}
+                                login={this.props.login}
                                 roomServices={this.props.services.roomServices}
                                 onChangeRoomServices={(answer) => {
                                     this.props.dispatch(changeRoomServices(answer));
@@ -198,10 +210,11 @@ class App extends Component {
 
 
                     <Route
-                        path="/services/room_services/show_room_services/"
+                        exact path="/services/room_services/show_room_services/"
                         render={(props) => (
                             <ShowRoomServices
                                 {...props}
+                                login={this.props.login}
                                 currentRoomServices={
                                     this.props.services.roomServices[this.props.currentService]
                                 }
@@ -212,7 +225,9 @@ class App extends Component {
                     <Route
                         path="/prices/"
                         render={() => (
-                            <Prices/>
+                            <Prices
+                                login={this.props.login}
+                            />
                         )}
                     />
 

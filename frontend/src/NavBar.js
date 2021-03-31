@@ -27,9 +27,11 @@ export default class NavBar extends React.Component {
                     </li>
 
                     <li>
-                        <NavLink to="/profile/" id="userNav"> <AccountCircleIcon style={{fontSize: 50}}/>
-
-
+                        <NavLink to="/profile/" id="userNav">
+                            <AccountCircleIcon/>
+                            {(this.props.login.isLogged) ?
+                                (this.props.points) : null
+                            }
                         </NavLink>
                     </li>
                 </ul>

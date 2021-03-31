@@ -4,12 +4,14 @@ import NavBar from "./NavBar";
 import SlideImages from "./SlideImages";
 import {Alert, AlertTitle} from "@material-ui/lab";
 import {NavLink} from "react-router-dom";
+import update from "react-addons-update";
 
 export default class Home extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            points: 0,
             value: 'Please tell us your needs'
         };
         this.handleChange = this.handleChange.bind(this);
@@ -21,14 +23,23 @@ export default class Home extends React.Component {
     }
 
     handleSubmit(event) {
-        alert('Aqui iria la suma de puntos y el envio de la peticio al servidor');
+        this.setState({points: this.state.points +10});
+        let total = this.props.client.profile.points+10+this.state.points
+        let newClient = update(this.props.client, {
+            profile: {points: {$set: total}}
+        });
+        this.props.update( newClient);
+
+        alert("Reservation successful. \n You earned 10 points.");
         event.preventDefault();
     }
-
-    points
-
     render() {
-        let message, title, link;
+        let points, message, title, link;
+        if (this.props.login.isLogged) {
+            points = this.props.client.profile.points;
+        } else {
+            points = 0;
+        }
         switch (this.props.login.status) {
             case "info":
                 title = "Log In";
@@ -46,7 +57,7 @@ export default class Home extends React.Component {
 
         return (
             <div>
-                <NavBar/>
+                <NavBar points={this.state.points + points} login={this.props.login}/>
                 <div className="mainHome">
                     <div className="slider">
                         <SlideImages
@@ -76,7 +87,7 @@ export default class Home extends React.Component {
                                     <div> {message}</div>
                                     <div> {link}</div>
                                 </Alert>
-                            </div>) : <input type="submit" disabled={!this.props.login.isLogged} value="Submit"/>
+                            </div>) : <input type="submit" value="Submit"/>
                         }
 
 

@@ -1,9 +1,9 @@
 exports.transports = [
     {
         "id": 1,
-        "name": "Car",
-
-        "description": "Private Car service",
+        "name": "Taxi/VTC",
+        "info": "This Service is for passengers who would prefer to have a private vehicle and driver assigned to their family, friends or business group. The fee for this service is determined by the type of vehicle used which is dependant on the number of passengers. Because the private transfer is organised according to your Flight arrival time at the airport this eliminates the waiting period and is a direct transfer to the destination of your choice. The Private transfer fee is not chraged per person, but on how many cars you will need. When travelling with the private transfer service you can go to any private address.",
+        "description": "Taxi/VTC service",
         "Fecha_origen_mapa": false,
         "Fecha_llegada_mapa": false,
         "photo": {
@@ -13,9 +13,9 @@ exports.transports = [
     },
     {
         "id": 2,
-        "name": "Van",
-
-        "description": "Private Van service",
+        "name": "Shuttle",
+        "info": "This is a 24 hour shuttle service. according to the number of passengers booked for the transfer you will either be picked up in a van, a minibus or a bus. The Shuttle transfer is a shared service, this means that a very economic fee will be charged for the service. All transfer vehicles will take passengers to their prenotified destinations being a hotel, resort or a drop off point. When using the shuttle service you will only be dropped off at the destination you put on your booking form. Please note that the shuttle service does not go to private addresses. All vehicles used are fully air-conditioned. You should allocate a 45 minute period for Baggage Claim and Passport control. In most destinations you will have to wait for approximately 45 minutes until the shuttle leaves the airport. Keep in mind that the number of drop offs could change according to the number of passengers.",
+        "description": "Private Shuttle service",
         "Fecha_origen_mapa": false,
         "Fecha_llegada_mapa": false,
         "photo": {
@@ -25,9 +25,9 @@ exports.transports = [
     },
     {
         "id": 3,
-        "name": "Plane",
-        
-        "description": "Private Plane service",
+        "name": "Plane tickets",
+        "info": "Ticket Agents work on airport counters or other designated sales points that airlines might have. In general terms, Ticket Agents greet and help customers and passengers with their flight reservations. They provide information regarding dates, schedules, availability, and prices of flights.",
+        "description": "Ticket Plane service",
         "Fecha_origen_mapa": false,
         "Fecha_llegada_mapa": false,
         "photo": {

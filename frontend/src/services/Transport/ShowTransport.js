@@ -6,11 +6,10 @@ import "./ShowTransport.css";
 import {toast} from "react-toastify";
 
 import "react-datetime/css/react-datetime.css";
-import {ArrowUpward} from "@material-ui/icons";
+import {ArrowBack} from "@material-ui/icons";
 import {Alert, AlertTitle} from "@material-ui/lab";
-import {Route} from "react-router-dom";
-import ListaTransport from './ListaTransport';
 import update from "react-addons-update";
+import NavBar from "../../NavBar";
 
 class NewMessageNotification extends React.Component {
     displayMessage = () => {
@@ -25,7 +24,7 @@ export default class ShowTransport extends React.Component {
         this.state = {
             date: new Date(),
             locale: {name: 'en-US', label: 'English (US)'},
-            points:0
+            points: 0
         };
     }
 
@@ -37,10 +36,9 @@ export default class ShowTransport extends React.Component {
 
     render() {
         let points, message, title, link;
-        if(this.props.login.isLogged){
-            points = this.props.client.profile.points ;
-        }
-        else{
+        if (this.props.login.isLogged) {
+            points = this.props.client.profile.points;
+        } else {
             points = 0;
         }
         switch (this.props.login.status) {
@@ -55,15 +53,9 @@ export default class ShowTransport extends React.Component {
         }
         return (
             <div className="main_ShowT">
+                <NavBar points={this.state.points + points} login={this.props.login}/>
                 <div className="boxT">
-
-                    <Route
-                        path="/"
-                        render={() => <ListaTransport />}
-                    />
-
-                    <a id="arrowT" href="#"> <ArrowUpward style={{fontSize: 40}}/> </a>
-
+                    <NavLink to="/services/transport/" id="arrowT"> <ArrowBack/> </NavLink>
 
                     <h1>{this.props.currentTransport.description} </h1>
 
@@ -125,32 +117,28 @@ export default class ShowTransport extends React.Component {
                            placeholder={"Extra information"}
                            disabled={!this.props.login.isLogged}
                     />
-                    <div>
-                        <h3>Points:{this.state.points + points}</h3>
-                    </div>
+
                     {(!this.props.login.isLogged) ?
                         (<div>
-                             <Alert severity={this.props.login.status} id="alertT">
+                            <Alert severity={this.props.login.status} id="alertT">
                                 <AlertTitle>{title}</AlertTitle>
                                 <div> {message}</div>
                                 <div> {link}</div>
                             </Alert>
-                        </div>) : <button onClick={() => {
-                            this.setState({points: this.state.points +10});
-                            let total = points+10+this.state.points
+                        </div>)
+                        :
+                        <button onClick={() => {
+                            this.setState({points: this.state.points + 10});
+                            let total = points + 10 + this.state.points
                             let newCliente = update(this.props.client, {
                                 profile: {points: {$set: total}}
                             });
-                            this.props.update( newCliente);
+                            this.props.update(newCliente);
 
                             alert("Reservation successful. \n You earned 10 points.");
-                        }} disabled={!this.props.login.isLogged}>Make Reservation</button>
+                        }}>Make Reservation
+                        </button>
                     }
-
-
-
-
-
                 </div>
             </div>
         );

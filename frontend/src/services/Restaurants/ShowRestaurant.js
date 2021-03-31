@@ -21,7 +21,6 @@ export default class ShowRestaurant extends React.Component {
     }
 
     render() {
-
         let points, message, title, link;
         if(this.props.login.isLogged){
             points = this.props.client.profile.points ;
@@ -44,9 +43,10 @@ export default class ShowRestaurant extends React.Component {
         }
         return (
             <div className={"main_ShR"}>
+                <NavBar points={this.state.points + points} login={this.props.login}/>
                 <div className={"subR"}>
 
-                    <NavBar/>
+
 
                     <Route
                         path="/"
@@ -97,10 +97,10 @@ export default class ShowRestaurant extends React.Component {
                                 onClick={() => {
                                     this.setState({points: this.state.points +10});
                                     let total = points+10+this.state.points
-                            let newCliente = update(this.props.client, {
+                            let newClient = update(this.props.client, {
                                 profile: {points: {$set: total}}
                             });
-                            this.props.update( newCliente);
+                            this.props.update( newClient);
 
                                     alert("Reservation successful. \n You earned 10 points.");
                         }}>Make Reservation</button>

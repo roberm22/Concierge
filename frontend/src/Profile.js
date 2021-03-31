@@ -34,7 +34,7 @@ export default class Profile extends React.Component {
                 <div>
                     {(this.props.login.conditionsAccepted) ?
                         (<div className={"profileMain"}>
-                            <NavBar/>
+                            <NavBar login={this.props.login}/>
                             <Alert severity="success" id="alert-profile">
                                 <AlertTitle>Welcome</AlertTitle>
                                 Here you can see your profile and <strong>change it</strong>

@@ -8,8 +8,19 @@ import {Link} from "react-router-dom";
 
 
 export default class Restaurants extends React.Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            points: 0,
+        };
+    }
     render() {
+        let points;
+        if (this.props.login.isLogged) {
+            points = this.props.client.profile.points;
+        } else {
+            points = 0;
+        }
         let restaurants = this.props.restaurants;
         const listItems = restaurants.map((restaurant, i) =>
             <div>
@@ -42,7 +53,7 @@ export default class Restaurants extends React.Component {
 
          return (
             <div>
-                <NavBar/>
+                <NavBar points={this.state.points + points} login={this.props.login}/>
                 <div className="mainRestaurant">
 
                     <div className="firstView">

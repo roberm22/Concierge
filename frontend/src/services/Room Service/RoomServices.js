@@ -7,7 +7,21 @@ import {Link} from "react-router-dom";
 // Cuidado al añadir algo que se descuadra - Atencion!
 
 export default class RoomServices extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      points: 0
+    };
+  }
+
   render() {
+    let points;
+    if (this.props.login.isLogged) {
+      points = this.props.client.profile.points;
+    } else {
+      points = 0;
+    }
     let photos = [
       "https://www.viroth-hotel.com/wp-content/uploads/2019/05/slide1-1-1920x883.jpg",
       "https://www.viroth-hotel.com/wp-content/uploads/2019/05/Room-Slide-2.jpg",
@@ -34,7 +48,7 @@ export default class RoomServices extends React.Component {
 
     return (
       <div>
-        <NavBar />
+        <NavBar points={this.state.points + points} login={this.props.login}/>
         <div className="mainRestaurant">
           <div className="firstView">
             <SlideImages slideImages={photos} />

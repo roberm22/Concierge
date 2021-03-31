@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './listaitem.css';
-import {NavLink} from "react-router-dom";
 
 export const ListaRestaurants = () => {
     // HINT: each "item" in our list names a name,
