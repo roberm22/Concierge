@@ -25,11 +25,15 @@ export default class NavBar extends React.Component {
                     <li>
                         <NavLink to="/prices/">Prices</NavLink>
                     </li>
+                    <li>
+                        <NavLink to="/shopping/">Shopping Cart</NavLink>
+                    </li>
 
                     <li>
                         <NavLink to="/profile/" id="userNav">
                             <AccountCircleIcon/>
-                            {(this.props.login.isLogged) ?
+
+                            {(this.props.isLogged) ?
                                 (this.props.points) : null
                             }
                         </NavLink>

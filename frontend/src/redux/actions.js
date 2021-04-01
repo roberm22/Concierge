@@ -8,6 +8,15 @@ export const CHANGE_ROOM_SERVICES = 'CHANGE_ROOM_SEVICES';
 export const UPDATE = 'UPDATE';
 export const CONDITIONS = 'CONDITIONS';
 
+/* CONST shopping cart */
+
+export const INCREASE = 'INCREASE';
+export const DECREASE = 'DECREASE';
+export const ADD_ITEM = 'ADD_ITEM';
+export const REMOVE_ITEM = 'REMOVE_ITEM';
+export const CLEAR = 'CLEAR';
+
+/* Actions del login */
 
 export function userAnswer(dni, room) {
     return { type: USER_ANSWER, payload: { dni, room } };
@@ -16,6 +25,9 @@ export function userAnswer(dni, room) {
 export function submit(clients) {
     return { type: SUBMIT, payload: { clients }  };
 }
+
+/* Actions de profile */
+
 export function conditions(){
     return {type: CONDITIONS};
 }
@@ -23,6 +35,8 @@ export function conditions(){
 export function endSession(){
     return { type: END_SESSION };
 }
+
+/* Actions de Services */
 
 export function changeRestaurant(answer){
     return {type: CHANGE_RESTAURANT, payload: {answer}}
@@ -39,5 +53,28 @@ export function changeTransport(answer){
 export function updateProfile(id, newData){
     return {type: UPDATE,payload: {id, newData}};
 }
+
+/* Actions del shopping cart */
+
+export function increase(product){
+    return {type: INCREASE, payload: { product }};
+}
+
+export function decrease(product){
+    return {type: DECREASE, payload: { product }};
+}
+
+export function addProduct(product){
+    return {type: ADD_ITEM, payload: {product}};
+}
+
+export function removeProduct(product){
+    return {type: REMOVE_ITEM, payload: {product}};
+}
+
+export function clearCart(){
+    return {type: CLEAR, payload: {}};
+}
+
 
 

@@ -9,7 +9,12 @@ import {
     changeRestaurant,
     changeRoomServices,
     changeTransport,
-    conditions
+    conditions,
+    increase,
+    decrease,
+    addProduct,
+    removeProduct,
+    clearCart
 } from "./redux/actions";
 
 import Home from "./Home";
@@ -27,6 +32,12 @@ import Listaitem from "./services/listItemsGlobal/listaitem";
 
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import Prices from "./Prices";
+
+
+import Store from "./ShoppingCart/pages/store/Store";
+import Cart from "./ShoppingCart/pages/cart/Cart";
+import About from "./ShoppingCart/pages/About";
+
 
 
 
@@ -127,6 +138,7 @@ class App extends Component {
                             />
                         )}
                     />
+
                     <Route
                         exact path="/services/transport/"
                         render={(props) => (
@@ -230,6 +242,50 @@ class App extends Component {
                             />
                         )}
                     />
+
+
+                    <Route
+                        exact path="/shopping/"
+                        render={() => (
+                            <Store
+                                products = {this.props.products}
+                                cartItems = {this.props.cartItems}
+                                increase={ (product) => {
+                                    this.props.dispatch(increase(product));
+                                }}
+                                addProduct={ (product) => {
+                                    this.props.dispatch(addProduct(product));
+                                }}
+                            />
+                        )}
+                    />
+
+                    <Route
+                        path="/shopping/cart"
+                        render={() => (
+                            <Cart
+                                products = {this.props.products}
+                                cartItems = {this.props.cartItems}
+                                clearCart={ () => {
+                                    this.props.dispatch(clearCart());
+                                }}
+                                increase={ (product) => {
+                                    this.props.dispatch(increase(product));
+                                }}
+                                decrease={ (product) => {
+                                    this.props.dispatch(decrease(product));
+                                }}
+                                removeProduct={ (product) => {
+                                    this.props.dispatch(removeProduct(product));
+                                }}
+                            />
+                        )}
+                    />
+
+
+                    <Route path="/shopping/about" component={About} />
+
+
 
                 </Router>
             </div>

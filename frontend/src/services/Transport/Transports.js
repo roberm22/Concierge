@@ -81,7 +81,7 @@ export default class Transports extends React.Component {
 
         return (
             <div>
-                <NavBar points={this.state.points + points} login={this.props.login}/>
+                <NavBar points={this.state.points + points} isLogged={this.props.login.isLogged}/>
                 <div className="mainTransport">
                     <div className="main-content" id="mainInfo">
 

@@ -107,11 +107,50 @@ function currentService(state = [], action = {}) {
 }
 
 
+function cartItems(state = [], action = {}) {
+
+    switch (action.type) {
+        case "ADD_ITEM":
+            return state;
+
+
+        case "REMOVE_ITEM":
+            return state;
+
+
+        case "INCREASE":
+            return state;
+
+
+        case "DECREASE":
+            return state;
+
+
+        case "CLEAR":
+            return state;
+
+
+        default:
+            return state
+
+    }
+}
+
+function products(state = [], action = {}) {
+    switch (action.type) {
+        default:
+            return state;
+    }
+}
+
+
 const GlobalState = (combineReducers({
     login,
     clients,
     services,
     currentService,
+    cartItems,
+    products
 }));
 
 export default GlobalState;
