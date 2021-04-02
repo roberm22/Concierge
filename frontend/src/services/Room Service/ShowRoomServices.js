@@ -1,8 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./ShowRoomServices.css";
-import {Route} from "react-router-dom";
-import { ListaService } from "./ListaService";
+import { Route } from "react-router-dom";
+import {
+  userAnswer,
+  submit,
+  endSession,
+  updateProfile,
+  changeRestaurant,
+  changeRoomServices,
+  changeTransport,
+  conditions,
+  increase,
+  decrease,
+  addProduct,
+  removeProduct,
+  clearCart,
+} from "../../redux/actions";
+
+import Store from "../../ShoppingCart/pages/store/Store";
+import Cart from "../../ShoppingCart/pages/cart/Cart";
+import About from "../../ShoppingCart/pages/About";
 
 export default class ShowRoomServices extends React.Component {
   render() {
@@ -18,11 +36,6 @@ export default class ShowRoomServices extends React.Component {
 
     return (
       <div className="show_Rooms">
-
-        <Route
-            path="/"
-            render={() => <ListaService />}
-        />
         <h1 className="cabeza">{this.props.currentRoomServices.name}</h1>
 
         <img
@@ -57,15 +70,10 @@ export default class ShowRoomServices extends React.Component {
               {" "}
               <p className="texto_solo"> Reenvio a Inicio:</p>
             </button>{" "}
-            <Link
-              className="redondeado"
-              
-              to="/services/room_services/"
-            >
-                
-                Go Back
-                
+            <Link className="redondeado" to="/services/room_services/">
+              Go Back
             </Link>
+            
           </div>
         </div>
       </div>

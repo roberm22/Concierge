@@ -5,11 +5,7 @@ export const ListaService = () => {
     // HINT: each "item" in our list names a name,
     // a boolean to tell if its been completed, and a quantity
     const [items, setItems] = useState([
-        { itemName: 'item1', quantity: 1, isSelected: false },
-        { itemName: 'item1', quantity: 3, isSelected: true },
-        { itemName: 'item1', quantity: 2, isSelected: false },
-        { itemName: 'item1', quantity: 1, isSelected: false },
-        { itemName: 'item1', quantity: 1, isSelected: false },
+        { itemName: 'Item0', quantity: 1, isSelected: false },
     ]);
 
     const [inputValue, setInputValue] = useState('');

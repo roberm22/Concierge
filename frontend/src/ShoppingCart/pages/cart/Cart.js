@@ -14,7 +14,10 @@ export default class Cart extends React.Component {
 
         this.state = {
             itemCount: this.props.cartItems.reduce((total, product) => total + product.quantity, 0),
-            total: this.props.cartItems.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2)
+            itemCount2: this.props.cartItems.reduce((total2, product) => total2 + product.quantity, 0),
+            total: this.props.cartItems.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2),
+            total2: this.props.cartItems.reduce((total2, product) => total2 + product.hotelPoints * product.quantity, 0).toFixed(2)
+
         };
     }
 
@@ -43,7 +46,9 @@ export default class Cart extends React.Component {
                                         changeCart = { (cart = this.props.cartItems) => {
                                             this.setState({
                                                 itemCount: cart.reduce((total, product) => total + product.quantity, 0),
-                                                total: cart.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2)
+                                                itemCount2: cart.reduce((total2, product) => total2 + product.quantity, 0),
+                                                total: cart.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2),
+                                                total2: cart.reduce((total2, product) => total2 + product.hotelPoints * product.quantity, 0).toFixed(2)
                                             })
                                         }}
 
@@ -63,6 +68,7 @@ export default class Cart extends React.Component {
                                     <h4 className=" mb-3 txt-right">{this.state.itemCount}</h4>
                                     <p className="mb-1">Total Payment</p>
                                     <h3 className="m-0 txt-right">{formatNumber(this.state.total)}</h3>
+                                    Hotel Points: <h3 className="m-0 txt-right">{this.state.total2}</h3>
                                     <hr className="my-4"/>
                                     <div className="text-center">
                                         <button type="button" className="btn btn-primary mb-2"

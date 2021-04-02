@@ -30,10 +30,6 @@ export default class NavBar extends React.Component {
                             <Nav.Link>Room Services</Nav.Link>
                         </LinkContainer>
 
-                        <LinkContainer to="/shopping/">
-                            <Nav.Link>Shopping Cart</Nav.Link>
-                        </LinkContainer>
-
 
                     </Nav>
                     <Nav className="justify-content-end">

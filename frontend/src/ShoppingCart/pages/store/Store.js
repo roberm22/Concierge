@@ -22,7 +22,7 @@ export default class Store extends React.Component {
         }
         return (
             <>
-                <NavBar points={this.state.points + points} isLogged={this.props.login.isLogged}/>
+                
                 <Header/>
                 <main className="container">
                     <div>
