@@ -3,9 +3,13 @@ import {
     ADD_ITEM,
     CHANGE_RESTAURANT,
     CHANGE_ROOM_SERVICES,
-    CHANGE_TRANSPORT, CLEAR,
-    CONDITIONS, DECREASE,
-    END_SESSION, INCREASE, REMOVE_ITEM,
+    CHANGE_TRANSPORT,
+    CLEAR,
+    CONDITIONS,
+    DECREASE,
+    END_SESSION,
+    INCREASE,
+    REMOVE_ITEM,
     SUBMIT,
     UPDATE,
     USER_ANSWER
@@ -112,7 +116,6 @@ function cartItems(state = [], action = {}) {
 
     switch (action.type) {
         case ADD_ITEM:
-
             if (!state.find(item => item.id === action.payload.product.id)) {
                 state.push({
                     ...action.payload.product,
@@ -121,22 +124,19 @@ function cartItems(state = [], action = {}) {
             }
             return state;
 
-
         case REMOVE_ITEM:
-            return state;
-
+            return [...state.filter(item => item.id !== action.payload.product.id)];
 
         case INCREASE:
+            state[state.findIndex(item => item.id === action.payload.product.id)].quantity++
             return state;
-
 
         case DECREASE:
+            state[state.findIndex(item => item.id === action.payload.product.id)].quantity--
             return state;
-
 
         case CLEAR:
             return state;
-
 
         default:
             return state

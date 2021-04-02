@@ -6,6 +6,14 @@ import { formatNumber } from '../../utils';
 
 export default class CartItem extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            quantity: this.props.product.quantity
+        };
+    }
+
+
     render() {
 
         return (
@@ -26,7 +34,11 @@ export default class CartItem extends React.Component {
                 </div>
                 <div className="col-sm-4 p-2 text-right">
                     <button
-                        onClick={() => this.props.increase(this.props.product)}
+                        onClick={() => {
+                            this.props.increase(this.props.product)
+                            this.props.changeCart()
+                            this.setState({quantity: this.state.quantity++})
+                        }}
                         className="btn btn-primary btn-sm mr-2 mb-1">
                         <PlusCircleIcon width={"20px"}/>
                     </button>
@@ -34,7 +46,11 @@ export default class CartItem extends React.Component {
                     {
                         this.props.product.quantity > 1 &&
                         <button
-                            onClick={() => this.props.decrease(this.props.product)}
+                            onClick={() => {
+                                this.props.decrease(this.props.product)
+                                this.props.changeCart()
+                                this.setState({quantity: this.state.quantity--})
+                            }}
                             className="btn btn-danger btn-sm mb-1">
                             <MinusCircleIcon width={"20px"}/>
                         </button>
@@ -43,7 +59,10 @@ export default class CartItem extends React.Component {
                     {
                         this.props.product.quantity === 1 &&
                         <button
-                            onClick={() => this.props.removeProduct(this.props.product)}
+                            onClick={() => {
+                                this.props.removeProduct(this.props.product)
+                                this.props.changeCart()
+                            }}
                             className="btn btn-danger btn-sm mb-1">
                             <TrashIcon width={"20px"}/>
                         </button>

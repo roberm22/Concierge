@@ -9,10 +9,15 @@ import NavBar from "../../../NavBar";
 
 export default class Cart extends React.Component {
 
-    render() {
+    constructor(props) {
+        super(props);
+        this.state = {
+            itemCount: this.props.cartItems.reduce((total, product) => total + product.quantity, 0),
+            total: this.props.cartItems.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2)
+        };
+    }
 
-        let itemCount = this.props.cartItems.reduce((total, product) => total + product.quantity, 0);
-        let total = this.props.cartItems.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2);
+    render() {
 
         return (
 
@@ -34,6 +39,13 @@ export default class Cart extends React.Component {
                                         increase={this.props.increase}
                                         decrease={this.props.decrease}
                                         removeProduct={this.props.removeProduct}
+                                        changeCart = { () => {
+                                            this.setState({
+                                                itemCount: this.props.cartItems.reduce((total, product) => total + product.quantity, 0),
+                                                total: this.props.cartItems.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2)
+                                            })
+                                        }}
+
                                     /> :
                                     <div className="p-3 text-center text-muted">
                                         Your cart is empty
@@ -47,9 +59,9 @@ export default class Cart extends React.Component {
                             <div className="col-sm-3 p-3">
                                 <div className="card card-body">
                                     <p className="mb-1">Total Items</p>
-                                    <h4 className=" mb-3 txt-right">{itemCount}</h4>
+                                    <h4 className=" mb-3 txt-right">{this.state.itemCount}</h4>
                                     <p className="mb-1">Total Payment</p>
-                                    <h3 className="m-0 txt-right">{formatNumber(total)}</h3>
+                                    <h3 className="m-0 txt-right">{formatNumber(this.state.total)}</h3>
                                     <hr className="my-4"/>
                                     <div className="text-center">
                                         <button type="button" className="btn btn-primary mb-2"

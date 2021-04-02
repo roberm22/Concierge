@@ -9,16 +9,19 @@ export default class ProductItem extends React.Component {
         if(!this.props.isInCart){
             this.state = {
                 class: "btn btn-primary btn-sm",
-                text: "Add to cart"
+                text: "Add to cart",
+                activated: false
             };
         }else{
             this.state = {
                 class: "btn btn-outline-primary btn-sm",
-                text: "Add more"
+                text: "Add more",
+                activated: true
             };
         }
 
     }
+
 
     render() {
 
@@ -33,14 +36,16 @@ export default class ProductItem extends React.Component {
 
                         <button
                             onClick={() => {
-                                if(this.props.isInCart){
+                                if(this.props.isInCart || this.state.activated){
                                     this.props.increase(this.props.product);
                                 }else{
-                                    this.props.addProduct(this.props.product)
+                                    this.props.addProduct(this.props.product);
                                     this.setState({
                                         class: "btn btn-outline-primary btn-sm",
-                                        text: "Add more"
+                                        text: "Add more",
+                                        activated: true
                                     });
+
                                 }
                             }}
                             className={this.state.class}>

@@ -18,6 +18,7 @@ export default class CartProducts extends React.Component {
                                 increase={this.props.increase}
                                 decrease={this.props.decrease}
                                 removeProduct={this.props.removeProduct}
+                                changeCart={this.props.changeCart}
                             />)
                     }
 
