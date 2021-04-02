@@ -35,8 +35,6 @@ export default class ShowRestaurant extends React.Component {
                 message = "You need to be logged to make a reservation."
                 link = <NavLink to="/login"> Sign in</NavLink>
                 break;
-
-
             default:
                 console.log(this.props.login.status);
         }
@@ -72,7 +70,9 @@ export default class ShowRestaurant extends React.Component {
                         disabled={!this.props.login.isLogged}
                         onChange={value => {
                             this.setState({date: value})
-                        }} hour24={true} locale={this.state.locale.name}/>
+                        }}
+                        hour24={true}
+                        locale={this.state.locale.name}/>
 
 
                     {(!this.props.login.isLogged) ?
