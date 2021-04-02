@@ -1,10 +1,9 @@
 import React from 'react';
-import {NavLink, Route} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import {DateTimePicker} from 'react-rainbow-components';
 import {Alert, AlertTitle} from "@material-ui/lab";
-import {ArrowUpward} from "@material-ui/icons";
+import {ArrowBack} from "@material-ui/icons";
 import "./ShowRestaurant.css";
-import ListaRestaurants from './ListaRestaurants';
 import update from "react-addons-update";
 import NavBar from "../../NavBar";
 
@@ -15,17 +14,17 @@ export default class ShowRestaurant extends React.Component {
         this.state = {
             date: new Date(),
             locale: {name: 'en-US', label: 'English (US)'},
-            points: 0}
+            points: 0
+        }
         ;
 
     }
 
     render() {
         let points, message, title, link;
-        if(this.props.login.isLogged){
-            points = this.props.client.profile.points ;
-        }
-        else{
+        if (this.props.login.isLogged) {
+            points = this.props.client.profile.points;
+        } else {
             points = 0;
         }
 
@@ -44,74 +43,59 @@ export default class ShowRestaurant extends React.Component {
         return (
             <div className={"main_ShR"}>
                 <NavBar points={this.state.points + points} isLogged={this.props.login.isLogged}/>
-                <div className={"subR"}>
+                <div className={"boxR"}>
+                    <NavLink to="/services/restaurants/" id="arrowR"> <ArrowBack/> </NavLink>
 
-
-
-                    <Route
-                        path="/"
-                        render={() => <ListaRestaurants />}
-                    />
-
-                    <div className={"boxR"}>
-                        <a id="arrowR" href="#"> <ArrowUpward style={{fontSize: 40}}/> </a>
-                    </div>
                     <h1 className={"hR"}>{this.props.currentRestaurant.name}</h1>
 
 
                     <img src={this.props.currentRestaurant.photo.url} alt={"Restaurante"} width={300} height={180}
                          border={5}/>
 
-                    <div>
-
-                        <h3 className={"h3R"}>Information</h3>
+                    <h3 className={"h3R"}>Information</h3>
 
 
-                    </div>
+                    <p>{this.props.currentRestaurant.description}</p>
 
-                    <div className={"descriptionR"}>
-                        {this.props.currentRestaurant.description}
-                    </div>
 
-                    <div>
-                        <h3 className={"h3R"}>Make a Reservation</h3>
-                    </div>
-                    <div>
-                        <h3>Points:{this.state.points + points}</h3>
-                    </div>
+                    <h3 className={"h3R"}>Make a Reservation</h3>
 
-                    <div className={"subR_input"}>
 
-                        <input type={"number"} placeholder={"Persons"} disabled={!this.props.login.isLogged}/>
+                    <input type={"number"} min={1} placeholder={"Persons"} disabled={!this.props.login.isLogged}/>
 
-                        <input type={"text"} placeholder={"Name"} disabled={!this.props.login.isLogged}/>
-                    </div>
+                    <input type={"text"} placeholder={"Name"} disabled={!this.props.login.isLogged}/>
 
-                    <div className={"dateR"}>
-                        <DateTimePicker placeholder={"Date"} disabled={!this.props.login.isLogged} onChange={value => {
+
+                    <DateTimePicker
+                        placeholder={"Date"}
+                        id={"DatePicker"}
+                        disabled={!this.props.login.isLogged}
+                        onChange={value => {
                             this.setState({date: value})
                         }} hour24={true} locale={this.state.locale.name}/>
-                    </div>
-                    <div className={"subR_button"}>
-                        <button disabled={!this.props.login.isLogged}
-                                onClick={() => {
-                                    this.setState({points: this.state.points +10});
-                                    let total = points+10+this.state.points
-                            let newClient = update(this.props.client, {
+
+
+                    {(!this.props.login.isLogged) ?
+                        (<div>
+                            <Alert severity={this.props.login.status} id="alertRest">
+                                <AlertTitle>{title}</AlertTitle>
+                                <div> {message}</div>
+                                <div> {link}</div>
+                            </Alert>
+                        </div>)
+                        :
+                        <button onClick={() => {
+                            this.setState({points: this.state.points + 10});
+                            let total = points + 10 + this.state.points
+                            let newCliente = update(this.props.client, {
                                 profile: {points: {$set: total}}
                             });
-                            this.props.update( newClient);
+                            this.props.update(newCliente);
 
-                                    alert("Reservation successful. \n You earned 10 points.");
-                        }}>Make Reservation</button>
-
-                    </div>
-
-                    <Alert severity={this.props.login.status} id="alert">
-                        <AlertTitle>{title}</AlertTitle>
-                        <div> {message}</div>
-                        <div> {link}</div>
-                    </Alert>
+                            alert("Reservation successful. \n You earned 10 points.");
+                        }}>Make Reservation
+                        </button>
+                    }
                 </div>
             </div>
 
