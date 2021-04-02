@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     background-size: cover;
-    height: calc(100vh - 5.1vh);
+    height: calc(100vh - 95px);
 }
 
 .firstView .slide-images .each-slide span {
@@ -29,7 +29,7 @@
 
 
 .firstView {
-    height: calc(100vh - 5.1vh);
+    height: calc(100vh - 95px);
     position: relative;
     display: flex;
     justify-content: center;

@@ -61,7 +61,8 @@ export default class CartItem extends React.Component {
                         <button
                             onClick={() => {
                                 this.props.removeProduct(this.props.product)
-                                this.props.changeCart()
+                                let cart = [...this.props.cartItems.filter(item => item.id !== this.props.product.id)];
+                                this.props.changeCart(cart)
                             }}
                             className="btn btn-danger btn-sm mb-1">
                             <TrashIcon width={"20px"}/>

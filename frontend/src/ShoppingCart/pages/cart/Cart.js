@@ -11,6 +11,7 @@ export default class Cart extends React.Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
             itemCount: this.props.cartItems.reduce((total, product) => total + product.quantity, 0),
             total: this.props.cartItems.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2)
@@ -39,10 +40,10 @@ export default class Cart extends React.Component {
                                         increase={this.props.increase}
                                         decrease={this.props.decrease}
                                         removeProduct={this.props.removeProduct}
-                                        changeCart = { () => {
+                                        changeCart = { (cart = this.props.cartItems) => {
                                             this.setState({
-                                                itemCount: this.props.cartItems.reduce((total, product) => total + product.quantity, 0),
-                                                total: this.props.cartItems.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2)
+                                                itemCount: cart.reduce((total, product) => total + product.quantity, 0),
+                                                total: cart.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2)
                                             })
                                         }}
 

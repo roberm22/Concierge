@@ -60,6 +60,7 @@ export default class Restaurants extends React.Component {
 
                         <SlideImages
                             slideImages = {photos}
+                            spanOff = {true}
                         />
 
                         <div className="titleRest">

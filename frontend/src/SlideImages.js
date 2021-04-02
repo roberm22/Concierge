@@ -20,7 +20,7 @@ export default class SlideImages extends React.Component {
                 <Slide {...properties} className="slide-images">
                     <div className="each-slide">
                         <div style={{'backgroundImage': `url(${slideImages[0]})`}}>
-                            <NavLink to={"/services/"+this.props.span1+"/"}>
+                            <NavLink to={"/services/"+this.props.span1+"/"} style={{display: this.props.spanOff ? 'none' : 'block'}}>
                                 <span>{this.props.span1}</span>
                             </NavLink>
 

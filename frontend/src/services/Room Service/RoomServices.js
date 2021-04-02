@@ -51,7 +51,9 @@ export default class RoomServices extends React.Component {
         <NavBar points={this.state.points + points} isLogged={this.props.login.isLogged}/>
         <div className="mainRestaurant">
           <div className="firstView">
-            <SlideImages slideImages={photos} />
+            <SlideImages slideImages={photos}
+                         spanOff = {true}
+            />
 
             <div className="titleRest">
               <h1 className="title">ROOM SERVICES</h1>
