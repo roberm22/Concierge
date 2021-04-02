@@ -1,45 +1,55 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import "./navBar.css"
+import {Navbar, Nav} from 'react-bootstrap';
+import {LinkContainer} from 'react-router-bootstrap';
 
 export default class NavBar extends React.Component {
 
     render() {
 
         return (
-            <nav className="mainNav">
-                <ul>
-                    <li>
-                        <NavLink exact to="/">What do you need?</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/services/transport/">Transports</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/services/restaurants/">Restaurants</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/services/room_services/">Room Services</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/prices/">Prices</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/shopping/">Shopping Cart</NavLink>
-                    </li>
+            <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
 
-                    <li>
-                        <NavLink to="/profile/" id="userNav">
-                            <AccountCircleIcon/>
+                <LinkContainer to="/">
+                    <Navbar.Brand>Concierge</Navbar.Brand>
+                </LinkContainer>
 
-                            {(this.props.isLogged) ?
-                                (this.props.points) : null
-                            }
-                        </NavLink>
-                    </li>
-                </ul>
-            </nav>
+                <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="mr-auto">
+
+                        <LinkContainer to="/services/transport/">
+                            <Nav.Link>Transports</Nav.Link>
+                        </LinkContainer>
+
+                        <LinkContainer to="/services/restaurants/">
+                            <Nav.Link>Restaurants</Nav.Link>
+                        </LinkContainer>
+
+                        <LinkContainer to="/services/room_services/">
+                            <Nav.Link>Room Services</Nav.Link>
+                        </LinkContainer>
+
+                        <LinkContainer to="/shopping/">
+                            <Nav.Link>Shopping Cart</Nav.Link>
+                        </LinkContainer>
+
+
+                    </Nav>
+                    <Nav className="justify-content-end">
+                        {((this.props.isLogged) && (this.props.points != undefined)) ?
+                            <LinkContainer to="/prices/">
+                                <Nav.Link>Points: {this.props.points}</Nav.Link>
+                            </LinkContainer>
+                            : null
+                        }
+                        <LinkContainer to="/profile/">
+                            <Nav.Link><AccountCircleIcon/></Nav.Link>
+                        </LinkContainer>
+
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
         );
     }
 }

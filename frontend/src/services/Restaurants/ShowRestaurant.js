@@ -43,7 +43,7 @@ export default class ShowRestaurant extends React.Component {
         }
         return (
             <div className={"main_ShR"}>
-                <NavBar points={this.state.points + points} login={this.props.login}/>
+                <NavBar points={this.state.points + points} isLogged={this.props.login.isLogged}/>
                 <div className={"subR"}>
 
 

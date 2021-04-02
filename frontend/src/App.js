@@ -239,6 +239,7 @@ class App extends Component {
                         render={() => (
                             <Prices
                                 login={this.props.login}
+                                client={this.props.clients[this.props.login.id-1]}
                             />
                         )}
                     />
@@ -248,6 +249,8 @@ class App extends Component {
                         exact path="/shopping/"
                         render={() => (
                             <Store
+                                client={this.props.clients[this.props.login.id-1]}
+                                login={this.props.login}
                                 products = {this.props.products}
                                 cartItems = {this.props.cartItems}
                                 increase={ (product) => {

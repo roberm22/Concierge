@@ -8,7 +8,7 @@ export default class ProductsGrid extends React.Component {
 
         return (
             <div>
-                    <div className="row">
+                <div className="row">
                     <div className="col-sm-8">
                         <div className="py-3">
                             {this.props.products.length} Products

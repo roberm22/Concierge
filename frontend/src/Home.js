@@ -23,8 +23,10 @@ export default class Home extends React.Component {
     }
 
     handleSubmit(event) {
+        let multi = 1;
+        if(this.props.client.profile.isVip){multi=15;}
         this.setState({points: this.state.points +10});
-        let total = this.props.client.profile.points+10+this.state.points
+        let total = this.props.client.profile.points+10*multi+this.state.points
         let newClient = update(this.props.client, {
             profile: {points: {$set: total}}
         });
@@ -57,7 +59,7 @@ export default class Home extends React.Component {
 
         return (
             <div>
-                <NavBar points={this.state.points + points} login={this.props.login}/>
+                <NavBar points={this.state.points + points} isLogged={this.props.login.isLogged}/>
                 <div className="mainHome">
                     <div className="slider">
                         <SlideImages

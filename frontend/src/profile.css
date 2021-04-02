@@ -18,15 +18,28 @@
     background-attachment: fixed;
 }
 
-.profileMain img{
+.profileMainInside img{
     float: right;
+    position: relative;
     border: black solid;
     border-radius: 10px;
     height: 400px;
     width: 300px;
+    margin: 12px;
 }
 
-.profileMain input {
+.profileMain #vip{
+    border: none;
+    position: absolute;
+    margin: 0px;
+    right: -10px;
+    height: 100px;
+    width: 200px;
+
+}
+
+
+.profileMainInside input {
     font: inherit;
     padding: 0.2em 0.5em;
     border-radius: 10px;
@@ -53,9 +66,10 @@
     border-radius: 20px;
     padding: 10px;
     margin: 3em;
+    z-index: 100;
 }
 
-.profileMain button {
+.profileMainInside button {
     color: white;
     background: #DAA520;
     border: none;

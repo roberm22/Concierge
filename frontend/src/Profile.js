@@ -4,7 +4,7 @@ import {Alert, AlertTitle} from "@material-ui/lab";
 import './profile.css'
 import update from 'react-addons-update';
 import NavBar from "./NavBar";
-
+import vip from "./assets/images/vip.png";
 
 export default class Profile extends React.Component {
 
@@ -35,65 +35,66 @@ export default class Profile extends React.Component {
                     {(this.props.login.conditionsAccepted) ?
                         (<div className={"profileMain"}>
                             <NavBar login={this.props.login}/>
-                            <Alert severity="success" id="alert-profile">
-                                <AlertTitle>Welcome</AlertTitle>
-                                Here you can see your profile and <strong>change it</strong>
-                            </Alert>
-                            <h1>Gestión del perfil</h1>
+                            <div className={"profileMainInside"}>
 
-                            <div className={"information"}>
-                                <img src={this.props.client.profile.photo.filename ?
-                                    process.env.PUBLIC_URL + "/" + this.props.client.profile.photo.filename :
-                                    "https://www.learning.uclg.org/sites/default/files/styles/featured_home_left/public/no-user-image-square.jpg?itok=PANMBJF-"
-                                }
-                                     alt={"Sin foto de perfil"}/>
-                                <div className={"box"}>
-                                    <h3>DNI: {this.props.client.DNI}</h3>
-                                    <h3>Room: {this.props.client.room}</h3>
-                                    <h3>VIP: {this.props.client.isVip?"Yes":"No"}</h3>
-                                    <h3>Points: {this.props.client.profile.points}</h3>
-                                    <h3>Email:
-                                        <input type="text" id="email" placeholder={this.state.profile.email}
-                                               value={this.state.profile.email}
-                                               onChange={(e) => {
-                                                   let newState = update(this.state, {
-                                                       profile: {email: {$set: e.target.value}}
-                                                   });
-                                                   this.setState(newState);
-                                               }
-                                               }
-                                        />
-                                    </h3>
-                                    <h3>Phone:
-                                        <input type="text" id="username" placeholder={this.state.profile.phone}
-                                               value={this.state.profile.phone}
-                                               onChange={(e) => {
-                                                   let newState = update(this.state, {
-                                                       profile: {phone: {$set: e.target.value}}
-                                                   });
-                                                   this.setState(newState);
-                                               }
-                                               }
-                                        />
-                                    </h3>
+                                <Alert severity="success" id="alert-profile">
+                                    <AlertTitle>Welcome</AlertTitle>
+                                    Here you can see your profile and <strong>change it</strong>
+                                </Alert>
+                                <h1>Gestión del perfil</h1>
 
-                                    <ul>
-                                        <li>
-                                            <button onClick={() => this.props.update(this.state)}>
-                                                Change
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button onClick={this.props.endSession}> Logout</button>
-                                        </li>
-                                    </ul>
-                                    <div style={{clear: "both"}}>{}</div>
+                                <div className={"information"}>
+                                    <img src={this.props.client.profile.photo.filename ?
+                                        process.env.PUBLIC_URL + "/" + this.props.client.profile.photo.filename :
+                                        "https://www.learning.uclg.org/sites/default/files/styles/featured_home_left/public/no-user-image-square.jpg?itok=PANMBJF-"
+                                    }
+                                         alt={"Sin foto de perfil"}/>
+                                    {this.props.client.isVip ? <img alt={"Vip"} id={"vip"} src={vip}/> : null}
 
+                                    <div className={"box"}>
+                                        <h3>DNI: {this.props.client.DNI}</h3>
+                                        <h3>Room: {this.props.client.room}</h3>
+                                        <h3>VIP: {this.props.client.isVip ? "Yes" : "No"}</h3>
+                                        <h3>Points: {this.props.client.profile.points}</h3>
+                                        <h3>Email:
+                                            <input type="text" id="email" placeholder={this.state.profile.email}
+                                                   value={this.state.profile.email}
+                                                   onChange={(e) => {
+                                                       let newState = update(this.state, {
+                                                           profile: {email: {$set: e.target.value}}
+                                                       });
+                                                       this.setState(newState);
+                                                   }
+                                                   }
+                                            />
+                                        </h3>
+                                        <h3>Phone:
+                                            <input type="text" id="username" placeholder={this.state.profile.phone}
+                                                   value={this.state.profile.phone}
+                                                   onChange={(e) => {
+                                                       let newState = update(this.state, {
+                                                           profile: {phone: {$set: e.target.value}}
+                                                       });
+                                                       this.setState(newState);
+                                                   }
+                                                   }
+                                            />
+                                        </h3>
+
+                                        <ul>
+                                            <li>
+                                                <button onClick={() => this.props.update(this.state)}>
+                                                    Change
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button onClick={this.props.endSession}> Logout</button>
+                                            </li>
+                                        </ul>
+                                        <div style={{clear: "both"}}>{}</div>
+                                    </div>
                                 </div>
                             </div>
-
-
-
                         </div>)
                         :
                         (<Redirect to="/welcome/"/>)}

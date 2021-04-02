@@ -53,7 +53,7 @@ export default class ShowTransport extends React.Component {
         }
         return (
             <div className="main_ShowT">
-                <NavBar points={this.state.points + points} login={this.props.login}/>
+                <NavBar points={this.state.points + points} isLogged={this.props.login.isLogged}/>
                 <div className="boxT">
                     <NavLink to="/services/transport/" id="arrowT"> <ArrowBack/> </NavLink>
 
