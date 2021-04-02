@@ -1,10 +1,11 @@
 import {combineReducers} from 'redux';
 import {
+    ADD_ITEM,
     CHANGE_RESTAURANT,
     CHANGE_ROOM_SERVICES,
-    CHANGE_TRANSPORT,
-    CONDITIONS,
-    END_SESSION,
+    CHANGE_TRANSPORT, CLEAR,
+    CONDITIONS, DECREASE,
+    END_SESSION, INCREASE, REMOVE_ITEM,
     SUBMIT,
     UPDATE,
     USER_ANSWER
@@ -110,23 +111,30 @@ function currentService(state = [], action = {}) {
 function cartItems(state = [], action = {}) {
 
     switch (action.type) {
-        case "ADD_ITEM":
+        case ADD_ITEM:
+
+            if (!state.find(item => item.id === action.payload.product.id)) {
+                state.push({
+                    ...action.payload.product,
+                    quantity: 1
+                })
+            }
             return state;
 
 
-        case "REMOVE_ITEM":
+        case REMOVE_ITEM:
             return state;
 
 
-        case "INCREASE":
+        case INCREASE:
             return state;
 
 
-        case "DECREASE":
+        case DECREASE:
             return state;
 
 
-        case "CLEAR":
+        case CLEAR:
             return state;
 
 

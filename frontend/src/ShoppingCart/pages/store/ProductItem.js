@@ -4,11 +4,23 @@ import { formatNumber } from '../../utils';
 
 export default class ProductItem extends React.Component {
 
-    render() {
-
-        let isInCart = product => {
-            return !!this.props.cartItems.find(item => item.id === product.id);
+    constructor(props) {
+        super(props);
+        if(!this.props.isInCart){
+            this.state = {
+                class: "btn btn-primary btn-sm",
+                text: "Add to cart"
+            };
+        }else{
+            this.state = {
+                class: "btn btn-outline-primary btn-sm",
+                text: "Add more"
+            };
         }
+
+    }
+
+    render() {
 
         return (
             <div className="card card-body">
@@ -19,19 +31,21 @@ export default class ProductItem extends React.Component {
                 <div className="text-right">
                     <Link to="/" className="btn btn-link btn-sm mr-2">Details</Link>
 
-                    {
-                        isInCart(this.props.product) &&
                         <button
-                            onClick={() => this.props.increase(this.props.product)}
-                            className="btn btn-outline-primary btn-sm">Add more</button>
-                    }
-
-                    {
-                        !isInCart(this.props.product) &&
-                        <button
-                            onClick={() => this.props.addProduct(this.props.product)}
-                            className="btn btn-primary btn-sm">Add to cart</button>
-                    }
+                            onClick={() => {
+                                if(this.props.isInCart){
+                                    this.props.increase(this.props.product);
+                                }else{
+                                    this.props.addProduct(this.props.product)
+                                    this.setState({
+                                        class: "btn btn-outline-primary btn-sm",
+                                        text: "Add more"
+                                    });
+                                }
+                            }}
+                            className={this.state.class}>
+                            {this.state.text}
+                        </button>
 
                 </div>
             </div>

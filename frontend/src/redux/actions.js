@@ -65,11 +65,11 @@ export function decrease(product){
 }
 
 export function addProduct(product){
-    return {type: ADD_ITEM, payload: {product}};
+    return {type: ADD_ITEM, payload: { product }};
 }
 
 export function removeProduct(product){
-    return {type: REMOVE_ITEM, payload: {product}};
+    return {type: REMOVE_ITEM, payload: { product }};
 }
 
 export function clearCart(){

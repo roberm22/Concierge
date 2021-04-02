@@ -23,15 +23,18 @@ export default class ProductsGrid extends React.Component {
                 <div className={styles.p_grid}>
 
                     {
-                        this.props.products.map(product => (
-                            <ProductItem
-                                key={product.id}
-                                product={product}
-                                cartItems={this.props.cartItems}
-                                increase={this.props.increase}
-                                addProduct={this.props.addProduct}
+                        this.props.products.map(product => {
+
+                            let isInCart = this.props.cartItems.some(item => item.id === product.id)
+
+                            return <ProductItem
+                            key={product.id}
+                            product={product}
+                            isInCart={isInCart}
+                            increase={this.props.increase}
+                            addProduct={this.props.addProduct}
                             />
-                        ))
+                        })
                     }
 
                 </div>
