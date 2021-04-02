@@ -8,7 +8,7 @@ export default class Footer extends React.Component {
                 textAlign: 'center', width: '100%', padding: '10px'
             }}>
 
-                2020 &copy; Concierge
+                2021 &copy; Concierge
 
             </footer>
         );

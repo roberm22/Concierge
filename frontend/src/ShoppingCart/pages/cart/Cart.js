@@ -53,7 +53,7 @@ export default class Cart extends React.Component {
                                     <hr className="my-4"/>
                                     <div className="text-center">
                                         <button type="button" className="btn btn-primary mb-2"
-                                                onClick={() => this.props.clearCart}>CHECKOUT
+                                                onClick={() => this.props.clearCart}>GO TO PAY
                                         </button>
                                         <button type="button" className="btn btn-outlineprimary btn-sm"
                                                 onClick={() => this.props.clearCart}>CLEAR
