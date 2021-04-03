@@ -7,6 +7,8 @@ import {restaurants} from "../assets/restaurants_data";
 import {roomServices} from "../assets/room_service_data";
 import {transports} from "../assets/transports_data";
 import {products, cartItems} from '../assets/shopping_card_data';
+import {products1} from '../assets/shopping_card_data1';
+import {products2} from '../assets/shopping_card_data2';
 
 import React from 'react';
 import App from '../App';
@@ -21,6 +23,8 @@ export default class ReduxProvider extends React.Component {
             services:{restaurants,roomServices,transports},
             products: [...products],
             cartItems: [...cartItems],
+            products1: [...products1],
+            products2: [...products2],
             currentService:0
         };
         this.store = this.configureStore();

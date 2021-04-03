@@ -144,7 +144,20 @@ function cartItems(state = [], action = {}) {
     }
 }
 
+
 function products(state = [], action = {}) {
+    switch (action.type) {
+        default:
+            return state;
+    }
+}
+function products1(state = [], action = {}) {
+    switch (action.type) {
+        default:
+            return state;
+    }
+}
+function products2(state = [], action = {}) {
     switch (action.type) {
         default:
             return state;
@@ -158,7 +171,9 @@ const GlobalState = (combineReducers({
     services,
     currentService,
     cartItems,
-    products
+    products,
+    products1,
+    products2
 }));
 
 export default GlobalState;

@@ -34,7 +34,16 @@ import Prices from "./Prices";
 import Store from "./ShoppingCart/pages/store/Store";
 import Cart from "./ShoppingCart/pages/cart/Cart";
 import About from "./ShoppingCart/pages/About";
+
+import Store1 from "./ShoppingCart1/pages/store/Store";
+import Cart1 from "./ShoppingCart1/pages/cart/Cart";
+import About1 from "./ShoppingCart1/pages/About";
+
+import Store2 from "./ShoppingCart2/pages/store/Store";
+import Cart2 from "./ShoppingCart2/pages/cart/Cart";
+import About2 from "./ShoppingCart2/pages/About";
 import ListaService from "./services/Room Service/ListaService";
+import NavBar from "./NavBar";
 
 class App extends Component {
   constructor(props) {
@@ -127,7 +136,7 @@ class App extends Component {
           <Route
             exact
             path="/services/transport/"
-            render={(props) => (  
+            render={(props) => (
               <Transports
                 {...props}
                 client={this.props.clients[this.props.login.id - 1]}
@@ -197,29 +206,15 @@ class App extends Component {
           <Route
             path="/services/room_services/"
             render={(props) => (
-              <div>
-                <RoomServices
-                  {...props}
-                  client={this.props.clients[this.props.login.id - 1]}
-                  login={this.props.login}
-                  roomServices={this.props.services.roomServices}
-                  onChangeRoomServices={(answer) => {
-                    this.props.dispatch(changeRoomServices(answer));
-                  }}
-                />
-                <Store
-                  client={this.props.clients[this.props.login.id - 1]}
-                  login={this.props.login}
-                  products={this.props.products}
-                  cartItems={this.props.cartItems}
-                  increase={(product) => {
-                    this.props.dispatch(increase(product));
-                  }}
-                  addProduct={(product) => {
-                    this.props.dispatch(addProduct(product));
-                  }}
-                />
-              </div>
+              <RoomServices
+                {...props}
+                client={this.props.clients[this.props.login.id - 1]}
+                login={this.props.login}
+                roomServices={this.props.services.roomServices}
+                onChangeRoomServices={(answer) => {
+                  this.props.dispatch(changeRoomServices(answer));
+                }}
+              />
             )}
           />
 
@@ -251,18 +246,21 @@ class App extends Component {
             exact
             path="/shopping/"
             render={() => (
-              <Store
-                client={this.props.clients[this.props.login.id - 1]}
-                login={this.props.login}
-                products={this.props.products}
-                cartItems={this.props.cartItems}
-                increase={(product) => {
-                  this.props.dispatch(increase(product));
-                }}
-                addProduct={(product) => {
-                  this.props.dispatch(addProduct(product));
-                }}
-              />
+              <div>
+                <NavBar></NavBar>
+                <Store
+                  client={this.props.clients[this.props.login.id - 1]}
+                  login={this.props.login}
+                  products={this.props.products}
+                  cartItems={this.props.cartItems}
+                  increase={(product) => {
+                    this.props.dispatch(increase(product));
+                  }}
+                  addProduct={(product) => {
+                    this.props.dispatch(addProduct(product));
+                  }}
+                />
+              </div>
             )}
           />
 
@@ -289,6 +287,98 @@ class App extends Component {
           />
 
           <Route path="/shopping/about" component={About} />
+
+          <Route
+            exact
+            path="/shopping1/"
+            render={() => (
+              <div>
+                <NavBar></NavBar>
+                <Store1
+                  client={this.props.clients[this.props.login.id - 1]}
+                  login={this.props.login}
+                  products1={this.props.products1}
+                  cartItems={this.props.cartItems}
+                  increase={(product) => {
+                    this.props.dispatch(increase(product));
+                  }}
+                  addProduct={(product) => {
+                    this.props.dispatch(addProduct(product));
+                  }}
+                />
+              </div>
+            )}
+          />
+
+          <Route
+            path="/shopping1/cart"
+            render={() => (
+              <Cart1
+                products1={this.props.products1}
+                cartItems={this.props.cartItems}
+                clearCart={() => {
+                  this.props.dispatch(clearCart());
+                }}
+                increase={(product) => {
+                  this.props.dispatch(increase(product));
+                }}
+                decrease={(product) => {
+                  this.props.dispatch(decrease(product));
+                }}
+                removeProduct={(product) => {
+                  this.props.dispatch(removeProduct(product));
+                }}
+              />
+            )}
+          />
+
+          <Route path="/shopping1/about" component={About1} />
+
+          <Route
+            exact
+            path="/shopping2/"
+            render={() => (
+              <div>
+                <NavBar></NavBar>
+                <Store2
+                  client={this.props.clients[this.props.login.id - 1]}
+                  login={this.props.login}
+                  products2={this.props.products2}
+                  cartItems={this.props.cartItems}
+                  increase={(product) => {
+                    this.props.dispatch(increase(product));
+                  }}
+                  addProduct={(product) => {
+                    this.props.dispatch(addProduct(product));
+                  }}
+                />
+              </div>
+            )}
+          />
+
+          <Route
+            path="/shopping2/cart"
+            render={() => (
+              <Cart2
+                products2={this.props.products2}
+                cartItems={this.props.cartItems}
+                clearCart={() => {
+                  this.props.dispatch(clearCart());
+                }}
+                increase={(product) => {
+                  this.props.dispatch(increase(product));
+                }}
+                decrease={(product) => {
+                  this.props.dispatch(decrease(product));
+                }}
+                removeProduct={(product) => {
+                  this.props.dispatch(removeProduct(product));
+                }}
+              />
+            )}
+          />
+
+          <Route path="/shopping2/about" component={About2} />
         </Router>
       </div>
     );

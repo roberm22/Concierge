@@ -167,6 +167,7 @@ export default class Restaurants extends React.Component {
                                             <button>
                                                 {listItems}
                                             </button>
+                                            
                                         </ul>
                                         <p>&nbsp;</p>
 

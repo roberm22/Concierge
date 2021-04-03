@@ -112,6 +112,9 @@ export default class RoomServices extends React.Component {
 
                         Order now
                       </button>
+                      <button>
+                        <Link to="/shopping1"> Shopping Cart </Link>
+                      </button>
                       <br />
                       <br />
                     </div>
@@ -161,6 +164,9 @@ export default class RoomServices extends React.Component {
 
                         Order now
                       </button>
+                      <button>
+                        <Link to="/shopping2"> Shopping Cart </Link>
+                      </button>
                       <br />
                       <br />
                     </div>
@@ -199,6 +205,9 @@ export default class RoomServices extends React.Component {
 
                       <button>
                         <Link to="/services/room_services/show_room_services/">Order now</Link>
+                      </button>
+                      <button>
+                        <Link to="/shopping"> Shopping Cart </Link>
                       </button>
 
                       <br />
