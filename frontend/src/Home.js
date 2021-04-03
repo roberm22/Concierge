@@ -88,7 +88,6 @@ export default class Home extends React.Component {
                   onChange={this.handleChange}
                 />
 
-                <ListaService />
               </div>
             </label>
 

@@ -13,10 +13,10 @@ export default class Cart extends React.Component {
         super(props);
 
         this.state = {
-            itemCount: this.props.cartItems2.reduce((total, product2) => total + product2.quantity, 0),
-            itemCount2: this.props.cartItems2.reduce((total2, product2) => total2 + product2.quantity, 0),
-            total: this.props.cartItems2.reduce((total, product2) => total + product2.price * product2.quantity, 0).toFixed(2),
-            total2: this.props.cartItems2.reduce((total2, product2) => total2 + product2.hotelPoints * product2.quantity, 0).toFixed(2)
+            itemCount: this.props.cartItems.reduce((total, product2) => total + product2.quantity, 0),
+            itemCount2: this.props.cartItems.reduce((total2, product2) => total2 + product2.quantity, 0),
+            total: this.props.cartItems.reduce((total, product2) => total + product2.price * product2.quantity, 0).toFixed(2),
+            total2: this.props.cartItems.reduce((total2, product2) => total2 + product2.hotelPoints * product2.quantity, 0).toFixed(2)
 
         };
     }
