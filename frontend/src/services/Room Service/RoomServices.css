@@ -185,3 +185,23 @@
 .article .slide-images {
     padding-right: 30px;
 }
+.queNecesitas{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7em;
+    
+    
+    
+
+}
+.queNecesitas input{
+    outline: none;
+    font-size: 1em;
+    cursor: pointer;
+    letter-spacing: 1px;
+    font-weight: 400;
+    transition: 0.5s all;
+    border-radius: 30px;
+}

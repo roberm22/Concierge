@@ -136,6 +136,7 @@ function cartItems(state = [], action = {}) {
             return state;
 
         case CLEAR:
+            
             return state;
 
         default:

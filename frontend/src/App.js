@@ -282,6 +282,8 @@ class App extends Component {
                 removeProduct={(product) => {
                   this.props.dispatch(removeProduct(product));
                 }}
+                clients = {this.props.clients}
+                login = {this.props.login}
               />
             )}
           />
@@ -374,6 +376,7 @@ class App extends Component {
                 removeProduct={(product) => {
                   this.props.dispatch(removeProduct(product));
                 }}
+
               />
             )}
           />

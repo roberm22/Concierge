@@ -16,13 +16,20 @@ export default class Cart extends React.Component {
             itemCount: this.props.cartItems.reduce((total, product) => total + product.quantity, 0),
             itemCount2: this.props.cartItems.reduce((total2, product) => total2 + product.quantity, 0),
             total: this.props.cartItems.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2),
-            total2: this.props.cartItems.reduce((total2, product) => total2 + product.hotelPoints * product.quantity, 0).toFixed(2)
+            total2: this.props.cartItems.reduce((total2, product) => total2 + product.hotelPoints * product.quantity, 0).toFixed(2),
+            points : 0,
+            totalPoints : this.props.cartItems.reduce((total2, product) => total2 + product.hotelPoints * product.quantity, 0).toFixed(2)
 
         };
     }
 
     render() {
-
+        let points, totalPoints;
+        if (this.props.login.isLogged) {
+            points = this.props.client.profile.points;
+        } else {
+            points = 0;
+        }
         return (
 
             <>
@@ -71,12 +78,28 @@ export default class Cart extends React.Component {
                                     Hotel Points: <h3 className="m-0 txt-right">{this.state.total2}</h3>
                                     <hr className="my-4"/>
                                     <div className="text-center">
-                                        <button type="button" className="btn btn-primary mb-2"
-                                                onClick={() => this.props.clearCart}>GO TO PAY
-                                        </button>
+
+                                    {points < totalPoints ? (
+                                        <div>
+                                            <p>Not Enough Points </p>
+                                            <button type="button" className="btn btn-primary mb-2"
+                                                onClick={() => this.props.clearCart}>PAY WITH MONEY
+                                                
+                                            </button>
+                                        </div>
+                                    ) : (
+                                        <div>
+                                            <p>Congratulations, You can pay with Hotel Points!</p>
+                                            <button type="button" className="btn btn-primary mb-2"
+                                                onClick={() => this.props.clearCart}>PAY WITH HOTEL POINTS
+                                                
+                                            </button> 
+                                        </div>
+                                    )}
                                         <button type="button" className="btn btn-outlineprimary btn-sm"
                                                 onClick={() => this.props.clearCart}>CLEAR
                                         </button>
+                                        
                                     </div>
 
                                 </div>

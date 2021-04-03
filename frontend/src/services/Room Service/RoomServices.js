@@ -2,25 +2,59 @@ import React from "react";
 import "./RoomServices.css";
 import NavBar from "../../NavBar";
 import SlideImages from "../../SlideImages";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Alert, AlertTitle } from "@material-ui/lab";
+import update from "react-addons-update";
+import { NavLink } from "react-router-dom";
 
 // Cuidado al añadir algo que se descuadra - Atencion!
 
 export default class RoomServices extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      points: 0
+      points: 0,
+      value: "Please tell us your incidents",
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
+  handleSubmit(event) {
+    let multi = 1;
+    if (this.props.client.profile.isVip) {
+      multi = 15;
+    }
+    this.setState({ points: this.state.points + 10 });
+    let total =
+      this.props.client.profile.points + 10 * multi + this.state.points;
+    let newClient = update(this.props.client, {
+      profile: { points: { $set: total } },
+    });
+    this.props.update(newClient);
+
+    alert("Reservation successful. \n You earned 10 points.");
+    event.preventDefault();
   }
 
   render() {
-    let points;
+    let points, message, title, link;
     if (this.props.login.isLogged) {
       points = this.props.client.profile.points;
     } else {
       points = 0;
+    }
+    switch (this.props.login.status) {
+      case "info":
+        title = "Log In";
+        message = "You need to be logged.";
+        link = <NavLink to="/login"> Sign In</NavLink>;
+        break;
+      default:
+        console.log(this.props.login.status);
     }
     let photos = [
       "https://www.viroth-hotel.com/wp-content/uploads/2019/05/slide1-1-1920x883.jpg",
@@ -48,12 +82,13 @@ export default class RoomServices extends React.Component {
 
     return (
       <div>
-        <NavBar points={this.state.points + points} isLogged={this.props.login.isLogged}/>
+        <NavBar
+          points={this.state.points + points}
+          isLogged={this.props.login.isLogged}
+        />
         <div className="mainRestaurant">
           <div className="firstView">
-            <SlideImages slideImages={photos}
-                         spanOff = {true}
-            />
+            <SlideImages slideImages={photos} spanOff={true} />
 
             <div className="titleRest">
               <h1 className="title">ROOM SERVICES</h1>
@@ -109,7 +144,6 @@ export default class RoomServices extends React.Component {
                           );
                         }}
                       >
-
                         Order now
                       </button>
                       <button>
@@ -161,7 +195,6 @@ export default class RoomServices extends React.Component {
                           );
                         }}
                       >
-
                         Order now
                       </button>
                       <button>
@@ -202,9 +235,10 @@ export default class RoomServices extends React.Component {
                     </p>
 
                     <div className="menu">
-
                       <button>
-                        <Link to="/services/room_services/show_room_services/">Order now</Link>
+                        <Link to="/services/room_services/show_room_services/">
+                          Order now
+                        </Link>
                       </button>
                       <button>
                         <Link to="/shopping"> Shopping Cart </Link>
@@ -219,6 +253,37 @@ export default class RoomServices extends React.Component {
                   <div className="flexImage">
                     <SlideImages slideImages={photos4} />
                   </div>
+                  <form onSubmit={this.handleSubmit}>
+                    <label>
+                      <h1>Incidents</h1>
+                      <div className="queNecesitas">
+                        <textarea
+                          onClick={() => {
+                            this.setState({ value: "" });
+                          }}
+                          value={this.state.value}
+                          onChange={this.handleChange}
+                        />
+                      </div>
+                    </label>
+
+                    <br />
+
+                    {!this.props.login.isLogged ? (
+                      <div className="alertHome">
+                        <Alert
+                          severity={this.props.login.status}
+                          id="alert-home"
+                        >
+                          <AlertTitle>{title}</AlertTitle>
+                          <div> {message}</div>
+                          <div> {link}</div>
+                        </Alert>
+                      </div>
+                    ) : (
+                      <input type="submit" value="Submit" />
+                    )}
+                  </form>
                 </div>
               </div>
             </article>
