@@ -9,7 +9,7 @@ export default class Header extends React.Component {
         return (
             <header className="headerShop">
                 <Link to='/shopping/'>Store</Link>
-                <Link to='/shopping/about'>About</Link>
+                <Link to='/shopping/report'>Report an incident</Link>
                 <Link to='/shopping/cart'> <CartIcon/> Cart </Link>
             </header>
         );

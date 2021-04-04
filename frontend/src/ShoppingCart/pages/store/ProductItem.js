@@ -31,8 +31,7 @@ export default class ProductItem extends React.Component {
                      src={this.props.product.photo} alt=""/>
                 <p>{this.props.product.name}</p>
                 <h3 className="text-left">{formatNumber(this.props.product.price)}</h3>
-                Hotel Points:<h3 className="text-left"> {this.props.product.hotelPoints}</h3>
-                
+
                 <div className="text-right">
                     <Link to="/" className="btn btn-link btn-sm mr-2">Details</Link>
 

@@ -20,7 +20,7 @@ import {
 
 import Store from "../../ShoppingCart/pages/store/Store";
 import Cart from "../../ShoppingCart/pages/cart/Cart";
-import About from "../../ShoppingCart/pages/About";
+import Report from "../../ShoppingCart/pages/Report";
 
 export default class ShowRoomServices extends React.Component {
   render() {

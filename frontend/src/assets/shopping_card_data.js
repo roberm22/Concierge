@@ -19,7 +19,7 @@ exports.products = [
   },
   {
     id: 3,
-    name: "Water - Hacendado",
+    name: "Water - North Mountain",
     price: 1.99,
     hotelPoints: 15,
     photo: "/img/3.jpg",
@@ -91,104 +91,139 @@ exports.products = [
   },
   {
     id: 11,
-    name: "Pillow",
-    price: 0,
-    hotelPoints: 0,
-    photo: [ "https://www.maxcolchon.com/images/products/1160/02-almohadas-almohada-junior.jpg"],
+    name: "Premium Pillow - Bed Beyond",
+    price: 3.99,
+    hotelPoints: 15,
+    photo: "/img/11.jpg",
     quantity: 0,
-    category: "cosas"
+    category: "comfort"
   },
   {
     id: 12,
-    name: "Bed Sheet",
-    price: 0,
-    hotelPoints: 0,
-    photo: [ "https://www.sabanalia.com/1120-large_default/juego-de-sabanas-blancas-de-hosteleria-disponible-en-varias-medidas.jpg"],
+    name: "Bed Sheets - Premium Selection",
+    price: 4.99,
+    hotelPoints: 20,
+    photo: "/img/12.jpg",
     quantity: 0,
-    category: "cosas"
+    category: "comfort"
   },
   {
     id: 13,
-    name: "Toothbrush",
-    price: 0,
-    hotelPoints: 0,
-    photo: [ "https://media.farmacialiceo.com/export/fotos/0ffa1766395ebfb9a710345641358909_cepillo-dental-adulto-vitis-medio-g.jpg"],
+    name: "Egyptian Towels - Cotton Line",
+    price: 6.99,
+    hotelPoints: 30,
+    photo: "/img/13.jpg",
     quantity: 0,
-    category: "cosas"
+    category: "comfort"
   },
   {
     id: 14,
-    name: "Towel",
-    price: 0,
-    hotelPoints: 0,
-    photo: [ "https://images-na.ssl-images-amazon.com/images/I/81pD%2BoBi7DL._AC_SX425_.jpg"],
+    name: "Bath Collection - Aromatherapy Premium",
+    price: 12.99,
+    hotelPoints: 85,
+    photo: "/img/14.jpg",
     quantity: 0,
-    category: "cosas"
+    category: "comfort"
   },
   {
     id: 15,
-    name: "Bathrobe",
-    price: 0,
-    hotelPoints: 0,
-    photo: [ "https://www.burritoblanco.com/1617/albornoz-liso-color-blanco-080.jpg"],
+    name: "Cotton Bathrobe - Terry Shawl Luxury",
+    price: 8.99,
+    hotelPoints: 65,
+    photo: "/img/15.jpg",
     quantity: 0,
-    category: "cosas"
+    category: "comfort"
   },
   {
     id: 16,
-    name: "American Breakfast",
+    name: "American Breakfast - Bacon & Pancakes",
     price: 9.99,
-    hotelPoints: 65,
-    photo: [ "https://www.vips.es/sites/default/files/styles/optimize/public/720x500.jpg?itok=hXgxsqD4"],
+    hotelPoints: 70,
+    photo: "/img/16.jpg",
     quantity: 0,
     category: "menu"
   },
   {
     id: 17,
-    name: "European Breakfast",
-    price: 9.99,
-    hotelPoints: 65,
-    photo: [ "https://lh3.googleusercontent.com/proxy/6xPyV_ZL2cl0h4j0nhVOo-0ydD5s6COphx72I6_xU4OriEeZvoNm_aAgbQ44NKnhdW9T3WZvIXWCbhDGhg7GA-SuY0Krxg5PBK9RpT92ruwaDiYUdvKNEJ46TumKLd5_5SSrzTzH"],
+    name: "English Breakfast - The Real Combo ",
+    price: 13.99,
+    hotelPoints: 95,
+    photo: "/img/17.jpg",
     quantity: 0,
     category: "menu"
   },
   {
     id: 18,
-    name: "Lunch 1",
-    price: 14.99,
-    hotelPoints: 100,
-    photo: [ "https://s3.amazonaws.com/static.om.anigamy.net/static.selecciones.com.ar/App/Article/12-consejos-utiles-para-saber-que-pedir-en-un-restaurante-2636-mainImage-0.jpg"],
+    name: "Avocado Toast - Shutter Breakfast ",
+    price: 10.99,
+    hotelPoints: 50,
+    photo: "/img/18.jpg",
     quantity: 0,
     category: "menu"
   },
   {
     id: 19,
-    name: "Lunch 2",
-    price: 14.99,
-    hotelPoints: 100,
-    photo: [ "https://foodscene.deliveroo.es/assets/images/blogs/foodscene.deliveroo.es/es/platos/1a68dGLu--5FpWhoEjEFqp-4OmqrQBDTUF9Zsj_97Bo0/h_23_what_do_italian_restaurants_have_to_offer_.jpg.jpg?v=1.01"],
+    name: "Benedict Eggs - Deccan Chef",
+    price: 9.99,
+    hotelPoints: 55,
+    photo: "/img/19.jpg",
     quantity: 0,
     category: "menu"
   },
   {
     id: 20,
-    name: "Dinner 1",
-    price: 14.99,
+    name: "The Home Burger - Traveler Specialty",
+    price: 15.99,
     hotelPoints: 100,
-    photo: [ "https://www.thebeertimes.com/wp-content/uploads/2019/06/Receta-de-hamburguesas-a-la-cerveza.jpg"],
+    photo: "/img/20.jpg",
     quantity: 0,
     category: "menu"
   },
   {
     id: 21,
-    name: "Dinner 2",
-    price: 14.99,
-    hotelPoints: 100,
-    photo: [ "https://cdn.shopify.com/s/files/1/0296/7614/2685/collections/VARIQDO.jpg?v=1588705264"],
+    name: "The Chef's Burger - Casio Meals",
+    price: 13.99,
+    hotelPoints: 90,
+    photo: "/img/21.jpg",
     quantity: 0,
     category: "menu"
   },
-  
+  {
+    id: 22,
+    name: "Dublin Sandwich - Old Conrade",
+    price: 16.99,
+    hotelPoints: 120,
+    photo: "/img/22.jpg",
+    quantity: 0,
+    category: "menu"
+  },
+  {
+    id: 23,
+    name: "Cheesecake - Cookie Base",
+    price: 8.99,
+    hotelPoints: 70,
+    photo: "/img/23.jpg",
+    quantity: 0,
+    category: "menu"
+  },
+  {
+    id: 24,
+    name: "Brownie - Chocolate Perdition",
+    price: 11.99,
+    hotelPoints: 95,
+    photo: "/img/24.jpg",
+    quantity: 0,
+    category: "menu"
+  },
+  {
+    id: 25,
+    name: "Muesli Yogurt - Honey",
+    price: 7.99,
+    hotelPoints: 50,
+    photo: "/img/25.jpg",
+    quantity: 0,
+    category: "menu"
+  },
 ];
 
 exports.cartItems = [

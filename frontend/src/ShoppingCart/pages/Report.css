@@ -1,0 +1,13 @@
+
+.mainReport {
+    margin: 5vh 20vh;
+}
+
+.mainReport legend {
+    text-align: center;
+}
+
+.mainReport button {
+    margin:auto;
+    display:block
+}

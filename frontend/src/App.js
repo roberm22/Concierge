@@ -33,7 +33,7 @@ import Prices from "./Prices";
 
 import Store from "./ShoppingCart/pages/store/Store";
 import Cart from "./ShoppingCart/pages/cart/Cart";
-import About from "./ShoppingCart/pages/About";
+import Report from "./ShoppingCart/pages/Report";
 
 
 class App extends Component {
@@ -276,7 +276,14 @@ class App extends Component {
                         )}
                     />
 
-                    <Route path="/shopping/about" component={About}/>
+                    <Route path="/shopping/report"
+                           render={() => (
+                               <Report
+                                   client={this.props.clients[this.props.login.id - 1]}
+                                   login={this.props.login}
+                               />
+                           )}
+                    />
 
                 </Router>
             </div>
