@@ -3,22 +3,30 @@ import "./RoomServices.css";
 import NavBar from "../../NavBar";
 import SlideImages from "../../SlideImages";
 import { Link } from "react-router-dom";
+
+/*
+
 import { Alert, AlertTitle } from "@material-ui/lab";
 import update from "react-addons-update";
 import { NavLink } from "react-router-dom";
+*/
 
 // Cuidado al añadir algo que se descuadra - Atencion!
 
 export default class RoomServices extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      points: 0,
-      value: "Please tell us your incidents",
+      points: 0
+      //value: "Please tell us your incidents",
     };
+    /*
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    */
   }
+/*
 
   handleChange(event) {
     this.setState({ value: event.target.value });
@@ -39,9 +47,11 @@ export default class RoomServices extends React.Component {
     alert("Reservation successful. \n You earned 10 points.");
     event.preventDefault();
   }
+*/
 
   render() {
-    let points, message, title, link;
+    let points = 0;
+    /*let message, title, link;
     if (this.props.login.isLogged) {
       points = this.props.client.profile.points;
     } else {
@@ -55,7 +65,7 @@ export default class RoomServices extends React.Component {
         break;
       default:
         console.log(this.props.login.status);
-    }
+    }*/
     let photos = [
       "https://www.viroth-hotel.com/wp-content/uploads/2019/05/slide1-1-1920x883.jpg",
       "https://www.viroth-hotel.com/wp-content/uploads/2019/05/Room-Slide-2.jpg",
@@ -137,20 +147,14 @@ export default class RoomServices extends React.Component {
                     </p>
 
                     <div className="menu">
-                      <button
-                        onClick={() => {
-                          window.open(
-                            "https://www.viroth-hotel.com/wp-content/uploads/2019/11/Web-MenuFood-1.pdf"
-                          );
-                        }}
-                      >
-                        Order now
-                      </button>
+
                       <button>
-                        <Link to="/shopping1"> Shopping Cart </Link>
+                        <Link to="/shopping/">
+                          Order now
+                        </Link>
                       </button>
-                      <br />
-                      <br />
+
+                      <br /><br />
                     </div>
                     <p>&nbsp;</p>
                   </div>
@@ -188,18 +192,13 @@ export default class RoomServices extends React.Component {
                     </p>
 
                     <div className="menu">
-                      <button
-                        onClick={() => {
-                          window.open(
-                            "https://www.viroth-hotel.com/wp-content/uploads/2019/11/Web-MenuFood-1.pdf"
-                          );
-                        }}
-                      >
-                        Order now
-                      </button>
+
                       <button>
-                        <Link to="/shopping2"> Shopping Cart </Link>
+                        <Link to="/shopping/">
+                          Order now
+                        </Link>
                       </button>
+
                       <br />
                       <br />
                     </div>
@@ -235,13 +234,11 @@ export default class RoomServices extends React.Component {
                     </p>
 
                     <div className="menu">
+
                       <button>
-                        <Link to="/services/room_services/show_room_services/">
+                        <Link to="/shopping/">
                           Order now
                         </Link>
-                      </button>
-                      <button>
-                        <Link to="/shopping"> Shopping Cart </Link>
                       </button>
 
                       <br />
@@ -253,7 +250,7 @@ export default class RoomServices extends React.Component {
                   <div className="flexImage">
                     <SlideImages slideImages={photos4} />
                   </div>
-                  <form onSubmit={this.handleSubmit}>
+                  {/*<form onSubmit={this.handleSubmit}>
                     <label>
                       <h1>Incidents</h1>
                       <div className="queNecesitas">
@@ -283,7 +280,7 @@ export default class RoomServices extends React.Component {
                     ) : (
                       <input type="submit" value="Submit" />
                     )}
-                  </form>
+                  </form>*/}
                 </div>
               </div>
             </article>

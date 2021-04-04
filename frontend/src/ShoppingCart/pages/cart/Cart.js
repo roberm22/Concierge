@@ -14,22 +14,13 @@ export default class Cart extends React.Component {
 
         this.state = {
             itemCount: this.props.cartItems.reduce((total, product) => total + product.quantity, 0),
-            itemCount2: this.props.cartItems.reduce((total2, product) => total2 + product.quantity, 0),
             total: this.props.cartItems.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2),
-            total2: this.props.cartItems.reduce((total2, product) => total2 + product.hotelPoints * product.quantity, 0).toFixed(2),
-            points : 0,
-            totalPoints : this.props.cartItems.reduce((total2, product) => total2 + product.hotelPoints * product.quantity, 0).toFixed(2)
-
+            totalPoints: this.props.cartItems.reduce((totalPoints, product) => totalPoints + product.hotelPoints * product.quantity, 0).toFixed(2),
         };
     }
 
     render() {
-        let points, totalPoints;
-        if (this.props.login.isLogged) {
-            points = this.props.client.profile.points;
-        } else {
-            points = 0;
-        }
+
         return (
 
             <>
@@ -53,9 +44,8 @@ export default class Cart extends React.Component {
                                         changeCart = { (cart = this.props.cartItems) => {
                                             this.setState({
                                                 itemCount: cart.reduce((total, product) => total + product.quantity, 0),
-                                                itemCount2: cart.reduce((total2, product) => total2 + product.quantity, 0),
                                                 total: cart.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2),
-                                                total2: cart.reduce((total2, product) => total2 + product.hotelPoints * product.quantity, 0).toFixed(2)
+                                                totalPoints: cart.reduce((totalPoints, product) => totalPoints + product.hotelPoints * product.quantity, 0).toFixed(2)
                                             })
                                         }}
 
@@ -75,31 +65,18 @@ export default class Cart extends React.Component {
                                     <h4 className=" mb-3 txt-right">{this.state.itemCount}</h4>
                                     <p className="mb-1">Total Payment</p>
                                     <h3 className="m-0 txt-right">{formatNumber(this.state.total)}</h3>
-                                    Hotel Points: <h3 className="m-0 txt-right">{this.state.total2}</h3>
                                     <hr className="my-4"/>
                                     <div className="text-center">
 
-                                    {points < totalPoints ? (
-                                        <div>
-                                            <p>Not Enough Points </p>
-                                            <button type="button" className="btn btn-primary mb-2"
-                                                onClick={() => this.props.clearCart}>PAY WITH MONEY
-                                                
-                                            </button>
-                                        </div>
-                                    ) : (
-                                        <div>
-                                            <p>Congratulations, You can pay with Hotel Points!</p>
-                                            <button type="button" className="btn btn-primary mb-2"
-                                                onClick={() => this.props.clearCart}>PAY WITH HOTEL POINTS
-                                                
-                                            </button> 
-                                        </div>
-                                    )}
+                                        <button type="button" className="btn btn-primary mb-2"
+                                                onClick={() => this.props.clearCart}> Add to the room bill
+
+                                        </button>
+
                                         <button type="button" className="btn btn-outlineprimary btn-sm"
                                                 onClick={() => this.props.clearCart}>CLEAR
                                         </button>
-                                        
+
                                     </div>
 
                                 </div>
