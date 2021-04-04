@@ -5,6 +5,7 @@ import './profile.css'
 import update from 'react-addons-update';
 import NavBar from "../NavBar";
 import vip from "../../assets/images/vip.png";
+import premium from "../../assets/images/premium.png";
 
 export default class Profile extends React.Component {
 
@@ -50,10 +51,11 @@ export default class Profile extends React.Component {
                                     }
                                          alt={"Sin foto de perfil"}/>
                                     {this.props.client.tierVIP===3 ? <img alt={"Vip"} id={"vip"} src={vip}/> : null}
-
+                                    {this.props.client.tierVIP===2 ? <img alt={"Premium"} id={"premium"} src={premium}/> : null}
                                     <div className={"box"}>
                                         <h3>DNI: {this.props.client.DNI}</h3>
                                         <h3>Room: {this.props.client.room}</h3>
+                                        <h3>Bill: {this.props.client.profile.bill}€</h3>
                                         <h3>Points: {this.props.client.profile.points}</h3>
                                         <h3>Email:
                                             <input type="text" id="email" placeholder={this.state.profile.email}

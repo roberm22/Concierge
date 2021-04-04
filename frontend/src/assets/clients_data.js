@@ -10,7 +10,8 @@ exports.clients = [
 			"points":1000,
 			"photo": {
 				"filename": "pepe.jpg"
-			}
+			},
+			"bill":0
 		},
 		"tierVIP": 3
 	},
@@ -25,7 +26,24 @@ exports.clients = [
 			"points":10,
 			"photo": {
 				"filename": null
-			}
+			},
+			"bill":0
+		},
+		"tierVIP": 1
+	},
+	{
+		"id": 3,
+		"room": "0",
+		"DNI": "0",
+		"profile": {
+			"name": "ADMIN",
+			"email": "ADMIN@gmail.com",
+			"phone": 0,
+			"points":99999,
+			"photo": {
+				"filename": null
+			},
+			"bill":0
 		},
 		"tierVIP": 1
 	}

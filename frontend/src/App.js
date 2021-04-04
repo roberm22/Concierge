@@ -34,7 +34,6 @@ import Store from "./ShoppingCart/pages/store/Store";
 import Cart from "./ShoppingCart/pages/cart/Cart";
 import Report from "./Views/Report/Report";
 import ScrollToTop from "./ScrollToTop";
-import {roomServices} from "./assets/room_service_data";
 
 
 class App extends Component {
@@ -224,10 +223,16 @@ class App extends Component {
 
                     <Route
                         path="/prices/"
-                        render={() => (
+                        render={(props) => (
                             <Prices
+                                {...props}
                                 login={this.props.login}
                                 client={this.props.clients[this.props.login.id - 1]}
+                                update={(newData) => {
+                                    this.props.dispatch(
+                                        updateProfile(this.props.login.id, newData)
+                                    );
+                                }}
                             />
                         )}
                     />

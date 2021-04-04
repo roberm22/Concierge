@@ -9,10 +9,11 @@ import Grid from '@material-ui/core/Grid';
 import StarIcon from '@material-ui/icons/StarBorder';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import NavBar from "./NavBar";
+import update from "react-addons-update";
 
 function Copyright() {
     return (
@@ -84,9 +85,10 @@ const tiers = [
         ],
         buttonText: 'Sign up for free',
         buttonVariant: 'outlined',
+        tierVIP: 1
     },
     {
-        title: 'Regular',
+        title: 'Premium',
         subheader: 'Most popular',
         price: '15',
         description: [
@@ -97,6 +99,7 @@ const tiers = [
         ],
         buttonText: 'Get started',
         buttonVariant: 'contained',
+        tierVIP: 2
     },
     {
         title: 'VIP',
@@ -109,6 +112,7 @@ const tiers = [
         ],
         buttonText: 'I want it!',
         buttonVariant: 'outlined',
+        tierVIP: 3
     },
 ];
 
@@ -131,12 +135,12 @@ const footers = [
     },
 ];
 
-export default function Prices() {
+export default function Prices(props) {
     const classes = useStyles();
 
     return (
         <React.Fragment>
-            <CssBaseline />
+            <CssBaseline/>
             <NavBar/>
 
             <Container maxWidth="sm" component="main" className={classes.heroContent}>
@@ -144,7 +148,8 @@ export default function Prices() {
                     Prices
                 </Typography>
                 <Typography variant="h5" align="center" color="textSecondary" component="p">
-                    Select the type of user that best suits your needs and start an adventure among our wide variety of services
+                    Select the type of user that best suits your needs and start an adventure among our wide variety of
+                    services
                 </Typography>
             </Container>
 
@@ -157,9 +162,9 @@ export default function Prices() {
                                 <CardHeader
                                     title={tier.title}
                                     subheader={tier.subheader}
-                                    titleTypographyProps={{ align: 'center' }}
-                                    subheaderTypographyProps={{ align: 'center' }}
-                                    action={tier.title === 'Regular' ? <StarIcon /> : null}
+                                    titleTypographyProps={{align: 'center'}}
+                                    subheaderTypographyProps={{align: 'center'}}
+                                    action={tier.title === 'Regular' ? <StarIcon/> : null}
                                     className={classes.cardHeader}
                                 />
                                 <CardContent>
@@ -180,7 +185,19 @@ export default function Prices() {
                                     </ul>
                                 </CardContent>
                                 <CardActions>
-                                    <Button fullWidth variant={tier.buttonVariant} color="primary" href={'/'}>
+                                    <Button
+                                        fullWidth
+                                        variant={tier.buttonVariant}
+                                        color="primary"
+                                        onClick={() => {
+                                            let bill = props.client.profile.bill
+                                            let newClient = update(props.client, {
+                                                profile: {bill: {$apply: function() {return parseInt(bill)+parseInt(tier.price);}}},
+                                                tierVIP: {$set: tier.tierVIP}
+                                            });
+                                            props.update(newClient);
+                                            alert("Your tier and bill have been updated")
+                                        }}>
                                         {tier.buttonText}
                                     </Button>
                                 </CardActions>
@@ -210,7 +227,7 @@ export default function Prices() {
                     ))}
                 </Grid>
                 <Box mt={5}>
-                    <Copyright />
+                    <Copyright/>
                 </Box>
             </Container>
 

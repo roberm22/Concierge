@@ -59,7 +59,7 @@ export default class ShowTransport extends React.Component {
                     <NavLink to="/services/transport/" id="arrowT"> <ArrowBack/> </NavLink>
                     <h1>{this.props.currentTransport.description} </h1>
                     <img
-                        src={this.props.currentTransport.photo.url}
+                        src={this.props.currentTransport.photos[1]}
                         alt={"Transport"}
                     />
                     <br/>

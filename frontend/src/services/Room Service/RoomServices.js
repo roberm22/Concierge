@@ -17,7 +17,12 @@ export default class RoomServices extends React.Component {
 
 
   render() {
-    let points = 0;
+    let points;
+    if (this.props.login.isLogged) {
+      points = this.props.client.profile.points;
+    } else {
+      points = 0;
+    }
     let photos = ["/img/room1.jpg", "/img/room2.jpg", "/img/room3.jpg"];
 
     return (
