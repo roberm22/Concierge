@@ -1,7 +1,7 @@
 import React from "react";
 import "./home.css";
-import NavBar from "./NavBar";
-import SlideImages from "./SlideImages";
+import NavBar from "../NavBar";
+import SlideImages from "../SlideImages";
 import { Alert, AlertTitle } from "@material-ui/lab";
 import { NavLink } from "react-router-dom";
 import update from "react-addons-update";

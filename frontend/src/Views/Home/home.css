@@ -24,7 +24,7 @@
 }
 
 .mainHome {
-    background-image: url("./assets/images/oriental-tiles.png");
+    background-image: url("../../assets/images/oriental-tiles.png");
     background-repeat: repeat;
     height: calc(100vh - 5.1vh);
     text-align: center;

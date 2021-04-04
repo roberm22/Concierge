@@ -227,14 +227,6 @@ exports.products = [
 ];
 
 exports.cartItems = [
-    {
-      id: 7,
-      name: "Chocolate - Suchard Almedras",
-      price: 10.99,
-      hotelPoints: 70,
-      photo: "/img/7.jpg",
-      quantity: 1
 
-    }
 ];
 

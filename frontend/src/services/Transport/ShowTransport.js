@@ -9,7 +9,7 @@ import "react-datetime/css/react-datetime.css";
 import {ArrowBack} from "@material-ui/icons";
 import {Alert, AlertTitle} from "@material-ui/lab";
 import update from "react-addons-update";
-import NavBar from "../../NavBar";
+import NavBar from "../../Views/NavBar";
 import {Form} from "react-bootstrap";
 
 class NewMessageNotification extends React.Component {

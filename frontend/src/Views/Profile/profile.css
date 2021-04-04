@@ -10,7 +10,7 @@
 }
 
 .profileMain{
-    background-image: url("./assets/images/login.jpg");
+    background-image: url("../../assets/images/login.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

@@ -17,23 +17,24 @@ import {
     clearCart,
 } from "./redux/actions";
 
-import Home from "./Home";
-import Login from "./Login/Login";
-import Welcome from "./Welcome";
-import Profile from "./Profile";
+import Home from "./Views/Home/Home";
+import Login from "./Views/Login/Login";
+import Welcome from "./Views/Welcome/Welcome";
+import Profile from "./Views/Profile/Profile";
 import Transports from "./services/Transport/Transports";
 import Restaurants from "./services/Restaurants/Restaurants";
 import RoomServices from "./services/Room Service/RoomServices";
 import ShowRestaurant from "./services/Restaurants/ShowRestaurant";
-import ShowRoomServices from "./services/Room Service/ShowRoomServices";
 import ShowTransport from "./services/Transport/ShowTransport";
 
 import {BrowserRouter as Router, Route} from "react-router-dom";
-import Prices from "./Prices";
+import Prices from "./Views/Prices";
 
 import Store from "./ShoppingCart/pages/store/Store";
 import Cart from "./ShoppingCart/pages/cart/Cart";
-import Report from "./Report/Report";
+import Report from "./Views/Report/Report";
+import ScrollToTop from "./ScrollToTop";
+import {roomServices} from "./assets/room_service_data";
 
 
 class App extends Component {
@@ -73,6 +74,7 @@ class App extends Component {
         return (
             <div>
                 <Router>
+                    <ScrollToTop/>
                     <Route
                         exact
                         path="/"
@@ -221,20 +223,6 @@ class App extends Component {
                     />
 
                     <Route
-                        exact
-                        path="/services/room_services/show_room_services/"
-                        render={(props) => (
-                            <ShowRoomServices
-                                {...props}
-                                login={this.props.login}
-                                currentRoomServices={
-                                    this.props.services.roomServices[this.props.currentService]
-                                }
-                            />
-                        )}
-                    />
-
-                    <Route
                         path="/prices/"
                         render={() => (
                             <Prices
@@ -295,7 +283,6 @@ class App extends Component {
                                />
                            )}
                     />
-
                 </Router>
             </div>
         );

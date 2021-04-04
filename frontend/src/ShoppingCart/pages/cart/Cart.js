@@ -4,7 +4,7 @@ import CartProducts from './CartProducts';
 import { formatNumber } from '../../utils';
 import Header from "../../components/shared/header";
 import Footer from "../../components/shared/footer";
-import NavBar from "../../../NavBar";
+import NavBar from "../../../Views/NavBar";
 
 
 export default class Cart extends React.Component {

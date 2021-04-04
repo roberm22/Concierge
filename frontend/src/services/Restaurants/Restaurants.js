@@ -1,7 +1,8 @@
 import React from 'react';
-import "./restaurants.css"
-import NavBar from "../../NavBar";
-import SlideImages from "../../SlideImages";
+import "./Restaurants.css"
+import "../ServicesStyles.css"
+import NavBar from "../../Views/NavBar";
+import SlideImages from "../../Views/SlideImages";
 import {Link} from "react-router-dom";
 
 // Cuidado al añadir algo que se descuadra - Atencion!
@@ -34,9 +35,9 @@ export default class Restaurants extends React.Component {
             </div>);
 
         let photos = [
-            'https://www.viroth-hotel.com/wp-content/uploads/2019/05/Dining-Slide-5-e1559297966968.jpg',
-            'https://www.viroth-hotel.com/wp-content/uploads/2019/05/Bar-1.jpg',
-            'https://www.viroth-hotel.com/wp-content/uploads/2019/05/Dining.jpg'
+            '/img/rest1.jpg',
+            '/img/rest2.jpg',
+            '/img/rest3.jpg'
         ];
 
         let photos2 = [
@@ -104,9 +105,12 @@ export default class Restaurants extends React.Component {
                                         </p>
 
                                         <div className="menu">
-                                            <button onClick={ () => {
-                                                window.open("https://www.viroth-hotel.com/wp-content/uploads/2019/11/Web-MenuFood-1.pdf")
-                                            }}> Menu </button><br/><br/>
+                                            <button>
+                                                <Link to="/shopping/">
+                                                    Menu
+                                                </Link>
+                                            </button>
+                                            <br/><br/>
                                         </div>
                                         <p>&nbsp;</p>
 
@@ -146,9 +150,12 @@ export default class Restaurants extends React.Component {
                                         </p>
 
                                         <div className="menu">
-                                            <button onClick={ () => {
-                                                window.open("https://www.viroth-hotel.com/wp-content/uploads/2019/11/Web-MenuFood-1.pdf")
-                                            }}> Bar Menu </button><br/><br/>
+                                            <button>
+                                                <Link to="/shopping/">
+                                                    Bar Menu
+                                                </Link>
+                                            </button>
+                                            <br/><br/>
                                         </div>
                                         <p>&nbsp;</p>
 

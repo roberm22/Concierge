@@ -3,8 +3,8 @@ import {Link, Redirect} from "react-router-dom";
 import {Alert, AlertTitle} from "@material-ui/lab";
 import './profile.css'
 import update from 'react-addons-update';
-import NavBar from "./NavBar";
-import vip from "./assets/images/vip.png";
+import NavBar from "../NavBar";
+import vip from "../../assets/images/vip.png";
 
 export default class Profile extends React.Component {
 

@@ -1,13 +1,14 @@
 import React from 'react';
-import "./Transports.css"
-import NavBar from "../../NavBar";
+import "../ServicesStyles.css"
+import NavBar from "../../Views/NavBar";
 import {Link} from "react-router-dom";
+import SlideImages from "../../Views/SlideImages";
 
 export default class Transports extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            points: 0,
+            points: 0
         };
     }
 
@@ -19,21 +20,40 @@ export default class Transports extends React.Component {
             points = 0;
         }
         let transports = this.props.transports;
-        transports.map((transport, i) =>
-            <div>
-                <li className="liT">
-                    <Link to="/services/transport/show_transport/"
-                          onClick={() => {
-                              this.props.onChangeTransport(i)
-                          }}>{transport.name}
-                    </Link>
-                </li>
-            </div>);
+
+        let photos = ['/img/trans1.jpg', '/img/trans2.jpg', '/img/trans3.jpg'];
 
         return (
             <div>
                 <NavBar points={this.state.points + points} isLogged={this.props.login.isLogged}/>
                 <div className="mainTransport">
+
+                    <div className="firstView">
+
+                        <SlideImages
+                            slideImages = {photos}
+                            spanOff = {true}
+                        />
+
+                        <div className="titleRest">
+                            <h1 className="title">TRANSPORTS</h1>
+                        </div>
+
+                        <a className="icon" href="#mainInfo">
+                            <svg className="svg-arrow" viewBox="0 0 512 503.97">
+                                <g className="shapes">
+                                    <polygon className="shape-1"
+                                             points="256 159.97 0 0 0 64 256 223.97 512 64 512 0 256 159.97"/>
+                                    <polygon className="shape-2"
+                                             points="256 299.97 0 140 0 204 256 363.97 512 204 512 140 256 299.97"/>
+                                    <polygon className="shape-3"
+                                             points="256 439.97 0 280 0 344 256 503.97 512 344 512 280 256 439.97"/>
+                                </g>
+                            </svg>
+                        </a>
+
+                    </div>
+
                     <div className="main-content" id="mainInfo">
 
                         <article className="firstArticle">
@@ -59,7 +79,7 @@ export default class Transports extends React.Component {
 
                                     </div>
                                     <div className="flexImage">
-                                        <img alt={"transport image 1"} src={"https://cronicaglobal.elespanol.com/uploads/s1/32/00/75/6/uber-cabify-vtc-aplicaciones.jpeg"}/>
+                                        <SlideImages slideImages={transports[0].photos} />
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +90,7 @@ export default class Transports extends React.Component {
                                 <div className="row">
 
                                     <div className="flexImage">
-                                        <img alt={"transport image 2"} src={"https://luxurytransport.biz/wp-content/uploads/2019/03/luxury-transport-shuttle-van-proffessional-driver-serbia-luxury-limo-mercedes-hotel-transfers.jpg"}/>
+                                        <SlideImages slideImages={transports[1].photos} />
                                     </div>
 
                                     <div className="displayFlex">
@@ -97,7 +117,7 @@ export default class Transports extends React.Component {
                             </div>
                         </article>
 
-                        <article className="article">
+                        <article className="firstArticle">
                             <div className="container">
                                 <div className="row">
                                     <div className="displayFlex">
@@ -120,7 +140,7 @@ export default class Transports extends React.Component {
 
                                     </div>
                                     <div className="flexImage">
-                                        <img alt={"transport image 3"} src={"https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F1079d78e-91ec-11ea-9c50-5254352bc924.jpg?crop=2667%2C1500%2C0%2C0&resize=1180" }/>
+                                        <SlideImages slideImages={transports[2].photos} />
                                     </div>
                                 </div>
                             </div>

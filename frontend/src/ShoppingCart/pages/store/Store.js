@@ -4,7 +4,7 @@ import ProductsGrid from './ProductsGrid';
 import 'bootswatch/dist/lux/bootstrap.css'
 import Footer from "../../components/shared/footer";
 import Header from "../../components/shared/header";
-import NavBar from "../../../NavBar";
+import NavBar from "../../../Views/NavBar";
 
 export default class Store extends React.Component {
     render() {

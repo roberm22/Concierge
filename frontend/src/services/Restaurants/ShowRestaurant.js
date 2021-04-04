@@ -5,7 +5,7 @@ import {Alert, AlertTitle} from "@material-ui/lab";
 import {ArrowBack} from "@material-ui/icons";
 import "./ShowRestaurant.css";
 import update from "react-addons-update";
-import NavBar from "../../NavBar";
+import NavBar from "../../Views/NavBar";
 
 export default class ShowRestaurant extends React.Component {
 
