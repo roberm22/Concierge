@@ -1,5 +1,4 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -8,12 +7,12 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import StarIcon from '@material-ui/icons/StarBorder';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
+import NavBar from "./NavBar";
 
 function Copyright() {
     return (
@@ -79,7 +78,7 @@ const tiers = [
         price: '0',
         description: [
             'Basic services included',
-            'No hotel points',
+            'No hotel points multiplier',
             'Help center access',
             'Email support'
         ],
@@ -92,7 +91,7 @@ const tiers = [
         price: '15',
         description: [
             'Premium services included',
-            '100 hotel points',
+            '50% hotel points multiplier',
             'Help center access',
             'Priority email support',
         ],
@@ -104,7 +103,7 @@ const tiers = [
         price: '30',
         description: [
             'VIP services included',
-            '1000 hotel points',
+            '100% hotel points multiplier',
             'Help center access',
             'Phone & email support',
         ],
@@ -138,27 +137,7 @@ export default function Prices() {
     return (
         <React.Fragment>
             <CssBaseline />
-            <AppBar position="static" color="default" elevation={0} className={classes.appBar}>
-                <Toolbar className={classes.toolbar}>
-                    <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-                        Concierge
-                    </Typography>
-                    <nav>
-                        <Link variant="button" color="textPrimary" href={"/services/transport/"} className={classes.link}>
-                            Transports
-                        </Link>
-                        <Link variant="button" color="textPrimary" href={"/services/restaurants/"} className={classes.link}>
-                            Restaurants
-                        </Link>
-                        <Link variant="button" color="textPrimary" href={"/services/room_services/"} className={classes.link}>
-                            Room Services
-                        </Link>
-                    </nav>
-                    <Button href={"/login/"} color="primary" variant="outlined" className={classes.link}>
-                        Login
-                    </Button>
-                </Toolbar>
-            </AppBar>
+            <NavBar/>
 
             <Container maxWidth="sm" component="main" className={classes.heroContent}>
                 <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>

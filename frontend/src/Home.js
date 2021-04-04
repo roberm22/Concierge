@@ -5,7 +5,6 @@ import SlideImages from "./SlideImages";
 import { Alert, AlertTitle } from "@material-ui/lab";
 import { NavLink } from "react-router-dom";
 import update from "react-addons-update";
-import ListaService from "./services/Room Service/ListaService";
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -23,21 +22,25 @@ export default class Home extends React.Component {
   }
 
   handleSubmit(event) {
-    let multi = 1;
-    if (this.props.client.profile.isVip) {
+    let multi = 10;
+    if (this.props.client.tierVIP === 2) {
       multi = 15;
     }
-    this.setState({ points: this.state.points + 10 });
+    if (this.props.client.tierVIP === 3) {
+      multi = 20;
+    }
+    this.setState({ points: this.state.points + multi});
     let total =
-      this.props.client.profile.points + 10 * multi + this.state.points;
+      this.props.client.profile.points + multi + this.state.points;
     let newClient = update(this.props.client, {
       profile: { points: { $set: total } },
     });
     this.props.update(newClient);
 
-    alert("Reservation successful. \n You earned 10 points.");
+    alert("Reservation successful.\nYou earned "+multi+" points.");
     event.preventDefault();
   }
+
   render() {
     let points, message, title, link;
     if (this.props.login.isLogged) {
@@ -79,16 +82,11 @@ export default class Home extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <label>
               <h1>What do you need?</h1>
-              <div className="queNecesitas">
                 <textarea
-                  onClick={() => {
-                    this.setState({ value: "" });
-                  }}
-                  value={this.state.value}
+                    required
+                  placeholder={this.state.value}
                   onChange={this.handleChange}
                 />
-
-              </div>
             </label>
 
             <br />

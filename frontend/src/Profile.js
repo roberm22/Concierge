@@ -1,5 +1,5 @@
 import React from 'react';
-import {Redirect} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import {Alert, AlertTitle} from "@material-ui/lab";
 import './profile.css'
 import update from 'react-addons-update';
@@ -49,12 +49,11 @@ export default class Profile extends React.Component {
                                         "https://www.learning.uclg.org/sites/default/files/styles/featured_home_left/public/no-user-image-square.jpg?itok=PANMBJF-"
                                     }
                                          alt={"Sin foto de perfil"}/>
-                                    {this.props.client.isVip ? <img alt={"Vip"} id={"vip"} src={vip}/> : null}
+                                    {this.props.client.tierVIP===3 ? <img alt={"Vip"} id={"vip"} src={vip}/> : null}
 
                                     <div className={"box"}>
                                         <h3>DNI: {this.props.client.DNI}</h3>
                                         <h3>Room: {this.props.client.room}</h3>
-                                        <h3>VIP: {this.props.client.isVip ? "Yes" : "No"}</h3>
                                         <h3>Points: {this.props.client.profile.points}</h3>
                                         <h3>Email:
                                             <input type="text" id="email" placeholder={this.state.profile.email}
@@ -90,6 +89,13 @@ export default class Profile extends React.Component {
                                             <li>
                                                 <button onClick={this.props.endSession}> Logout</button>
                                             </li>
+                                            {this.props.client.tierVIP===3 ? null :
+                                                <li>
+                                                    <button>
+                                                        <Link to="/prices"> Become VIP </Link>
+                                                    </button>
+                                                </li>
+                                            }
                                         </ul>
                                         <div style={{clear: "both"}}>{}</div>
                                     </div>

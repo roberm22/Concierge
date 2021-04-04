@@ -18,7 +18,7 @@
     text-shadow: 5px 3px 5px black;
 }
 
-.main_ShowT input {
+.main_ShowT textarea, .main_ShowT input, .main_ShowT select {
     outline: none;
     font-size: 0.9em;
     padding: 1em 3em 1em 1em;
@@ -30,6 +30,8 @@
     font-weight: 400;
     letter-spacing: 1px;
 }
+
+
 
 .boxT button {
     color: white;
@@ -82,9 +84,7 @@
     text-shadow: none;
 }
 
-#DatePicker{
-    width: 25%;
-}
+
 
 #arrowT {
     align-self: flex-start;

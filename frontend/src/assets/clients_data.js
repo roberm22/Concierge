@@ -12,7 +12,7 @@ exports.clients = [
 				"filename": "pepe.jpg"
 			}
 		},
-		"isVip": true
+		"tierVIP": 3
 	},
 	{
 		"id": 2,
@@ -27,7 +27,7 @@ exports.clients = [
 				"filename": null
 			}
 		},
-		"isVip": false
+		"tierVIP": 1
 	}
 
 ]

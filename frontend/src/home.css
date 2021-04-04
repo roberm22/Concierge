@@ -42,7 +42,6 @@
 }
 
 .mainHome textarea{
-    width: 25%;
     outline: none;
     font-size: 0.9em;
     padding: 1em 3em 1em 1em;
@@ -54,6 +53,7 @@
     font-weight: 400;
     letter-spacing: 1px;
     font-family: 'Open Sans', sans-serif;
+    width: 80%;
 }
 
 .mainHome form{
@@ -78,7 +78,7 @@
 }
 
 .mainHome input:hover:not(.active) {
-    background-color: #111;
+    color:#111;
 }
 
 .alertHome{
@@ -91,9 +91,4 @@
     text-align: center;
 }
 
-.queNecesitas{
-    display: flex;
-    flex-flow: row;
-    align-items: center;
-    justify-content: center;
-}
+
