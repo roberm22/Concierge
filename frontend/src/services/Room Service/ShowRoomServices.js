@@ -1,26 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./ShowRoomServices.css";
-import { Route } from "react-router-dom";
-import {
-  userAnswer,
-  submit,
-  endSession,
-  updateProfile,
-  changeRestaurant,
-  changeRoomServices,
-  changeTransport,
-  conditions,
-  increase,
-  decrease,
-  addProduct,
-  removeProduct,
-  clearCart,
-} from "../../redux/actions";
-
-import Store from "../../ShoppingCart/pages/store/Store";
-import Cart from "../../ShoppingCart/pages/cart/Cart";
-import Report from "../../ShoppingCart/pages/Report";
 
 export default class ShowRoomServices extends React.Component {
   render() {

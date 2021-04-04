@@ -33,7 +33,7 @@ import Prices from "./Prices";
 
 import Store from "./ShoppingCart/pages/store/Store";
 import Cart from "./ShoppingCart/pages/cart/Cart";
-import Report from "./ShoppingCart/pages/Report";
+import Report from "./Report/Report";
 
 
 class App extends Component {
@@ -42,6 +42,10 @@ class App extends Component {
         this.timerlog = null;
         this.submit = this.submit.bind(this);
         this.conditions = this.conditions.bind(this);
+        this.filterProducts = this.filterProducts.bind(this);
+        this.state = {
+            products: this.props.products
+        };
     }
 
     submit() {
@@ -49,6 +53,12 @@ class App extends Component {
         let alert = document.querySelector("#alert");
         alert.style.visibility = "visible";
         this.timerlog = setTimeout(() => (alert.style.visibility = "hidden"), 5000);
+    }
+
+    filterProducts(category) {
+        this.setState({
+            products: this.props.products.filter(product => product.category === category)
+        });
     }
 
     componentWillUnmount() {
@@ -205,6 +215,7 @@ class App extends Component {
                                 onChangeRoomServices={(answer) => {
                                     this.props.dispatch(changeRoomServices(answer));
                                 }}
+                                onSelectProducts={(category) => this.filterProducts(category)}
                             />
                         )}
                     />
@@ -240,7 +251,7 @@ class App extends Component {
                                 <Store
                                     client={this.props.clients[this.props.login.id - 1]}
                                     login={this.props.login}
-                                    products={this.props.products}
+                                    products={this.state.products}
                                     cartItems={this.props.cartItems}
                                     increase={(product) => {
                                         this.props.dispatch(increase(product));

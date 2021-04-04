@@ -27,9 +27,9 @@ export default class RoomServices extends React.Component {
     ];
 
     let photos2 = [
-      "https://mk0coolroomscom2ooja.kinstacdn.com/wp-content/uploads/sites/3/2020/03/Coolrooms-desayunos-atocha-madrid-services.jpg",
-      "https://www.unileverfoodsolutions.es/ideas-menu/especial-hoteles/room-service/tipos-de-room-service/jcr:content/parsys/content-aside-footer/tipsandadvice_812654/image.img.jpg/1518543041515.jpg",
-      "https://staro.ua/wp-content/uploads/2016/05/room_services.jpg",
+      "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iq6VFmURgAcU/v0/1200x800.jpg",
+      "https://i.insider.com/5b45e2ac45a56e32008b45ec?width=1068&format=jpeg",
+      "https://media.hotelkeys.it/hotel_desartistes/ownimage/1600*1065_2015121717494389.jpg",
     ];
 
     let photos3 = [
@@ -83,26 +83,23 @@ export default class RoomServices extends React.Component {
               <div className="container">
                 <div className="row">
                   <div className="displayFlex">
-                    <h2 className="articleTitle">24 hour room service</h2>
+                    <h2 className="articleTitle">Special delivery</h2>
                     <p>
-                      Common in 4 and 5-star hotels, it is assisted by a human
-                      team, machinery and specific material that takes care of
-                      it. It is widely used in holiday areas, and usually has a
-                      regional nod in its content, including typical dishes.
-                    </p>
-                    <p>
-                      <strong>AVAILABLE HOURS</strong>
-                      <br />
-                      06:00 – 12:00 Breakfast
-                      <br />
-                      12:00 – 18:00 Lunch
-                      <br />
-                      18:00 – 24:00 Dinner
+                      A special delivery is an exclusive service in the hotel in which the staff looks for the wanted
+                      item of the client. First it is searched if the item is available in the hotel storage
+                      The hotel staff fill it with drinks and snacks for the guest to purchase during their stay. It is stocked with a precise
+                      inventory of goods, with a price list. The guest is charged for goods consumed when
+                      checking out of the hotel.<br/><br/>
+                      In this service you can buy all kinds of items as if it were a supermarket. If the item you want
+                      is not on the list, you can add it in the space available for it and our staff will
+                      take care of delivering it.
                     </p>
 
                     <div className="menu">
 
-                      <button>
+                      <button onClick={ () =>
+                            this.props.onSelectProducts('minibar')
+                      }>
                         <Link to="/shopping/">
                           Order now
                         </Link>
@@ -128,7 +125,7 @@ export default class RoomServices extends React.Component {
                   </div>
 
                   <div className="displayFlex">
-                    <h2 className="articleTitle">Room Cooking Service</h2>
+                    <h2 className="articleTitle">24 hour Cooking Service</h2>
                     <p>
                       It is a premium service, very current in 5-star vacation
                       hotels. It consists in that the rooms have an area
@@ -139,22 +136,23 @@ export default class RoomServices extends React.Component {
                     <p>
                       <strong>AVAILABLE HOURS</strong>
                       <br />
-                      07:00 – 10:30 Breakfast
+                      06:00 – 12:00 Breakfast
                       <br />
-                      11:00 – 22:00 Lunch & Dinner
+                      12:00 – 18:00 Lunch
                       <br />
+                      18:00 – 24:00 Dinner
                     </p>
 
                     <div className="menu">
 
-                      <button>
+                      <button onClick={ () =>
+                          this.props.onSelectProducts('menu')
+                      }>
                         <Link to="/shopping/">
                           Order now
                         </Link>
                       </button>
 
-                      <br />
-                      <br />
                     </div>
                     <p>&nbsp;</p>
                   </div>
@@ -167,29 +165,22 @@ export default class RoomServices extends React.Component {
                 <div className="row">
                   <div className="displayFlex">
                     <h2 className="articleTitle">
-                      Room Service 12 hours assisted
+                      Elements of comfort
                     </h2>
                     <p>
-                      This service covers the hours of activity of a hotel from
-                      breakfast to dinner and for this it has the support of:
-                      <br />
-                      <br />
-                      - Kiosk system , normally at the reception, which has a
-                      minimum range of food and beverages for 24 hours.
-                      <br />
-                      - Vending system , with self-service machines in the
-                      self-checkout and self-service plants.
-                      <br />
-                      - Mini bar, inside the rooms. Area equipped with a mini
-                      bar with an assortment of snacks.
-                      <br />- External deals, external offers of fast food
-                      restaurants at home that accompany and reinforce the Room
-                      Service menu.
+                      Request for comfort items in the room: pillow, bedding, bath products, etc.<br/>
+                      Regardless of the concept that each person may have of comfort, since it depends on the
+                      lifestyle of each individual, it is important to standardize the elements that compose
+                      it in order to guarantee a minimum standard in a hotel room. <br/>
+                      That is why we consider that the study of comfort is essential to offer the
+                      maximum pleasure to the client.
                     </p>
 
                     <div className="menu">
 
-                      <button>
+                      <button onClick={ () =>
+                          this.props.onSelectProducts('comfort')
+                      }>
                         <Link to="/shopping/">
                           Order now
                         </Link>
