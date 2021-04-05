@@ -35,6 +35,8 @@ import Cart from "./ShoppingCart/pages/cart/Cart";
 import Report from "./Views/Report/Report";
 import ScrollToTop from "./ScrollToTop";
 import CheckOut from "./Views/CheckOut/CheckOut";
+import Shows from "./services/Shows/Shows";
+import Tours from "./services/Touristic Tours/Tours";
 
 
 class App extends Component {
@@ -210,6 +212,38 @@ class App extends Component {
                         path="/services/room_services/"
                         render={(props) => (
                             <RoomServices
+                                {...props}
+                                client={this.props.clients[this.props.login.id - 1]}
+                                login={this.props.login}
+                                roomServices={this.props.services.roomServices}
+                                onChangeRoomServices={(answer) => {
+                                    this.props.dispatch(changeRoomServices(answer));
+                                }}
+                                onSelectProducts={(category) => this.filterProducts(category)}
+                            />
+                        )}
+                    />
+
+                    <Route
+                        path="/services/shows/"
+                        render={(props) => (
+                            <Shows
+                                {...props}
+                                client={this.props.clients[this.props.login.id - 1]}
+                                login={this.props.login}
+                                roomServices={this.props.services.roomServices}
+                                onChangeRoomServices={(answer) => {
+                                    this.props.dispatch(changeRoomServices(answer));
+                                }}
+                                onSelectProducts={(category) => this.filterProducts(category)}
+                            />
+                        )}
+                    />
+
+                    <Route
+                        path="/services/tours/"
+                        render={(props) => (
+                            <Tours
                                 {...props}
                                 client={this.props.clients[this.props.login.id - 1]}
                                 login={this.props.login}

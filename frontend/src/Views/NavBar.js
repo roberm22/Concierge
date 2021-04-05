@@ -30,6 +30,13 @@ export default class NavBar extends React.Component {
                             <Nav.Link>Room Services</Nav.Link>
                         </LinkContainer>
 
+                        <LinkContainer to="/services/shows/">
+                            <Nav.Link>Shows</Nav.Link>
+                        </LinkContainer>
+
+                        <LinkContainer to="/services/tours/">
+                            <Nav.Link>Touristic Tours</Nav.Link>
+                        </LinkContainer>
                     </Nav>
                     <Nav className="justify-content-end">
                         {((this.props.isLogged) && (this.props.points !== undefined)) ?

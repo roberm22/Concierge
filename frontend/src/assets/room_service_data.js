@@ -3,7 +3,7 @@ exports.roomServices = [
         "id": 1,
         "name": "Special delivery",
         "info": "A special delivery is an exclusive service in the hotel in which the staff looks for the wanted item of the client. First it is searched if the item is available in the hotel storage. The hotel staff fill it with drinks and snacks for the guest to purchase during their stay. It is stocked with a precise inventory of goods, with a price list. The guest is charged for goods consumed when checking out of the hotel.",
-        "info2": "In this service you can buy all kinds of items as if it were a supermarket. If the item you want is not on the list, you can add it in the space available for it and our staff will take care of delivering it.",
+        "info2": "In this service you can buy all kinds of items    as if it were a supermarket. If the item you want is not on the list, you can add it in the space available for it and our staff will take care of delivering it.",
         "description": "Special delivery",
         "photos": [
             "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iq6VFmURgAcU/v0/1200x800.jpg",
