@@ -48,7 +48,7 @@ class App extends Component {
         this.filterProducts = this.filterProducts.bind(this);
         this.state = {
             products: this.props.products,
-            shows: this.props.showProducts
+            shows: this.props.shows
         };
     }
 
@@ -62,7 +62,7 @@ class App extends Component {
     filterProducts(category, isShow) {
         if(isShow){
             this.setState({
-                shows: this.props.showProducts.filter(show => show.category === category)
+                shows: this.props.shows.filter(show => show.category === category)
             });
         }else{
             this.setState({
@@ -238,7 +238,7 @@ class App extends Component {
                                 {...props}
                                 client={this.props.clients[this.props.login.id - 1]}
                                 login={this.props.login}
-                                shows={this.props.services.shows}
+                                shows={this.props.services.showsData}
                                 onChangeRoomServices={(answer) => {
                                     this.props.dispatch(changeRoomServices(answer));
                                 }}

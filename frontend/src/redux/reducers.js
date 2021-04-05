@@ -153,7 +153,7 @@ function products(state = [], action = {}) {
     }
 }
 
-function showProducts(state = [], action = {}) {
+function shows(state = [], action = {}) {
     switch (action.type) {
         default:
             return state;
@@ -168,7 +168,7 @@ const GlobalState = (combineReducers({
     currentService,
     cartItems,
     products,
-    showProducts
+    shows
 }));
 
 export default GlobalState;
