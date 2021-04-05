@@ -1,14 +1,3 @@
-
-.information{
-    background-color: rgba(255,255,255,0.5);
-    padding: 10px;
-    alignment: center;
-    border-radius: 20px;
-    box-shadow: 2px 2px 2px 2px #333333;
-    margin-left: 2em;
-    margin-right: 2em;
-}
-
 .profileMain{
     background-image: url("../../assets/images/login.jpg");
     background-size: cover;
@@ -18,103 +7,65 @@
     background-attachment: fixed;
 }
 
-.profileMainInside img{
-    float: right;
-    position: relative;
-    border: black solid;
-    border-radius: 10px;
-    height: 400px;
-    width: 300px;
-    margin: 12px;
-}
+.information{
 
-.profileMain #vip{
-    border: none;
-    position: absolute;
-    margin: 0px;
-    right: 25px;
-    height: 100px;
-    width: 100px;
-
-}
-
-.profileMain #premium{
-    border: none;
-    position: absolute;
-    margin: 0px;
-    right: 22px;
-    height: 100px;
-    width: 100px;
-
-}
-
-
-.profileMainInside input {
-    font: inherit;
-    padding: 0.2em 0.5em;
-    border-radius: 10px;
-    outline: none;
-}
-
-
-.profileMain h1{
-    margin-top: 50px;
-    text-align: center;
-    color:white;
-    font-size: 3em;
-    letter-spacing: 10px;
-    font-weight: 500;
-    font-family: 'Dosis', sans-serif;
-    text-shadow: 5px 3px 5px black;
-}
-
-#alert-profile{
-    position: absolute;
-    left: 0;
-    right: 0;
-    text-align: center;
-    border-radius: 20px;
     padding: 10px;
-    margin: 3em;
-    z-index: 100;
+    alignment: center;
+
+    margin-left: 2em;
+    margin-right: 2em;
 }
 
-.profileMainInside button {
-    color: white;
-    background: darkgoldenrod;
-    border: none;
-    padding: 0.7em;
-    outline: none;
-    font-size: 1em;
-    cursor: pointer;
-    letter-spacing: 1px;
-    font-weight: 400;
-    transition: 0.5s all;
-    border-radius: 30px;
-    margin: 1em;
-    box-shadow: 2px 2px 2px 2px #333333;
-}
-
-.profileMain ul {
-    list-style-type: none;
-
-}
-
-.profileMain li {
-    float: left;
-}
-
-.profileMain li a{
-    display: block;
-    color: white;
+.account-settings .user-profile {
+    margin: 0 0 1rem 0;
+    padding-bottom: 1rem;
     text-align: center;
-    text-decoration: none;
+}
+.account-settings .user-profile .user-avatar {
+    margin: 0 0 1rem 0;
+}
+.account-settings .user-profile .user-avatar img {
+    width: 90px;
+    height: 90px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+}
+.account-settings .user-profile h5.user-name {
+    margin: 0 0 0.5rem 0;
+}
+.account-settings .user-profile h6.user-email {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #9fa8b9;
+}
+.account-settings .about {
+    margin: 2rem 0 0 0;
+    text-align: center;
+}
+.account-settings .about h5 {
+    margin: 0 0 15px 0;
+    color: #007ae1;
+}
+.account-settings .about p {
+    font-size: 0.825rem;
+}
+.form-control {
+    border: 1px solid #cfd1d8;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    font-size: .825rem;
+    background: #ffffff;
+    color: #2e323c;
 }
 
-.profileMain button:hover {
-    color: black;
-    transition:0.5s all;
+.card {
+    background: #ffffff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 0;
+    margin-bottom: 1rem;
 }
-
-
-

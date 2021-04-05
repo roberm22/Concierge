@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link, Redirect} from "react-router-dom";
-import {Alert, AlertTitle} from "@material-ui/lab";
 import './profile.css'
 import update from 'react-addons-update';
 import NavBar from "../NavBar";
@@ -16,15 +15,6 @@ export default class Profile extends React.Component {
 
     }
 
-    componentDidMount() {
-        if (this.props.login.conditionsAccepted) {
-            let alert = document.querySelector('#alert-profile');
-            if (this.props.login.isLogged) {
-                this.timer = setTimeout(() => alert.style.display = 'none', 3000)
-            }
-        }
-    }
-
     componentWillUnmount() {
         clearTimeout(this.timer);
     }
@@ -36,83 +26,129 @@ export default class Profile extends React.Component {
                     {(this.props.login.conditionsAccepted) ?
                         (<div className={"profileMain"}>
                             <NavBar login={this.props.login}/>
-                            <div className={"profileMainInside"}>
+                            <div className="information">
+                                <div className="row gutters">
+                                    <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+                                        <div className="card h-100">
+                                            <div className="card-body">
+                                                <div className="account-settings">
+                                                    <div className="user-profile">
+                                                        <div className="user-avatar">
 
-                                <Alert severity="success" id="alert-profile">
-                                    <AlertTitle>Welcome</AlertTitle>
-                                    Here you can see your profile and <strong>change it</strong>
-                                </Alert>
-                                <h1>Profile</h1>
+                                                            {this.props.client.tierVIP === 3 ?
+                                                                <img alt={"Vip"} src={vip}/> : null}
+                                                            {this.props.client.tierVIP === 2 ?
+                                                                <img alt={"Premium"}
+                                                                     src={premium}/> : null}
+                                                            {this.props.client.tierVIP === 3 ? null :
+                                                                <Link to="/prices">
+                                                                    <button className={"btn btn-info"}>
+                                                                        Become VIP
+                                                                    </button>
+                                                                </Link>
+                                                            }
+                                                        </div>
+                                                        <h5 className="user-name">{this.props.client.profile.name}</h5>
+                                                    </div>
+                                                    <div className="about">
+                                                        <h5>Points</h5>
+                                                        <p>{this.props.client.profile.points}</p>
+                                                    </div>
+                                                    <div className="about">
+                                                        <h5>Bill</h5>
+                                                        <p>{this.props.client.profile.bill}€</p>
+                                                    </div>
 
-                                <div className={"information"}>
-                                    <img src={this.props.client.profile.photo.filename ?
-                                        process.env.PUBLIC_URL + "/" + this.props.client.profile.photo.filename :
-                                        "https://www.learning.uclg.org/sites/default/files/styles/featured_home_left/public/no-user-image-square.jpg?itok=PANMBJF-"
-                                    }
-                                         alt={"Sin foto de perfil"}/>
-                                    {this.props.client.tierVIP === 3 ? <img alt={"Vip"} id={"vip"} src={vip}/> : null}
-                                    {this.props.client.tierVIP === 2 ?
-                                        <img alt={"Premium"} id={"premium"} src={premium}/> : null}
-                                    <div className={"box"}>
-                                        <h3>DNI: {this.props.client.DNI}</h3>
-                                        <h3>Room: {this.props.client.room}</h3>
-                                        <h3>Bill: {this.props.client.profile.bill}€</h3>
-                                        <h3>Points: {this.props.client.profile.points}</h3>
-                                        <h3>Email:
-                                            <input type="text" id="email" placeholder={this.state.profile.email}
-                                                   value={this.state.profile.email}
-                                                   onChange={(e) => {
-                                                       let newState = update(this.state, {
-                                                           profile: {email: {$set: e.target.value}}
-                                                       });
-                                                       this.setState(newState);
-                                                   }
-                                                   }
-                                            />
-                                        </h3>
-                                        <h3>Phone:
-                                            <input type="text" id="username" placeholder={this.state.profile.phone}
-                                                   value={this.state.profile.phone}
-                                                   onChange={(e) => {
-                                                       let newState = update(this.state, {
-                                                           profile: {phone: {$set: e.target.value}}
-                                                       });
-                                                       this.setState(newState);
-                                                   }
-                                                   }
-                                            />
-                                        </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                                        <div className="card h-100">
+                                            <div className="card-body">
+                                                <div className="row gutters">
+                                                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                        <h6 className="mb-2 text-primary">Personal Details</h6>
+                                                    </div>
+                                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                        <div className="form-group">
+                                                            <label htmlFor="fullName">DNI</label>
+                                                            <input readOnly type="text" className="form-control"
+                                                                   id="dni"
+                                                                   placeholder={this.props.client.DNI}/>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                        <div className="form-group">
+                                                            <label htmlFor="eMail">Room</label>
+                                                            <input readOnly type="text" className="form-control"
+                                                                   id="room"
+                                                                   placeholder={this.props.client.room}/>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                        <div className="form-group">
+                                                            <label htmlFor="phone">Email</label>
+                                                            <input type="email" id="email" className="form-control"
+                                                                   placeholder={this.state.profile.email}
+                                                                   value={this.state.profile.email}
+                                                                   onChange={(e) => {
+                                                                       let newState = update(this.state, {
+                                                                           profile: {email: {$set: e.target.value}}
+                                                                       });
+                                                                       this.setState(newState);
+                                                                   }
+                                                                   }
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                        <div className="form-group">
+                                                            <label htmlFor="website">Phone</label>
+                                                            <input type="text" className="form-control" id="phone"
+                                                                   placeholder={this.state.profile.phone}
+                                                                   value={this.state.profile.phone}
+                                                                   onChange={(e) => {
+                                                                       let newState = update(this.state, {
+                                                                           profile: {phone: {$set: e.target.value}}
+                                                                       });
+                                                                       this.setState(newState);
+                                                                   }
+                                                                   }
+                                                            />
+                                                        </div>
+                                                    </div>
 
-                                        <ul>
-                                            <li>
-                                                <button onClick={() => this.props.update(this.state)}>
-                                                    Change
-                                                </button>
-                                            </li>
-                                            <li>
-                                                <button onClick={this.props.endSession}> Logout</button>
-                                            </li>
-                                            {this.props.client.tierVIP === 3 ? null :
-                                                <li>
-                                                    <Link to="/prices">
-                                                        <button>
-                                                            Become VIP
-                                                        </button>
-                                                    </Link>
-                                                </li>
-                                            }
-                                            <li>
-                                                <Link to="/checkOut/">
-                                                    <button>
-                                                        Me piro
-                                                    </button>
-                                                </Link>
-                                            </li>
-                                        </ul>
-                                        <div style={{clear: "both"}}>{}</div>
+                                                </div>
+
+                                                <div className="row gutters">
+                                                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                        <div className="text-right">
+                                                            <button type="button" id="submit" name="submit"
+                                                                    className="btn btn-secondary"
+                                                                    onClick={this.props.endSession}>
+                                                                Logout
+                                                            </button>
+                                                            <button type="button" className="btn btn-primary"
+                                                                    onClick={() => this.props.update(this.state)}>
+                                                                Update
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                            <br/>
+                                <Link to="/checkOut/">
+                                    <button type="button" className="btn btn-primary btn-lg btn-block">
+                                        CheckOut
+                                    </button>
+                                </Link>
                             </div>
+
+
                         </div>)
                         :
                         (<Redirect to="/welcome/"/>)}

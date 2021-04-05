@@ -8,9 +8,6 @@ exports.clients = [
 			"email": "pepito88@gmail.com",
 			"phone": 628496873,
 			"points":1000,
-			"photo": {
-				"filename": "pepe.jpg"
-			},
 			"bill":30
 		},
 		"tierVIP": 3
@@ -24,9 +21,6 @@ exports.clients = [
 			"email": "juanito99@gmail.com",
 			"phone": 659432990,
 			"points":10,
-			"photo": {
-				"filename": null
-			},
 			"bill":15
 		},
 		"tierVIP": 2
@@ -40,9 +34,6 @@ exports.clients = [
 			"email": "ADMIN@gmail.com",
 			"phone": 0,
 			"points":99999,
-			"photo": {
-				"filename": null
-			},
 			"bill":0
 		},
 		"tierVIP": 1
