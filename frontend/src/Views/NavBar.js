@@ -35,7 +35,7 @@ export default class NavBar extends React.Component {
                         </LinkContainer>
 
                         <LinkContainer to="/services/tours/">
-                            <Nav.Link>Touristic Tours</Nav.Link>
+                            <Nav.Link>Guided Tours</Nav.Link>
                         </LinkContainer>
                     </Nav>
                     <Nav className="justify-content-end">

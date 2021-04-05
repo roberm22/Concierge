@@ -13,6 +13,7 @@ export default class ShowRestaurant extends React.Component {
         super(props);
         this.state = {
             date: new Date(),
+            value: new Date(),
             locale: {name: 'en-US', label: 'English (US)'},
             points: 0
         }
@@ -67,9 +68,10 @@ export default class ShowRestaurant extends React.Component {
                     <DateTimePicker
                         placeholder={"Date"}
                         id={"DatePicker"}
+                        value={this.state.value}
                         disabled={!this.props.login.isLogged}
                         onChange={value => {
-                            this.setState({date: value})
+                            this.setState({date: value, value:value})
                         }}
                         hour24={true}
                         locale={this.state.locale.name}/>

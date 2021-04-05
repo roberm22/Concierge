@@ -34,7 +34,7 @@ export default class Tours extends React.Component {
                         <SlideImages slideImages={photos} spanOff={true}/>
 
                         <div className="titleRest">
-                            <h1 className="title">Touristic Tours</h1>
+                            <h1 className="title">Guided Tours</h1>
                         </div>
 
                         <a className="icon" href="#mainInfoRoom">
@@ -56,10 +56,24 @@ export default class Tours extends React.Component {
                             <div className="container">
                                 <div className="row">
                                     <div className="displayFlex">
-                                        <h2 className="articleTitle">{this.props.roomServices[0].name}</h2>
+                                        <h2 className="articleTitle">{this.props.tours[0].name}</h2>
                                         <p>
-                                            {this.props.roomServices[0].info}
-                                            <br/><br/> {this.props.roomServices[0].info2}
+                                            {this.props.tours[0].info}
+                                        </p>
+                                        <p>
+                                            <strong>START TIMES</strong>
+                                            <br/>
+                                            From 09:00 to 12:00 every 30 minutes
+                                            <br/>
+                                            From 16:00 to 19:00 every 30 minutes
+                                        </p>
+                                        <p>
+                                            <strong>PRICES & INFORMATION</strong>
+                                            <br/>
+                                            € 50 per person (Skip-the-line entry to the Royal Palace included)
+                                            <br/>
+                                            Duration: 3 hours
+
                                         </p>
 
                                         <div className="menu">
@@ -78,7 +92,7 @@ export default class Tours extends React.Component {
                                     </div>
 
                                     <div className="flexImage">
-                                        <SlideImages slideImages={this.props.roomServices[0].photos}/>
+                                        <SlideImages slideImages={this.props.tours[0].photos}/>
                                     </div>
                                 </div>
                             </div>
@@ -88,22 +102,28 @@ export default class Tours extends React.Component {
                             <div className="container">
                                 <div className="row">
                                     <div className="flexImage">
-                                        <SlideImages slideImages={this.props.roomServices[1].photos}/>
+                                        <SlideImages slideImages={this.props.tours[1].photos}/>
                                     </div>
 
                                     <div className="displayFlex">
-                                        <h2 className="articleTitle">{this.props.roomServices[1].name}</h2>
+                                        <h2 className="articleTitle">{this.props.tours[1].name}</h2>
                                         <p>
-                                            {this.props.roomServices[1].info}
+                                            {this.props.tours[1].info}
                                         </p>
                                         <p>
-                                            <strong>AVAILABLE HOURS</strong>
+                                            <strong>START TIMES</strong>
                                             <br/>
-                                            06:00 – 12:00 Breakfast
+                                            From 09:00 to 12:00 every 30 minutes
                                             <br/>
-                                            12:00 – 18:00 Lunch
+                                            From 16:00 to 19:00 every 30 minutes
+                                        </p>
+                                        <p>
+                                            <strong>PRICES & INFORMATION</strong>
                                             <br/>
-                                            18:00 – 24:00 Dinner
+                                            € 50 per person (Fast-track entry to Prado museum included)
+                                            <br/>
+                                            Duration: 1 hour and 30 minutes
+
                                         </p>
 
                                         <div className="menu">
@@ -125,9 +145,22 @@ export default class Tours extends React.Component {
                             <div className="container">
                                 <div className="row">
                                     <div className="displayFlex">
-                                        <h2 className="articleTitle"> {this.props.roomServices[2].name} </h2>
+                                        <h2 className="articleTitle"> {this.props.tours[2].name} </h2>
                                         <p>
-                                            {this.props.roomServices[2].info}
+                                            {this.props.tours[2].info}
+                                        </p>
+                                        <p>
+                                            <strong>START TIME</strong>
+                                            <br/>
+                                            Tour starts every day at 19:00
+                                        </p>
+                                        <p>
+                                            <strong>PRICES & INFORMATION</strong>
+                                            <br/>
+                                            € 20 per person
+                                            <br/>
+                                            Duration: 4 hours
+
                                         </p>
 
                                         <div className="menu">
@@ -149,7 +182,7 @@ export default class Tours extends React.Component {
                                     </div>
 
                                     <div className="flexImage">
-                                        <SlideImages slideImages={this.props.roomServices[2].photos}/>
+                                        <SlideImages slideImages={this.props.tours[2].photos}/>
                                     </div>
                                 </div>
                             </div>

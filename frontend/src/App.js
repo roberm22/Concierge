@@ -254,7 +254,7 @@ class App extends Component {
                                 {...props}
                                 client={this.props.clients[this.props.login.id - 1]}
                                 login={this.props.login}
-                                roomServices={this.props.services.roomServices}
+                                tours={this.props.services.tours}
                                 onChangeRoomServices={(answer) => {
                                     this.props.dispatch(changeRoomServices(answer));
                                 }}
