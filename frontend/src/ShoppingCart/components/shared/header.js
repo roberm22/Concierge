@@ -7,11 +7,22 @@ export default class Header extends React.Component {
 
     render() {
         return (
-            <header className="headerShop">
-                <Link to='/shopping/'>Store</Link>
-                <Link to='/shopping/report'>Report an incident</Link>
-                <Link to='/shopping/cart'> <CartIcon/> Cart </Link>
-            </header>
+            <div>
+                {this.props.showBoth ?
+                    <header className="headerShop">
+                        <Link to='/shopping/'>Store</Link>
+                        <Link to='/shows/tickets'>Shows</Link>
+                        <Link to='/shopping/report'>Report an incident</Link>
+                        <Link to='/shopping/cart'> <CartIcon/> Cart </Link>
+                    </header>
+                    :
+                    <header className="headerShop">
+                        {!this.props.isShow ? <Link to='/shopping/'>Store</Link> : <Link to='/shows/tickets'>Shows</Link>}
+                        <Link to='/shopping/report'>Report an incident</Link>
+                        <Link to='/shopping/cart'> <CartIcon/> Cart </Link>
+                    </header>
+                }
+            </div>
         );
     }
 }

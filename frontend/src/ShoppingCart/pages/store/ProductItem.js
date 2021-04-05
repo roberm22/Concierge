@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { formatNumber } from '../../utils';
+import "./ProductItem.css"
 
 export default class ProductItem extends React.Component {
 
@@ -26,34 +26,47 @@ export default class ProductItem extends React.Component {
     render() {
 
         return (
-            <div className="card card-body">
-                <img style={{display: "block", margin: "0 auto 10px", maxHeight: "200px"}} className="img-fluid"
-                     src={this.props.product.photo} alt=""/>
-                <p>{this.props.product.name}</p>
-                <h3 className="text-left">{formatNumber(this.props.product.price)}</h3>
+            <div className={this.props.isShow ? "divShow card card-body" : "card card-body"}>
+                <div id='divImg'>
+                    <img className="img-fluid"
+                         src={this.props.product.photo} alt=""/>
+                </div>
+                <div id='divMain'>
+                    {this.props.isShow ?
+                        <div>
+                            <h4>{this.props.product.name}</h4>
+                            <p>{this.props.product.description}</p>
+                        </div>
+                        :
+                        <p>{this.props.product.name}</p>
+                    }
+                    <div className={this.props.isShow ? "flexShow" : undefined}>
+                        <div className="text-left"><h3>{formatNumber(this.props.product.price)}</h3></div>
 
-                <div className="text-right">
-                    <Link to="/" className="btn btn-link btn-sm mr-2">Details</Link>
+                        <div className="text-right buttonsShow">
+                            <button
+                                onClick={() => {
+                                    if(this.props.isInCart || this.state.activated){
+                                        this.props.increase(this.props.product);
+                                    }else{
+                                        this.props.addProduct(this.props.product);
+                                        this.setState({
+                                            class: "btn btn-outline-primary btn-sm",
+                                            text: "Add more",
+                                            activated: true
+                                        });
 
-                        <button
-                            onClick={() => {
-                                if(this.props.isInCart || this.state.activated){
-                                    this.props.increase(this.props.product);
-                                }else{
-                                    this.props.addProduct(this.props.product);
-                                    this.setState({
-                                        class: "btn btn-outline-primary btn-sm",
-                                        text: "Add more",
-                                        activated: true
-                                    });
+                                    }
+                                }}
+                                className={this.state.class}>
+                                {this.state.text}
+                            </button>
 
-                                }
-                            }}
-                            className={this.state.class}>
-                            {this.state.text}
-                        </button>
+                        </div>
+                    </div>
 
                 </div>
+
             </div>
         );
     }

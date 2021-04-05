@@ -47,7 +47,8 @@ class App extends Component {
         this.conditions = this.conditions.bind(this);
         this.filterProducts = this.filterProducts.bind(this);
         this.state = {
-            products: this.props.products
+            products: this.props.products,
+            shows: this.props.showProducts
         };
     }
 
@@ -58,10 +59,16 @@ class App extends Component {
         this.timerlog = setTimeout(() => (alert.style.visibility = "hidden"), 5000);
     }
 
-    filterProducts(category) {
-        this.setState({
-            products: this.props.products.filter(product => product.category === category)
-        });
+    filterProducts(category, isShow) {
+        if(isShow){
+            this.setState({
+                shows: this.props.showProducts.filter(show => show.category === category)
+            });
+        }else{
+            this.setState({
+                products: this.props.products.filter(product => product.category === category)
+            });
+        }
     }
 
     componentWillUnmount() {
@@ -219,7 +226,7 @@ class App extends Component {
                                 onChangeRoomServices={(answer) => {
                                     this.props.dispatch(changeRoomServices(answer));
                                 }}
-                                onSelectProducts={(category) => this.filterProducts(category)}
+                                onSelectProducts={(category) => this.filterProducts(category, false)}
                             />
                         )}
                     />
@@ -231,11 +238,11 @@ class App extends Component {
                                 {...props}
                                 client={this.props.clients[this.props.login.id - 1]}
                                 login={this.props.login}
-                                roomServices={this.props.services.roomServices}
+                                shows={this.props.services.shows}
                                 onChangeRoomServices={(answer) => {
                                     this.props.dispatch(changeRoomServices(answer));
                                 }}
-                                onSelectProducts={(category) => this.filterProducts(category)}
+                                onSelectProducts={(category) => this.filterProducts(category, true)}
                             />
                         )}
                     />
@@ -273,21 +280,21 @@ class App extends Component {
                     />
 
                     <Route
-                        exact
-                        path="/shopping/"
+                        exact path="/shopping/"
                         render={() => (
-                                <Store
-                                    client={this.props.clients[this.props.login.id - 1]}
-                                    login={this.props.login}
-                                    products={this.state.products}
-                                    cartItems={this.props.cartItems}
-                                    increase={(product) => {
-                                        this.props.dispatch(increase(product));
-                                    }}
-                                    addProduct={(product) => {
-                                        this.props.dispatch(addProduct(product));
-                                    }}
-                                />
+                            <Store
+                                client={this.props.clients[this.props.login.id - 1]}
+                                login={this.props.login}
+                                products={this.state.products}
+                                cartItems={this.props.cartItems}
+                                isShow={false}
+                                increase={(product) => {
+                                    this.props.dispatch(increase(product));
+                                }}
+                                addProduct={(product) => {
+                                    this.props.dispatch(addProduct(product));
+                                }}
+                            />
                         )}
                     />
 
@@ -311,6 +318,25 @@ class App extends Component {
                                 }}
                                 clients={this.props.clients}
                                 login={this.props.login}
+                            />
+                        )}
+                    />
+
+                    <Route
+                        exact path="/shows/tickets"
+                        render={() => (
+                            <Store
+                                client={this.props.clients[this.props.login.id - 1]}
+                                login={this.props.login}
+                                products={this.state.shows}
+                                isShow={true}
+                                cartItems={this.props.cartItems}
+                                increase={(product) => {
+                                    this.props.dispatch(increase(product));
+                                }}
+                                addProduct={(product) => {
+                                    this.props.dispatch(addProduct(product));
+                                }}
                             />
                         )}
                     />

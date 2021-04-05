@@ -3,3 +3,8 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 15px;
 }
+
+.show_grid {
+    display: grid;
+    grid-gap: 15px;
+}

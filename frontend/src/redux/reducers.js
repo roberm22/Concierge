@@ -153,6 +153,13 @@ function products(state = [], action = {}) {
     }
 }
 
+function showProducts(state = [], action = {}) {
+    switch (action.type) {
+        default:
+            return state;
+    }
+}
+
 
 const GlobalState = (combineReducers({
     login,
@@ -160,7 +167,8 @@ const GlobalState = (combineReducers({
     services,
     currentService,
     cartItems,
-    products
+    products,
+    showProducts
 }));
 
 export default GlobalState;

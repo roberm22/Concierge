@@ -20,12 +20,13 @@ export default class Cart extends React.Component {
     }
 
     render() {
+        let points = this.props.login.isLogged ? this.props.client.profile.points : undefined;
 
         return (
 
             <>
-                <NavBar/>
-                <Header/>
+                <NavBar points={points} isLogged={this.props.login.isLogged}/>
+                <Header isShow={this.props.isShow} showBoth={true}/>
                 <div>
                     <div className="text-center mt-5">
                         <h1>Cart</h1>

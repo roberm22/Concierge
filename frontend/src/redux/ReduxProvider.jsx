@@ -10,6 +10,8 @@ import {products, cartItems} from '../assets/shopping_card_data';
 
 import React from 'react';
 import App from '../App';
+import {shows} from "../assets/shows_data";
+import {showProducts} from "../assets/show_tickets_data";
 
 
 export default class ReduxProvider extends React.Component {
@@ -18,8 +20,9 @@ export default class ReduxProvider extends React.Component {
         this.initialState = {
             clients: [...clients],
             login: login,
-            services:{restaurants,roomServices,transports},
+            services:{restaurants,roomServices,transports, shows},
             products: [...products],
+            showProducts: [...showProducts],
             cartItems: [...cartItems],
             currentService:0
         };

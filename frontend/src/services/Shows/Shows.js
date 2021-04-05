@@ -56,29 +56,28 @@ export default class Shows extends React.Component {
                             <div className="container">
                                 <div className="row">
                                     <div className="displayFlex">
-                                        <h2 className="articleTitle">{this.props.roomServices[0].name}</h2>
+                                        <h2 className="articleTitle">{this.props.shows[0].name}</h2>
                                         <p>
-                                            {this.props.roomServices[0].info}
-                                            <br/><br/> {this.props.roomServices[0].info2}
+                                            {this.props.shows[0].info}
+                                            <br/><br/> {this.props.shows[0].info2}
                                         </p>
 
                                         <div className="menu">
 
-                                            <Link to="/shopping/">
+                                            <Link to="/shows/tickets">
                                                 <button onClick={() =>
-                                                    this.props.onSelectProducts('minibar')
+                                                    this.props.onSelectProducts('theatre')
                                                 }>
-                                                    Order now
+                                                    Buy tickets
                                                 </button>
                                             </Link>
 
-                                            <br/><br/>
                                         </div>
                                         <p>&nbsp;</p>
                                     </div>
 
                                     <div className="flexImage">
-                                        <SlideImages slideImages={this.props.roomServices[0].photos}/>
+                                        <SlideImages slideImages={this.props.shows[0].photos}/>
                                     </div>
                                 </div>
                             </div>
@@ -88,30 +87,21 @@ export default class Shows extends React.Component {
                             <div className="container">
                                 <div className="row">
                                     <div className="flexImage">
-                                        <SlideImages slideImages={this.props.roomServices[1].photos}/>
+                                        <SlideImages slideImages={this.props.shows[1].photos}/>
                                     </div>
 
                                     <div className="displayFlex">
-                                        <h2 className="articleTitle">{this.props.roomServices[1].name}</h2>
+                                        <h2 className="articleTitle">{this.props.shows[1].name}</h2>
                                         <p>
-                                            {this.props.roomServices[1].info}
-                                        </p>
-                                        <p>
-                                            <strong>AVAILABLE HOURS</strong>
-                                            <br/>
-                                            06:00 – 12:00 Breakfast
-                                            <br/>
-                                            12:00 – 18:00 Lunch
-                                            <br/>
-                                            18:00 – 24:00 Dinner
+                                            {this.props.shows[1].info}
                                         </p>
 
                                         <div className="menu">
-                                            <Link to="/shopping/">
+                                            <Link to="/shows/tickets">
                                                 <button onClick={() =>
-                                                    this.props.onSelectProducts('menu')
+                                                    this.props.onSelectProducts('concert')
                                                 }>
-                                                    Order now
+                                                    Buy tickets
                                                 </button>
                                             </Link>
                                         </div>
@@ -125,31 +115,28 @@ export default class Shows extends React.Component {
                             <div className="container">
                                 <div className="row">
                                     <div className="displayFlex">
-                                        <h2 className="articleTitle"> {this.props.roomServices[2].name} </h2>
+                                        <h2 className="articleTitle"> {this.props.shows[2].name} </h2>
                                         <p>
-                                            {this.props.roomServices[2].info}
+                                            {this.props.shows[2].info}
                                         </p>
 
                                         <div className="menu">
 
-
-                                            <Link to="/shopping/">
+                                            <Link to="/shows/tickets">
                                                 <button onClick={() =>
-                                                    this.props.onSelectProducts('comfort')
+                                                    this.props.onSelectProducts('circus')
                                                 }>
-                                                    Order now
+                                                    Buy tickets
                                                 </button>
                                             </Link>
 
-
-                                            <br/>
-                                            <br/>
+                                            <br/><br/>
                                         </div>
                                         <p>&nbsp;</p>
                                     </div>
 
                                     <div className="flexImage">
-                                        <SlideImages slideImages={this.props.roomServices[2].photos}/>
+                                        <SlideImages slideImages={this.props.shows[2].photos}/>
                                     </div>
                                 </div>
                             </div>
