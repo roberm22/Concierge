@@ -11,7 +11,7 @@ exports.clients = [
 			"photo": {
 				"filename": "pepe.jpg"
 			},
-			"bill":0
+			"bill":30
 		},
 		"tierVIP": 3
 	},
@@ -27,9 +27,9 @@ exports.clients = [
 			"photo": {
 				"filename": null
 			},
-			"bill":0
+			"bill":15
 		},
-		"tierVIP": 1
+		"tierVIP": 2
 	},
 	{
 		"id": 3,

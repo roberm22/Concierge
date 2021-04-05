@@ -34,6 +34,7 @@ import Store from "./ShoppingCart/pages/store/Store";
 import Cart from "./ShoppingCart/pages/cart/Cart";
 import Report from "./Views/Report/Report";
 import ScrollToTop from "./ScrollToTop";
+import CheckOut from "./Views/CheckOut/CheckOut";
 
 
 class App extends Component {
@@ -288,6 +289,27 @@ class App extends Component {
                                />
                            )}
                     />
+
+                    <Route
+                        path="/checkOut/"
+                        render={(props) => (
+                            <CheckOut
+                                {...props}
+                                conditions={this.conditions}
+                                client={this.props.clients[this.props.login.id - 1]}
+                                login={this.props.login}
+                                update={(newData) => {
+                                    this.props.dispatch(
+                                        updateProfile(this.props.login.id, newData)
+                                    );
+                                }}
+                                endSession={() => {
+                                    this.props.dispatch(endSession());
+                                }}
+                            />
+                        )}
+                    />
+
                 </Router>
             </div>
         );

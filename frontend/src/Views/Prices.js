@@ -14,6 +14,8 @@ import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import NavBar from "./NavBar";
 import update from "react-addons-update";
+import {Nav} from "react-bootstrap";
+import {LinkContainer} from "react-router-bootstrap";
 
 function Copyright() {
     return (
@@ -116,7 +118,7 @@ const tiers = [
     },
 ];
 
-const footers = [
+/*const footers = [
     {
         title: 'Concierge',
         description: ['Team', 'History', 'Contact us', 'Locations'],
@@ -133,7 +135,7 @@ const footers = [
         title: 'Legal',
         description: ['Privacy policy', 'Terms of use'],
     },
-];
+];*/
 
 export default function Prices(props) {
     const classes = useStyles();
@@ -184,22 +186,32 @@ export default function Prices(props) {
                                         ))}
                                     </ul>
                                 </CardContent>
-                                <CardActions>
-                                    <Button
-                                        fullWidth
-                                        variant={tier.buttonVariant}
-                                        color="primary"
-                                        onClick={() => {
-                                            let bill = props.client.profile.bill
-                                            let newClient = update(props.client, {
-                                                profile: {bill: {$apply: function() {return parseInt(bill)+parseInt(tier.price);}}},
-                                                tierVIP: {$set: tier.tierVIP}
-                                            });
-                                            props.update(newClient);
-                                            alert("Your tier and bill have been updated")
-                                        }}>
-                                        {tier.buttonText}
-                                    </Button>
+                                <CardActions className={classes.cardPricing}>
+                                    <LinkContainer to="/profile/">
+                                        <Nav.Link>
+                                            <Button
+                                                fullWidth
+                                                variant={tier.buttonVariant}
+                                                color="primary"
+                                                onClick={() => {
+                                                    let bill = props.client.profile.bill
+                                                    let newClient = update(props.client, {
+                                                        profile: {
+                                                            bill: {
+                                                                $apply: function () {
+                                                                    return parseInt(bill) + parseInt(tier.price);
+                                                                }
+                                                            }
+                                                        },
+                                                        tierVIP: {$set: tier.tierVIP}
+                                                    });
+                                                    props.update(newClient);
+                                                    alert("Your tier and bill have been updated")
+                                                }}>
+                                                {tier.buttonText}
+                                            </Button>
+                                        </Nav.Link>
+                                    </LinkContainer>
                                 </CardActions>
                             </Card>
                         </Grid>
@@ -208,7 +220,7 @@ export default function Prices(props) {
             </Container>
 
             <Container maxWidth="md" component="footer" className={classes.footer}>
-                <Grid container spacing={4} justify="space-evenly">
+                {/*<Grid container spacing={4} justify="space-evenly">
                     {footers.map((footer) => (
                         <Grid item xs={6} sm={3} key={footer.title}>
                             <Typography variant="h6" color="textPrimary" gutterBottom>
@@ -225,7 +237,7 @@ export default function Prices(props) {
                             </ul>
                         </Grid>
                     ))}
-                </Grid>
+                </Grid>*/}
                 <Box mt={5}>
                     <Copyright/>
                 </Box>

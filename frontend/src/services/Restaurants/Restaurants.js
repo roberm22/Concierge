@@ -15,6 +15,7 @@ export default class Restaurants extends React.Component {
             points: 0,
         };
     }
+
     render() {
         let points;
         if (this.props.login.isLogged) {
@@ -27,9 +28,9 @@ export default class Restaurants extends React.Component {
             <div>
                 <li className="liR">
                     <Link to="/services/restaurants/show_restaurant/"
-                             onClick={() => {
-                                 this.props.onChangeRestaurant(i)
-                             }}>{restaurant.name}
+                          onClick={() => {
+                              this.props.onChangeRestaurant(i)
+                          }}>{restaurant.name}
                     </Link>
                 </li>
             </div>);
@@ -52,7 +53,7 @@ export default class Restaurants extends React.Component {
             'https://www.viroth-hotel.com/wp-content/uploads/2019/06/MG_1040-Edit-600x400.jpg'
         ];
 
-         return (
+        return (
             <div>
                 <NavBar points={this.state.points + points} isLogged={this.props.login.isLogged}/>
                 <div className="mainRestaurant">
@@ -60,8 +61,8 @@ export default class Restaurants extends React.Component {
                     <div className="firstView">
 
                         <SlideImages
-                            slideImages = {photos}
-                            spanOff = {true}
+                            slideImages={photos}
+                            spanOff={true}
                         />
 
                         <div className="titleRest">
@@ -91,11 +92,14 @@ export default class Restaurants extends React.Component {
                                     <div className="displayFlex">
                                         <h2 className="articleTitle">RESTAURANT</h2>
                                         <p>
-                                            The restaurant consists of a spacious poolside dining area with bar as well as an elegant
-                                        glass enclosed space for your dining comfort and pleasure. We also provide
-                                        dining services in our guest rooms. At any of these locations you may enjoy
-                                        refreshments and light dishes as well as full course meals that represent both
-                                            gastronomic worlds: choose from international dishes, or a seasonally inspired
+                                            The restaurant consists of a spacious poolside dining area with bar as well
+                                            as an elegant
+                                            glass enclosed space for your dining comfort and pleasure. We also provide
+                                            dining services in our guest rooms. At any of these locations you may enjoy
+                                            refreshments and light dishes as well as full course meals that represent
+                                            both
+                                            gastronomic worlds: choose from international dishes, or a seasonally
+                                            inspired
                                             Khmer menu.
                                         </p>
                                         <p>
@@ -105,11 +109,11 @@ export default class Restaurants extends React.Component {
                                         </p>
 
                                         <div className="menu">
-                                            <button>
-                                                <Link to="/shopping/">
-                                                    Menu
-                                                </Link>
-                                            </button>
+
+                                            <Link to="/shopping/">
+                                                <button>Menu</button>
+                                            </Link>
+
                                             <br/><br/>
                                         </div>
                                         <p>&nbsp;</p>
@@ -118,7 +122,7 @@ export default class Restaurants extends React.Component {
 
                                     <div className="flexImage">
                                         <SlideImages
-                                            slideImages = {photos2}
+                                            slideImages={photos2}
                                         />
                                     </div>
                                 </div>
@@ -131,7 +135,7 @@ export default class Restaurants extends React.Component {
 
                                     <div className="flexImage">
                                         <SlideImages
-                                            slideImages = {photos3}
+                                            slideImages={photos3}
                                         />
                                     </div>
 
@@ -150,11 +154,11 @@ export default class Restaurants extends React.Component {
                                         </p>
 
                                         <div className="menu">
-                                            <button>
+
                                                 <Link to="/shopping/">
-                                                    Bar Menu
+                                                    <button>Bar Menu </button>
                                                 </Link>
-                                            </button>
+
                                             <br/><br/>
                                         </div>
                                         <p>&nbsp;</p>
@@ -165,6 +169,7 @@ export default class Restaurants extends React.Component {
                             </div>
                         </article>
 
+                        {/*Depurar botones y funciones*/}
                         <article className="thirdArticle">
                             <div className="container">
                                 <div className="row">
@@ -174,7 +179,7 @@ export default class Restaurants extends React.Component {
                                             <button>
                                                 {listItems}
                                             </button>
-                                            
+
                                         </ul>
                                         <p>&nbsp;</p>
 

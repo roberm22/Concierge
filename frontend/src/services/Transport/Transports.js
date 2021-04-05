@@ -31,8 +31,8 @@ export default class Transports extends React.Component {
                     <div className="firstView">
 
                         <SlideImages
-                            slideImages = {photos}
-                            spanOff = {true}
+                            slideImages={photos}
+                            spanOff={true}
                         />
 
                         <div className="titleRest">
@@ -66,20 +66,21 @@ export default class Transports extends React.Component {
                                         </p>
 
                                         <div className="menu">
-                                            <button>
-                                                <Link to="/services/transport/show_transport/"
-                                                      onClick={() => {
-                                                          this.props.onChangeTransport(0)
-                                                      }}>{transports[0].name}
-                                                </Link>
-                                            </button>
+                                            <Link to="/services/transport/show_transport/"
+                                                  onClick={() => {
+                                                      this.props.onChangeTransport(0)
+                                                  }}>
+                                                <button>
+                                                    {transports[0].name}
+                                                </button>
+                                            </Link>
                                             <br/><br/>
                                         </div>
                                         <p>&nbsp;</p>
 
                                     </div>
                                     <div className="flexImage">
-                                        <SlideImages slideImages={transports[0].photos} />
+                                        <SlideImages slideImages={transports[0].photos}/>
                                     </div>
                                 </div>
                             </div>
@@ -90,7 +91,7 @@ export default class Transports extends React.Component {
                                 <div className="row">
 
                                     <div className="flexImage">
-                                        <SlideImages slideImages={transports[1].photos} />
+                                        <SlideImages slideImages={transports[1].photos}/>
                                     </div>
 
                                     <div className="displayFlex">
@@ -100,13 +101,12 @@ export default class Transports extends React.Component {
                                         </p>
 
                                         <div className="menu">
-                                            <button>
-                                                <Link to="/services/transport/show_transport/"
-                                                      onClick={() => {
-                                                          this.props.onChangeTransport(1)
-                                                      }}>{transports[1].name}
-                                                </Link>
-                                            </button>
+                                            <Link to="/services/transport/show_transport/"
+                                                  onClick={() => {
+                                                      this.props.onChangeTransport(1)
+                                                  }}>
+                                                <button>{transports[1].name}</button>
+                                            </Link>
                                             <br/><br/>
                                         </div>
                                         <p>&nbsp;</p>
@@ -127,20 +127,19 @@ export default class Transports extends React.Component {
                                         </p>
 
                                         <div className="menu">
-                                            <button>
-                                                <Link to="/services/transport/show_transport/"
-                                                      onClick={() => {
-                                                          this.props.onChangeTransport(2)
-                                                      }}>{transports[2].name}
-                                                </Link>
-                                            </button>
+                                            <Link to="/services/transport/show_transport/"
+                                                  onClick={() => {
+                                                      this.props.onChangeTransport(2)
+                                                  }}>
+                                                <button>{transports[2].name}</button>
+                                            </Link>
                                             <br/><br/>
                                         </div>
                                         <p>&nbsp;</p>
 
                                     </div>
                                     <div className="flexImage">
-                                        <SlideImages slideImages={transports[2].photos} />
+                                        <SlideImages slideImages={transports[2].photos}/>
                                     </div>
                                 </div>
                             </div>

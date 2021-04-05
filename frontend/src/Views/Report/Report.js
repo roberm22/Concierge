@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBar from "../NavBar";
 import "./Report.css";
+import Header from "../../ShoppingCart/components/shared/header";
 
 
 export default class Report extends React.Component {
@@ -13,6 +14,7 @@ export default class Report extends React.Component {
             <div>
 
                 <NavBar points={points} isLogged={this.props.login.isLogged}/>
+                <Header/>
                 <form className="mainReport">
                     <fieldset>
                         <legend>Report an incident</legend>

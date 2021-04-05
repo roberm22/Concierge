@@ -81,7 +81,7 @@
 
 .profileMainInside button {
     color: white;
-    background: #DAA520;
+    background: darkgoldenrod;
     border: none;
     padding: 0.7em;
     outline: none;
@@ -91,7 +91,7 @@
     font-weight: 400;
     transition: 0.5s all;
     border-radius: 30px;
-    margin-top: 2em;
+    margin: 1em;
     box-shadow: 2px 2px 2px 2px #333333;
 }
 
@@ -111,12 +111,10 @@
     text-decoration: none;
 }
 
-
-.profileMain li a:hover:not(.active) {
-    background-color: #111;
+.profileMain button:hover {
+    color: black;
+    transition:0.5s all;
 }
 
-.profileMain button:hover:not(.active) {
-    background-color: #111;
-}
+
 

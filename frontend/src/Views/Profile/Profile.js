@@ -42,7 +42,7 @@ export default class Profile extends React.Component {
                                     <AlertTitle>Welcome</AlertTitle>
                                     Here you can see your profile and <strong>change it</strong>
                                 </Alert>
-                                <h1>Gestión del perfil</h1>
+                                <h1>Profile</h1>
 
                                 <div className={"information"}>
                                     <img src={this.props.client.profile.photo.filename ?
@@ -50,8 +50,9 @@ export default class Profile extends React.Component {
                                         "https://www.learning.uclg.org/sites/default/files/styles/featured_home_left/public/no-user-image-square.jpg?itok=PANMBJF-"
                                     }
                                          alt={"Sin foto de perfil"}/>
-                                    {this.props.client.tierVIP===3 ? <img alt={"Vip"} id={"vip"} src={vip}/> : null}
-                                    {this.props.client.tierVIP===2 ? <img alt={"Premium"} id={"premium"} src={premium}/> : null}
+                                    {this.props.client.tierVIP === 3 ? <img alt={"Vip"} id={"vip"} src={vip}/> : null}
+                                    {this.props.client.tierVIP === 2 ?
+                                        <img alt={"Premium"} id={"premium"} src={premium}/> : null}
                                     <div className={"box"}>
                                         <h3>DNI: {this.props.client.DNI}</h3>
                                         <h3>Room: {this.props.client.room}</h3>
@@ -91,13 +92,22 @@ export default class Profile extends React.Component {
                                             <li>
                                                 <button onClick={this.props.endSession}> Logout</button>
                                             </li>
-                                            {this.props.client.tierVIP===3 ? null :
+                                            {this.props.client.tierVIP === 3 ? null :
                                                 <li>
-                                                    <button>
-                                                        <Link to="/prices"> Become VIP </Link>
-                                                    </button>
+                                                    <Link to="/prices">
+                                                        <button>
+                                                            Become VIP
+                                                        </button>
+                                                    </Link>
                                                 </li>
                                             }
+                                            <li>
+                                                <Link to="/checkOut/">
+                                                    <button>
+                                                        Me piro
+                                                    </button>
+                                                </Link>
+                                            </li>
                                         </ul>
                                         <div style={{clear: "both"}}>{}</div>
                                     </div>
