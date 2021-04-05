@@ -1,19 +1,70 @@
-import { combineReducers } from 'redux';
-import { PASSWORD_ANSWER, USER_ANSWER,CONDITIONS } from './actions'
+import {combineReducers} from 'redux';
+import {
+    ADD_ITEM,
+    CHANGE_RESTAURANT,
+    CHANGE_ROOM_SERVICES,
+    CHANGE_TRANSPORT,
+    CLEAR,
+    CONDITIONS,
+    DECREASE,
+    END_SESSION,
+    INCREASE,
+    REMOVE_ITEM,
+    SUBMIT,
+    UPDATE,
+    USER_ANSWER
+} from './actions'
 
 function login(state = [], action = {}) {
-    switch(action.type) {
-        case PASSWORD_ANSWER:
-            return {
-                ...state,
-                passwordAnswer: action.payload.answer
-            };
-
+    switch (action.type) {
 
         case USER_ANSWER:
             return {
                 ...state,
-                userAnswer: action.payload.answer
+                dniAnswer: action.payload.dni,
+                roomAnswer: action.payload.room
+            };
+
+        case SUBMIT:
+            let newState = state;
+            let isClient;
+            action.payload.clients.map((client) => {
+                isClient = (state.dniAnswer === client.DNI) && (state.roomAnswer === client.room);
+                if (isClient) {
+                    newState = {
+                        ...state,
+                        isLogged: true,
+                        id: client.id,
+                        status: "success"
+                    };
+                }
+
+                if (newState.attempts === 4) {
+                    newState = {
+                        ...state,
+                        status: "warning"
+                    };
+                }
+            });
+
+            if (newState.status !== "success" && newState.status !== "warning") {
+                newState = {
+                    ...state,
+                    status: "error",
+                    attempts: state.attempts + 1
+                };
+            }
+            console.log(newState)
+            return newState;
+
+        case END_SESSION:
+
+            return {
+                ...state,
+                status: "info",
+                isLogged: false,
+                dniAnswer: "",
+                roomAnswer: ""
             };
 
         case CONDITIONS:
@@ -28,15 +79,82 @@ function login(state = [], action = {}) {
 
 }
 
-function currentClient(state = 0, action = {}) {
-    switch(action.type) {
+function clients(state = [], action = {}) {
+    switch (action.type) {
+        case UPDATE:
+            state[action.payload.id-1] = action.payload.newData;
+            console.log(state);
+            return state;
+
         default:
             return state;
     }
 }
 
-function clients(state = [], action = {}) {
-    switch(action.type) {
+function services(state = [], action = {}) {
+    switch (action.type) {
+        default:
+            return state;
+    }
+}
+
+function currentService(state = [], action = {}) {
+    switch (action.type) {
+        case CHANGE_RESTAURANT:
+            return action.payload.answer
+        case CHANGE_TRANSPORT:
+            return action.payload.answer
+        case CHANGE_ROOM_SERVICES:
+            return action.payload.answer
+        default:
+            return state;
+    }
+}
+
+
+function cartItems(state = [], action = {}) {
+
+    switch (action.type) {
+        case ADD_ITEM:
+            if (!state.find(item => item.id === action.payload.product.id)) {
+                state.push({
+                    ...action.payload.product,
+                    quantity: 1
+                })
+            }
+            return state;
+
+        case REMOVE_ITEM:
+            return [...state.filter(item => item.id !== action.payload.product.id)];
+
+        case INCREASE:
+            state[state.findIndex(item => item.id === action.payload.product.id)].quantity++
+            return state;
+
+        case DECREASE:
+            state[state.findIndex(item => item.id === action.payload.product.id)].quantity--
+            return state;
+
+        case CLEAR:
+            
+            return state;
+
+        default:
+            return state
+
+    }
+}
+
+
+function products(state = [], action = {}) {
+    switch (action.type) {
+        default:
+            return state;
+    }
+}
+
+function shows(state = [], action = {}) {
+    switch (action.type) {
         default:
             return state;
     }
@@ -45,8 +163,12 @@ function clients(state = [], action = {}) {
 
 const GlobalState = (combineReducers({
     login,
-    currentClient,
-    clients
+    clients,
+    services,
+    currentService,
+    cartItems,
+    products,
+    shows
 }));
 
 export default GlobalState;

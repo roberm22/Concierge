@@ -1,0 +1,99 @@
+.main_ShowT{
+    background-image: url("https://i.pinimg.com/originals/b6/4b/b3/b64bb3bcaaddc8ac8ac8d69434faa5e7.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    background-attachment: fixed;
+    height: 100%;
+}
+
+.main_ShowT img{
+    height: 300px;
+}
+
+.boxT {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    color: white;
+    font-family: 'Dosis', sans-serif;
+    text-shadow: 5px 3px 5px black;
+}
+
+.main_ShowT textarea, .main_ShowT input, .main_ShowT select {
+    outline: none;
+    font-size: 0.9em;
+    padding: 1em 3em 1em 1em;
+    border: none;
+    margin-bottom: 0.5em;
+    background: rgba(255, 255, 255, 0.85);
+    color: #000;
+    border-radius: 30px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+
+
+.boxT button {
+    color: white;
+    background: #DAA520;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    cursor: pointer;
+    letter-spacing: 1px;
+    padding: 10px;
+    font-weight: 400;
+    transition: 0.5s all;
+    border-radius: 30px;
+    box-shadow: 2px 2px 2px 2px #333333;
+}
+
+.boxT button:hover {
+    color: black;
+    transition:0.5s all;
+}
+
+.boxT h1{
+    margin:0px;
+    text-align: center;
+    font-size: 3em;
+    color: white;
+    letter-spacing: 10px;
+    font-weight: 500;
+    font-family: 'Dosis', sans-serif;
+    text-shadow: 5px 3px 5px black;
+}
+
+.boxT h3{
+    text-decoration: underline;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    font-family: 'Dosis', sans-serif;
+    text-shadow: 5px 3px 5px black;
+}
+
+.boxT img{
+    border: solid white;
+    border-radius: 10px;
+}
+
+#alertT{
+    margin: 10px;
+    border-radius: 20px;
+    text-shadow: none;
+}
+
+
+
+#arrowT {
+    align-self: flex-start;
+    color: white;
+    padding: 2vh;
+    cursor: pointer;
+    font-size: 2vh;
+}

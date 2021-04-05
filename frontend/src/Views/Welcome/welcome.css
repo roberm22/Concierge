@@ -1,0 +1,60 @@
+
+
+.welcomeButton {
+    color: white;
+    background: #DAA520;
+    border: none;
+    padding: 0.7em;
+    outline: none;
+    margin-left: 2em;
+    margin-right: 2em;
+    font-size: 1em;
+    cursor: pointer;
+    letter-spacing: 1px;
+    font-weight: 400;
+    transition: 0.5s all;
+    border-radius: 30px;
+    margin-top: 2em;
+    width: 20%;
+    box-shadow: 2px 2px 2px 2px #333333;
+}
+
+.welcomeBox{
+    background-color: rgba(0,0,0,0.5);
+    text-decoration-color: white;
+    font-family: 'Open Sans', sans-serif;
+    color:white;
+    padding-left: 0.7em;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px 2px #333333;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+.welcomeP li {
+    padding: 5px;
+}
+
+.welcomeMain{
+    padding-top: 10px;
+    background-image: url("../../assets/images/login.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    background-attachment: fixed;
+}
+.welcomeBox h1{
+    margin:0px;
+    text-align: center;
+    font-size: 3em;
+    color: white;
+    letter-spacing: 10px;
+    font-weight: 500;
+    font-family: 'Dosis', sans-serif;
+    text-shadow: 5px 3px 5px black;
+}
+
+.welcomeButton:hover {
+    color: black;
+    transition:0.5s all;
+}

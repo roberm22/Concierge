@@ -1,0 +1,33 @@
+
+.card-body img{
+    display: block;
+    margin: 0 auto 10px;
+    max-height: 200px
+}
+
+.divShow {
+    flex-direction: row !important;
+}
+
+.divShow img {
+    margin: auto;
+}
+
+#divImg {
+    flex:1;
+    margin-right: 2vh !important;
+}
+
+#divMain {
+    flex:2;
+}
+
+.flexShow {
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.buttonsShow {
+    margin-left: auto;
+}

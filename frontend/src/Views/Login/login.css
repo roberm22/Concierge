@@ -1,0 +1,150 @@
+
+/* NO TOCAR */
+
+.header {
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+}
+
+.header h1 {
+    font-size: 7vh;
+    color: white;
+    letter-spacing: 3vh;
+    font-weight: 500;
+    font-family: 'Dosis', sans-serif;
+    text-shadow: 0.5vh 0.5vh 0.5vh black;
+}
+
+.mainLogin{
+    background-image: url("../../assets/images/login.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    background-attachment: fixed;
+}
+
+.mainLogin:before {
+    content:'';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.tittle h2 {
+    font-size: 2.5vh;
+    color: #fff;
+    letter-spacing: 1.5vh;
+    margin-bottom: 3.5vh;
+    text-transform: uppercase;
+}
+
+.sub {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    max-height: 100vh;
+}
+
+.sub input {
+    width: 25%;
+    outline: none;
+    font-size: 2vh;
+    padding: 1em 3em 1em 1em;
+    border: none;
+    margin-bottom: 0.5vh;
+    background: rgba(255, 255, 255, 0.85);
+    color: #000;
+    border-radius: 30vh;
+    font-weight: 400;
+    letter-spacing: 0.2vh;
+}
+
+input.pass {
+    margin-top: 0.7vh;
+}
+
+.submitLogin {
+    margin-top: 3vh;
+    width: 20%;
+}
+
+.sub button {
+    color: white;
+    background: #DAA520;
+    border: none;
+    padding: 1.5vh;
+    outline: none;
+    font-size: 2vh;
+    cursor: pointer;
+    letter-spacing: 0.3vh;
+    font-weight: 400;
+    transition: 0.5s all;
+    border-radius: 30vh;
+    box-shadow: 0.3vh 0.3vh 0.3vh 0.3vh #333333;
+}
+
+.sub button:hover {
+    color: black;
+    transition:0.5s all;
+}
+
+.sub .active {
+    background-color: transparent;
+}
+
+.mainLogin #alert{
+    margin-top: 5vh;
+    margin-bottom: 1.5vh;
+    border-radius: 2vh;
+}
+
+.mainLogin #arrow {
+    align-self: flex-start;
+    color: white;
+    padding: 2vh;
+    cursor: pointer;
+    font-size: 2vh;
+}
+
+.mainLogin .MuiSvgIcon-root {
+    font-size: 3vh !important;
+}
+
+.mainLogin .MuiAlert-message {
+    padding: 0.8vh 0 !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainLogin .MuiAlert-message span {
+    font-size: 1.5vh !important;
+}
+
+.mainLogin .MuiTypography-body1 {
+    font-size: 2vh !important;
+}
+
+.mainLogin .MuiAlert-icon {
+    padding: 0.7vh 0 !important;
+    font-size: 2.2vh !important;
+    margin-right: 1.2vh !important;
+    max-height: 6px;
+}
+
+.mainLogin .MuiAlert-root {
+    padding: 0.6vh 1.6vh !important;
+}
+
+.mainLogin .MuiAlertTitle-root {
+    margin-top: 0 !important;
+}
+
+

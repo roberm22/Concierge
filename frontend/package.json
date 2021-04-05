@@ -3,15 +3,37 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.57",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "add": "^2.0.6",
+    "bootstrap": "^4.6.0",
+    "bootswatch": "^4.4.1",
+    "mime": "^1.6.0",
+    "moment": "^2.29.1",
+    "or": "^0.2.0",
     "react": "^17.0.1",
+    "react-addons-update": "^15.6.3",
+    "react-bootstrap": "^1.5.2",
+    "react-calendar": "^3.3.1",
+    "react-datetime": "^3.0.4",
     "react-dom": "^17.0.1",
+    "react-helmet-async": "^1.0.5",
+    "react-rainbow-components": "^1.24.1",
     "react-redux": "^7.2.2",
+    "react-router-bootstrap": "^0.25.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-slideshow-image": "^3.4.3",
+    "react-widgets": "^4.6.1",
     "redux": "^4.0.5",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "yarn": "^1.22.10"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -36,5 +58,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-toastify": "^7.0.3"
   }
 }

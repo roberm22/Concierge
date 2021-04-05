@@ -1,47 +1,53 @@
 exports.clients = [
 	{
 		"id": 1,
-		"room": 220,
-		"DNI": "94342812D",
+		"room": "200",
+		"DNI": "12345678A",
 		"profile": {
 			"name": "Pepe",
-			"username": "pepito88",
-			"password": "1234",
 			"email": "pepito88@gmail.com",
 			"phone": 628496873,
-			"photo": {
-				"filename": "pepe.jpg"
-			}
+			"points":1000,
+			"bill":30
 		},
-		"isVip": true
+		"tierVIP": 3
 	},
 	{
 		"id": 2,
-		"room": 320,
-		"DNI": "32297678C",
+		"room": "300",
+		"DNI": "87654321B",
 		"profile": {
 			"name": "Juan",
-			"username": "juanito99",
-			"password": "1234",
 			"email": "juanito99@gmail.com",
 			"phone": 659432990,
-			"photo": {
-				"filename": "juan.jpg"
-			}
+			"points":10,
+			"bill":15
 		},
-		"isVip": false
+		"tierVIP": 2
+	},
+	{
+		"id": 3,
+		"room": "0",
+		"DNI": "0",
+		"profile": {
+			"name": "ADMIN",
+			"email": "ADMIN@gmail.com",
+			"phone": 0,
+			"points":99999,
+			"bill":0
+		},
+		"tierVIP": 1
 	}
 
 ]
 
-exports.login = [
+exports.login =
 	{
+		"id": 0,
+		"status": "info",
 		"isLogged": false,
 		"conditionsAccepted":false,
-		"userAnswer": "",
-		"passwordAnswer": "",
-		"attempts": 0,
-		"userDNI": "",
-		"roomAnswer": ""
+		"dniAnswer": "",
+		"roomAnswer": "",
+		"attempts": 0
 	}
-]
