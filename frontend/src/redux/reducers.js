@@ -54,7 +54,6 @@ function login(state = [], action = {}) {
                     attempts: state.attempts + 1
                 };
             }
-            console.log(newState)
             return newState;
 
         case END_SESSION:
@@ -82,8 +81,19 @@ function login(state = [], action = {}) {
 function clients(state = [], action = {}) {
     switch (action.type) {
         case UPDATE:
-            state[action.payload.id-1] = action.payload.newData;
-            console.log(state);
+            if(action.payload.isPoints){
+                let op1 = action.payload.changeOne;
+                let op2 = state[action.payload.id-1].profile.points;
+                state[action.payload.id-1].profile.points = parseFloat((op2 - op1).toFixed(2));
+            }
+            else if(action.payload.changeOne !== undefined){
+                let op1 = action.payload.changeOne;
+                let op2 = state[action.payload.id-1].profile.bill;
+                state[action.payload.id-1].profile.bill = parseFloat((op1 + op2).toFixed(2));
+            }
+            else{
+                state[action.payload.id-1] = action.payload.newData;
+            }
             return state;
 
         default:
@@ -136,15 +146,16 @@ function cartItems(state = [], action = {}) {
             return state;
 
         case CLEAR:
-            
-            return state;
+            return [];
+
+        case UPDATE:
+            return [];
 
         default:
             return state
 
     }
 }
-
 
 function products(state = [], action = {}) {
     switch (action.type) {

@@ -50,8 +50,8 @@ export function changeTransport(answer){
     return {type: CHANGE_TRANSPORT, payload: {answer}}
 }
 
-export function updateProfile(id, newData){
-    return {type: UPDATE,payload: {id, newData}};
+export function updateProfile(id, newData, changeOne, isPoints){
+    return {type: UPDATE, payload: {id, newData, changeOne, isPoints}};
 }
 
 /* Actions del shopping cart */

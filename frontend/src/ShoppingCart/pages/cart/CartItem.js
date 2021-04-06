@@ -26,7 +26,11 @@ export default class CartItem extends React.Component {
                 </div>
                 <div className="col-sm-4 p-2">
                     <h5 className="mb-1">{this.props.product.name}</h5>
-                    <p className="mb-1">Price: {formatNumber(this.props.product.price)} </p>
+                    <p className="mb-1">
+                        {this.props.payPoints ?
+                            'Points: ' +this.props.product.hotelPoints + ' HP' :
+                            'Price: ' + formatNumber(this.props.product.price)}
+                    </p>
 
                 </div>
                 <div className="col-sm-2 p-2 text-center ">

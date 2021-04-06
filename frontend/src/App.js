@@ -302,6 +302,7 @@ class App extends Component {
                         path="/shopping/cart"
                         render={() => (
                             <Cart
+                                client={this.props.clients[this.props.login.id - 1]}
                                 products={this.props.products}
                                 cartItems={this.props.cartItems}
                                 clearCart={() => {
@@ -318,6 +319,11 @@ class App extends Component {
                                 }}
                                 clients={this.props.clients}
                                 login={this.props.login}
+                                update={(changeOne, isPoints) => {
+                                    this.props.dispatch(
+                                        updateProfile(this.props.login.id, [], changeOne, isPoints)
+                                    );
+                                }}
                             />
                         )}
                     />

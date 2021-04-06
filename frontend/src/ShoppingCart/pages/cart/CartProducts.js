@@ -14,6 +14,7 @@ export default class CartProducts extends React.Component {
                         this.props.cartItems.map(product =>
                             <CartItem
                                 key={product.id}
+                                payPoints={this.props.payPoints}
                                 product={product}
                                 increase={this.props.increase}
                                 decrease={this.props.decrease}

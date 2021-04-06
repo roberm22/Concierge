@@ -5,6 +5,8 @@ import { formatNumber } from '../../utils';
 import Header from "../../components/shared/header";
 import Footer from "../../components/shared/footer";
 import NavBar from "../../../Views/NavBar";
+import {NavLink} from "react-router-dom";
+import ProductItem from "../store/ProductItem";
 
 
 export default class Cart extends React.Component {
@@ -16,16 +18,17 @@ export default class Cart extends React.Component {
             itemCount: this.props.cartItems.reduce((total, product) => total + product.quantity, 0),
             total: this.props.cartItems.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2),
             totalPoints: this.props.cartItems.reduce((totalPoints, product) => totalPoints + product.hotelPoints * product.quantity, 0).toFixed(2),
+            payPoints: false,
+            points: this.props.login.isLogged ? this.props.client.profile.points : 0
         };
     }
 
     render() {
-        let points = this.props.login.isLogged ? this.props.client.profile.points : undefined;
 
         return (
 
             <>
-                <NavBar points={points} isLogged={this.props.login.isLogged}/>
+                <NavBar points={this.state.points} isLogged={this.props.login.isLogged}/>
                 <Header isShow={this.props.isShow} showBoth={true}/>
                 <div>
                     <div className="text-center mt-5">
@@ -38,6 +41,7 @@ export default class Cart extends React.Component {
                             {
                                 this.props.cartItems.length > 0 ?
                                     <CartProducts
+                                        payPoints={this.state.payPoints}
                                         cartItems={this.props.cartItems}
                                         increase={this.props.increase}
                                         decrease={this.props.decrease}
@@ -46,7 +50,8 @@ export default class Cart extends React.Component {
                                             this.setState({
                                                 itemCount: cart.reduce((total, product) => total + product.quantity, 0),
                                                 total: cart.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2),
-                                                totalPoints: cart.reduce((totalPoints, product) => totalPoints + product.hotelPoints * product.quantity, 0).toFixed(2)
+                                                totalPoints: cart.reduce((totalPoints, product) => totalPoints + product.hotelPoints * product.quantity, 0).toFixed(2),
+                                                points: this.props.login.isLogged ? this.props.client.profile.points : 0
                                             })
                                         }}
 
@@ -65,21 +70,54 @@ export default class Cart extends React.Component {
                                     <p className="mb-1">Total Items</p>
                                     <h4 className=" mb-3 txt-right">{this.state.itemCount}</h4>
                                     <p className="mb-1">Total Payment</p>
-                                    <h3 className="m-0 txt-right">{formatNumber(this.state.total)}</h3>
+                                    <h3 className="m-0 txt-right">
+                                        {this.state.payPoints ?
+                                            this.state.totalPoints + ' HP' :
+                                            formatNumber(this.state.total)}
+                                    </h3>
                                     <hr className="my-4"/>
                                     <div className="text-center">
 
-                                        <button type="button" className="btn btn-primary mb-2"
-                                                onClick={() => this.props.clearCart}> Add to the room bill
-
-                                        </button>
+                                        {this.props.login.isLogged ?
+                                            this.state.payPoints ?
+                                                <button type="button" className="btn btn-primary mb-2"
+                                                        disabled={this.state.totalPoints > this.state.points}
+                                                        onClick={() => {
+                                                            this.props.update(parseFloat(this.state.totalPoints), true)
+                                                        }}>
+                                                    Pay with points
+                                                </button>
+                                                :
+                                                <button type="button" className="btn btn-primary mb-2"
+                                                        onClick={() => {
+                                                            this.props.update(parseFloat(this.state.total), false)
+                                                        }}>
+                                                    Add to the room bill
+                                                </button>
+                                            :
+                                            <NavLink to="/login/"
+                                                     style={{color: 'white', textDecoration: 'none'}}>
+                                                <button type="button" className="btn btn-primary mb-2">
+                                                    {this.state.payPoints ? 'Pay with points' : 'Add to the room bill'}
+                                                </button>
+                                            </NavLink>
+                                        }
 
                                         <button type="button" className="btn btn-outlineprimary btn-sm"
-                                                onClick={() => this.props.clearCart}>CLEAR
+                                                onClick={() => this.props.clearCart()}>CLEAR
                                         </button>
 
                                     </div>
 
+                                </div>
+                                <div className="custom-control custom-switch"
+                                     style={{justifyContent: 'flex-end', alignItems: 'center', display: 'flex', flex: 1, paddingRight: '15px'}}>
+                                    <input type="checkbox" class="custom-control-input" id="customSwitch1"
+                                           onClick={ () => {
+                                               this.setState( {payPoints: !this.state.payPoints})
+                                           }}
+                                    />
+                                    <label class="custom-control-label" for="customSwitch1">Pay with Hotel Points</label>
                                 </div>
                             </div>
                         }

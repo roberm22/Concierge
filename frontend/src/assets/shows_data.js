@@ -61,7 +61,7 @@ exports.shows = [
         name: "Aladdin",
         price: 42.99,
         hotelPoints: 550,
-        photo: "https://lh3.googleusercontent.com/proxy/t1lHkLbRCz95GH_7zE5VUo8L5iordLwy3JC_bUEDzCZTlYBYzbPB9_4ZPuYWsk0gb3XNYDCL5q-G1-5w6axg17dBZwnDqxVHEYHyvWgcwImLYaz3iAX1zeTk771VD2YAj3Q",
+        photo: "https://www.broadwaycollection.com/wp-content/uploads/2015/08/aladdin.jpg",
         description: "In the middle-eastern town of Agrabah, Princess Jasmine is feeling hemmed in by her father’s desire to find her a royal groom. Meanwhile, the Sultan’s right-hand man, Jafar, is plotting to take over the throne. When Jasmine sneaks out of the palace incognito, she forms an instant connection with Aladdin, a charming street urchin and reformed thief.",
         quantity: 0,
         category: "theatre"
