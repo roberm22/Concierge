@@ -39,6 +39,7 @@ import Shows from "./services/Shows/Shows";
 import Tours from "./services/Touristic Tours/Tours";
 import Reservation from "./services/Restaurants/Reservation";
 import GoogleMaps from "./services/Restaurants/GoogleMaps";
+import HotelReservation from "./Views/HotelReservation/HotelReservation";
 
 
 class App extends Component {
@@ -382,6 +383,26 @@ class App extends Component {
                         path="/checkOut/"
                         render={(props) => (
                             <CheckOut
+                                {...props}
+                                conditions={this.conditions}
+                                client={this.props.clients[this.props.login.id - 1]}
+                                login={this.props.login}
+                                update={(newData) => {
+                                    this.props.dispatch(
+                                        updateProfile(this.props.login.id, newData)
+                                    );
+                                }}
+                                endSession={() => {
+                                    this.props.dispatch(endSession());
+                                }}
+                            />
+                        )}
+                    />
+
+                    <Route
+                        path="/HotelReservation/"
+                        render={(props) => (
+                            <HotelReservation
                                 {...props}
                                 conditions={this.conditions}
                                 client={this.props.clients[this.props.login.id - 1]}

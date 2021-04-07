@@ -49,6 +49,7 @@ export default class Profile extends React.Component {
                                                             }
                                                         </div>
                                                         <h5 className="user-name">{this.props.client.profile.name}</h5>
+                                                        <h6 className="user-email">{this.props.client.stay}</h6>
                                                     </div>
                                                     <div className="about">
                                                         <h5>Points</h5>

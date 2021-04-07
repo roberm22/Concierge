@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "../../Views/NavBar";
 import "./CheckOut.css";
+import {Link} from "react-router-dom";
 
 
 export default class CheckOut extends React.Component {
@@ -72,6 +73,9 @@ export default class CheckOut extends React.Component {
                                         <button type="button" className="btn btn-primary btn-block">Proceed</button>
                                     </div>
                                 </div>
+                                <Link to="/HotelReservation/">
+                                    Do you want to stay more?
+                                </Link>
                             </div>
                         </form>
                     </div>

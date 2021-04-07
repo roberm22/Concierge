@@ -94,7 +94,7 @@ export default class ShowRestaurant extends React.Component {
                             });
                             this.props.update(newCliente);
 
-                            alert("Reservation successful. \n You earned 10 points.");
+                            alert("HotelReservation successful. \n You earned 10 points.");
                         }}>Make Reservation
                         </button>
                     }

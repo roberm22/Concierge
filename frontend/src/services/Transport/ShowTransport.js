@@ -8,7 +8,6 @@ import {toast} from "react-toastify";
 import "react-datetime/css/react-datetime.css";
 import {ArrowBack} from "@material-ui/icons";
 import {Alert, AlertTitle} from "@material-ui/lab";
-import update from "react-addons-update";
 import NavBar from "../../Views/NavBar";
 import {Form} from "react-bootstrap";
 
@@ -139,26 +138,24 @@ export default class ShowTransport extends React.Component {
                             </Alert>
                         </div>)
                         :
-                        <button
-                            type="submit"
-                            onClick={() => {
-                                let multi = 10;
-                                if (this.props.client.tierVIP === 2) {
-                                    multi = 15;
-                                }
-                                if (this.props.client.tierVIP === 3) {
-                                    multi = 20;
-                                }
-                                this.setState({points: this.state.points + multi});
-                                let total =
-                                    this.props.client.profile.points + multi + this.state.points;
-                                let newClient = update(this.props.client, {
-                                    profile: {points: {$set: total}},
-                                });
-                                this.props.update(newClient);
-                                alert("Reservation successful.\nYou earned " + multi + " points.");
-                            }}>Make Reservation
-                        </button>
+                        (
+                            (this.props.client.tierVIP >=2) ?
+                                <button
+                                    type="submit"
+                                    onClick={() => {
+                                        alert("HotelReservation successful.");
+                                    }}>Make Reservation
+                                </button>
+                                :
+                                <div>
+                                    <Alert variant="filled" severity="warning" id="alertT">
+                                        This is a Premium service, more information: {"\t"}
+                                        <NavLink to="/prices/">Service levels</NavLink>
+                                    </Alert>
+                                </div>
+
+                        )
+
                     }
                 </div>
             </div>

@@ -1,5 +1,3 @@
-/* A rellenar en el futuro */
-
 .mainHome .slider {
     height: 50vh;
 }
@@ -26,7 +24,7 @@
 .mainHome {
     background-image: url("../../assets/images/oriental-tiles.png");
     background-repeat: repeat;
-    height: calc(100vh - 5.1vh);
+    height: 100vh;
     text-align: center;
     font-family: 'Open Sans', sans-serif;
 }

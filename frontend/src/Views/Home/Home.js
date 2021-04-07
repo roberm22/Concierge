@@ -4,7 +4,7 @@ import NavBar from "../NavBar";
 import SlideImages from "../SlideImages";
 import {Alert, AlertTitle} from "@material-ui/lab";
 import {NavLink} from "react-router-dom";
-import update from "react-addons-update";
+
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -22,22 +22,7 @@ export default class Home extends React.Component {
     }
 
     handleSubmit(event) {
-        let multi = 10;
-        if (this.props.client.tierVIP === 2) {
-            multi = 15;
-        }
-        if (this.props.client.tierVIP === 3) {
-            multi = 20;
-        }
-        this.setState({points: this.state.points + multi});
-        let total =
-            this.props.client.profile.points + multi + this.state.points;
-        let newClient = update(this.props.client, {
-            profile: {points: {$set: total}},
-        });
-        this.props.update(newClient);
-
-        alert("Reservation successful.\nYou earned " + multi + " points.");
+        alert("HotelReservation successful.");
         event.preventDefault();
     }
 
@@ -100,7 +85,15 @@ export default class Home extends React.Component {
                                 </Alert>
                             </div>
                         ) : (
-                            <input type="submit" value="Submit"/>
+                            (this.props.client.tierVIP === 3) ? <input type="submit" value="Submit"/> :
+                                (
+                                    <div className="alertHome">
+                                        <Alert variant="filled" severity="error" id="alert-home">
+                                            This is a VIP service, more information: {"\t"}
+                                            <NavLink to="/prices/">Service levels</NavLink>
+                                        </Alert>
+                                    </div>)
+
                         )}
                     </form>
                 </div>
