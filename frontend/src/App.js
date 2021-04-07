@@ -37,6 +37,8 @@ import ScrollToTop from "./ScrollToTop";
 import CheckOut from "./Views/CheckOut/CheckOut";
 import Shows from "./services/Shows/Shows";
 import Tours from "./services/Touristic Tours/Tours";
+import Reservation from "./services/Restaurants/Reservation";
+import GoogleMaps from "./services/Restaurants/GoogleMaps";
 
 
 class App extends Component {
@@ -193,6 +195,26 @@ class App extends Component {
                                     this.props.dispatch(changeRestaurant(answer));
                                 }}
                             />
+                        )}
+                    />
+
+                    <Route
+                        exact
+                        path="/services/restaurants/reservation"
+                        render={(props) => (
+                            <Reservation
+                                {...props}
+                                login={this.props.login}
+                                client={this.props.clients[this.props.login.id - 1]}
+
+                            />
+                        )}
+                    />
+
+                    <Route
+                        exact path="/services/restaurants/reservation/map"
+                        render={() => (
+                            <GoogleMaps/>
                         )}
                     />
 

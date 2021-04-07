@@ -1,0 +1,13 @@
+
+.mainReserve {
+    margin: 5vh 20vh;
+}
+
+.mainReserve legend {
+    text-align: center;
+}
+
+.mainReserve button {
+    margin:auto;
+    display:block
+}
