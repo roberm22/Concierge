@@ -25,14 +25,15 @@ exports.tours = [
     },
     {
         "id": 3,
-        "name": "Madrid Walking Tour at Night",
-        "info": 'The sun that constantly shines on Madrid can make daytime exploring an exhausting endeavor. This 4-hour evening tour allows you to stay cool and see Madrid’s sights illuminated by night. Tick off highlights such as the Royal Palace (Palacio Real), Plaza Mayor and Gran Via, and receive recommendations for popular nightlife destinations. Small-group tour, limited to 15 people.'
+        "name": "Madrid Segway City Tour",
+        "info": 'Add a fun twist to your sightseeing as you zip around Spain’s largest city on a Segway.Glide down the grand boulevard of Paseo de Prado and around El Retiro park, and hop off along the way to admire landmarks such as the Royal Palace, Almudena Cathedral, Plaza Mayor, and the Mercado de San Miguel.'
+
             ,
         "description": "Elements of comfort",
         "photos": [
-            "https://www.esmadrid.com/sites/default/files/styles/content_type_full/public/editorial/noche_gran_via.jpg?itok=4f8_oCrc",
-            "https://live.staticflickr.com/681/22535175087_49da648cb2_b.jpg",
-            "https://sites.google.com/site/madridpornoeliagarcia/_/rsrc/1468738684522/home/cultura/cosas-que-visitar/palacio-real.jpg"
+            "https://media.tacdn.com/media/attractions-splice-spp-674x446/0a/e6/cf/93.jpg",
+            "https://media.tacdn.com/media/attractions-splice-spp-674x446/0a/e6/cf/92.jpg",
+            "https://media.tacdn.com/media/attractions-splice-spp-674x446/0a/e6/cf/ac.jpg"
         ]
     }
 ]

@@ -40,6 +40,7 @@ import Tours from "./services/Touristic Tours/Tours";
 import Reservation from "./services/Restaurants/Reservation";
 import GoogleMaps from "./services/Restaurants/GoogleMaps";
 import HotelReservation from "./Views/HotelReservation/HotelReservation";
+import TourReservation from "./services/Touristic Tours/TourReservation";
 
 
 class App extends Component {
@@ -271,7 +272,7 @@ class App extends Component {
                     />
 
                     <Route
-                        path="/services/tours/"
+                       exact path="/services/tours/"
                         render={(props) => (
                             <Tours
                                 {...props}
@@ -282,6 +283,18 @@ class App extends Component {
                                     this.props.dispatch(changeRoomServices(answer));
                                 }}
                                 onSelectProducts={(category) => this.filterProducts(category)}
+                            />
+                        )}
+                    />
+                    <Route
+                        exact
+                        path="/services/tours/tourReservation"
+                        render={(props) => (
+                            <TourReservation
+                                {...props}
+                                login={this.props.login}
+                                client={this.props.clients[this.props.login.id - 1]}
+
                             />
                         )}
                     />
@@ -398,6 +411,7 @@ class App extends Component {
                             />
                         )}
                     />
+
 
                     <Route
                         path="/HotelReservation/"
