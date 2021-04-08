@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     background-size: cover;
-    height: calc(100vh - 95px);
+    height: calc(100vh - 85px);
 }
 
 .firstView .slide-images .each-slide span {
@@ -29,11 +29,17 @@
 
 
 .firstView {
-    height: calc(100vh - 95px);
+    height: calc(100vh - 85px);
     position: relative;
     display: flex;
     justify-content: center;
     align-items: flex-end;
+}
+
+@media (min-width: 992px){
+    .mainHome {
+        height: calc(100vh - 9.6717vh);
+    }
 }
 
 
@@ -193,3 +199,4 @@ h1, h2, h3, h4, h5, h6 {
 .article .slide-images {
     padding-right: 30px;
 }
+

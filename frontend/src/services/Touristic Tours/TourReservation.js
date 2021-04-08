@@ -12,8 +12,7 @@ export default class TourReservation extends React.Component {
             date: new Date(),
             value: new Date(),
             locale: {name: 'en-US', label: 'English (US)'},
-        }
-        ;
+        };
 
     }
     render() {
@@ -77,13 +76,11 @@ export default class TourReservation extends React.Component {
                         </div>
 
 
-
-
                         <div className="form-group">
                             <label for="Textarea">Additional information</label>
                             <textarea className="form-control" id="Textarea" rows="3"/>
                         </div>
-                        *Please note that tours must be paid directly to the guide on the day of the tour
+                        <small>*Please note that tours must be paid directly to the guide on the day of the tour</small>
                         <button type="submit" className="btn btn-primary">Reserve</button>
                     </fieldset>
                 </form>

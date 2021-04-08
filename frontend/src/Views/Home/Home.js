@@ -58,9 +58,8 @@ export default class Home extends React.Component {
                     <div className="slider">
                         <SlideImages
                             slideImages={photos}
-                            span1="Transport"
-                            span2="Room Service"
-                            route2="room_services"
+                            span1="Transports"
+                            span2="Room Services"
                             span3="Restaurants"
                         />
                     </div>
