@@ -1,7 +1,7 @@
 import React from 'react';
 
 import CartProducts from './CartProducts';
-import { formatNumber } from '../../utils';
+import {formatNumber} from '../../utils';
 import Header from "../../components/shared/header";
 import Footer from "../../components/shared/footer";
 import NavBar from "../../../Views/NavBar";
@@ -46,7 +46,7 @@ export default class Cart extends React.Component {
                                         increase={this.props.increase}
                                         decrease={this.props.decrease}
                                         removeProduct={this.props.removeProduct}
-                                        changeCart = { (cart = this.props.cartItems) => {
+                                        changeCart={(cart = this.props.cartItems) => {
                                             this.setState({
                                                 itemCount: cart.reduce((total, product) => total + product.quantity, 0),
                                                 total: cart.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2),
@@ -84,6 +84,10 @@ export default class Cart extends React.Component {
                                                         disabled={this.state.totalPoints > this.state.points}
                                                         onClick={() => {
                                                             this.props.update(parseFloat(this.state.totalPoints), true)
+                                                            this.setState({
+                                                                points: this.state.points - this.state.totalPoints
+                                                            });
+                                                            alert("Successful transaction, you will receive your order soon!")
                                                         }}>
                                                     Pay with points
                                                 </button>
@@ -91,6 +95,7 @@ export default class Cart extends React.Component {
                                                 <button type="button" className="btn btn-primary mb-2"
                                                         onClick={() => {
                                                             this.props.update(parseFloat(this.state.total), false)
+                                                            alert("Added to your bill, you will receive your order soon!")
                                                         }}>
                                                     Add to the room bill
                                                 </button>
@@ -111,13 +116,20 @@ export default class Cart extends React.Component {
 
                                 </div>
                                 <div className="custom-control custom-switch"
-                                     style={{justifyContent: 'flex-end', alignItems: 'center', display: 'flex', flex: 1, paddingRight: '15px'}}>
+                                     style={{
+                                         justifyContent: 'flex-end',
+                                         alignItems: 'center',
+                                         display: 'flex',
+                                         flex: 1,
+                                         paddingRight: '15px'
+                                     }}>
                                     <input type="checkbox" class="custom-control-input" id="customSwitch1"
-                                           onClick={ () => {
-                                               this.setState( {payPoints: !this.state.payPoints})
+                                           onClick={() => {
+                                               this.setState({payPoints: !this.state.payPoints})
                                            }}
                                     />
-                                    <label class="custom-control-label" for="customSwitch1">Pay with Hotel Points</label>
+                                    <label class="custom-control-label" for="customSwitch1">Pay with Hotel
+                                        Points</label>
                                 </div>
                             </div>
                         }

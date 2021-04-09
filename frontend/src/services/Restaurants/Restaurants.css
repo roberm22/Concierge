@@ -1,7 +1,7 @@
 
 .liR {
     color: white;
-    background: #DAA520;
+    background: darkgoldenrod;
     padding: 0.7em;
     font-size: 1em;
     cursor: pointer;
@@ -11,6 +11,11 @@
     margin-top: 2em;
     box-shadow: 2px 2px 2px 2px #333333;
 }
+
+.liR a {
+    text-decoration: none;
+}
+
 .ul_r button{
     background: none;
     padding: 10px;

@@ -143,7 +143,7 @@ export default class ShowTransport extends React.Component {
                                 <button
                                     type="submit"
                                     onClick={() => {
-                                        alert("HotelReservation successful.");
+                                        alert("Reservation successful.");
                                     }}>Make Reservation
                                 </button>
                                 :

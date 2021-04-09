@@ -22,7 +22,7 @@ export default class Home extends React.Component {
     }
 
     handleSubmit(event) {
-        alert("HotelReservation successful.");
+        alert("Reservation successful.");
         event.preventDefault();
     }
 
@@ -61,6 +61,7 @@ export default class Home extends React.Component {
                             span1="Transports"
                             span2="Room Services"
                             span3="Restaurants"
+
                         />
                     </div>
                     <form onSubmit={this.handleSubmit}>
