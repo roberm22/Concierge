@@ -17,7 +17,7 @@ export default class Tours extends React.Component {
     render() {
         let points;
         if (this.props.login.isLogged) {
-            points = this.props.client.profile.points;
+            points = this.props.client.points;
         } else {
             points = 0;
         }

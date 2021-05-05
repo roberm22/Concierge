@@ -6,7 +6,6 @@ import Header from "../../components/shared/header";
 import Footer from "../../components/shared/footer";
 import NavBar from "../../../Views/NavBar";
 import {NavLink} from "react-router-dom";
-import ProductItem from "../store/ProductItem";
 
 
 export default class Cart extends React.Component {
@@ -19,7 +18,7 @@ export default class Cart extends React.Component {
             total: this.props.cartItems.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2),
             totalPoints: this.props.cartItems.reduce((totalPoints, product) => totalPoints + product.hotelPoints * product.quantity, 0).toFixed(2),
             payPoints: false,
-            points: this.props.login.isLogged ? this.props.client.profile.points : 0
+            points: this.props.login.isLogged ? this.props.client.points : 0
         };
     }
 
@@ -51,7 +50,7 @@ export default class Cart extends React.Component {
                                                 itemCount: cart.reduce((total, product) => total + product.quantity, 0),
                                                 total: cart.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2),
                                                 totalPoints: cart.reduce((totalPoints, product) => totalPoints + product.hotelPoints * product.quantity, 0).toFixed(2),
-                                                points: this.props.login.isLogged ? this.props.client.profile.points : 0
+                                                points: this.props.login.isLogged ? this.props.client.points : 0
                                             })
                                         }}
 

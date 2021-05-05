@@ -12,7 +12,8 @@ import {
     REMOVE_ITEM,
     SUBMIT,
     UPDATE,
-    USER_ANSWER
+    USER_ANSWER,
+    INIT_QUIZZES
 } from './actions'
 
 function login(state = [], action = {}) {
@@ -28,8 +29,9 @@ function login(state = [], action = {}) {
         case SUBMIT:
             let newState = state;
             let isClient;
+            console.log(action.payload.clients)
             action.payload.clients.map((client) => {
-                isClient = (state.dniAnswer === client.DNI) && (state.roomAnswer === client.room);
+                isClient = (state.dniAnswer === client.dni) && (state.roomAnswer === client.room);
                 if (isClient) {
                     newState = {
                         ...state,
@@ -83,18 +85,21 @@ function clients(state = [], action = {}) {
         case UPDATE:
             if(action.payload.isPoints){
                 let op1 = action.payload.changeOne;
-                let op2 = state[action.payload.id-1].profile.points;
-                state[action.payload.id-1].profile.points = parseFloat((op2 - op1).toFixed(2));
+                let op2 = state[action.payload.id-1].points;
+                state[action.payload.id-1].points = parseFloat((op2 - op1).toFixed(2));
             }
             else if(action.payload.changeOne !== undefined){
                 let op1 = action.payload.changeOne;
-                let op2 = state[action.payload.id-1].profile.bill;
-                state[action.payload.id-1].profile.bill = parseFloat((op1 + op2).toFixed(2));
+                let op2 = state[action.payload.id-1].bill;
+                state[action.payload.id-1].bill = parseFloat((op1 + op2).toFixed(2));
             }
             else{
                 state[action.payload.id-1] = action.payload.newData;
             }
             return state;
+
+            case INIT_QUIZZES:
+                return JSON.parse(JSON.stringify(action.payload.quizzes));
 
         default:
             return state;

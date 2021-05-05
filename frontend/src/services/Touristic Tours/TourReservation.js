@@ -17,7 +17,7 @@ export default class TourReservation extends React.Component {
     }
     render() {
 
-        let points = this.props.login.isLogged ? this.props.client.profile.points : undefined;
+        let points = this.props.login.isLogged ? this.props.client.points : undefined;
 
         return (
 
@@ -53,13 +53,13 @@ export default class TourReservation extends React.Component {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="InputDate">Date</label>
+                            <label for="InputDate">Date</label>
                             <input type="date" className="form-control" id="InputDate" aria-describedby="dateHelp"
                                    required/>
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="InputHour">Hour</label>
+                            <label for="InputHour">Hour</label>
                             <select type="time" className="form-control" id="InputHour" aria-describedby="hourHelp"
                                    required>
                                 <option>Select the time</option>

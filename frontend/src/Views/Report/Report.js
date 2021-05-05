@@ -7,7 +7,7 @@ import Header from "../../ShoppingCart/components/shared/header";
 export default class Report extends React.Component {
 
     render() {
-        let points = this.props.login.isLogged ? this.props.client.profile.points : undefined;
+        let points = this.props.login.isLogged ? this.props.client.points : undefined;
 
         return (
 

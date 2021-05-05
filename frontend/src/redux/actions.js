@@ -7,6 +7,8 @@ export const CHANGE_TRANSPORT = 'CHANGE_TRANSPORT';
 export const CHANGE_ROOM_SERVICES = 'CHANGE_ROOM_SEVICES';
 export const UPDATE = 'UPDATE';
 export const CONDITIONS = 'CONDITIONS';
+export const INIT_QUIZZES = 'CONDITIONS';
+
 
 /* CONST shopping cart */
 
@@ -74,6 +76,10 @@ export function removeProduct(product){
 
 export function clearCart(){
     return {type: CLEAR, payload: {}};
+}
+
+export function initQuizzes(quizzes) {
+    return { type: INIT_QUIZZES, payload: { quizzes } };
 }
 
 

@@ -14,7 +14,7 @@ import {
     decrease,
     addProduct,
     removeProduct,
-    clearCart,
+    clearCart, initQuizzes,
 } from "./redux/actions";
 
 import Home from "./Views/Home/Home";
@@ -48,12 +48,29 @@ class App extends Component {
         super(props);
         this.timerlog = null;
         this.submit = this.submit.bind(this);
+        this.download = this.download.bind(this);
         this.conditions = this.conditions.bind(this);
         this.filterProducts = this.filterProducts.bind(this);
         this.state = {
             products: this.props.products,
             shows: this.props.shows
         };
+    }
+
+    download(quizzes) {
+        fetch("http://localhost:8080/Concierge01/rest/client")
+            .then((resp) => {
+                return resp.json();
+            })
+            .then((json) => {
+                json.map((q) => {
+                    if(q.id) {
+                        quizzes.push(q);
+                    }
+                    return 0;
+                });
+                this.props.dispatch(initQuizzes(quizzes));
+            })
     }
 
     submit() {
@@ -64,11 +81,11 @@ class App extends Component {
     }
 
     filterProducts(category, isShow) {
-        if(isShow){
+        if (isShow) {
             this.setState({
                 shows: this.props.shows.filter(show => show.category === category)
             });
-        }else{
+        } else {
             this.setState({
                 products: this.props.products.filter(product => product.category === category)
             });
@@ -77,6 +94,10 @@ class App extends Component {
 
     componentWillUnmount() {
         clearTimeout(this.timerlog);
+    }
+
+    componentDidMount() {
+        this.download([]);
     }
 
     conditions() {
@@ -99,6 +120,7 @@ class App extends Component {
                                         updateProfile(this.props.login.id, newData)
                                     );
                                 }}
+                                clients={this.props.clients}
                                 client={this.props.clients[this.props.login.id - 1]}
                             />
                         )}
@@ -272,7 +294,7 @@ class App extends Component {
                     />
 
                     <Route
-                       exact path="/services/tours/"
+                        exact path="/services/tours/"
                         render={(props) => (
                             <Tours
                                 {...props}

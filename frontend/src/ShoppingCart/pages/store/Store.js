@@ -8,7 +8,7 @@ import NavBar from "../../../Views/NavBar";
 
 export default class Store extends React.Component {
     render() {
-        let points = this.props.login.isLogged ? this.props.client.profile.points : undefined;
+        let points = this.props.login.isLogged ? this.props.client.points : undefined;
 
         return (
             <>

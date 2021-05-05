@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "../../Views/NavBar";
+import NavBar from "../NavBar";
 import "./HotelReservation.css";
 
 
@@ -15,7 +15,7 @@ export default class HotelReservation extends React.Component {
     render() {
         let points;
         if (this.props.login.isLogged) {
-            points = this.props.client.profile.points;
+            points = this.props.client.points;
         } else {
             points = 0;
         }
@@ -34,14 +34,14 @@ export default class HotelReservation extends React.Component {
 
 
                         <div className="form-group">
-                            <label htmlFor="InputDate">New check-out date</label>
+                            <label for="InputDate">New check-out date</label>
                             <input type="date" className="form-control" id="InputDate" aria-describedby="dateHelp"
                                    required/>
                         </div>
 
 
                         <div className="form-group">
-                            <label htmlFor="Textarea">Additional information</label>
+                            <label for="Textarea">Additional information</label>
                             <textarea className="form-control" id="Textarea" rows="3"/>
                         </div>
 
