@@ -7,7 +7,7 @@ export const CHANGE_TRANSPORT = 'CHANGE_TRANSPORT';
 export const CHANGE_ROOM_SERVICES = 'CHANGE_ROOM_SEVICES';
 export const UPDATE = 'UPDATE';
 export const CONDITIONS = 'CONDITIONS';
-export const INIT_QUIZZES = 'CONDITIONS';
+export const INIT_CLIENTS = 'INIT_CLIENTS';
 
 
 /* CONST shopping cart */
@@ -78,8 +78,12 @@ export function clearCart(){
     return {type: CLEAR, payload: {}};
 }
 
-export function initQuizzes(quizzes) {
-    return { type: INIT_QUIZZES, payload: { quizzes } };
+/* Action de la inicialización de los clients
+*  Recibe como parametro el array de los clientes
+*  Ver reducers.js */
+
+export function initClients(clients) {
+    return { type: INIT_CLIENTS, payload: { clients } };
 }
 
 

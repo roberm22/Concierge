@@ -13,7 +13,7 @@ import {
     SUBMIT,
     UPDATE,
     USER_ANSWER,
-    INIT_QUIZZES
+    INIT_CLIENTS
 } from './actions'
 
 function login(state = [], action = {}) {
@@ -80,6 +80,10 @@ function login(state = [], action = {}) {
 
 }
 
+/* Aqui se encuentra INIT_CLIENTS
+*  Lo que hace es guardar en el estado el array de clientes
+*  Ver ReduxProvider.jsx */
+
 function clients(state = [], action = {}) {
     switch (action.type) {
         case UPDATE:
@@ -98,8 +102,8 @@ function clients(state = [], action = {}) {
             }
             return state;
 
-            case INIT_QUIZZES:
-                return JSON.parse(JSON.stringify(action.payload.quizzes));
+        case INIT_CLIENTS:
+            return JSON.parse(JSON.stringify(action.payload.clients));
 
         default:
             return state;

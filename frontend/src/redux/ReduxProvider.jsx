@@ -12,6 +12,13 @@ import {showsData, shows} from '../assets/shows_data';
 import React from 'react';
 import App from '../App';
 
+/* Es importante que el estado inicial de cada uno sea un array vacio
+*  En clients, se inicializa a un array vacio ya que luego se llamará a download() cuando se
+*  ejecute el componentDidMount del componente App.js. Mediante el cual se hará el fetch descargando el json,
+*  para posteriormente parsearlo llamando a la acción que ejecuta el reducer. Este reducer a su vez con dicha acción y
+*  el state modifica este array vacio para que contenga los clientes descargados.
+*
+* */
 
 export default class ReduxProvider extends React.Component {
 

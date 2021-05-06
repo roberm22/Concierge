@@ -14,7 +14,8 @@ import {
     decrease,
     addProduct,
     removeProduct,
-    clearCart, initQuizzes,
+    clearCart,
+    initClients,
 } from "./redux/actions";
 
 import Home from "./Views/Home/Home";
@@ -57,7 +58,15 @@ class App extends Component {
         };
     }
 
-    download(quizzes) {
+    /* Esta funcion descarga el json de los clientes. Se llama a initClients
+    *  para guardar en el estado el array de los clientes.
+    *  initClients es la acción (ver actions.js)
+    * */
+
+    /* todo: NO ES NECESARIO REPETIR DOWNLOAD() PARA LA DESCARGA DE CADA JSON, NI REPETIR ACTIONS
+    *  todo: Una única acción puede afectar a todos los reducers, modificando el state.
+    */
+    download(clients) {
         fetch("http://localhost:8080/Concierge01/rest/client")
             .then((resp) => {
                 return resp.json();
@@ -65,11 +74,11 @@ class App extends Component {
             .then((json) => {
                 json.map((q) => {
                     if(q.id) {
-                        quizzes.push(q);
+                        clients.push(q);
                     }
                     return 0;
                 });
-                this.props.dispatch(initQuizzes(quizzes));
+                this.props.dispatch(initClients(clients));
             })
     }
 
