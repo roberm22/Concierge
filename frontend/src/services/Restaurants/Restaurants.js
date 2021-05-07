@@ -23,17 +23,6 @@ export default class Restaurants extends React.Component {
         } else {
             points = 0;
         }
-        let restaurants = this.props.restaurants;
-        const listItems = restaurants.map((restaurant, i) =>
-            <div>
-                <li className="liR">
-                    <Link to="/services/restaurants/show_restaurant/"
-                          onClick={() => {
-                              this.props.onChangeRestaurant(i)
-                          }}>{restaurant.name}
-                    </Link>
-                </li>
-            </div>);
 
         let photos = [
             '/img/rest1.jpg',
@@ -75,7 +64,7 @@ export default class Restaurants extends React.Component {
                             <h1 className="title">RESTAURANTS</h1>
                         </div>
 
-                        <a className="icon" href="#mainInfo">
+                        <a className="icon">
                             <svg className="svg-arrow" viewBox="0 0 512 503.97">
                                 <g className="shapes">
                                     <polygon className="shape-1"
@@ -213,25 +202,6 @@ export default class Restaurants extends React.Component {
                                         <SlideImages
                                             slideImages={photos4}
                                         />
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-
-                        {/*Depurar botones y funciones*/}
-                        <article className="thirdArticle">
-                            <div className="container">
-                                <div className="row">
-                                    <div className="displayList">
-                                        <h2 className="articleTitle">OTHERS RESTAURANTS</h2>
-                                        <ul className="ul_r">
-                                            <button>
-                                                {listItems}
-                                            </button>
-
-                                        </ul>
-                                        <p>&nbsp;</p>
-
                                     </div>
                                 </div>
                             </div>

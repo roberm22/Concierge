@@ -5,7 +5,7 @@ export default class Client{
             request.open("GET", "http://localhost:8080/Concierge01/rest/client");
             request.onreadystatechange = () => {
                 let raw = request.responseText;
-                let objectified = JSON.parse(raw);
+                let objectified = JSON.parse(JSON.stringify(raw));
                 resolve(objectified);
             }
             request.send();

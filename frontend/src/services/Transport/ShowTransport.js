@@ -1,15 +1,12 @@
 import React from 'react';
-import {DateTimePicker} from 'react-rainbow-components';
 import {NavLink} from "react-router-dom";
 import "./ShowTransport.css";
 
 import {toast} from "react-toastify";
 
 import "react-datetime/css/react-datetime.css";
-import {ArrowBack} from "@material-ui/icons";
 import {Alert, AlertTitle} from "@material-ui/lab";
 import NavBar from "../../Views/NavBar";
-import {Form} from "react-bootstrap";
 
 class NewMessageNotification extends React.Component {
     displayMessage = () => {
@@ -54,110 +51,83 @@ export default class ShowTransport extends React.Component {
         return (
             <div className="main_ShowT">
                 <NavBar points={this.state.points + points} isLogged={this.props.login.isLogged}/>
-                <div className="boxT">
-                    <NavLink to="/services/transport/" id="arrowT"> <ArrowBack/> </NavLink>
-                    <h1>{this.props.currentTransport.description} </h1>
-                    <img
-                        src={this.props.currentTransport.photos[1]}
-                        alt={"Transport"}
-                    />
-                    <br/>
-                    <h3>Customize the trip:</h3>
-                    <Form>
 
-                        {(this.props.currentTransport.id !== 2) ?
-                            <Form.Group controlId="exampleForm.ControlInput1">
-                                <Form.Label>Pick-Up location/Departure</Form.Label>
-                                <Form.Control type="text" placeholder="Departure point"/>
-                            </Form.Group>
-                            : null
+
+                <form className="mainReserve">
+                    <fieldset>
+
+                        <legend>Costume your trip</legend>
+
+                        <div className="form-group">
+                            <label htmlFor="InputDni">Name for reservation</label>
+                            <input type="text" className="form-control" id="InputDni" aria-describedby="emailHelp"
+                                   placeholder="Enter Name" required/>
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="InputRoom">Room</label>
+                            <input type="text" className="form-control" id="InputRoom" aria-describedby="roomHelp"
+                                   placeholder="Enter room" required/>
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="Select">Select the transport</label>
+                            <select className="form-control" id="Select">
+                                <option>Select the transport</option>
+                                <option>Taxi</option>
+                                <option>VTC</option>
+                                <option>Shuttle</option>
+                                <option>Plane tickets</option>
+                            </select>
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="InputDate">Date</label>
+                            <input type="date" className="form-control" id="InputDate" aria-describedby="dateHelp"
+                                   required/>
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="InputHour">Hour</label>
+                            <input type="time" className="form-control" id="InputHour" aria-describedby="hourHelp"
+                                   required/>
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="Textarea">Additional information</label>
+                            <textarea className="form-control" id="Textarea" rows="3"/>
+                        </div>
+
+
+                        {(!this.props.login.isLogged) ?
+                            (<div className="boxT">
+                                <Alert severity={this.props.login.status} id="alertT">
+                                    <AlertTitle>{title}</AlertTitle>
+                                    <div> {message}</div>
+                                    <div> {link}</div>
+                                </Alert>
+                            </div>)
+                            :
+                            (
+                                (this.props.client.tierVIP >= 2) ?
+                                    <button type="submit"
+                                            onClick={() => {
+                                                alert("Reservation successful.");
+                                            }}
+                                            className="btn btn-primary">Reserve</button>
+                                    :
+                                    <div>
+                                        <Alert variant="filled" severity="warning" id="alertT">
+                                            This is a Premium service, more information: {"\t"}
+                                            <NavLink to="/prices/">Service levels</NavLink>
+                                        </Alert>
+                                    </div>
+
+                            )
+
                         }
-
-                        <Form.Group controlId="exampleForm.ControlInput2">
-                            <Form.Label>Destination</Form.Label>
-                            <Form.Control type="text" placeholder="Destination point"/>
-                        </Form.Group>
-
-                        {(this.props.currentTransport.id !== 2) ?
-                            <Form.Group controlId="exampleForm.ControlInput1">
-                                <Form.Label>Date</Form.Label>
-                                <DateTimePicker
-                                    id={"DatePicker"}
-                                    placeholder={"Date"}
-                                    disabled={!this.props.login.isLogged}
-                                    value={this.state.date}
-                                    onChange={value => {
-                                        this.setState({date: value})
-                                    }}
-                                    hour24={true}
-                                    locale={this.state.locale.name}
-                                />
-                            </Form.Group>
-                            : null
-                        }
-
-                        <Form.Group controlId="exampleForm.ControlInput3">
-                            <Form.Label>Passengers</Form.Label>
-                            <Form.Control type="number" min={1} placeholder="Select a number"/>
-                        </Form.Group>
-
-                        {(this.props.currentTransport.id === 2) ?
-                            <Form.Group controlId="exampleForm.ControlSelect1">
-                                <Form.Label>Hours</Form.Label>
-                                <Form.Control as="select">
-                                    <option>6:00</option>
-                                    <option>8:00</option>
-                                    <option>10:00</option>
-                                    <option>12:00</option>
-                                    <option>14:00</option>
-                                    <option>16:00</option>
-                                    <option>18:00</option>
-                                    <option>20:00</option>
-                                    <option>22:00</option>
-                                </Form.Control>
-                            </Form.Group>
-                            : null
-                        }
-
-                        {(this.props.currentTransport.id === 3) ?
-                            <Form.Group controlId="exampleForm.ControlTextarea1">
-                                <Form.Label>Additional information</Form.Label>
-                                <Form.Control as="textarea" rows={3}/>
-                            </Form.Group>
-                            : null
-                        }
-
-                    </Form>
-
-                    {(!this.props.login.isLogged) ?
-                        (<div>
-                            <Alert severity={this.props.login.status} id="alertT">
-                                <AlertTitle>{title}</AlertTitle>
-                                <div> {message}</div>
-                                <div> {link}</div>
-                            </Alert>
-                        </div>)
-                        :
-                        (
-                            (this.props.client.tierVIP >=2) ?
-                                <button
-                                    type="submit"
-                                    onClick={() => {
-                                        alert("Reservation successful.");
-                                    }}>Make Reservation
-                                </button>
-                                :
-                                <div>
-                                    <Alert variant="filled" severity="warning" id="alertT">
-                                        This is a Premium service, more information: {"\t"}
-                                        <NavLink to="/prices/">Service levels</NavLink>
-                                    </Alert>
-                                </div>
-
-                        )
-
-                    }
-                </div>
+                    </fieldset>
+                </form>
             </div>
         );
     }

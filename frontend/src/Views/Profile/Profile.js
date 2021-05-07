@@ -73,7 +73,7 @@ export default class Profile extends React.Component {
                                                     </div>
                                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                         <div className="form-group">
-                                                            <label for="fullName">DNI</label>
+                                                            <label >DNI</label>
                                                             <input readOnly type="text" className="form-control"
                                                                    id="dni"
                                                                    placeholder={this.props.client.dni}/>
@@ -81,7 +81,7 @@ export default class Profile extends React.Component {
                                                     </div>
                                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                         <div className="form-group">
-                                                            <label for="eMail">Room</label>
+                                                            <label >Room</label>
                                                             <input readOnly type="text" className="form-control"
                                                                    id="room"
                                                                    placeholder={this.props.client.room}/>
@@ -89,7 +89,7 @@ export default class Profile extends React.Component {
                                                     </div>
                                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                         <div className="form-group">
-                                                            <label for="phone">Email</label>
+                                                            <label >Email</label>
                                                             <input type="email" id="email" className="form-control"
                                                                    placeholder={this.state.email}
                                                                    value={this.state.email}
@@ -105,7 +105,7 @@ export default class Profile extends React.Component {
                                                     </div>
                                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                         <div className="form-group">
-                                                            <label for="website">Phone</label>
+                                                            <label >Phone</label>
                                                             <input type="text" className="form-control" id="phone"
                                                                    placeholder={this.state.phone}
                                                                    value={this.state.phone}
@@ -134,6 +134,7 @@ export default class Profile extends React.Component {
                                                                     onClick={() => this.props.update(this.state)}>
                                                                 Update
                                                             </button>
+
                                                         </div>
                                                     </div>
                                                 </div>
