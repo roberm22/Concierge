@@ -1,0 +1,5 @@
+insert into client values ('1','12345678Z','30','pepito88@gmail.com','Pepe','628496873','1000','200','19 Apr - 10 May','3');
+insert into client values ('2','87654321X','15','juanito99@gmail.com','Juan','659432990','10','300','7 Apr - 19 Jun','2');
+insert into client values ('3','11111111H','0','lola@gmail.com','Lola','727496573','9000','1','19 Apr - 10 May','1');
+
+

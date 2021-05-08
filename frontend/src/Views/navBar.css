@@ -1,0 +1,35 @@
+
+
+
+.navbar-brand {
+    margin-right: 3.26vh !important;
+    padding-top: 0.5479vh !important;
+    padding-bottom: 0.5479vh !important;
+    font-size: 1.7838vh !important;
+}
+
+.navbar-toggler {
+    padding: 0.4vh 1.22vh !important;
+    font-size: 1.7838vh !important;
+}
+
+.navbar-toggler-icon {
+    width: 2.446vh !important;
+    height: 2.446vh !important;
+}
+
+@media (min-width: 992px){
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 0.815vh;
+        padding-left: 0.815vh;
+    }
+    .mainNav {
+        height: 9.6717vh;
+    }
+
+}
+
+.navbar-nav .nav-link {
+    padding-top: 1.166vh;
+    padding-bottom: 1.166vh;
+}

@@ -19,21 +19,10 @@ export default class Restaurants extends React.Component {
     render() {
         let points;
         if (this.props.login.isLogged) {
-            points = this.props.client.profile.points;
+            points = this.props.client.points;
         } else {
             points = 0;
         }
-        let restaurants = this.props.restaurants;
-        const listItems = restaurants.map((restaurant, i) =>
-            <div>
-                <li className="liR">
-                    <Link to="/services/restaurants/show_restaurant/"
-                          onClick={() => {
-                              this.props.onChangeRestaurant(i)
-                          }}>{restaurant.name}
-                    </Link>
-                </li>
-            </div>);
 
         let photos = [
             '/img/rest1.jpg',
@@ -53,6 +42,12 @@ export default class Restaurants extends React.Component {
             'https://www.viroth-hotel.com/wp-content/uploads/2019/06/MG_1040-Edit-600x400.jpg'
         ];
 
+        let photos4 = [
+            'https://spotonwifi.com/wp-content/uploads/2020/08/WordPress-Table-Reservation-plugin-1000x562-1.jpg',
+            'https://revenue-hub.com/wp-content/uploads/2016/10/Your-Hotels-Restaurant-can-Drive-more-Direct-Bookings-and-Revenue.jpg',
+            'https://codecanyon.img.customer.envatousercontent.com/files/220083862/Inline%20Preview%20Image.jpg?auto=compress%2Cformat&q=80&fit=crop&crop=top&max-h=8000&max-w=590&s=0002de3d8dea62257e2d7f6fe5dc151e'
+        ];
+
         return (
             <div>
                 <NavBar points={this.state.points + points} isLogged={this.props.login.isLogged}/>
@@ -66,10 +61,10 @@ export default class Restaurants extends React.Component {
                         />
 
                         <div className="titleRest">
-                            <h1 className="title">RESTAURANT</h1>
+                            <h1 className="title">RESTAURANTS</h1>
                         </div>
 
-                        <a className="icon" href="#mainInfo">
+                        <a className="icon">
                             <svg className="svg-arrow" viewBox="0 0 512 503.97">
                                 <g className="shapes">
                                     <polygon className="shape-1"
@@ -90,7 +85,7 @@ export default class Restaurants extends React.Component {
                             <div className="container">
                                 <div className="row">
                                     <div className="displayFlex">
-                                        <h2 className="articleTitle">RESTAURANT</h2>
+                                        <h2 className="articleTitle">HOTEL RESTAURANT</h2>
                                         <p>
                                             The restaurant consists of a spacious poolside dining area with bar as well
                                             as an elegant
@@ -110,9 +105,9 @@ export default class Restaurants extends React.Component {
 
                                         <div className="menu">
 
-                                            <Link to="/shopping/">
-                                                <button>Menu</button>
-                                            </Link>
+                                            <button onClick={ () => {
+                                                window.open("http://grupocollados.com/cartas/carta_restaurante_web.pdf")
+                                            }}> Menu </button>
 
                                             <br/><br/>
                                         </div>
@@ -155,9 +150,9 @@ export default class Restaurants extends React.Component {
 
                                         <div className="menu">
 
-                                                <Link to="/shopping/">
-                                                    <button>Bar Menu </button>
-                                                </Link>
+                                            <button onClick={ () => {
+                                                window.open("https://www.javeriana.edu.co/documents/4578046/0/CARTA+BAR+web.pdf/0821a3cc-8f5a-4850-8b26-eaa3273f4dbd")
+                                            }}> Bar Menu </button>
 
                                             <br/><br/>
                                         </div>
@@ -169,20 +164,44 @@ export default class Restaurants extends React.Component {
                             </div>
                         </article>
 
-                        {/*Depurar botones y funciones*/}
-                        <article className="thirdArticle">
+                        <article className="firstArticle">
                             <div className="container">
                                 <div className="row">
-                                    <div className="displayList">
-                                        <h2 className="articleTitle">OTHERS RESTAURANTS</h2>
-                                        <ul className="ul_r">
-                                            <button>
-                                                {listItems}
-                                            </button>
+                                    <div className="displayFlex">
+                                        <h2 className="articleTitle">Make a reservation</h2>
+                                        <p>
+                                            To get you started, let’s take a high-level look at what restaurant
+                                            reservations are, why you need a reservation management platformRestaurant
+                                            reservations are an arrangement guests make in advance to
+                                            confirm a table for their party at a specified time.
 
-                                        </ul>
+                                        </p>
+                                        <p>
+                                            Making a reservation at a restaurant can be done by phone,
+                                            through a restaurant's website, third-party reservation sites or apps,
+                                            at the restaurant in person, or even with a text message.
+                                            But beyond what they mean to guests, reservations also provide quite a lot
+                                            for the restaurant owner.<br/>
+                                        </p>
+
+                                        <div className="menu">
+
+                                            <Link to="/services/restaurants/reservation/">
+                                                <button>
+                                                    Reserve
+                                                </button>
+                                            </Link>
+
+                                            <br/><br/>
+                                        </div>
                                         <p>&nbsp;</p>
 
+                                    </div>
+
+                                    <div className="flexImage">
+                                        <SlideImages
+                                            slideImages={photos4}
+                                        />
                                     </div>
                                 </div>
                             </div>

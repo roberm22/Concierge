@@ -1,5 +1,3 @@
-/* A rellenar en el futuro */
-
 .mainHome .slider {
     height: 50vh;
 }
@@ -26,39 +24,39 @@
 .mainHome {
     background-image: url("../../assets/images/oriental-tiles.png");
     background-repeat: repeat;
-    height: calc(100vh - 5.1vh);
+    height: calc(100vh - 85px);
     text-align: center;
     font-family: 'Open Sans', sans-serif;
 }
 
 
 .mainHome form h1 {
-    font-size: 3em;
+    font-size: 4.89vh;
     color: white;
-    letter-spacing: 10px;
+    letter-spacing: 1.02vh;
     font-weight: 500;
     font-family: 'Dosis', sans-serif;
-    text-shadow: 5px 3px 5px black;
+    text-shadow: 0.5vh 0.3vh 0.5vh black;
 }
 
 .mainHome textarea{
     outline: none;
-    font-size: 0.9em;
-    padding: 1em 3em 1em 1em;
+    font-size: 1.47vh;
+    padding: 1.63vh 4.89vh 1.63vh 1.63vh;
     border: none;
-    margin-bottom: 0.3em;
+    margin-bottom: 0.49vh;
     background: rgba(255, 255, 255, 0.85);
     color: #000;
-    border-radius: 30px;
+    border-radius: 3.06vh;
     font-weight: 400;
-    letter-spacing: 1px;
+    letter-spacing: 0.101vh;
     font-family: 'Open Sans', sans-serif;
     width: 80%;
 }
 
 .mainHome form{
-    margin-top: 50px;
-    padding: 10px;
+    margin-top: 5.096vh;
+    padding: 1.02vh;
     background-color: rgba(0,0,0,0.5);
 }
 
@@ -83,12 +81,19 @@
 
 .alertHome{
     display: inline-block;
-    padding: 10px;
+    padding: 1.02vh;
 }
 
 #alert-home{
-    border-radius: 20px;
+    border-radius: 2.03vh;
     text-align: center;
 }
+
+@media (min-width: 992px){
+    .mainHome {
+        height: calc(100vh - 9.6717vh);
+    }
+}
+
 
 

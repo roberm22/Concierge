@@ -10,6 +10,7 @@ exports.clients = [
 			"points":1000,
 			"bill":30
 		},
+		"stay": "19 Apr - 10 May",
 		"tierVIP": 3
 	},
 	{
@@ -23,6 +24,7 @@ exports.clients = [
 			"points":10,
 			"bill":15
 		},
+		"stay": "7 Apr - 19 Jun",
 		"tierVIP": 2
 	},
 	{
@@ -36,6 +38,7 @@ exports.clients = [
 			"points":99999,
 			"bill":0
 		},
+		"stay": "7 Mar - 21 Jun",
 		"tierVIP": 1
 	}
 

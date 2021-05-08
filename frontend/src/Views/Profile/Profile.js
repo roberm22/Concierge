@@ -48,15 +48,16 @@ export default class Profile extends React.Component {
                                                                 </Link>
                                                             }
                                                         </div>
-                                                        <h5 className="user-name">{this.props.client.profile.name}</h5>
+                                                        <h5 className="user-name">{this.props.client.name}</h5>
+                                                        <h6 className="user-email">{this.props.client.stay}</h6>
                                                     </div>
                                                     <div className="about">
                                                         <h5>Points</h5>
-                                                        <p>{this.props.client.profile.points}</p>
+                                                        <p>{this.props.client.points}</p>
                                                     </div>
                                                     <div className="about">
                                                         <h5>Bill</h5>
-                                                        <p>{this.props.client.profile.bill}€</p>
+                                                        <p>{this.props.client.bill}€</p>
                                                     </div>
 
                                                 </div>
@@ -72,15 +73,15 @@ export default class Profile extends React.Component {
                                                     </div>
                                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                         <div className="form-group">
-                                                            <label htmlFor="fullName">DNI</label>
+                                                            <label >DNI</label>
                                                             <input readOnly type="text" className="form-control"
                                                                    id="dni"
-                                                                   placeholder={this.props.client.DNI}/>
+                                                                   placeholder={this.props.client.dni}/>
                                                         </div>
                                                     </div>
                                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                         <div className="form-group">
-                                                            <label htmlFor="eMail">Room</label>
+                                                            <label >Room</label>
                                                             <input readOnly type="text" className="form-control"
                                                                    id="room"
                                                                    placeholder={this.props.client.room}/>
@@ -88,13 +89,13 @@ export default class Profile extends React.Component {
                                                     </div>
                                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                         <div className="form-group">
-                                                            <label htmlFor="phone">Email</label>
+                                                            <label >Email</label>
                                                             <input type="email" id="email" className="form-control"
-                                                                   placeholder={this.state.profile.email}
-                                                                   value={this.state.profile.email}
+                                                                   placeholder={this.state.email}
+                                                                   value={this.state.email}
                                                                    onChange={(e) => {
                                                                        let newState = update(this.state, {
-                                                                           profile: {email: {$set: e.target.value}}
+                                                                           email: {$set: e.target.value}
                                                                        });
                                                                        this.setState(newState);
                                                                    }
@@ -104,13 +105,13 @@ export default class Profile extends React.Component {
                                                     </div>
                                                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                         <div className="form-group">
-                                                            <label htmlFor="website">Phone</label>
+                                                            <label >Phone</label>
                                                             <input type="text" className="form-control" id="phone"
-                                                                   placeholder={this.state.profile.phone}
-                                                                   value={this.state.profile.phone}
+                                                                   placeholder={this.state.phone}
+                                                                   value={this.state.phone}
                                                                    onChange={(e) => {
                                                                        let newState = update(this.state, {
-                                                                           profile: {phone: {$set: e.target.value}}
+                                                                           phone: {$set: e.target.value}
                                                                        });
                                                                        this.setState(newState);
                                                                    }
@@ -133,6 +134,7 @@ export default class Profile extends React.Component {
                                                                     onClick={() => this.props.update(this.state)}>
                                                                 Update
                                                             </button>
+
                                                         </div>
                                                     </div>
                                                 </div>

@@ -12,7 +12,8 @@ import {
     REMOVE_ITEM,
     SUBMIT,
     UPDATE,
-    USER_ANSWER
+    USER_ANSWER,
+    INIT_CLIENTS
 } from './actions'
 
 function login(state = [], action = {}) {
@@ -28,8 +29,9 @@ function login(state = [], action = {}) {
         case SUBMIT:
             let newState = state;
             let isClient;
+            console.log(action.payload.clients)
             action.payload.clients.map((client) => {
-                isClient = (state.dniAnswer === client.DNI) && (state.roomAnswer === client.room);
+                isClient = (state.dniAnswer === client.dni) && (state.roomAnswer === client.room);
                 if (isClient) {
                     newState = {
                         ...state,
@@ -54,7 +56,6 @@ function login(state = [], action = {}) {
                     attempts: state.attempts + 1
                 };
             }
-            console.log(newState)
             return newState;
 
         case END_SESSION:
@@ -79,12 +80,30 @@ function login(state = [], action = {}) {
 
 }
 
+/* Aqui se encuentra INIT_CLIENTS
+*  Lo que hace es guardar en el estado el array de clientes
+*  Ver ReduxProvider.jsx */
+
 function clients(state = [], action = {}) {
     switch (action.type) {
         case UPDATE:
-            state[action.payload.id-1] = action.payload.newData;
-            console.log(state);
+            if(action.payload.isPoints){
+                let op1 = action.payload.changeOne;
+                let op2 = state[action.payload.id-1].points;
+                state[action.payload.id-1].points = parseFloat((op2 - op1).toFixed(2));
+            }
+            else if(action.payload.changeOne !== undefined){
+                let op1 = action.payload.changeOne;
+                let op2 = state[action.payload.id-1].bill;
+                state[action.payload.id-1].bill = parseFloat((op1 + op2).toFixed(2));
+            }
+            else{
+                state[action.payload.id-1] = action.payload.newData;
+            }
             return state;
+
+        case INIT_CLIENTS:
+            return JSON.parse(JSON.stringify(action.payload.clients));
 
         default:
             return state;
@@ -136,15 +155,16 @@ function cartItems(state = [], action = {}) {
             return state;
 
         case CLEAR:
-            
-            return state;
+            return [];
+
+        case UPDATE:
+            return [];
 
         default:
             return state
 
     }
 }
-
 
 function products(state = [], action = {}) {
     switch (action.type) {

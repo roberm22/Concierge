@@ -143,6 +143,9 @@ input.pass {
     color: black;
     transition:0.5s all;
 }
+#DatePicker{
+    max-width: 280px;
+}
 
 #alertRest{
     margin: 10px;

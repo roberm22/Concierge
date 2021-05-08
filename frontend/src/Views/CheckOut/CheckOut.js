@@ -1,6 +1,7 @@
 import React from "react";
-import NavBar from "../../Views/NavBar";
+import NavBar from "../NavBar";
 import "./CheckOut.css";
+import {Link} from "react-router-dom";
 
 
 export default class CheckOut extends React.Component {
@@ -15,7 +16,7 @@ export default class CheckOut extends React.Component {
     render() {
         let points;
         if (this.props.login.isLogged) {
-            points = this.props.client.profile.points;
+            points = this.props.client.points;
         } else {
             points = 0;
         }
@@ -35,7 +36,7 @@ export default class CheckOut extends React.Component {
                         <form>
                             <div className="products">
                                 <h3 className="title">Checkout</h3>
-                                <div>Total<span className="price">{this.props.client.profile.bill}€</span>
+                                <div>Total<span className="price">{this.props.client.bill}€</span>
                                 </div>
                             </div>
                             <div className="card-details">
@@ -72,6 +73,9 @@ export default class CheckOut extends React.Component {
                                         <button type="button" className="btn btn-primary btn-block">Proceed</button>
                                     </div>
                                 </div>
+                                <Link to="/HotelReservation/">
+                                    Do you want to stay more?
+                                </Link>
                             </div>
                         </form>
                     </div>

@@ -2,13 +2,14 @@ import React from 'react';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import {Navbar, Nav} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
+import "./navBar.css";
 
 export default class NavBar extends React.Component {
 
     render() {
 
         return (
-            <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
+            <Navbar bg="dark" variant="dark" expand="lg" sticky="top" className="mainNav">
 
                 <LinkContainer to="/">
                     <Navbar.Brand>Concierge</Navbar.Brand>

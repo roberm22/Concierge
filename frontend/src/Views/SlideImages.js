@@ -20,7 +20,8 @@ export default class SlideImages extends React.Component {
                 <Slide {...properties} className="slide-images">
                     <div className="each-slide">
                         <div style={{'backgroundImage': `url(${slideImages[0]})`}}>
-                            <NavLink to={"/services/"+this.props.span1+"/"} style={{display: this.props.spanOff ? 'none' : 'block'}}>
+                            <NavLink to={"/services/transport/"}
+                                     style={{display: this.props.spanOff ? 'none' : 'block'}}>
                                 <span>{this.props.span1}</span>
                             </NavLink>
 
@@ -28,18 +29,21 @@ export default class SlideImages extends React.Component {
                     </div>
                     <div className="each-slide">
                         <div style={{'backgroundImage': `url(${slideImages[1]})`}}>
-                            <NavLink to={"/services/"+this.props.route2+"/"} style={{display: this.props.spanOff ? 'none' : 'block'}}>
+                            <NavLink to={"/services/room_services/"}
+                                     style={{display: this.props.spanOff ? 'none' : 'block'}}>
                                 <span>{this.props.span2}</span>
                             </NavLink>
                         </div>
                     </div>
                     <div className="each-slide">
                         <div style={{'backgroundImage': `url(${slideImages[2]})`}}>
-                            <NavLink to={"/services/"+this.props.span3+"/"} style={{display: this.props.spanOff ? 'none' : 'block'}}>
+                            <NavLink to={"/services/restaurants/"}
+                                     style={{display: this.props.spanOff ? 'none' : 'block'}}>
                                 <span>{this.props.span3}</span>
                             </NavLink>
                         </div>
                     </div>
+
                 </Slide>
             </div>
 

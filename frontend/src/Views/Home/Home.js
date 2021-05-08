@@ -4,7 +4,7 @@ import NavBar from "../NavBar";
 import SlideImages from "../SlideImages";
 import {Alert, AlertTitle} from "@material-ui/lab";
 import {NavLink} from "react-router-dom";
-import update from "react-addons-update";
+
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -22,29 +22,14 @@ export default class Home extends React.Component {
     }
 
     handleSubmit(event) {
-        let multi = 10;
-        if (this.props.client.tierVIP === 2) {
-            multi = 15;
-        }
-        if (this.props.client.tierVIP === 3) {
-            multi = 20;
-        }
-        this.setState({points: this.state.points + multi});
-        let total =
-            this.props.client.profile.points + multi + this.state.points;
-        let newClient = update(this.props.client, {
-            profile: {points: {$set: total}},
-        });
-        this.props.update(newClient);
-
-        alert("Reservation successful.\nYou earned " + multi + " points.");
+        alert("Reservation successful.");
         event.preventDefault();
     }
 
     render() {
         let points, message, title, link;
         if (this.props.login.isLogged) {
-            points = this.props.client.profile.points;
+            points = this.props.client.points;
         } else {
             points = 0;
         }
@@ -73,10 +58,10 @@ export default class Home extends React.Component {
                     <div className="slider">
                         <SlideImages
                             slideImages={photos}
-                            span1="Transport"
-                            span2="Room Service"
-                            route2="room_services"
+                            span1="Transports"
+                            span2="Room Services"
                             span3="Restaurants"
+
                         />
                     </div>
                     <form onSubmit={this.handleSubmit}>
@@ -100,7 +85,15 @@ export default class Home extends React.Component {
                                 </Alert>
                             </div>
                         ) : (
-                            <input type="submit" value="Submit"/>
+                            (this.props.client.tierVIP === 3) ? <input type="submit" value="Submit"/> :
+                                (
+                                    <div className="alertHome">
+                                        <Alert variant="filled" severity="error" id="alert-home">
+                                            This is a VIP service, more information: {"\t"}
+                                            <NavLink to="/prices/">Service levels</NavLink>
+                                        </Alert>
+                                    </div>)
+
                         )}
                     </form>
                 </div>

@@ -41,7 +41,11 @@ export default class ProductItem extends React.Component {
                         <p>{this.props.product.name}</p>
                     }
                     <div className={this.props.isShow ? "flexShow" : undefined}>
-                        <div className="text-left"><h3>{formatNumber(this.props.product.price)}</h3></div>
+                        <div className="text-left"><h3>
+                            {this.props.showPoints ?
+                                this.props.product.hotelPoints + ' HP' :
+                                formatNumber(this.props.product.price)}
+                        </h3></div>
 
                         <div className="text-right buttonsShow">
                             <button

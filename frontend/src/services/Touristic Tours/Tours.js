@@ -17,7 +17,7 @@ export default class Tours extends React.Component {
     render() {
         let points;
         if (this.props.login.isLogged) {
-            points = this.props.client.profile.points;
+            points = this.props.client.points;
         } else {
             points = 0;
         }
@@ -78,11 +78,9 @@ export default class Tours extends React.Component {
 
                                         <div className="menu">
 
-                                            <Link to="/shopping/">
-                                                <button onClick={() =>
-                                                    this.props.onSelectProducts('minibar')
-                                                }>
-                                                    Order now
+                                            <Link to="/services/tours/tourReservation/">
+                                                <button>
+                                                    Reserve
                                                 </button>
                                             </Link>
 
@@ -127,13 +125,13 @@ export default class Tours extends React.Component {
                                         </p>
 
                                         <div className="menu">
-                                            <Link to="/shopping/">
-                                                <button onClick={() =>
-                                                    this.props.onSelectProducts('menu')
-                                                }>
-                                                    Order now
+                                            <Link to="/services/tours/tourReservation/">
+                                                <button>
+                                                    Reserve
                                                 </button>
                                             </Link>
+
+                                            <br/><br/>
                                         </div>
                                         <p>&nbsp;</p>
                                     </div>
@@ -150,36 +148,35 @@ export default class Tours extends React.Component {
                                             {this.props.tours[2].info}
                                         </p>
                                         <p>
-                                            <strong>START TIME</strong>
+                                            <strong>START TIMES</strong>
                                             <br/>
-                                            Tour starts every day at 19:00
+                                            From 09:00 to 12:00 every 30 minutes
+                                            <br/>
+                                            From 16:00 to 19:00 every 30 minutes
                                         </p>
                                         <p>
                                             <strong>PRICES & INFORMATION</strong>
                                             <br/>
-                                            € 20 per person
+                                            € 30 per person
                                             <br/>
-                                            Duration: 4 hours
+                                            Duration: 3 hours
 
                                         </p>
 
                                         <div className="menu">
 
 
-                                            <Link to="/shopping/">
-                                                <button onClick={() =>
-                                                    this.props.onSelectProducts('comfort')
-                                                }>
-                                                    Order now
+                                            <Link to="/services/tours/tourReservation/">
+                                                <button>
+                                                    Reserve
                                                 </button>
                                             </Link>
 
-
-                                            <br/>
-                                            <br/>
+                                            <br/><br/>
                                         </div>
                                         <p>&nbsp;</p>
                                     </div>
+
 
                                     <div className="flexImage">
                                         <SlideImages slideImages={this.props.tours[2].photos}/>

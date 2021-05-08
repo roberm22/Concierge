@@ -15,6 +15,7 @@ import {
     addProduct,
     removeProduct,
     clearCart,
+    initClients,
 } from "./redux/actions";
 
 import Home from "./Views/Home/Home";
@@ -37,6 +38,10 @@ import ScrollToTop from "./ScrollToTop";
 import CheckOut from "./Views/CheckOut/CheckOut";
 import Shows from "./services/Shows/Shows";
 import Tours from "./services/Touristic Tours/Tours";
+import Reservation from "./services/Restaurants/Reservation";
+import GoogleMaps from "./services/Restaurants/GoogleMaps";
+import HotelReservation from "./Views/HotelReservation/HotelReservation";
+import TourReservation from "./services/Touristic Tours/TourReservation";
 
 
 class App extends Component {
@@ -44,12 +49,37 @@ class App extends Component {
         super(props);
         this.timerlog = null;
         this.submit = this.submit.bind(this);
+        this.download = this.download.bind(this);
         this.conditions = this.conditions.bind(this);
         this.filterProducts = this.filterProducts.bind(this);
         this.state = {
             products: this.props.products,
             shows: this.props.shows
         };
+    }
+
+    /* Esta funcion descarga el json de los clientes. Se llama a initClients
+    *  para guardar en el estado el array de los clientes.
+    *  initClients es la acción (ver actions.js)
+    * */
+
+    /* todo: NO ES NECESARIO REPETIR DOWNLOAD() PARA LA DESCARGA DE CADA JSON, NI REPETIR ACTIONS
+    *  todo: Una única acción puede afectar a todos los reducers, modificando el state.
+    */
+    download(clients) {
+        fetch("http://localhost:8080/Concierge01/rest/client")
+            .then((resp) => {
+                return resp.json();
+            })
+            .then((json) => {
+                json.map((q) => {
+                    if(q.id) {
+                        clients.push(q);
+                    }
+                    return 0;
+                });
+                this.props.dispatch(initClients(clients));
+            })
     }
 
     submit() {
@@ -60,11 +90,11 @@ class App extends Component {
     }
 
     filterProducts(category, isShow) {
-        if(isShow){
+        if (isShow) {
             this.setState({
                 shows: this.props.shows.filter(show => show.category === category)
             });
-        }else{
+        } else {
             this.setState({
                 products: this.props.products.filter(product => product.category === category)
             });
@@ -73,6 +103,10 @@ class App extends Component {
 
     componentWillUnmount() {
         clearTimeout(this.timerlog);
+    }
+
+    componentDidMount() {
+        this.download([]);
     }
 
     conditions() {
@@ -95,6 +129,7 @@ class App extends Component {
                                         updateProfile(this.props.login.id, newData)
                                     );
                                 }}
+                                clients={this.props.clients}
                                 client={this.props.clients[this.props.login.id - 1]}
                             />
                         )}
@@ -197,6 +232,26 @@ class App extends Component {
                     />
 
                     <Route
+                        exact
+                        path="/services/restaurants/reservation"
+                        render={(props) => (
+                            <Reservation
+                                {...props}
+                                login={this.props.login}
+                                client={this.props.clients[this.props.login.id - 1]}
+
+                            />
+                        )}
+                    />
+
+                    <Route
+                        exact path="/services/restaurants/reservation/map"
+                        render={() => (
+                            <GoogleMaps/>
+                        )}
+                    />
+
+                    <Route
                         path="/services/restaurants/show_restaurant/"
                         render={(props) => (
                             <ShowRestaurant
@@ -248,7 +303,7 @@ class App extends Component {
                     />
 
                     <Route
-                        path="/services/tours/"
+                        exact path="/services/tours/"
                         render={(props) => (
                             <Tours
                                 {...props}
@@ -259,6 +314,18 @@ class App extends Component {
                                     this.props.dispatch(changeRoomServices(answer));
                                 }}
                                 onSelectProducts={(category) => this.filterProducts(category)}
+                            />
+                        )}
+                    />
+                    <Route
+                        exact
+                        path="/services/tours/tourReservation"
+                        render={(props) => (
+                            <TourReservation
+                                {...props}
+                                login={this.props.login}
+                                client={this.props.clients[this.props.login.id - 1]}
+
                             />
                         )}
                     />
@@ -302,6 +369,7 @@ class App extends Component {
                         path="/shopping/cart"
                         render={() => (
                             <Cart
+                                client={this.props.clients[this.props.login.id - 1]}
                                 products={this.props.products}
                                 cartItems={this.props.cartItems}
                                 clearCart={() => {
@@ -318,6 +386,11 @@ class App extends Component {
                                 }}
                                 clients={this.props.clients}
                                 login={this.props.login}
+                                update={(changeOne, isPoints) => {
+                                    this.props.dispatch(
+                                        updateProfile(this.props.login.id, [], changeOne, isPoints)
+                                    );
+                                }}
                             />
                         )}
                     />
@@ -354,6 +427,27 @@ class App extends Component {
                         path="/checkOut/"
                         render={(props) => (
                             <CheckOut
+                                {...props}
+                                conditions={this.conditions}
+                                client={this.props.clients[this.props.login.id - 1]}
+                                login={this.props.login}
+                                update={(newData) => {
+                                    this.props.dispatch(
+                                        updateProfile(this.props.login.id, newData)
+                                    );
+                                }}
+                                endSession={() => {
+                                    this.props.dispatch(endSession());
+                                }}
+                            />
+                        )}
+                    />
+
+
+                    <Route
+                        path="/HotelReservation/"
+                        render={(props) => (
+                            <HotelReservation
                                 {...props}
                                 conditions={this.conditions}
                                 client={this.props.clients[this.props.login.id - 1]}

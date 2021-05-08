@@ -24,7 +24,7 @@ export default class ShowRestaurant extends React.Component {
     render() {
         let points, message, title, link;
         if (this.props.login.isLogged) {
-            points = this.props.client.profile.points;
+            points = this.props.client.points;
         } else {
             points = 0;
         }
@@ -94,7 +94,7 @@ export default class ShowRestaurant extends React.Component {
                             });
                             this.props.update(newCliente);
 
-                            alert("Reservation successful. \n You earned 10 points.");
+                            alert("HotelReservation successful. \n You earned 10 points.");
                         }}>Make Reservation
                         </button>
                     }

@@ -7,6 +7,8 @@ export const CHANGE_TRANSPORT = 'CHANGE_TRANSPORT';
 export const CHANGE_ROOM_SERVICES = 'CHANGE_ROOM_SEVICES';
 export const UPDATE = 'UPDATE';
 export const CONDITIONS = 'CONDITIONS';
+export const INIT_CLIENTS = 'INIT_CLIENTS';
+
 
 /* CONST shopping cart */
 
@@ -50,8 +52,8 @@ export function changeTransport(answer){
     return {type: CHANGE_TRANSPORT, payload: {answer}}
 }
 
-export function updateProfile(id, newData){
-    return {type: UPDATE,payload: {id, newData}};
+export function updateProfile(id, newData, changeOne, isPoints){
+    return {type: UPDATE, payload: {id, newData, changeOne, isPoints}};
 }
 
 /* Actions del shopping cart */
@@ -74,6 +76,14 @@ export function removeProduct(product){
 
 export function clearCart(){
     return {type: CLEAR, payload: {}};
+}
+
+/* Action de la inicialización de los clients
+*  Recibe como parametro el array de los clientes
+*  Ver reducers.js */
+
+export function initClients(clients) {
+    return { type: INIT_CLIENTS, payload: { clients } };
 }
 
 
